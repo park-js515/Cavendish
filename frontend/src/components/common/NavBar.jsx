@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 
 const naviList = [
+  { name: "board-detail", to: "/board/detail" },
   { name: "board", to: "/board" },
   { name: "login", to: "/login" },
   { name: "main", to: "/" },
