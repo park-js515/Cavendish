@@ -1,10 +1,41 @@
-$navbar-color : transparent; 
+@use "sass:color";
+$navbar-color: white;
+$inactive: black;
+$active: rgb(154, 154, 244);
+$hover: rgb(92, 92, 249);
+$hover-bgc: rgb(194, 194, 194);
 
 .common-navbar {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
-  height: 50px;
+  height: 80px;
   width: 100vw;
-  background-color: #fff;
+  background-color: #{$navbar-color};
+  display: flex;
+
+  @mixin btn($btn-color) {
+    font-size: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    color: $btn-color;
+  }
+
+  .btn-inactive {
+    @include btn(#{$inactive});
+    &:hover {
+      color: #{$hover};
+      background-color: color.scale($hover-bgc, $lightness: 80%);
+    }
+  }
+
+  .btn-active {
+    @include btn(#{$active});
+  }
 }

@@ -1,44 +1,37 @@
 import { Link, useLocation } from "react-router-dom";
+import "styles/css/common.css";
 
 const naviList = [
-  { name: "board-detail", to: "/board/detail" },
-  { name: "board", to: "/board" },
-  { name: "login", to: "/login" },
-  { name: "main", to: "/" },
-  { name: "mypage", to: "/mypage" },
-  { name: "part", to: "/part" },
-  { name: "quotation", to: "/quotation" },
   { name: "recommend", to: "/recommend" },
-  { name: "signup", to: "/signup" },
+  { name: "part", to: "/part" },
+  { name: "board", to: "/board" },
+  { name: "quotation", to: "/quotation" },
 ];
 
-const activeLink = {
-  color: "red",
+const Btn = ({ name, to, pathname }) => {
+  const toggle = to === pathname ? "btn-active" : "btn-inactive";
+  return (
+    <Link to={to} className={`${toggle}`}>
+      {name}
+    </Link>
+  );
 };
 
-const inactiveLink = {
-  color: "black",
-};
-
-// 향후 수정 예정
 const NavBar = () => {
   const location = useLocation();
-
   return (
     <>
-      <ul>
+      <div className="common-navbar">
         {naviList.map((item) => {
-          const selectedStyle =
-            location.pathname === item.to ? activeLink : inactiveLink;
-          return (
-            <li key={item.name}>
-              <Link to={item.to} style={{ ...selectedStyle }}>
-                {item.name}
-              </Link>
-            </li>
-          );
+          const props = {
+            name: item.name,
+            to: item.to,
+            pathname: location.pathname,
+          };
+          return <Btn key={item.name} {...props} />;
         })}
-      </ul>
+      </div>
+      <p>{location.pathname === "/recommend"}</p>
     </>
   );
 };
