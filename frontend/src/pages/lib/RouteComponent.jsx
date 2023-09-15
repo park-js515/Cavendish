@@ -16,18 +16,18 @@ import SignupPage from "pages/SignupPage";
 
 const RouteComponent = () => {
   return (
-      <Routes>
-        <Route path="/board/detail" element={<BoardDetailPage />}></Route>
-        <Route path="/board" element={<BoardPage />}></Route>
-        <Route path="/login" element={<LoginPage />}></Route>
-        <Route path="/" element={<MainPage />}></Route>
-        <Route path="/mypage" element={<MyPage />}></Route>
-        <Route path="/part" element={<PartPage />}></Route>
-        <Route path="/quotation" element={<QuotationPage />}></Route>
-        <Route path="/recommend" element={<RecommendPage />}></Route>
-        <Route path="/signup" element={<SignupPage />}></Route>
-        <Route path="/*" element={<NotFound404 />}></Route>
-      </Routes>
+    <Routes>
+      <Route path="/board/detail" element={<BoardDetailPage />}></Route>
+      <Route path="/board" element={<BoardPage />}></Route>
+      <Route path="/login" element={<LoginPage />}></Route>
+      <Route path="/" element={<MainPage />}></Route>
+      <Route path="/mypage" element={<MyPage />}></Route>
+      <Route path="/part" element={<PartPage />}></Route>
+      <Route path="/quotation" element={<QuotationPage />}></Route>
+      <Route path="/recommend" element={<RecommendPage />}></Route>
+      <Route path="/signup" element={<SignupPage />}></Route>
+      <Route path="/*" element={<NotFound404 />}></Route>
+    </Routes>
   );
 };
 
