@@ -33,7 +33,7 @@ $hover-bgc: rgb(194, 194, 194);
     border-radius: 5px;
     color: $btn-color;
     font-weight: 700;
-    transition: color 300ms ease, background-color 300ms ease;
+    transition: color 300ms ease-in-out, background-color 300ms ease-in-out;
   }
 
   .btn-inactive {

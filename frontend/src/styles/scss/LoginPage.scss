@@ -7,7 +7,8 @@ $padding: 40px;
 $tab-font-size: 25px;
 $tab-color: white;
 $tab-bgc-default: rgb(204, 199, 199);
-
+$tab-bgc-hover: rgba(174, 106, 234, 1);
+$tab-bgc-selected: rgba(175, 106, 234, 0.75);
 
 .login-form {
   box-sizing: border-box;
@@ -35,6 +36,22 @@ $tab-bgc-default: rgb(204, 199, 199);
       display: flex;
       justify-content: center;
       align-items: center;
+      transition: background-color 300ms ease-in-out;
+      background-color: #{$tab-bgc-default};
+      cursor: pointer;
+
+      &:hover {
+        background-color: #{$tab-bgc-hover};
+      }
+
+      &-selected {
+        @extend .tab;
+        background-color: #{$tab-bgc-selected};
+      }
     }
+  }
+
+  .input {
+    
   }
 }

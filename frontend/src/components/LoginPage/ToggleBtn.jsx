@@ -1,12 +1,25 @@
-import { useTabs } from "hooks/default/useTabs";
+const ToggleBtn = ({ isLogin, setIsLogin }) => {
+  const onClick = () => {
+    setIsLogin((current) => {
+      return !current;
+    });
+  };
 
-const ToggleBtn = () => {
-  const {currentItem, changeItem} = useTabs("Login", ["Login", "Signup"]);
-
-  return <div className="tab-group">
-    <div className="tab">Login</div>
-    <div className="tab">Sign Up</div>
-  </div>;
+  return (
+    <>
+      {isLogin ? (
+        <div className="tab-group">
+          <div className="tab-selected">Login</div>
+          <div className="tab" onClick={onClick}>Sign Up</div>
+        </div>
+      ) : (
+        <div className="tab-group">
+          <div className="tab" onClick={onClick}>Login</div>
+          <div className="tab-selected">Sign Up</div>
+        </div>
+      )}
+    </>
+  );
 };
 
 export default ToggleBtn;
