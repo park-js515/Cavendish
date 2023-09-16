@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import BoardDetailPage from "pages/BoardDetailPage";
 import BoardPage from "pages/BoardPage";
 import LoginPage from "pages/LoginPage";
+import LogoutPage from "pages/LogoutPage";
 import MainPage from "pages/MainPage";
 import MyPage from "pages/MyPage";
 import NotFound404 from "pages/NotFound404";
@@ -16,18 +17,19 @@ import SignupPage from "pages/SignupPage";
 
 const RouteComponent = () => {
   return (
-      <Routes>
-        <Route path="/board/detail" element={<BoardDetailPage />}></Route>
-        <Route path="/board" element={<BoardPage />}></Route>
-        <Route path="/login" element={<LoginPage />}></Route>
-        <Route path="/" element={<MainPage />}></Route>
-        <Route path="/mypage" element={<MyPage />}></Route>
-        <Route path="/part" element={<PartPage />}></Route>
-        <Route path="/quotation" element={<QuotationPage />}></Route>
-        <Route path="/recommend" element={<RecommendPage />}></Route>
-        <Route path="/signup" element={<SignupPage />}></Route>
-        <Route path="/*" element={<NotFound404 />}></Route>
-      </Routes>
+    <Routes>
+      <Route path="/board/detail" element={<BoardDetailPage />}></Route>
+      <Route path="/board" element={<BoardPage />}></Route>
+      <Route path="/login" element={<LoginPage />}></Route>
+      <Route path="/logout" element={<LogoutPage />}></Route>
+      <Route path="/" element={<MainPage />}></Route>
+      <Route path="/mypage" element={<MyPage />}></Route>
+      <Route path="/part" element={<PartPage />}></Route>
+      <Route path="/quotation" element={<QuotationPage />}></Route>
+      <Route path="/recommend" element={<RecommendPage />}></Route>
+      <Route path="/signup" element={<SignupPage />}></Route>
+      <Route path="/*" element={<NotFound404 />}></Route>
+    </Routes>
   );
 };
 
