@@ -5,18 +5,15 @@ const InputComponent = ({ name, type, validator, placeholder }) => {
   const props = { value, onChange };
 
   return (
-    <>
-      <label htmlFor={name} className="">
-        {name}
-        <input
-          id={name}
-          type={type}
-          {...props}
-          placeholder={placeholder}
-          className=""
-        />
-      </label>
-    </>
+    <div>
+      <input
+        name={name}
+        type={type}
+        {...props}
+        placeholder={placeholder}
+        className=""
+      />
+    </div>
   );
 };
 
