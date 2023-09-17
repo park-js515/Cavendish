@@ -1,7 +1,7 @@
 # 공통 설정
 spring:
   datasource:
-    driver-class-name: org.mariadb.jdbc.Driver    # MariaDB 드라이버 클래스 이름 설정
+    driver-class-name: org.mariadb.jdbc.Driver
 
 --- # local 설정
 spring:
@@ -14,16 +14,14 @@ spring:
       ddl-auto: create    # 실행시 DB 초기화 후 DDL 실행
     properties:
       hibernate:
-        format_sql: true    # SQL 쿼리 보기 좋게 표시
+        format_sql: true  # SQL 쿼리 보기 좋게 표시
         show_sql: true    # SQL 쿼리 확인
-#        hbm2ddl:
-#          connection:
-#            charSet: UTF-8 # 인코딩 설정
 
   datasource:
-    url: jdbc:mariadb://localhost:3306/s09p12c210    # 데이터베이스 URL 설정
-    username: ${DB_ID}    # DB 사용자 이름 설정
-    password: ${DB_PW}    # DB 사용자 암호 설정
+    url: jdbc:mariadb://localhost:3306/s09p22c105
+    username: ${DB_ID}
+    password: ${DB_PW}
+
   sql:
     init:
       encoding: UTF-8
@@ -36,12 +34,17 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: none    # 실행시 DB 그대로
+      ddl-auto: none      # 실행시 DB 그대로
     properties:
       hibernate:
-        format_sql: false    # SQL 쿼리 보기 좋게 표시 X
-        show_sql: false    # SQL 쿼리 확인 X
+        format_sql: false # SQL 쿼리 보기 좋게 표시 X
+        show_sql: false   # SQL 쿼리 확인 X
+
   datasource:
-    url: jdbc:mariadb://stg-yswa-kr-practice-db-master.mariadb.database.azure.com:3306/S09P12C210
+    url: jdbc:mariadb://stg-yswa-kr-practice-db-master.mariadb.database.azure.com:3306/S09P22C105
     username: ${DB_ID}
     password: ${DB_PW}
+
+  sql:
+    init:
+      encoding: UTF-8

@@ -1,6 +1,6 @@
 # Swagger springdoc-ui Configuration
 springdoc:
-  packages-to-scan: com.kkini.core
+  packages-to-scan: com.windows33.Cavendish
   default-consumes-media-type: application/json;charset=UTF-8
   default-produces-media-type: application/json;charset=UTF-8
   swagger-ui:

@@ -6,14 +6,12 @@ spring:
       local:
         - db-local
         - log-local
-      dev:
-        - db-dev
-        - log-dev
+      prod:
+        - db-prod
+        - log-prod
     include:
       - db
       - log
       - server
       - swagger
-  mvc:
-    pathmatch:
-      matching-strategy: ant_path_matcher
+  mvc.pathmatch.matching-strategy: ant_path_matcher
