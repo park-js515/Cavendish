@@ -11,7 +11,7 @@ const InputComponent = ({ name, type, validator, placeholder }) => {
         type={type}
         {...props}
         placeholder={placeholder}
-        className=""
+        className="input-item"
       />
     </div>
   );

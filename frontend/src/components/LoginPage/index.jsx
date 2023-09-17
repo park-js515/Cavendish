@@ -2,15 +2,21 @@ import { useState } from "react";
 import ToggleBtn from "./ToggleBtn";
 // import LoginComponent from "./LoginComponent";
 // import SignupComponent from "./SignupComponent";
+import Layout from "./Layout";
+// 유효성 검증에 대한 상태 변수 -> 이걸 다 통과해야 버튼(최종 submit)을 누를 수 있게 만들자
 
 const LoginPageComponent = () => {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
   const propsToggleBtn = { isLogin, setIsLogin };
 
   return (
-    <div className="login-form">
+    <div className="loginPage-form">
       <ToggleBtn {...propsToggleBtn} />
-      {/* jc-center width: 100% 하는 바깥 껍데기 만들기  ? space evenly ? -> 크기 결정해줘야 한다. 이러면 */}
+
+      <Layout isLogin={isLogin} />
+      {/* <div className="input-group">
+        {isLogin ? <LoginComponent /> : <SignupComponent />}
+      </div> */}
     </div>
   );
 };

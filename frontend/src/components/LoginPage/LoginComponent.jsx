@@ -23,7 +23,7 @@ const LoginComponent = () => {
   return (
     <>
       {LoginList.map((item) => {
-        return <InputComponent {...item} />;
+        return <InputComponent key={item.name} {...item}/>;
       })}
     </>
   );

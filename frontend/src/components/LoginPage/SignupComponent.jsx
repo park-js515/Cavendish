@@ -1,5 +1,8 @@
 import InputComponent from "./InputComponent";
 
+// 유효성 검증 버튼
+// 유효성 테스트 버튼
+
 const SignupList = [
   {
     name: "ID",
@@ -39,7 +42,7 @@ const SignupComponent = () => {
   return (
     <>
       {SignupList.map((item) => {
-        return <InputComponent {...item} />;
+        return <InputComponent key={item.name} {...item} />;
       })}
     </>
   );
