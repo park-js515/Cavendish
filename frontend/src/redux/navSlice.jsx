@@ -1,8 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialState = { isOpen: true };
+
 const navSlice = createSlice({
   name: "nav",
-  initialState: { isOpen: true },
+  initialState,
   reducers: {
     navOpen: (state) => {
       state.isOpen = true;
