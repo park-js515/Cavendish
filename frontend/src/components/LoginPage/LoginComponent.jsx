@@ -9,6 +9,7 @@ const LoginList = [
     },
     placeholder: "ID*",
     addBtn: { flag: false },
+    addText: { text: "", className: "" },
   },
   {
     name: "PW",
@@ -18,6 +19,7 @@ const LoginList = [
     },
     placeholder: "Password*",
     addBtn: { flag: false },
+    addText: { text: "", className: "" },
   },
 ];
 

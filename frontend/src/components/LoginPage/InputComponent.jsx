@@ -1,6 +1,10 @@
 const Btn = (addBtn) => {
   return (
-    <button className="input-item-btn-before" onClick={addBtn.onClick}>
+    <button
+      className="input-item-btn-before"
+      onClick={addBtn.onClick}
+      disabled={addBtn.disabled}
+    >
       {addBtn.content}
     </button>
   );
@@ -13,9 +17,17 @@ const InputComponent = ({
   type,
   placeholder,
   addBtn,
-  // text {boolean, text, className}
+  addText,
 }) => {
-  const props = { value, onChange };
+  const props = addBtn.flag
+    ? {
+        value,
+        onChange: (e) => {
+          onChange();
+          // addBtn.custom_onChange(e);
+        },
+      }
+    : { value, onChange };
 
   return (
     <>
@@ -23,7 +35,8 @@ const InputComponent = ({
         <input
           name={name}
           type={type}
-          {...props}
+          value={props.value}
+          onChange={props.onChange}
           placeholder={placeholder}
           className="input-item"
         />
@@ -31,7 +44,7 @@ const InputComponent = ({
           {addBtn.flag ? <Btn {...addBtn} /> : null}
         </div>
       </div>
-      <div className="input-text"></div>
+      <div className={`input-text ${addText.className}`}>{addText.text}</div>
     </>
   );
 };

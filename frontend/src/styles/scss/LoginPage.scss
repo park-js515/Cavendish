@@ -12,7 +12,9 @@ $tab-bgc-selected: rgba(175, 106, 234, 0.75);
 $height-input-group: 440px;
 $fade-time: 300;
 $before: rgba(255, 0, 0, 50%);
-$after: rgba(0, 0, 255, 50%);
+$before-hover: rgba(255, 0, 0, 70%);
+$after: rgba(0, 255, 0, 50%);
+$after-hover: rgba(0, 255, 0, 70%);
 
 .loginPage-form {
   box-sizing: border-box;
@@ -63,16 +65,15 @@ $after: rgba(0, 0, 255, 50%);
     width: 100%;
     height: #{$height-input-group};
 
-    .input-text { // 추후 수정
-      height: 15px;
+    .input-text {
+      // 추후 수정
+      height: 20px;
 
       &-green {
-        @extend .input-text;
         color: green;
       }
 
       &-red {
-        @extend .input-text;
         color: red;
       }
     }
@@ -107,21 +108,23 @@ $after: rgba(0, 0, 255, 50%);
           width: 70%;
           font-size: 18px;
           border-radius: 5px;
-          transition: filter 300ms ease-in-out;
+          transition: background-color 300ms ease-in-out;
           cursor: pointer;
           background-color: $action-color;
-          
-          &:hover {
-            filter: brightness(80%);
-          }
         }
 
         .input-item-btn {
           &-before {
             @include input-item-btn($action-color: #{$before});
+            &:hover {
+              background-color: #{$before-hover};
+            }
           }
           &-after {
             @include input-item-btn($action-color: #{$after});
+            &:hover {
+              background-color: #{$after-hover};
+            }
           }
         }
       }
