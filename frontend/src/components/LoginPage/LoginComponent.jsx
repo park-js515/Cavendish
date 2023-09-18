@@ -21,10 +21,14 @@ const LoginList = [
   },
 ];
 
-const LoginComponent = () => {
+const LoginComponent = ({ list }) => {
+  const List = list.map((item, index) => {
+    return { ...item, ...LoginList[index] };
+  });
+
   return (
     <>
-      {LoginList.map((item) => {
+      {List.map((item) => {
         return <InputComponent key={item.name} {...item} />;
       })}
     </>
