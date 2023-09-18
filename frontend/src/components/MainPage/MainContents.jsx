@@ -5,21 +5,29 @@ import { Link, useNavigate } from "react-router-dom";
 const MainContents = () => {
   return (
     <div>
-      <div>
+      <div className="mainDiscription">
         <p className="mainTitle">CAVENDISH</p>
         <p className="mainComment">Computer Recommendation System</p>
       </div>
-      <ul>
-        <Link to="/part">
-          <button className="btn">Parts</button>
-        </Link>
-        <Link to="/recommend">
-          <button className="btn">Recommend</button>
-        </Link>
-        <Link to="/board">
-          <button className="btn btn__login">Community</button>
-        </Link>
-      </ul>
+      <div>
+        <div className="mainButtons">
+          <li className="mainButtons__list">
+            <Link to="/part">
+              <button className="mainBtn">Parts</button>
+            </Link>
+          </li>
+          <li className="mainButtons__list">
+            <Link to="/recommend">
+              <button className="mainBtn">Recommend</button>
+            </Link>
+          </li>
+          <li className="mainButtons__list">
+            <Link to="/board">
+              <button className="mainBtn">Community</button>
+            </Link>
+          </li>
+        </div>
+      </div>
     </div>
   );
 };

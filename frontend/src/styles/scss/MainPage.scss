@@ -3,15 +3,34 @@
     overflow: hidden; 
 }
 
+.mainDiscription {
+    justify-content: center;
+}
+
+
 .mainTitle {
+    text-align: center;
     color: white;
-    font-size: 70px;
+    font-size: 80px;
     font-family: Dancing Script;
+    width:100%;
+    letter-spacing: 7px; /* 글자 간격을 2px로 설정 */
+    margin-bottom: 0px;
+    margin-top: 200px;
+}
+
+.mainComment {
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    width:100%;
+    position: relative;
 }
 
 .mainLogo {
     width: 450px;
     height: 450px;
+    margin-top: 100px;
 }
 
 .maincContents {
@@ -29,6 +48,27 @@
     justify-content: space-evenly;
 }
 
+.mainBtn {
+    width: 140px; /* 원하는 너비로 설정 */
+    height: 50px; /* 원하는 높이로 설정 */
+    border: solid 1px white;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    font-family: inherit;
+
+    &:hover {
+        border-color: rgb(162, 162, 246);
+        background: rgba(rgb(162, 162, 246), 0.1);
+        color: rgb(162, 162, 246);
+    }
+    &:active {
+        border-color: rgb(162, 162, 246);
+        background: linear-gradient(rgba(rgb(162, 162, 246), 0.2), rgba(rgb(162, 162, 246), 0.3));
+        color: rgb(162, 162, 246);
+    }
+}
+
 .content-div {
     background-color: black; /* 배경색 설정 */
     /* 추가 스타일 설정 */
@@ -43,7 +83,7 @@
     }
 }
         
-.header {
+.mainheader {
     // background: rgb(32, 32, 32);
     background: black;
     width: 100%;
@@ -191,5 +231,17 @@
                 display: none;
             }
         }
+    }
+}
+
+
+.mainButtons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 0;
+
+    &__list {
+        list-style: none;
     }
 }

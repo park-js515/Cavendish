@@ -33,11 +33,11 @@ function Navbar() {
   };
 
   return (
-    <header className="header">
-      <div className="header__content">
-        <div className="header__content__logo"></div>
+    <header className="mainheader">
+      <div className="mainheader__content">
+        <div className="mainheader__content__logo"></div>
         <nav
-          className={`${"header__content__nav"} 
+          className={`${"mainheader__content__nav"} 
           ${menuOpen && size.width < 768 ? `${"isMenu"}` : ""} 
           }`}
         >
@@ -50,7 +50,7 @@ function Navbar() {
             </Link>
           </ul>
         </nav>
-        <div className="header__content__toggle">
+        <div className="mainheader__content__toggle">
           {!menuOpen ? (
             <BiMenuAltRight onClick={menuToggleHandler} />
           ) : (
