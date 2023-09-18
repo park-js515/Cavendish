@@ -1,23 +1,25 @@
-import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { useRef } from "react";
+import { CSSTransition } from "react-transition-group";
 import LoginComponent from "./LoginComponent";
 import SignupComponent from "./SignupComponent";
 
-const TIMEOUT = 1000;
+const TIMEOUT = 300;
 
 const Layout = ({ isLogin }) => {
+  const nodeRef = useRef(null);
   return (
-    <>
-      {/* <TransitionGroup className="input-group"> */}
+    <div>
       <CSSTransition
+        nodeRef={nodeRef}
         in={isLogin}
         timeout={TIMEOUT}
-        className="input-group"
-        // unmountOnExit
+        classNames="fade"
       >
-        <div>{isLogin ? <LoginComponent /> : <SignupComponent />}</div>
+        <div className="input-group" ref={nodeRef}>
+          {isLogin ? <LoginComponent /> : <SignupComponent />}
+        </div>
       </CSSTransition>
-      {/* </TransitionGroup> */}
-    </>
+    </div>
   );
 };
 

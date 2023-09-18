@@ -10,7 +10,7 @@ $tab-bgc-default: rgb(204, 199, 199);
 $tab-bgc-hover: rgba(174, 106, 234, 1);
 $tab-bgc-selected: rgba(175, 106, 234, 0.75);
 $height-input-group: 440px;
-$fade-time: 1000;
+$fade-time: 300;
 
 .loginPage-form {
   box-sizing: border-box;
@@ -75,48 +75,34 @@ $fade-time: 1000;
         border: 2px solid #{$tab-bgc-selected};
       }
     }
-
-    // .fade {
-    //   &-enter {
-    //     opacity: 0;
-    //     transform: translateX(100%);
-    //   }
-    //   &-enter-active {
-    //     opacity: 1;
-    //     transform: translateX(0%);
-    //     transition: all #{$fade-time}ms ease-in;
-    //   }
-    //   &-exit {
-    //     opacity: 1;
-    //     transform: translateX(0%);
-    //   }
-    //   &-exit-active {
-    //     opacity: 0;
-    //     transform: translateX(-100%);
-    //     transition: all #{$fade-time}ms ease-in;
-    //   }
-    // }
-
-    .enter {
+  }
+  .fade {
+    &-appear {
       opacity: 0;
-      transform: translateX(100%);
-
-      &-active {
-        opacity: 1;
-        transform: translateX(0%);
-        transition: all #{$fade-time}ms ease-in;
-      }
     }
-
-    .exit {
+    &-appear-active {
       opacity: 1;
-      transform: translateX(0%);
-
-      &-active {
-        opacity: 0;
-        transform: translateX(-100%);
-        transition: all #{$fade-time}ms ease-in;
-      }
+      transition: all #{$fade-time}ms ease-in;
+    }
+    &-enter {
+      opacity: 0;
+    }
+    &-enter-active {
+      opacity: 1;
+      transition: all #{$fade-time}ms ease-in;
+    }
+    &-enter-done {
+      opacity: 1;
+    }
+    &-exit {
+      opacity: 0;
+    }
+    &-exit-active {
+      opacity: 1;
+      transition: all #{$fade-time}ms ease-in;
+    }
+    &-exit-done {
+      opacity: 1;
     }
   }
 }
