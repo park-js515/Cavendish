@@ -52,8 +52,9 @@ const nickLowerBound = 2;
 
 const SignupComponent = ({ list, checkList }) => {
   // 1
+  // 입력
   const onChange0 = (e) => {
-    if (!e.target.value) return;
+    if (!e.target.value) return; // 초기값을 지정해주자. -> 처음에는 경고 메시지X
     const val = e.target.value;
 
     if (val.length < idLowerBound) {
@@ -62,12 +63,18 @@ const SignupComponent = ({ list, checkList }) => {
       SignupList[0].addText.className = "input-text-red";
     }
     else {
+      SignupList[0].addBtn.disabled = false;
       SignupList[0].addText.text = "";
       SignupList[0].addText.className = "";
     }
+    checkList[0].setCheck(false);
     SignupList[0].addBtn.content = "중복검사";
   }
   SignupList[0].addBtn.custom_onChange = onChange0;
+
+  const onClick1 = () => {
+
+  }
 
   // 2
   // useEffect(() => {}, [])
