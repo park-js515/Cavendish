@@ -1,6 +1,6 @@
 import { useInput } from "hooks/default/useInput";
 
-const InputComponent = ({ name, type, validator, placeholder }) => {
+const InputComponent = ({ name, type, validator, placeholder, addBtn }) => {
   const { value, onChange } = useInput("", validator);
   const props = { value, onChange };
 

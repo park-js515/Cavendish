@@ -13,9 +13,6 @@ const LoginPageComponent = () => {
     <div className="loginPage-form">
       <ToggleBtn {...propsToggleBtn} />
       <Layout isLogin={isLogin} />
-      {/* <div className="input-group">
-        {isLogin ? <LoginComponent /> : <SignupComponent />}
-      </div> */}
     </div>
   );
 };

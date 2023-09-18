@@ -11,6 +11,7 @@ const SignupList = [
       return value.length <= 20;
     },
     placeholder: "ID*",
+    addBtn: { flag: false },
   },
   {
     name: "PW1",
@@ -19,6 +20,7 @@ const SignupList = [
       return value.length <= 20;
     },
     placeholder: "Password*",
+    addBtn: { flag: false },
   },
   {
     name: "PW2",
@@ -27,6 +29,7 @@ const SignupList = [
       return value.length <= 20;
     },
     placeholder: "Password Check*",
+    addBtn: { flag: false },
   },
   {
     name: "nickname",
@@ -35,6 +38,7 @@ const SignupList = [
       return value.length <= 20;
     },
     placeholder: "Nickname*",
+    addBtn: { flag: false },
   },
 ];
 
