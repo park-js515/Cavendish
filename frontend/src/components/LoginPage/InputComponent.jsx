@@ -23,8 +23,8 @@ const InputComponent = ({
     ? {
         value,
         onChange: (e) => {
-          onChange();
-          // addBtn.custom_onChange(e);
+          onChange(e);
+          addBtn.custom_onChange(e);
         },
       }
     : { value, onChange };

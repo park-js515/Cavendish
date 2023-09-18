@@ -53,19 +53,19 @@ const nickLowerBound = 2;
 const SignupComponent = ({ list, checkList }) => {
   // 1
   const onChange0 = (e) => {
-    // if (!e) return;
+    if (!e.target.value) return;
+    const val = e.target.value;
 
-    // if (e.length < idLowerBound) {
-    //   list[0].addBtn.disabled = true;
-    //   list[0].addText.text = "❗ 입력이 너무 짧습니다.";
-    //   list[0].addText.className = "input-text-red";
-    // }
-    // else {
-    //   list[0].addText.text = "";
-    //   list[0].addText.className = "";
-    // }
-    // list[0].addBtn.content = "중복검사";
-    console.log(e);
+    if (val.length < idLowerBound) {
+      SignupList[0].addBtn.disabled = true;
+      SignupList[0].addText.text = "❗ 입력이 너무 짧습니다.";
+      SignupList[0].addText.className = "input-text-red";
+    }
+    else {
+      SignupList[0].addText.text = "";
+      SignupList[0].addText.className = "";
+    }
+    SignupList[0].addBtn.content = "중복검사";
   }
   SignupList[0].addBtn.custom_onChange = onChange0;
 
