@@ -3,6 +3,10 @@ package com.windows33.cavendish.domain.member.controller;
 import com.windows33.cavendish.domain.member.dto.MemberLoginRequestDto;
 import com.windows33.cavendish.domain.member.dto.TokenInfo;
 import com.windows33.cavendish.domain.member.service.MemberService;
+import com.windows33.cavendish.global.response.CommonResponse;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.Parameters;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,13 +22,17 @@ public class MemberController {
 
     private final MemberService memberService;
 
+    @Operation(summary = "로그인", description = "로그인")
+    @Parameters({
+            @Parameter(name = "memberLoginRequestDto", description = "회원 정보")
+    })
     @PostMapping("/login")
-    public TokenInfo login(@RequestBody MemberLoginRequestDto memberLoginRequestDto) {
+    public CommonResponse<TokenInfo> login(@RequestBody MemberLoginRequestDto memberLoginRequestDto) {
         String memberId = memberLoginRequestDto.getMemberId();
         String password = memberLoginRequestDto.getPassword();
 
         TokenInfo tokenInfo = memberService.login(memberId, password);
-        return tokenInfo;
+        return CommonResponse.OK(tokenInfo);
     }
 
     @PostMapping("/test")
