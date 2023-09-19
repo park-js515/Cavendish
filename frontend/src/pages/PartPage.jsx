@@ -19,30 +19,11 @@ const partCategory = [
 
 const PartPage = () => {
   const partName = useParams().partname;
-  const [partSelect, setPartSelect] = useState([
-    true,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
 
   return (
     <div className="part-contents">
-      <SideBar
-        partCategory={partCategory}
-        partSelect={partSelect}
-        setPartSelect={setPartSelect}
-      ></SideBar>
-      <PartBody
-        partCategory={partCategory}
-        partSelect={partSelect}
-        setPartSelect={setPartSelect}
-      ></PartBody>
+      <SideBar partCategory={partCategory} partName={partName}></SideBar>
+      <PartBody partCategory={partCategory} partName={partName}></PartBody>
     </div>
   );
 };

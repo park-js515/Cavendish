@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
-const SideBar = ({ partCategory, partSelect, setPartSelect }) => {
+const SideBar = ({ partCategory, partName }) => {
   return (
     // <div className="s-layout__sidebar">
     //   <a className="s-sidebar__trigger" href="#0">
@@ -13,12 +13,7 @@ const SideBar = ({ partCategory, partSelect, setPartSelect }) => {
         <ul>
           {partCategory.map((item, index) => {
             return (
-              <li
-                key={index}
-                onClick={() => {
-                  selectPart({ index, partSelect, setPartSelect });
-                }}
-              >
+              <li key={index}>
                 <Link className="s-sidebar__nav-link" to={`/part/${item}`}>
                   <i className="fa fa-home"></i>
                   <em>{item}</em>
@@ -31,19 +26,6 @@ const SideBar = ({ partCategory, partSelect, setPartSelect }) => {
     </div>
     // </div>
   );
-};
-
-const selectPart = ({ index, partSelect, setPartSelect }) => {
-  partSelect.map((item, idx) => {
-    let copy = [...partSelect];
-    if (idx == index) {
-      copy[idx] = true;
-    } else {
-      copy[idx] = false;
-    }
-    setPartSelect(copy);
-    console.log(copy);
-  });
 };
 
 export default SideBar;

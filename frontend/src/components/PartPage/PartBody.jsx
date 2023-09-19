@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 import FilterBox from "./FilterBox";
 import PartList from "./PartList";
 
-const PartBody = ({ partCategory, partSelect, setPartSelect }) => {
+const PartBody = ({ partCategory, partName }) => {
   return (
-    <div>
-      <FilterBox></FilterBox>
-      <PartList></PartList>
+    <div className="part-body">
+      <FilterBox partName={partName}></FilterBox>
+      <PartList partName={partName}></PartList>
     </div>
   );
 };
