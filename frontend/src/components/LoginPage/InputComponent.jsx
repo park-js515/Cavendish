@@ -1,7 +1,7 @@
 const Btn = (addBtn) => {
   return (
     <button
-      className="input-item-btn-before"
+      className={addBtn.className}
       onClick={addBtn.onClick}
       disabled={addBtn.disabled}
     >
@@ -19,15 +19,13 @@ const InputComponent = ({
   addBtn,
   addText,
 }) => {
-  const props = addBtn.flag
-    ? {
-        value,
-        onChange: (e) => {
-          onChange(e);
-          addBtn.custom_onChange(e);
-        },
-      }
-    : { value, onChange };
+  const props = {
+    value,
+    onChange: (event) => {
+      onChange(event);
+      addBtn.custom_onChange(event);
+    },
+  };
 
   return (
     <>

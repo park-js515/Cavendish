@@ -116,6 +116,10 @@ $after-hover: rgba(0, 255, 0, 70%);
         }
 
         .input-item-btn {
+          &-before-ignore {
+            @include input-item-btn($action-color: #{$before});
+            cursor: not-allowed;
+          }
           &-before {
             @include input-item-btn($action-color: #{$before});
             &:hover {

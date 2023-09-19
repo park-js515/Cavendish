@@ -11,18 +11,19 @@ const validator = (value) => {
 const LoginPageComponent = () => {
   const [isLogin, setIsLogin] = useState(true);
   // 로그인
-  const [value1, onChange1] = useInput("", validator);
-  const [value2, onChange2] = useInput("", validator);
+  const [value1, onChange1] = useInput("", validator, true);
+  const [value2, onChange2] = useInput("", validator, false);
   // 회원가입
-  const [value3, onChange3] = useInput("", validator);
-  const [value4, onChange4] = useInput("", validator);
-  const [value5, onChange5] = useInput("", validator);
-  const [value6, onChange6] = useInput("", validator);
+  const [value3, onChange3] = useInput("", validator, true);
+  const [value4, onChange4] = useInput("", validator, false);
+  const [value5, onChange5] = useInput("", validator, false);
+  const [value6, onChange6] = useInput("", validator, false);
   // 유효성 검증
-  const [check1, setCheck1] = useState(false); // ID 유효성 체크 
+  const [check1, setCheck1] = useState(false); // ID 유효성 체크
   const [check2, setCheck2] = useState(false); // PW1 유효성 체크
   const [check3, setCheck3] = useState(false); // PW2 유효성 체크
   const [check4, setCheck4] = useState(false); // nickname 유효성 체크
+  const [check5, setCheck5] = useState(0); // 재렌더링을 위해 생성한 더미 변수
 
   // 로그인
   const list1 = [
@@ -38,20 +39,28 @@ const LoginPageComponent = () => {
   ];
   // 유효성 검증
   const checkList = [
-    {check: check1, setCheck: setCheck1},
-    {check: check2, setCheck: setCheck2},
-    {check: check3, setCheck: setCheck3},
-    {check: check4, setCheck: setCheck4},
-  ]
+    { check: check1, setCheck: setCheck1 },
+    { check: check2, setCheck: setCheck2 },
+    { check: check3, setCheck: setCheck3 },
+    { check: check4, setCheck: setCheck4 },
+    { check: check5, setCheck: setCheck5 },
+  ];
 
   const propsToggleBtn = { isLogin, setIsLogin };
-  const dummy1 = ["user1"];
-  const dummy2 = ["1234"];
+  const dummy = [
+    { id: "adminNo1", password: "1234" },
+    { id: "adminNo2", password: "1234" },
+  ];
 
   return (
     <div className="loginPage-form">
       <ToggleBtn {...propsToggleBtn} />
-      <Layout isLogin={isLogin} list1={list1} list2={list2} checkList={checkList} />
+      <Layout
+        isLogin={isLogin}
+        list1={list1}
+        list2={list2}
+        checkList={checkList}
+      />
     </div>
   );
 };
