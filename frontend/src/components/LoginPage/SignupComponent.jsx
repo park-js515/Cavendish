@@ -1,4 +1,5 @@
 import InputComponent from "./InputComponent";
+import _ from "lodash";
 
 const idLowerBound = 6;
 const pwLowerBound = 4;
@@ -52,12 +53,7 @@ const SignupList_origin = [
 let SignupList = [];
 
 const resetSignupList = () => {
-  const item0 = SignupList_origin[0];
-  const item1 = SignupList_origin[1];
-  const item2 = SignupList_origin[2];
-  const item3 = SignupList_origin[3];
-
-  SignupList = [{ ...item0 }, { ...item1 }, { ...item2 }, { ...item3 }];
+  SignupList = _.cloneDeep(SignupList_origin);
 };
 resetSignupList();
 
