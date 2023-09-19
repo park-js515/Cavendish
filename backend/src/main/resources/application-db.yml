@@ -30,7 +30,7 @@ spring:
 spring:
   config:
     activate:
-      on-profile: "db-dev"
+      on-profile: "db-prod"
 
   jpa:
     hibernate:

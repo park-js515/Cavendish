@@ -21,21 +21,19 @@ public class SecurityConfig {
     private final JwtTokenProvider jwtTokenProvider;
 
     private static final String[] PERMIT_URL_ARRAY = {
-            /* swagger v2 */
             "/v2/api-docs",
             "/swagger-resources",
             "/swagger-resources/**",
             "/configuration/ui",
             "/configuration/security",
             "/swagger-ui.html",
-            "/api/swagger-ui.html",
             "/webjars/**",
-            /* swagger v3 */
+            /* swagger */
+            "/api-docs/**",
             "/v3/api-docs/**",
-            "/swagger-ui/**",
             "/api/swagger-ui/**",
             /* 회원 */
-            "/members/login"
+            "/api/member/**"
     };
 
     @Bean
