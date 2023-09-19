@@ -166,4 +166,41 @@ $after-hover: rgba(0, 255, 0, 70%);
       opacity: 1;
     }
   }
+
+  .footer {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    margin-top: 10px;
+
+    @mixin footer-item($width) {
+      width: $width;
+      display: flex;
+      transition: all 300ms ease-in-out;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-size: #{$tab-font-size};
+      color: #{$tab-color};
+    }
+
+    .left {
+      @include footer-item($width: 30%);
+      background-color: #{$tab-bgc-default};
+      &:hover {
+        background-color: red;
+      }
+    }
+
+    .right {
+      @include footer-item($width: 70%);
+      background-color: #{$tab-bgc-selected};
+
+      &:hover {
+        background-color: #{$after-hover};
+        color: black;
+      }
+    }
+  }
 }

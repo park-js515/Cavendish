@@ -7,8 +7,8 @@ const LoginList = [
     validator: (value) => {
       return value.length <= 20;
     },
-    placeholder: "ID*",
-    addBtn: { flag: false },
+    placeholder: "ID(EN)*",
+    addBtn: { flag: false, custom_onChange: () => {} },
     addText: { text: "", className: "" },
   },
   {
@@ -18,7 +18,7 @@ const LoginList = [
       return value.length <= 20;
     },
     placeholder: "Password*",
-    addBtn: { flag: false },
+    addBtn: { flag: false, custom_onChange: () => {} },
     addText: { text: "", className: "" },
   },
 ];
