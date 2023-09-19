@@ -1,0 +1,5 @@
+jwt:
+  header: Authorization
+  secret: VlwEyVBsYt9V7zq57TejMnVUyzblYcfPQye08f7MGVA9XkHa
+  #${JWT_SECRET_KEY}    # JWT를 Encoding / Decoding하기 위한 Private Key
+  valid-seconds: 3600    # Access Token 만료시간 (초)

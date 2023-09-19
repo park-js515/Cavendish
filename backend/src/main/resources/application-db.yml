@@ -11,7 +11,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create    # 실행시 DB 초기화 후 DDL 실행
+      ddl-auto: update    # 실행시 DB 초기화 후 DDL 실행
     properties:
       hibernate:
         format_sql: true  # SQL 쿼리 보기 좋게 표시
