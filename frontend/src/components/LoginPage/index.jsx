@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { useInput } from "hooks/LoginPage/useInput";
 import ToggleBtn from "./ToggleBtn";
 import Layout from "./Layout";
@@ -61,26 +61,6 @@ const LoginPageComponent = () => {
   };
 
   const propsToggleBtn = { isLogin, setIsLogin };
-
-  const check = useRef(false); // 요청을 한 번만 수행하기 위해서 useRef 변수 생성
-
-  useEffect(() => {
-    // Login 창으로 이동 시 useEffect를 이용하여 유효성 초기화
-    if (!check.current && isLogin) {
-      setCheck1(false);
-      setCheck2(false);
-      setCheck3(false);
-      setCheck4(false);
-      setCheck5(0);
-      check.current = true;
-    }
-
-    return () => {
-      if (check.current && !isLogin) {
-        check.current = false;
-      }
-    };
-  }, [isLogin]);
 
   return (
     <div className="loginPage-form">

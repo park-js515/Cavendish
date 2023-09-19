@@ -18,13 +18,11 @@ const InputComponent = ({
   placeholder,
   addBtn,
   addText,
+  ...props
 }) => {
-  const props = {
-    value,
-    onChange: (event) => {
-      onChange(event);
-      addBtn.custom_onChange(event);
-    },
+  const custom_onChange = (event) => {
+    onChange(event);
+    addBtn.custom_onChange(event);
   };
 
   return (
@@ -33,10 +31,11 @@ const InputComponent = ({
         <input
           name={name}
           type={type}
-          value={props.value}
-          onChange={props.onChange}
+          value={value}
+          onChange={custom_onChange}
           placeholder={placeholder}
           className="input-item"
+          {...props}
         />
         <div className="input-item-btn-wrapper">
           {addBtn.flag ? <Btn {...addBtn} /> : null}

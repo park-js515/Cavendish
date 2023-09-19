@@ -10,6 +10,7 @@ const LoginList = [
     placeholder: "ID(EN)*",
     addBtn: { flag: false, custom_onChange: () => {} },
     addText: { text: "", className: "" },
+    autoComplete: "off",
   },
   {
     name: "PW",

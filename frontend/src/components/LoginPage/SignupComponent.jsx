@@ -19,6 +19,7 @@ const SignupList_origin = [
       className: "input-item-btn-before-ignore",
     },
     addText: { text: "", className: "" },
+    autoComplete: "off",
   },
   {
     name: "PW1",
@@ -47,6 +48,7 @@ const SignupList_origin = [
       className: "input-item-btn-before-ignore",
     },
     addText: { text: "", className: "" },
+    autoComplete: "off",
   },
 ];
 
