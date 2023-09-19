@@ -1,5 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { resetSignupList } from "./SignupComponent";
+// redux
+import { useSelector, useDispatch } from "react-redux";
+import { login as reduxLogin } from "redux/userSlice";
 
 // 후에 로그인, 회원가입 axios를 요청할 페이지
 const dummy = [
@@ -8,8 +11,18 @@ const dummy = [
   { id: "adminNo2", password: "1234" },
 ];
 
+const dummyAxios = {
+  accessToken:
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhYm8iLCJuaWNrbmFtZSI6ImJhYm8iLCJzcGVpY2FsIjoiZmFsc2UifQ.CyGjjWuP3NdF7eUCV7qG3E8bTWzNT0XryEa7gK0zuxU",
+  refreshToken:
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhYm8iLCJuaWNrbmFtZSI6ImJhYm8iLCJzcGVpY2FsIjoiZmFsc2UifQ.CyGjjWuP3NdF7eUCV7qG3E8bTWzNT0XryEa7gK0zuxU",
+  nickname: "adminNo1",
+};
+
 const Footer = ({ isLogin, checkList, loginInfo }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const goBackorHome = () => {
     if (window.history.length > 2) {
       navigate(-1);
@@ -26,6 +39,7 @@ const Footer = ({ isLogin, checkList, loginInfo }) => {
 
     if (res) {
       alert("로그인 성공!");
+      dispatch(reduxLogin(dummyAxios));
       goBackorHome();
     } else {
       alert("로그인 정보가 일치하지 않습니다.");

@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import { UseSelector, useSelector } from "react-redux";
 import "styles/css/common.css";
 
 const main = "Cavendish";
@@ -31,7 +32,7 @@ const Btn = ({ name, to, pathname }) => {
 const NavBar = () => {
   const location = useLocation();
   const pathname = location.pathname;
-  const isLogin = false; // 향후 리덕스 상태변수로 토글할 예정
+  const isLogin = useSelector((state) => state.user.isLogin);
   const userInfoList = userInfo(isLogin);
 
   return (

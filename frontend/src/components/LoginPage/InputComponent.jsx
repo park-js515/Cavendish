@@ -18,7 +18,7 @@ const InputComponent = ({
   placeholder,
   addBtn,
   addText,
-  ...props
+  autoComplete
 }) => {
   const custom_onChange = (event) => {
     onChange(event);
@@ -35,7 +35,7 @@ const InputComponent = ({
           onChange={custom_onChange}
           placeholder={placeholder}
           className="input-item"
-          {...props}
+          autoComplete={autoComplete}
         />
         <div className="input-item-btn-wrapper">
           {addBtn.flag ? <Btn {...addBtn} /> : null}
