@@ -25,7 +25,7 @@ logging:
 spring:
   config:
     activate:
-      on-profile: "log-dev"
+      on-profile: "log-prod"
 
 logging:
   level:

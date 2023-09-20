@@ -11,7 +11,10 @@ spring:
         - log-prod
     include:
       - db
+      - jwt
       - log
       - server
       - swagger
-  mvc.pathmatch.matching-strategy: ant_path_matcher
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
