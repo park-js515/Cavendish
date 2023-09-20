@@ -2,25 +2,17 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isLogin: false,
-  accessToken: "",
-  refreshToken: "",
-  nickname: "",
 };
 
 const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    login: (state, action) => {
-      const data = action.payload;
-
+    login: (state) => {
       state.isLogin = true;
-      state.accessToken = data.accessToken;
-      state.refreshToken = data.refreshToken;
-      state.nickname = data.nickname;
     },
     logout: (state) => {
-      state = { ...initialState };
+      state.isLogin = false;
     },
   },
 });
