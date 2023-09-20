@@ -14,8 +14,13 @@ const LogoutPage = () => {
   const check = useRef(false);
   useEffect(() => {
     if (!check.current) {
+      const clearLocalStorage = () => {
+        localStorage.clear();
+      }
+
       const promise = new Promise((resolve) => {
         dispatch(logout());
+        clearLocalStorage();
         setTimeout(() => {
           resolve();
         }, 1500);
