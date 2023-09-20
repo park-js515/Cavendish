@@ -37,9 +37,16 @@ const Footer = ({ isLogin, checkList, loginInfo }) => {
       return item.id === loginInfo.id && item.password === loginInfo.password;
     });
 
+    const setUserInfo = () => {
+      localStorage.accessToken = dummyAxios.accessToken;
+      localStorage.refreshToken = dummyAxios.refreshToken;
+      localStorage.nickname = dummyAxios.nickname;
+    }
+
     if (res) {
       alert("로그인 성공!");
-      dispatch(reduxLogin(dummyAxios));
+      dispatch(reduxLogin());
+      setUserInfo();
       goBackorHome();
     } else {
       alert("로그인 정보가 일치하지 않습니다.");
