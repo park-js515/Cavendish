@@ -19,6 +19,7 @@ public class GlobalExceptionHandler {
     private ResponseEntity<CommonResponse<?>> newResponse(Throwable throwable, HttpStatus status) {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/json");
+
         return new ResponseEntity<>(CommonResponse.ERROR(throwable, status), headers, status);
     }
 

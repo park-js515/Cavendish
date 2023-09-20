@@ -11,7 +11,8 @@ public class ErrorResponse {
     private final int status;
 
     ErrorResponse(Throwable throwable, HttpStatus status) {
-        this(throwable.getMessage(), status);
+        this.message = throwable.getMessage();
+        this.status = status.value();
     }
 
     ErrorResponse(String message, HttpStatus status) {
