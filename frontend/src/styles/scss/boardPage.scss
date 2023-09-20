@@ -1,0 +1,45 @@
+.board_main {
+  display: flex;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
+  div.board_list {
+    margin-bottom: 30px;
+    ul {
+      margin: 10px;
+      width: 800px;
+      li {
+        display: flex;
+        padding: 10px;
+        margin: 4px;
+        height: 120px;
+        list-style-type: none;
+        border: 1px solid gray;
+        border-radius: 1rem;
+        background-color: #fff;
+        &:hover {
+          opacity: 10%;
+        }
+        img {
+          width: 100px;
+          height: 100px;
+        }
+      }
+    }
+  }
+  .board_number {
+    bottom:10px;
+    position: fixed;
+    button {
+      margin: 3px;
+      width: 30px;
+      height: 30px;
+      background: #fff;
+      border-radius: 1rem;
+      border:1px solid gray;
+      &:hover{
+        opacity: 80%;
+      }
+    }
+  }
+}
