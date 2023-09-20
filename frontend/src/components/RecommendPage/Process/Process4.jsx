@@ -1,5 +1,5 @@
 // 예산 선택
-const Process4 = () => {
+const Process4 = ({processHandler}) => {
   return <>Process4</>;
 };
 

@@ -1,7 +1,35 @@
 import "styles/css/RecommendPage.css";
+import { useState } from "react";
+
+// Process
+import Process1 from "./Process/Process1";
+import Process2 from "./Process/Process2";
+import Process3 from "./Process/Process3";
+import Process4 from "./Process/Process4";
+import Process5 from "./Process/Process5";
+
+const ProcessList = [Process1, Process2, Process3, Process4, Process5];
 
 const RecommendPageComponent = () => {
-  return <>Hello</>;
+  const [processNo, setProcessNo] = useState(0);
+  const NowProcess = ProcessList[processNo];
+  const handleSetProcessNo = (move) => {
+    setProcessNo((current) => {
+      return (current + move) % 5;
+    });
+  };
+
+  return (
+    <div className="recommend">
+      <div className="top"></div>
+      <div className="bottom">
+        <div className="left">
+          <NowProcess processHandler={setProcessNo} />
+        </div>
+        <div className="right"></div>
+      </div>
+    </div>
+  );
 };
 
 export default RecommendPageComponent;
