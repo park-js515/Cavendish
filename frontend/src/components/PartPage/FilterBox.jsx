@@ -18,7 +18,7 @@ const FilterBox = () => {
           {cpuFilter.map((item, index) => (
             <React.Fragment key={index}>
               <tr className="part-filter-attribute">
-                <td>{item.name}</td>
+                <td className="part-filter-attribute-name">{item.name}</td>
                 <td>|</td>
                 {item.value.map((value, idx) => (
                   <td key={idx}>

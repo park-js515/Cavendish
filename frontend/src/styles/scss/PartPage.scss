@@ -22,6 +22,8 @@ $lighterColor: lighten($color, 20%);
 // }
 
 /* Layout */
+
+// 사이드바 =======================================================================================
 .s-layout {
 display: flex;
 width: 100%;
@@ -176,6 +178,7 @@ transform: translate(-50%, -50%);
 .part-contents {
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }   
 
 .part-filter-box {
@@ -185,6 +188,8 @@ transform: translate(-50%, -50%);
 
 
 // YourComponent.scss
+
+//필터 박스 =================================================================================================
 
 .checkbox-wrapper-8 {
     .tgl {
@@ -327,12 +332,17 @@ transform: translate(-50%, -50%);
 .part-filter-attribute {
     font-family: sans-serif;
     font-size: 1em;
+}
 
+.part-filter-attribute-name {
+  width: 100px;
 }
 
 .part-filter-box {
     border:solid black 1px; 
-    width: 1000px;
+    @media(max-width: 768px) {
+      
+    }
 }
 
 /* PropertyCard.scss */
@@ -346,17 +356,22 @@ transform: translate(-50%, -50%);
 
 
 
-.container {
-  width: 100%;
+// 부품 리스트 ============================================================================================
+
+.part-card-container {
+  width: 100%;  
   display: flex;
   justify-content: center;
   align-items: center;
+  @media(max-width: 768px) {
+    flex-direction: column;
+  }
 
   .post {
     width: 350px;
     height: 500px;
     display: flex;
-     overflow: hidden;
+    overflow: hidden;
     flex-direction: column;
     position: relative;
     border: solid black 1px;
@@ -388,9 +403,9 @@ transform: translate(-50%, -50%);
       transition: cubic-bezier(0.68, -0.55, 0.27, 01.55) 320ms;
 
       img {
-        max-width: 100%;
         height: auto;
-         transition: ease-in-out 600ms;
+        transition: ease-in-out 600ms;
+        object-fit: cover;
       }
     }
 
@@ -526,7 +541,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-   animation: top 0.8s forwards;
+  animation: top 0.8s forwards;
    
   span {
     display: flex;
@@ -574,15 +589,22 @@ footer {
   }
 }
 
-  
-
 .part-body {
     display: flex;
     flex-direction: column;
+    max-width: 70%;
 }
 
 .part-card-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3개의 컬럼을 생성합니다. */
     grid-gap: 20px; /* 그리드 아이템 간의 간격을 설정합니다. */
+
+    @media (max-width: 1300px){
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(1, 1fr); /* 1개의 컬럼을 생성합니다. */
+    }
 }

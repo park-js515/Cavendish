@@ -7,23 +7,17 @@ const PartCard = () => {
     <div className="container">
       <div className="post">
         <div className="header_post">
-          <img
-            src="https://images.pexels.com/photos/2529973/pexels-photo-2529973.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-            alt=""
-          />
+          <img src="/images/본체1.png" alt="" />
         </div>
 
         <div className="body_post">
           <div className="post_content">
-            <h1>Lorem Ipsum</h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
-              animi assumenda cumque deserunt dolorum ex exercitationem.
-            </p>
+            <h1>제품 이름</h1>
+            <p>제품 제원 </p>
 
             <div className="container_infos">
               <div className="postedBy">
-                <span>author</span> John Doe
+                <span>최저가</span> ￦1000,000
               </div>
 
               <div className="container_tags">

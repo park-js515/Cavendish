@@ -8,7 +8,7 @@ const SideBar = ({ partCategory, partName }) => {
     //   <a className="s-sidebar__trigger" href="#0">
     //     <i className="fa fa-bars"></i>
     //   </a>
-    <div>
+    <div className="part-sidebar">
       <nav className="s-sidebar__nav">
         <ul>
           {partCategory.map((item, index) => {
