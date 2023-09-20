@@ -1,5 +1,5 @@
 const TabItem = () => {
-  return <>TabItem</>;
+  return <div className="tab-item">TabItem</div>;
 };
 
 export default TabItem;
