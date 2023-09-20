@@ -16,23 +16,20 @@ const LogoutPage = () => {
     if (!check.current) {
       const promise = new Promise((resolve) => {
         dispatch(logout());
-        resolve();
+        setTimeout(() => {
+          resolve();
+        }, 1500);
       });
 
-      promise
-        .then(() => {
-          setTimeout(() => {
-            alert("로그아웃 성공");
-          }, 1000);
-        })
-        .then(() => {
-          navigate("/");
-        });
+      promise.then(() => {
+        alert("로그아웃 성공");
+        navigate("/");
+      });
     }
 
     return () => {
       check.current = true;
-    }
+    };
   }, []);
 
   return (
