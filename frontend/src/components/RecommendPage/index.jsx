@@ -35,7 +35,7 @@ const RecommendPageComponent = () => {
           <NowProcess processHandler={handleSetProcessNo} />
         </div>
         <div className="right">
-          <TabGroup />
+          <TabGroup processHandler={handleSetProcessNo} />
         </div>
       </div>
     </div>

@@ -1,5 +1,7 @@
+import { setTab } from "../Tab/TabGroup";
+
 // 예산 선택
-const Process4 = ({processHandler}) => {
+const Process4 = ({ processHandler }) => {
   return <>Process4</>;
 };
 
