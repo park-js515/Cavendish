@@ -6,7 +6,7 @@ const main = "Cavendish";
 
 const naviList = [
   { name: "recommend", to: "/recommend" },
-  { name: "part", to: "/part" },
+  { name: "part", to: "/part/CPU" },
   { name: "board", to: "/board" },
   { name: "quotation", to: "/quotation" },
 ];
