@@ -1,0 +1,17 @@
+spring:
+  profiles:
+    active:
+      - local
+    group:
+      local:
+        - db-local
+        - log-local
+      prod:
+        - db-prod
+        - log-prod
+    include:
+      - db
+      - log
+      - server
+      - swagger
+  mvc.pathmatch.matching-strategy: ant_path_matcher
