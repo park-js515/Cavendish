@@ -7,6 +7,8 @@ public interface MemberService {
 
     TokenInfo login(String memberId, String password);
 
-    void saveMember(MemberSignupRequestDto memberSignupRequestDto);
+    void signup(MemberSignupRequestDto memberSignupRequestDto);
+
+    void removeMember();
 
 }

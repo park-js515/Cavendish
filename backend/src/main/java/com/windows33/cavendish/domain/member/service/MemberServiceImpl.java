@@ -4,11 +4,14 @@ import com.windows33.cavendish.domain.member.dto.MemberSignupRequestDto;
 import com.windows33.cavendish.domain.member.dto.TokenInfo;
 import com.windows33.cavendish.domain.member.entity.Member;
 import com.windows33.cavendish.domain.member.repository.MemberRepository;
+import com.windows33.cavendish.global.exception.NotFoundException;
 import com.windows33.cavendish.global.jwt.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -40,7 +43,7 @@ public class MemberServiceImpl implements MemberService {
 
     @Transactional
     @Override
-    public void saveMember(MemberSignupRequestDto memberSignupRequestDto) {
+    public void signup(MemberSignupRequestDto memberSignupRequestDto) {
         memberRepository.save(Member.builder()
                 .memberId(memberSignupRequestDto.getMemberId())
                 .password(memberSignupRequestDto.getPassword())
@@ -48,4 +51,16 @@ public class MemberServiceImpl implements MemberService {
                 .build()
         );
     }
+
+    @Transactional
+    @Override
+    public void removeMember() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String memberId = ((UserDetails)principal).getUsername();
+
+        Member member = memberRepository.findByMemberId(memberId).orElseThrow(() -> new NotFoundException(Member.class, memberId));
+
+        memberRepository.delete(member);
+    }
+
 }
