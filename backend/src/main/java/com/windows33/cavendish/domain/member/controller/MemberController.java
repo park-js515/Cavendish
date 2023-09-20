@@ -48,11 +48,20 @@ public class MemberController {
     public CommonResponse<Void> signup(
             @RequestBody MemberSignupRequestDto memberSignupRequestDto
     ) {
-        String memberId = memberSignupRequestDto.getMemberId();
-        String password = memberSignupRequestDto.getPassword();
-        String nickname = memberSignupRequestDto.getNickname();
+        memberService.saveMember(memberSignupRequestDto);
 
+        return OK(null);
+    }
 
+    @Operation(summary = "회원탈퇴", description = "회원탈퇴")
+    @Parameters({
+            @Parameter(name = "memberSignupRequestDto", description = "회원 정보")
+    })
+    @PostMapping("/remove")
+    public CommonResponse<Void> memberRemove(
+            @RequestBody MemberSignupRequestDto memberSignupRequestDto
+    ) {
+        memberService.saveMember(memberSignupRequestDto);
 
         return OK(null);
     }

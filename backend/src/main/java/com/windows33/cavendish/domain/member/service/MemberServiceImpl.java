@@ -22,8 +22,8 @@ public class MemberServiceImpl implements MemberService {
     private final JwtTokenProvider jwtTokenProvider;
 
     @Transactional
+    @Override
     public TokenInfo login(String memberId, String password) {
-
         // 1. Login ID/PW 를 기반으로 Authentication 객체 생성
         // 이때 authentication 는 인증 여부를 확인하는 authenticated 값이 false
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(memberId, password);
@@ -38,6 +38,7 @@ public class MemberServiceImpl implements MemberService {
         return tokenInfo;
     }
 
+    @Transactional
     @Override
     public void saveMember(MemberSignupRequestDto memberSignupRequestDto) {
         memberRepository.save(Member.builder()
