@@ -1,5 +1,7 @@
+import RecommendPageComponent from "components/RecommendPage/index";
+
 const RecommendPage = () => {
-  return <>RecommendPage</>;
+  return <><RecommendPageComponent/></>;
 };
 
 
