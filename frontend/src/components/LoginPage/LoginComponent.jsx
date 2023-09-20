@@ -7,7 +7,10 @@ const LoginList = [
     validator: (value) => {
       return value.length <= 20;
     },
-    placeholder: "ID*",
+    placeholder: "ID(EN)*",
+    addBtn: { flag: false, custom_onChange: () => {} },
+    addText: { text: "", className: "" },
+    autoComplete: "off",
   },
   {
     name: "PW",
@@ -16,14 +19,20 @@ const LoginList = [
       return value.length <= 20;
     },
     placeholder: "Password*",
+    addBtn: { flag: false, custom_onChange: () => {} },
+    addText: { text: "", className: "" },
   },
 ];
 
-const LoginComponent = () => {
+const LoginComponent = ({ list }) => {
+  const List = list.map((item, index) => {
+    return { ...item, ...LoginList[index] };
+  });
+
   return (
     <>
-      {LoginList.map((item) => {
-        return <InputComponent key={item.name} {...item}/>;
+      {List.map((item) => {
+        return <InputComponent key={item.name} {...item} />;
       })}
     </>
   );
