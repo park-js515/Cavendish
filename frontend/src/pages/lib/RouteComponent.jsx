@@ -24,7 +24,7 @@ const RouteComponent = () => {
       <Route path="/logout" element={<LogoutPage />}></Route>
       <Route path="/" element={<MainPage />}></Route>
       <Route path="/mypage" element={<MyPage />}></Route>
-      <Route path="/part" element={<PartPage />}></Route>
+      <Route path="/part/:partname" element={<PartPage />}></Route>
       <Route path="/quotation" element={<QuotationPage />}></Route>
       <Route path="/recommend" element={<RecommendPage />}></Route>
       <Route path="/signup" element={<SignupPage />}></Route>

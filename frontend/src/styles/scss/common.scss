@@ -15,6 +15,7 @@ $hover-bgc: rgb(194, 194, 194);
   width: 100vw;
   background-color: #{$navbar-color};
   display: flex;
+  z-index: 3;
 
   .jc-end {
     width: 100%;
