@@ -1,5 +1,7 @@
 package com.windows33.cavendish.domain.member.service;
 
+import com.windows33.cavendish.domain.member.dto.MemberDetailResponseDto;
+import com.windows33.cavendish.domain.member.dto.MemberModifyRequestDto;
 import com.windows33.cavendish.domain.member.dto.MemberSignupRequestDto;
 import com.windows33.cavendish.domain.member.dto.TokenInfo;
 import com.windows33.cavendish.domain.member.entity.Member;
@@ -61,6 +63,39 @@ public class MemberServiceImpl implements MemberService {
         Member member = memberRepository.findByMemberId(memberId).orElseThrow(() -> new NotFoundException(Member.class, memberId));
 
         memberRepository.delete(member);
+    }
+
+    @Transactional
+    @Override
+    public MemberDetailResponseDto findMember() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String memberId = ((UserDetails)principal).getUsername();
+
+        Member member = memberRepository.findByMemberId(memberId).orElseThrow(() -> new NotFoundException(Member.class, memberId));
+        MemberDetailResponseDto memberDetailResponseDto = new MemberDetailResponseDto(member.getMemberId(), member.getNickname());
+
+        return memberDetailResponseDto;
+    }
+
+    @Transactional
+    @Override
+    public Boolean modifyMember(MemberModifyRequestDto memberModifyRequestDto) {
+        String password = memberModifyRequestDto.getPassword();
+        String nickname = memberModifyRequestDto.getNickname();
+
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String memberId = ((UserDetails)principal).getUsername();
+
+        Member member = memberRepository.findByMemberId(memberId).orElseThrow(() -> new NotFoundException(Member.class, memberId));
+
+        if(!member.getPassword().equals(password)) return false;
+
+        member.updateMember(nickname);
+        Member updateMember = memberRepository.save(member);
+
+        if(!updateMember.getNickname().equals(nickname)) return false;
+
+        return true;
     }
 
 }

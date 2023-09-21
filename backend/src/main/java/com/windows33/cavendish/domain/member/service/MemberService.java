@@ -1,5 +1,7 @@
 package com.windows33.cavendish.domain.member.service;
 
+import com.windows33.cavendish.domain.member.dto.MemberDetailResponseDto;
+import com.windows33.cavendish.domain.member.dto.MemberModifyRequestDto;
 import com.windows33.cavendish.domain.member.dto.MemberSignupRequestDto;
 import com.windows33.cavendish.domain.member.dto.TokenInfo;
 
@@ -10,5 +12,9 @@ public interface MemberService {
     void signup(MemberSignupRequestDto memberSignupRequestDto);
 
     void removeMember();
+
+    MemberDetailResponseDto findMember();
+
+    Boolean modifyMember(MemberModifyRequestDto memberModifyRequestDto);
 
 }
