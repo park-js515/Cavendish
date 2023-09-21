@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import BoardDetailPage from "pages/BoardDetailPage";
+import BoardCreatePage from "pages/BoardCreatePage";
 import BoardPage from "pages/BoardPage";
 import LoginPage from "pages/LoginPage";
 import LogoutPage from "pages/LogoutPage";
@@ -19,6 +20,7 @@ const RouteComponent = () => {
   return (
     <Routes>
       <Route path="/board/detail" element={<BoardDetailPage />}></Route>
+      <Route path="/board/create" element={<BoardCreatePage />}></Route>
       <Route path="/board" element={<BoardPage />}></Route>
       <Route path="/login" element={<LoginPage />}></Route>
       <Route path="/logout" element={<LogoutPage />}></Route>

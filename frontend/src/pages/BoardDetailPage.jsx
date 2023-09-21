@@ -1,5 +1,7 @@
+import BoardDetailComponent from "components/BoardPage/BoardDetailComponent";
+
 const BoardDetailPage = () => {
-  return <>BoardDetailPage</>;
+  return <BoardDetailComponent />;
 };
 
 export default BoardDetailPage;
