@@ -11,6 +11,8 @@ import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import static com.windows33.cavendish.global.response.CommonResponse.*;
@@ -48,20 +50,15 @@ public class MemberController {
     public CommonResponse<Void> signup(
             @RequestBody MemberSignupRequestDto memberSignupRequestDto
     ) {
-        memberService.saveMember(memberSignupRequestDto);
+        memberService.signup(memberSignupRequestDto);
 
         return OK(null);
     }
 
     @Operation(summary = "회원탈퇴", description = "회원탈퇴")
-    @Parameters({
-            @Parameter(name = "memberSignupRequestDto", description = "회원 정보")
-    })
-    @PostMapping("/remove")
-    public CommonResponse<Void> memberRemove(
-            @RequestBody MemberSignupRequestDto memberSignupRequestDto
-    ) {
-        memberService.saveMember(memberSignupRequestDto);
+    @DeleteMapping("/remove")
+    public CommonResponse<Void> memberRemove() {
+        memberService.removeMember();
 
         return OK(null);
     }
