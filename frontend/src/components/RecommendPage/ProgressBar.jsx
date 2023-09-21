@@ -22,6 +22,10 @@ const list_origin = [
     className: "circle",
   },
   {
+    content: "6",
+    className: "circle",
+  },
+  {
     content: "...",
     className: "circle",
   },
@@ -38,9 +42,6 @@ const setList = (index) => {
   for (let i = 0; i <= index; i++) {
     list[i].className = "circle active";
   }
-  // if (index === 5) {
-  //   list[5].className = "dot-falling"
-  // }
 };
 
 const Circle = ({ content, className }) => {
@@ -49,7 +50,7 @@ const Circle = ({ content, className }) => {
 
 const ProgressBar = ({ processNo }) => {
   setList(processNo);
-  const width = `${(processNo / 5) * 100}%`;
+  const width = `${(processNo / 6) * 100}%`;
 
   return (
     <div className="progressBar">
