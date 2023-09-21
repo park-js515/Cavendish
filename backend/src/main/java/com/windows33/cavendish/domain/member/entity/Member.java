@@ -72,4 +72,9 @@ public class Member implements UserDetails {
         return true;
     }
 
+    // 회원 정보 수정
+    public void updateMember(String nickname) {
+        this.nickname = nickname;
+    }
+
 }
