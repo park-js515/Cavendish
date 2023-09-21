@@ -1,5 +1,20 @@
+import { useState } from "react";
+
 const TabItem = ({ resetTab, processHandler }) => {
-  return <div className="tab-item">TabItem</div>;
+  const [isBefore, setIsBefore] = useState(true);
+
+  return (
+    <div
+      className={isBefore ? "tab-item-before" : "tab-item"}
+      onClick={() => {
+        setIsBefore((current) => {
+          return !current;
+        });
+      }}
+    >
+      TabItem
+    </div>
+  );
 };
 
 export default TabItem;
