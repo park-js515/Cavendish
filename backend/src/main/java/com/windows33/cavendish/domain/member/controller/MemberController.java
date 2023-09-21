@@ -1,8 +1,6 @@
 package com.windows33.cavendish.domain.member.controller;
 
-import com.windows33.cavendish.domain.member.dto.MemberLoginRequestDto;
-import com.windows33.cavendish.domain.member.dto.MemberSignupRequestDto;
-import com.windows33.cavendish.domain.member.dto.TokenInfo;
+import com.windows33.cavendish.domain.member.dto.*;
 import com.windows33.cavendish.domain.member.service.MemberServiceImpl;
 import com.windows33.cavendish.global.response.CommonResponse;
 import io.swagger.v3.oas.annotations.Operation;
@@ -61,6 +59,23 @@ public class MemberController {
         memberService.removeMember();
 
         return OK(null);
+    }
+
+    @Operation(summary = "회원조회", description = "회원조회")
+    @GetMapping("/details")
+    public CommonResponse<MemberDetailResponseDto> memberDetails() {
+        return OK(memberService.findMember());
+    }
+
+    @Operation(summary = "회원수정", description = "회원수정")
+    @Parameters({
+            @Parameter(name = "memberModifyRequestDto", description = "변경할 회원 정보")
+    })
+    @PutMapping("/modify")
+    public CommonResponse<Boolean> memberModify(
+            @RequestBody MemberModifyRequestDto memberModifyRequestDto
+    ) {
+        return OK(memberService.modifyMember(memberModifyRequestDto));
     }
 
 }
