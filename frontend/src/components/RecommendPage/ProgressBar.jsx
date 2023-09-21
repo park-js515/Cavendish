@@ -1,17 +1,64 @@
-const list = [{}, {}, {}, {}, {}, {}];
+import _ from "lodash";
 
-const ProgressBar = () => {
+const list_origin = [
+  {
+    content: "1",
+    className: "circle active",
+  },
+  {
+    content: "2",
+    className: "circle",
+  },
+  {
+    content: "3",
+    className: "circle",
+  },
+  {
+    content: "4",
+    className: "circle",
+  },
+  {
+    content: "5",
+    className: "circle",
+  },
+  {
+    content: "...",
+    className: "circle",
+  },
+];
+
+let list = [];
+
+const resetList = () => {
+  list = _.cloneDeep(list_origin);
+};
+
+const setList = (index) => {
+  resetList();
+  for (let i = 0; i <= index; i++) {
+    list[i].className = "circle active";
+  }
+  // if (index === 5) {
+  //   list[5].className = "dot-falling"
+  // }
+};
+
+const Circle = ({ content, className }) => {
+  return <div className={className}>{content}</div>;
+};
+
+const ProgressBar = ({ processNo }) => {
+  setList(processNo);
+  const width = `${(processNo / 5) * 100}%`;
+
   return (
     <div className="progressBar">
       <div className="steps">
-        <span className="circle active">1</span>
-        <span className="circle">2</span>
-        <span className="circle">3</span>
-        <span className="circle">4</span>
-        <span className="circle">5</span>
-        <span className="circle">!</span>
+        {list.map((item, index) => {
+          return <Circle key={index} {...item} />;
+        })}
         <div className="progress-bar">
-          <span className="indicator"></span>
+          <span className="indicator" style={{ width: width }}></span>
         </div>
       </div>
     </div>
@@ -19,3 +66,4 @@ const ProgressBar = () => {
 };
 
 export default ProgressBar;
+export { resetList };

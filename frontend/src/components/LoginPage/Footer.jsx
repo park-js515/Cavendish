@@ -4,7 +4,8 @@ import { resetSignupList } from "./SignupComponent";
 import { useSelector, useDispatch } from "react-redux";
 import { login as reduxLogin } from "redux/userSlice";
 // axios
-import { memberLogin, memberSignUp } from "api/member";
+import { memberLogin, memberSignUp, memberRemove } from "api/member";
+import axios from "axios";
 
 const Footer = ({ isLogin, checkList, loginInfo, signupInfo }) => {
   const navigate = useNavigate();

@@ -22,9 +22,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# for deploy
-.env
-
 # prevent
 src/styles/css/*.css
 src/styles/css/**/*.css

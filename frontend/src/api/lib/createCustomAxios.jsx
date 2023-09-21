@@ -43,6 +43,9 @@ const createCustomAxios = (URL) => {
 const createDefaultAxios = (URL) => {
   const defaultAxios = axios.create({
     baseURL: `${process.env.REACT_APP_API}${URL}`,
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    }
   });
 
   return defaultAxios;
