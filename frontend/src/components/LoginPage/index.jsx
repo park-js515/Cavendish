@@ -60,6 +60,12 @@ const LoginPageComponent = () => {
     password: value2,
   };
 
+  const signupInfo = {
+    id: value3,
+    password: value4,
+    nickname: value6,
+  };
+
   const propsToggleBtn = { isLogin, setIsLogin };
 
   return (
@@ -71,7 +77,7 @@ const LoginPageComponent = () => {
         list2={list2}
         checkList={checkList}
       />
-      <Footer isLogin={isLogin} checkList={checkList2} loginInfo={loginInfo} />
+      <Footer isLogin={isLogin} checkList={checkList2} loginInfo={loginInfo} signupInfo={signupInfo} />
     </div>
   );
 };
