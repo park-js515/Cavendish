@@ -1,8 +1,8 @@
 package com.windows33.cavendish.domain.member.service;
 
-import com.windows33.cavendish.domain.member.dto.MemberDetailResponseDto;
-import com.windows33.cavendish.domain.member.dto.MemberModifyRequestDto;
-import com.windows33.cavendish.domain.member.dto.MemberSignupRequestDto;
+import com.windows33.cavendish.domain.member.dto.response.MemberDetailResponseDto;
+import com.windows33.cavendish.domain.member.dto.request.MemberModifyRequestDto;
+import com.windows33.cavendish.domain.member.dto.request.MemberSignupRequestDto;
 import com.windows33.cavendish.domain.member.dto.TokenInfo;
 
 public interface MemberService {

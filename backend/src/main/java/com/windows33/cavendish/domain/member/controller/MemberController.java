@@ -1,6 +1,10 @@
 package com.windows33.cavendish.domain.member.controller;
 
 import com.windows33.cavendish.domain.member.dto.*;
+import com.windows33.cavendish.domain.member.dto.request.MemberLoginRequestDto;
+import com.windows33.cavendish.domain.member.dto.request.MemberModifyRequestDto;
+import com.windows33.cavendish.domain.member.dto.request.MemberSignupRequestDto;
+import com.windows33.cavendish.domain.member.dto.response.MemberDetailResponseDto;
 import com.windows33.cavendish.domain.member.service.MemberServiceImpl;
 import com.windows33.cavendish.global.response.CommonResponse;
 import io.swagger.v3.oas.annotations.Operation;
