@@ -63,6 +63,7 @@ export default function BoardPageComponent() {
         </ul>
       </div>
       <div className="board_number">
+        <button type="button">{"<<"}</button>
         <button type="button">{"<"}</button>
         <button type="button">1</button>
         <button type="button">2</button>
@@ -70,6 +71,7 @@ export default function BoardPageComponent() {
         <button type="button">4</button>
         <button type="button">5</button>
         <button type="button">{">"}</button>
+        <button type="button">{">>"}</button>
       </div>
     </div>
   );
