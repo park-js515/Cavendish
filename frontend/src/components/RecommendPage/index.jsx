@@ -44,10 +44,13 @@ const RecommendPageComponent = () => {
         <div
           className="left"
           onClick={() => {
-            handleSetProcessNo(1);
+            // 추후 제거 예정
+            // handleSetProcessNo(1);
           }}
         >
-          <NowProcess processHandler={handleSetProcessNo} />
+          <div className="wrapper">
+            <NowProcess processHandler={handleSetProcessNo} />
+          </div>
         </div>
         <div className="right">
           <TabGroup processNo={processNo} processHandler={handleSetProcessNo} />
