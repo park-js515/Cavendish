@@ -121,16 +121,27 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   hr {
     width: 800px;
+    margin-top: 10px;
     border: 1px solid lightgray;
   }
 
-  .detail_title {
+  .detail_header {
+    display: flex;
+    flex-direction: column;
     margin: 20px;
     padding: 10px;
     width: 800px;
     height: 20px;
+    .header_info {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 10px;
+      font-size: 0.7rem;
+    }
   }
   .detail_content {
     margin: 10px;
@@ -140,21 +151,28 @@
   }
 
   .comment_block{
+    margin: 10px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    width: 800px;
+    .comment_area{
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-    .comment_input {
-      margin: 10px;
-      padding: 10px;
-      width: 700px;
-      height: 80px;
-      resize: none;
-    }
-    .comment_input_button{
-      width: 90px;
-      height: 90px;
-      padding: 10px;
+      .comment_input {
+        margin: 10px;
+        padding: 10px;
+        width: 700px;
+        height: 80px;
+        resize: none;
+      }
+      .comment_input_button{
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+      }
     }
   }
 }
