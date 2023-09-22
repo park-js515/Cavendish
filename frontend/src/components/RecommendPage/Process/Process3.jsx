@@ -4,11 +4,24 @@ import { setTab } from "../Tab/TabGroup";
 import { useDispatch } from "react-redux";
 import * as recom from "redux/recommendSlice";
 
-// 3. 세부 용도 선택
-// 세부용도 선택 컴포넌트
+// 3. 용도 선택 자세히
 // 입력창?
 const Process3 = ({ processHandler }) => {
-  return <div className="process">Process3</div>;
+  const dispatch = useDispatch();
+
+  return (
+    <div className="process">
+      <p>Process3</p>
+      <button
+        onClick={() => {
+          processHandler(1);
+          dispatch(recom.setProcessNo(3));
+        }}
+      >
+        버튼1
+      </button>
+    </div>
+  );
 };
 
 export default Process3;

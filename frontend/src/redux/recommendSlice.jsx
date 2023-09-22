@@ -16,13 +16,13 @@ const initialState_origin = {
       item7: "",
       item8: "",
     },
-    // process2: 용도 선택 대분류
+    // process2: 용도 선택
     { usage: "" },
-    // process3: 용도 (프로그램)
-    { usageDetail: "", spec: [] },
-    // process4: 예산
+    // process3: 세부 용도 선택
+    { program: "", spec: [] },
+    // process4: 예산 선택
     { budget: "" },
-    // process5: 우선순위
+    // process5: 우선순위 선택
     { priority1: "", priority2: "", priority3: "" },
   ],
 };

@@ -5,7 +5,6 @@ import _ from "lodash";
 const tabList_origin = [
   { title: "부품 사전 선택", content: "", className: "tab-item-before" },
   { title: "용도 선택", content: "", className: "tab-item-before" },
-  { title: "용도 선택 - 자세히", content: "", className: "tab-item-before" },
   { title: "세부 용도 선택", content: "", className: "tab-item-before" },
   { title: "예산 선택", content: "", className: "tab-item-before" },
   { title: "우선 순위 선택", content: "", className: "tab-item-before" },

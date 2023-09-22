@@ -10,7 +10,6 @@ import Process2 from "./Process/Process2";
 import Process3 from "./Process/Process3";
 import Process4 from "./Process/Process4";
 import Process5 from "./Process/Process5";
-import Process6 from "./Process/Process6";
 import ProcessEnd from "./Process/ProcessEnd";
 
 // tab
@@ -22,7 +21,6 @@ const ProcessList = [
   Process3,
   Process4,
   Process5,
-  Process6,
   ProcessEnd,
 ];
 
@@ -31,7 +29,7 @@ const RecommendPageComponent = () => {
   const NowProcess = ProcessList[processNo];
   const handleSetProcessNo = (move) => {
     setProcessNo((current) => {
-      return (current + move) % 7;
+      return (current + move) % 6;
     });
   };
 
@@ -41,13 +39,7 @@ const RecommendPageComponent = () => {
         <ProgressBar processNo={processNo} />
       </div>
       <div className="bottom">
-        <div
-          className="left"
-          onClick={() => {
-            // 추후 제거 예정
-            // handleSetProcessNo(1);
-          }}
-        >
+        <div className="left">
           <div className="wrapper">
             <NowProcess processHandler={handleSetProcessNo} />
           </div>

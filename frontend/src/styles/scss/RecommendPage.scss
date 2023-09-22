@@ -33,6 +33,11 @@ $mainColor-strong: rgba(175, 106, 234, 1);
 
         .process {
           margin: 5px;
+
+          .sub {
+            height: 100%;
+            width: 100%;
+          }
         }
       }
     }

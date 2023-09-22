@@ -22,10 +22,6 @@ const list_origin = [
     className: "circle",
   },
   {
-    content: "6",
-    className: "circle",
-  },
-  {
     content: "...",
     className: "circle",
   },
@@ -50,7 +46,7 @@ const Circle = ({ content, className }) => {
 
 const ProgressBar = ({ processNo }) => {
   setList(processNo);
-  const width = `${(processNo / 6) * 100}%`;
+  const width = `${(processNo / 5) * 100}%`;
 
   return (
     <div className="progressBar">
