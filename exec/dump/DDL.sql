@@ -1,11 +1,28 @@
-﻿-- 데이터 베이스 삭제
-
-DROP DATABASE IF EXISTS s09p22c105;
-
 -- 데이터 베이스 생성
 
 CREATE DATABASE IF NOT EXISTS s09p22c105;
 USE s09p22c105;
+
+-- 테이블 삭제(순서 중요)
+
+DROP TABLE IF EXISTS `boards_like`;
+DROP TABLE IF EXISTS `comments`;
+DROP TABLE IF EXISTS `boards`;
+DROP TABLE IF EXISTS `part_bookmark`;
+DROP TABLE IF EXISTS `quotation`;
+DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `requirements`;
+DROP TABLE IF EXISTS `programs`;
+DROP TABLE IF EXISTS `cpu`;
+DROP TABLE IF EXISTS `gpu`;
+DROP TABLE IF EXISTS `mainboard_pci`;
+DROP TABLE IF EXISTS `mainboard`;
+DROP TABLE IF EXISTS `ram`;
+DROP TABLE IF EXISTS `hdd`;
+DROP TABLE IF EXISTS `case`;
+DROP TABLE IF EXISTS `cooler`;
+DROP TABLE IF EXISTS `ssd`;
+DROP TABLE IF EXISTS `power`;
 
 -- 사용자 테이블
 
