@@ -37,6 +37,20 @@ $mainColor-strong: rgba(175, 106, 234, 1);
           .sub {
             height: 100%;
             width: 100%;
+
+            &.proc1 {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              .center {
+                display: flex;
+                justify-content: center;
+              }
+            }
+
+            &.proc2 {
+            }
           }
         }
       }
