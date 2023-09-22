@@ -1,4 +1,5 @@
 import _ from "lodash";
+import { UseSelector, useSelector } from "react-redux";
 
 const list_origin = [
   {
@@ -44,7 +45,10 @@ const Circle = ({ content, className }) => {
   return <div className={className}>{content}</div>;
 };
 
-const ProgressBar = ({ processNo }) => {
+const ProgressBar = () => {
+  const processNo = useSelector((state) => {
+    return state.recommend.processNo + 1;
+  });
   setList(processNo);
   const width = `${(processNo / 5) * 100}%`;
 

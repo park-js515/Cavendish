@@ -1,5 +1,6 @@
-import TabItem from "./TabItem";
 import _ from "lodash";
+import { useSelector } from "react-redux";
+import TabItem from "./TabItem";
 
 // 리스트로 미리 추후 쌓을 것을 만들어 놓기
 const tabList_origin = [
@@ -27,7 +28,11 @@ const setClassName = (index) => {
   }
 };
 
-const TabGroup = ({ processNo, processHandler }) => {
+const TabGroup = () => {
+  const processNo = useSelector((state) => {
+    return state.recommend.processNo;
+  });
+
   resetTabList();
   setClassName(processNo);
 
@@ -41,7 +46,6 @@ const TabGroup = ({ processNo, processHandler }) => {
               resetTab(index);
             }}
             {...item}
-            {...processHandler}
           />
         );
       })}

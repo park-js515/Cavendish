@@ -6,7 +6,7 @@ import * as recom from "redux/recommendSlice";
 
 // 우선순위 선택
 // 우선순위 컴포넌트 -> 반응형
-const Process5 = ({ processHandler }) => {
+const Process5 = () => {
   const dispatch = useDispatch();
   return (
     <div className="process">
@@ -14,8 +14,7 @@ const Process5 = ({ processHandler }) => {
       <p>Process5</p>
       <button
         onClick={() => {
-          processHandler(1);
-          dispatch(recom.setProcessNo(3));
+          dispatch(recom.setProcessNo(4));
         }}
       >
         버튼1

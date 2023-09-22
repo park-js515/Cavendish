@@ -6,7 +6,7 @@ import * as recom from "redux/recommendSlice";
 
 // 2. 용도 선택 대분류
 // 용도 선택 컴포넌트
-const Process2 = ({ processHandler }) => {
+const Process2 = () => {
   const dispatch = useDispatch();
 
   return (
@@ -14,8 +14,7 @@ const Process2 = ({ processHandler }) => {
       <p>Process2</p>
       <button
         onClick={() => {
-          processHandler(1);
-          dispatch(recom.setProcessNo(2));
+          dispatch(recom.setProcessNo(1));
         }}
       >
         버튼1

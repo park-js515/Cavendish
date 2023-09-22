@@ -1,5 +1,6 @@
 import "styles/css/RecommendPage.css";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 // ProgressBar
 import ProgressBar from "./ProgressBar";
@@ -25,27 +26,24 @@ const ProcessList = [
 ];
 
 const RecommendPageComponent = () => {
-  const [processNo, setProcessNo] = useState(0);
+  const processNo = useSelector((state) => {
+    return state.recommend.processNo + 1;
+  });
   const NowProcess = ProcessList[processNo];
-  const handleSetProcessNo = (move) => {
-    setProcessNo((current) => {
-      return (current + move) % 6;
-    });
-  };
 
   return (
     <div className="recommend">
       <div className="top">
-        <ProgressBar processNo={processNo} />
+        <ProgressBar />
       </div>
       <div className="bottom">
         <div className="left">
           <div className="wrapper">
-            <NowProcess processHandler={handleSetProcessNo} />
+            <NowProcess />
           </div>
         </div>
         <div className="right">
-          <TabGroup processNo={processNo} processHandler={handleSetProcessNo} />
+          <TabGroup />
         </div>
       </div>
     </div>
