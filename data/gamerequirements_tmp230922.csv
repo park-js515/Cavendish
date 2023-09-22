@@ -100,7 +100,7 @@ Ace Combat Assault Horizon,"Intel Core 2 Quad 2.7Ghz or better, AMD Phenom II X4
 Ace of Seafood,Intel Core 2 Duo 2GHz or higher,1 GB RAM,"DirectX® 11 supported GPU（GeForce GTX 400 series, or Radeon HD 6000 series）",Version 11,"Windows 7, 8, 8.1, 10",1,0
 Ace of Spades,2.4 GHz Intel Dual Core Processor or AMD equivalent ,2 GB RAM,"Recommend use of dedicated graphics card (GeForce 6800 GT or higher, Radeon X1600 or higher, Intel Graphics version GMA 4500 or higher with 128 MB of dedicated RAM. Laptop/Mobility cards will vary. OpenGL 2.0 Support or better",9.0c,Windows XP with SP3 / Vista / 7,0.2,0
 Ace of Spades,2.6+ GHz Intel Quad Core Processor or AMD equivalent ,4 GB RAM,GeForce GTX460 dedicated graphics card or AMD equivalent. OpenGL 2.0 Support or better,9.0c,Windows XP with SP3 / Vista / 7,,1
-Aces of the Galaxy,Pentium(R) 4 2.0 GHz or AMD(R) equivalent,1,9.0c-compatible video card with 128 MB RAM,DirectX® 9.0c,Windows Vista/XP,0.12,0
+Aces of the Galaxy,Pentium(R) 4 2.0 GHz or AMD(R) equivalent,1 GB,9.0c-compatible video card with 128 MB RAM,DirectX® 9.0c,Windows Vista/XP,0.12,0
 Achilles: Legends Untold,AMD Ryzen™ 3 1200 / Intel® Core™ i3-8100,8 GB RAM,NVIDIA® GeForce® GTX 1050 4GB / AMD Radeon™ RX 560 4GB,Version 12,"Windows 10, 64-bit",30,0
 Achilles: Legends Untold,AMD Ryzen™ 5 2600X / Intel® Core™ i5-8400,16 GB RAM,NVIDIA® GeForce® GTX 1660 6GB / AMD Radeon™ RX 580,Version 12,"Windows 10, 64-bit",30,1
 Achtung Panzer: Kharkov 1943,AMD Athlon x2 4200+ Intel Pentium D 3GHz,1 GB RAM,ATI Radeon x1600 256 Mb nVidia GeForce 7600 256 MB video card,DirectX® 9.0c,Windows XP SP2/Vista,2.6,0
@@ -155,7 +155,7 @@ After the Fall,Intel i5-7500 / Ryzen 5 1600 equivalent or greater,12 GB RAM,NVID
 After Us,Intel Core i5-8400 or AMD Ryzen 3 3100,12 GB RAM,GeForce GTX 1050 Ti or GeForce GTX 960 or Intel Arc A750 or AMD Radeon RX 380 X,,Windows 10 64-bit,30,0
 After Us,Intel Core i7-8700 or AMD Ryzen 5 3600,16 GB RAM,GeForce GTX 1070 Ti or GeForce RTX 3060 or AMD Radeon RX Vega 56,,Windows 10 64-bit,30,1
 Aftercharge,Intel® Core™ i3 or AMD Phenom™ X3 8650,2 GB RAM,"NVIDIA® GeForce® GTX 460, ATI Radeon™ HD 4850, or Intel® HD Graphics 5500",Version 11,Windows® Vista/7/ 8/10 64-bit (latest Service Pack),5,0
-Afterfall: InSanity,"Intel Core 2 Duo 2Ghz, AMD Athlon 64 x2 2Ghz or better",3,"256 MB, DirectX 9.0c i Shader 3.0 (GeForce 8600GT / ATI equivalent or better)",DirectX 9.0c,Windows XP SP 2 / Windows Vista / Windows  7,,0
+Afterfall: InSanity,"Intel Core 2 Duo 2Ghz, AMD Athlon 64 x2 2Ghz or better",3 GB,"256 MB, DirectX 9.0c i Shader 3.0 (GeForce 8600GT / ATI equivalent or better)",DirectX 9.0c,Windows XP SP 2 / Windows Vista / Windows  7,,0
 AFTERGRINDER,Intel Core i3 1.8 GHz,1 GB RAM,256 MB NVIDIA GeForce 8600 GTS,Version 9.0c,Windows 7 and above,1,0
 Afterlight,"Intel Core 2 Quad Q6600 @ 2.4 GHz, AMD FX 8120 @ 3.1 GHz",4 GB RAM,"NVIDIA GT 630 / 650m, AMD Radeon HD6570 or equivalent",Version 9.0c,Windows 7/8/10 (64-bit OS required),3,0
 Afterlight,"Intel i7 920 @ 2.7 GHz, AMD Phenom II 945 @ 3.0 GHz",8 GB RAM,"NVIDIA GTX 660, Radeon R9-270",Version 11,Windows 8/10 (64-bit OS required),3,1
@@ -178,7 +178,7 @@ Age of Conan: Hyborian Adventures,Intel Core 2 Duo 2.4 GHz (E6600) or better,2GB
 Age of Darkness: Final Stand,Intel Core i5-6600 or AMD FX-8350,8 GB RAM,"Nvidia GeForce GTX 760, 2 GB or AMD Radeon HD 7870, 2 GB",,"Windows 8.1, 64-bit",5,0
 Age of Darkness: Final Stand,Intel Core i5-8400 or AMD Ryzen 5 1500X,8 GB RAM,"Nvidia GeForce GTX 970, 4 GB or AMD Radeon R9 Fury, 4 GB",,"Windows 10, 64-bit",5,1
 Age of Defense,Pentium or AMD 700mhz,512 MB RAM,Video Card DX9 128mb,,Microsoft Windows XP SP3 (32-bit) and newer,0.2,0
-Age of Empire Online,"Dual Core, 2Ghz or higher",2.5,128 MB Shader 2 supported card or higher,,Win XP/Vista/7,2.5,0
+Age of Empire Online,"Dual Core, 2Ghz or higher",2.5 GB,128 MB Shader 2 supported card or higher,,Win XP/Vista/7,2.5,0
 Age of Empires,Pentium 90 or higher processor ,16 MB RAM ,Local SVGA bus video display (with 1 MB VRAM) ,,Microsoft Windows 95 operating system or Windows NT Workstation 4.0 with Service Pack 3,8.05,0
 Age of Empires II - Age of Kings,Multimedia PC with Pentium 166MHz or higher processor,32 MB of RAM,Super VGA with 2 MB of video memory,,Microsoft® Windows® 95/98/Me/XP/NT 4.0 with service pack 5,0.2,0
 Age of Empires II - Gold Edition,Multimedia PC with Pentium 166MHz or higher processor,32 MB of RAM,Super VGA with 2 MB of video memory,,Microsoft® Windows® 95/98/Me/XP/NT 4.0 with service pack 5,0.2,0
@@ -420,7 +420,7 @@ Anno 1701,PIV 2.2 GHZ,512MB or more,Direct 3D compatible 64MB of Videocard with 
 Anno 1701,Pentium 4 3.0 GHZ or equivalent AMD,1 GB or more,Direct 3D compatible 256MB of Videocard with Sharder Model 2.0,Directx 9.0c,Windows 2000/XP,3.5,1
 Anno 1800,"Intel i5 3470, AMD FX 6350",8 GB RAM,"Nvidia GTX 670 - 2GB, AMD Radeon R9 270X - 2GB, Shader Model 5.0",Version 11,"Microsoft Windows 7, Windows 8.1 or Windows 10 (all 64-bit)",60,0
 Anno 1800,"Intel i5 4690k, AMD Ryzen 5 1400",8 GB RAM,"Nvidia GTX 970 - 4GB, AMD Radeon R9 290X - 4GB, Shader Model 5.1",Version 12,"Microsoft Windows 7, Windows 8.1 or Windows 10 (all 64-bit)",60,1
-Anno 2070,2 GHz Intel® Core™2 Duo or AMD Athlon™ 64 X2 or better ,2 GB (4 GB recommended) ,512 MB DirectX® 9.0c–compatible with Shader Model 3.0 or higher (see supported list)*,DirectX®: 9.0c ,Windows® XP / Windows Vista® / Windows® 7 ,5,0
+Anno 2070,2 GHz Intel® Core™2 Duo or AMD Athlon™ 64 X2 or better ,4 GB,512 MB DirectX® 9.0c–compatible with Shader Model 3.0 or higher (see supported list)*,DirectX®: 9.0c ,Windows® XP / Windows Vista® / Windows® 7 ,5,0
 Anno 2205,Intel Core i5 750 @ 2.6 GHz or AMD Phenom II X4 @ 3.2 GHz,4 GB RAM,nVidia GeForce GTX460 or AMD Radeon HD5870 (1024MB VRAM with Shader Model 5.0),11,Windows 7 SP1 or Windows 8.1 or Windows 10 (64bit versions),35,0
 Anno 2205,Intel Core i5 2400s @ 2.5 GHz or AMD FX 4100 @ 3.6,8 GB RAM,"nVidia GeForce GTX 680 or AMD Radeon HD7970 or better (2048MB VRAM or more, with Shader Model 5.0)",11,"Windows 7 SP1, Windows 8, Windows 10 (64 bit versions only)",35,1
 ANNO: Mutationem,Intel i3-4130 / AMD FX-4100,4 GB RAM,GeForce GTX 750 / Radeon HD 7750,Version 10,Windows 7 SP1 (64 bit),10,0
@@ -552,7 +552,7 @@ Armed to the Gears,Dual Core,2 GB RAM,Nvidia Optimus,Version 10,Windows 7,0.25,0
 Armed to the Gears,Quad Core,4 GB RAM,Nvidia GTX 1050,Version 12,Windows 10,0.25,1
 Armello,Dual-core 2.0 GHz,2 GB RAM,DirectX 10 class GPU with 512MB VRAM,Version 9.0c,Windows 7 (64-Bit),4,0
 Armello,Quad-core 2.5GHz,4 GB RAM,DirectX 11 class GPU with 1GB VRAM,Version 9.0c,Windows 7 or later (64-bit),4,1
-Armies of Exigo,1.5 GHz Intel Pentium processor or AMD Athlon processor equivalent,384 MB RAM (512 MB RAM needed for 3 or more players),Video card with 64 MB or more memory and with chipsets of NVIDIA GeForce 3 or greater or ATI Radeon 8500 or greater,DirectX(R) 9.0c or higher,Windows(R) XP/Me/2000/98 SE,1.5,0
+Armies of Exigo,1.5 GHz Intel Pentium processor or AMD Athlon processor equivalent,512 MB,Video card with 64 MB or more memory and with chipsets of NVIDIA GeForce 3 or greater or ATI Radeon 8500 or greater,DirectX(R) 9.0c or higher,Windows(R) XP/Me/2000/98 SE,1.5,0
 Armies of Exigo,2.8 GHz Intel Pentium processor or AMD Athlon processor equivalent,768 MB,Video card with 128 MB or more memory and with chipsets of NVIDIA GeForce 4 or greater or ATI Radeon 9600 or greater,DirectX(R) 9.0c or higher,Windows(R) XP/Me/2000/98 SE,1.5,1
 Armikrog,Pentium 4 or equivalent,2 GB RAM,(Any),Version 9.0c,Windows XP+,2,0
 ARMORED CORE VI FIRES OF RUBICON,Intel Core i7-4790K | Intel Core i5-8400 or AMD Ryzen 7 1800X | AMD Ryzen 5 2600,12 GB RAM,"NVIDIA GeForce GTX 1650, 4 GB or AMD Radeon RX 480, 4 GB",Version 12,"Windows 10, 64-bit",60,0
@@ -786,7 +786,7 @@ Backbone,Multi-core 1.8GHz or faster,4 GB RAM,Nvidia GTX 760 or equivalent,,Wind
 Backbone,Multi-core 2.5GHz or faster,8 GB RAM,Nvidia GTX 950 or equivalent,,Windows 7 (64-bit),1,1
 Backyard Baseball '09,Intel® Pentium® III processor 733 Mhz,128MB RAM or higher,32 MB Windows 2000/XP compatible SVGA video card*,DirectX 9.0c or higher*,"Windows 2000, Windows XP, Windows Vista",0.064,0
 Backyard Hockey 2005,Pentium® III 650MHz,128 MB RAM or higher,32 MB Windows® 98/98SE/Me/2000/XP-compatible 3D video card*,DirectX® version 9.0 (included) or higher,Windows® 98/98SE/Me/2000/XP,0.6,0
-Backyard Hockey 2005,Pentium® III 800 MHz recommended,256 MB RAM or higher for 2000/XP,32 MB Windows® 98/98SE/Me/2000/XP-compatible 3D video card*,DirectX® version 9.0 (included) or higher,Windows® 98/98SE/Me/2000/XP,0.6,1
+Backyard Hockey 2005,Pentium® III 800 MHz recommended,256 MB,32 MB Windows® 98/98SE/Me/2000/XP-compatible 3D video card*,DirectX® version 9.0 (included) or higher,Windows® 98/98SE/Me/2000/XP,0.6,1
 Bacon Man: An Adventure,2.0+ GHz multi-core processor,4 GB RAM,NVIDIA GeForce 470 GTX or AMD Radeon 6870 HD series card or higher,Version 11,Windows 7 64-bit,9,0
 Bacon Man: An Adventure,2.0+ GHz multi-core processor,4 GB RAM,NVIDIA GeForce 670 GTX or AMD Radeon 7950 HD series card or higher,Version 11,Windows 10 64-bit,9,1
 Bacon May Die,Intel or AMD Dual Core CPU,512 MB RAM,128MB,,Windows 7+,0.03,0
@@ -936,8 +936,8 @@ Battlefield Hardline,"Athlon II/Phenom II 2.8 GHz, Intel Core i3/i5 2.4GHz",4 GB
 Battlefield Hardline,"INTEL QUAD-CORE CPU, AMD SIX-CORE CPU",8 GB RAM,"3 GB VRAM, AMD Radeon R9 290, NVIDIA GeForce GTX 760",11,WINDOWS 8 64-BIT (with KB971512 Update),60,1
 Battlefield Heroes,1.0 GHz,1GB,64MB DirectX compliant video card with at least pixel shader 2.0 support,DirectX 9.0c,Windows XP or Windows Vista,1,0
 Battlefield Play4Free,Intel Pentium 4 1.7 GHz,1GB,"128 MB, Pixel shader 2.0, DirectX 9.0c",DirectX 9.0c,Windows XP or Windows Vista,1,0
-Battlefield Vietnam,933 Mhz CPU,256 Megabytes of RAM,3D accelerated GeForce3 64 MB or equivalent DirectX9 compatible videocard,Directx 9.0b,"Windows 98, Windows ME, Windows XP or Windows 2000",2,0
-Battlefield Vietnam,1.2 Ghz CPU,512 Megabytes of RAM,3D accelerated GeForce3 64 MB or equivalent DirectX9 compatible videocard,Directx 9.0b,"Windows 98, Windows ME, Windows XP or Windows 2000",2,1
+Battlefield Vietnam,933 Mhz CPU,256 MB,3D accelerated GeForce3 64 MB or equivalent DirectX9 compatible videocard,Directx 9.0b,"Windows 98, Windows ME, Windows XP or Windows 2000",2,0
+Battlefield Vietnam,1.2 Ghz CPU,512 MB,3D accelerated GeForce3 64 MB or equivalent DirectX9 compatible videocard,Directx 9.0b,"Windows 98, Windows ME, Windows XP or Windows 2000",2,1
 Battlefield: Bad Company 2,Core 2 Duo @ 2.0GHz,2GB,"GeForce 7800 GT / ATI X1900
 Graphics memory: 256MB",,Windows XP ,10,0
 Battlefield: Bad Company 2,Quadcore,2GB,"GeForce GTX 260 
@@ -1042,7 +1042,7 @@ Beyond a Steel Sky,Intel Core i3-2100 (3.1GHz) or AMD Phenom X4 945 (3.0GHz),4 G
 Beyond a Steel Sky,"Intel Core i5 3470, (3.20 Ghz) or AMD FX-8350, (4.00 Ghz)",6 GB RAM,Nvidia GeForce GTX 970 4GB or AMD Radeon R9 280X 3GB,Version 11,Windows 10 64-bit,20,1
 Beyond Blue,Intel Core i5-4460 / AMD FX-6300 @ 3.5 GHz or equivalent,8 GB RAM,NVIDIA GeForce GTX 730 or AMD R9 270,Version 11,Windows 10 x64,10,0
 Beyond Eyes,Intel Core i5-3570K @ 3.4 GHz or AMD FX-6350,4 GB RAM,GeForce GTS 450 / Radeon HD 6770,Version 11,Windows 7,1,0
-Beyond Good and Evil,"700 MHz Pentium® III, Celeron®, or AMD Athlon™ (1 GHz recommended)","64 MB minimum, 128 MB recommended (256 MB recommended for XP)","DirectX® 9-compatible 32 MB video card (specific cards supported: ATI® Radeon™ 9700 and Pro, ATI Radeon 9000 and Pro, GeForce™ 4 Ti 4600/Ti 4400/MX 460/MX 440, GeForce3 and Ti500, GeForce2 GTS/MX400/MX)",DirectX 9.0,Windows® 2000/XP (only),2.2,0
+Beyond Good and Evil,"700 MHz Pentium® III, Celeron®, or AMD Athlon™ (1 GHz recommended)",256 MB,"DirectX® 9-compatible 32 MB video card (specific cards supported: ATI® Radeon™ 9700 and Pro, ATI Radeon 9000 and Pro, GeForce™ 4 Ti 4600/Ti 4400/MX 460/MX 440, GeForce3 and Ti500, GeForce2 GTS/MX400/MX)",DirectX 9.0,Windows® 2000/XP (only),2.2,0
 Beyond Protocol,1.6 GHz CPU (Celeron 2.0 GHz),2GB,128 MB DirectX 9.0c compliant video card (NVIDIA GeForce FX+ / ATI Radeon 8500+ / Intel 965+),DirectX 9.0c,Windows 2000 / XP / Vista,1,0
 Beyond Protocol,2 GHz Dual Core Processor,2GB,256 MB DirectX 9.0c compliant video card (NVIDIA GeForce FX+ / ATI Radeon 9500+),DirectX 9.0c,Windows 2000 / XP / Vista,1,1
 Beyond Sol,Intel Core2 Duo 2.0 GHz (or equivalent),2048 MB RAM,NVIDIA GeForce 8800GT / ATI Radeon HD 3870,Version 9.0c,Win Vista /Win 7/Win 8,2.0,0
@@ -1514,7 +1514,7 @@ Call of Duty: Black Ops 4,Intel Core i3-4340 / AMD FX-6300,8 GB RAM,GeForce GTX 
 Call of Duty: Black Ops 4,Intel i5-2500K / Ryzen R5 1600X,12 GB RAM,GeForce GTX 970 4GB / GTX 1060 6GB or Radeon R9 390 / AMD RX 580,Version 11.0 compatible video card or equivalent,Windows 10 (64-bit),25,1
 Call of Duty: Black Ops Cold War,Intel Core i3-4340 or AMD FX-6300,8GB RAM,NVIDIA GeForce GTX 670 / GeForce GTX 1650 or Radeon HD 7950,DirectX 12.0 compatible system,Windows 7 64-Bit (SP1) or Windows 10 64-Bit (v.1803 or higher),50,0
 Call of Duty: Black Ops Cold War,Intel Core i5-2500K or AMD Ryzen R5 1600X processor,12GB RAM,NVIDIA GeForce GTX 970 / GTX 1660 Super or Radeon R9 390 / AMD RX 580,DirectX 12.0 compatible system,Windows 10 64 Bit (latest update),175,1
-Call of Duty: Black Ops II,Intel Core2 Duo E8200 2.66 GHz or AMD Phenom X3 8750 2.4 GHz,2GB for 32-bit OS or 4GB for 64-bit OS,Nvidia GeForce 8800GT 512 MB or ATI Radeon HD 3870 512 MB,DX10,Windows Vista SP2 or Windows 7,,0
+Call of Duty: Black Ops II,Intel Core2 Duo E8200 2.66 GHz or AMD Phenom X3 8750 2.4 GHz,4 GB,Nvidia GeForce 8800GT 512 MB or ATI Radeon HD 3870 512 MB,DX10,Windows Vista SP2 or Windows 7,,0
 Call of Duty: Black Ops III,Intel Core i3-530 @ 2.93 GHz / AMD Phenom™ II X4 810 @ 2.60 GHz,6 GB RAM,GeForce GTX 470 @ 1GB / Radeon HD 6970 @ 1GB,Version 11,Windows 7 64-Bit / Windows 8 64-Bit / Windows 8.1 64-Bit,100,0
 Call of Duty: Ghosts,Intel® Core™ 2 Duo E8200 2.66 GHZ / AMD Phenom™ X3 8750 2.4 GHZ or better,6 GB RAM,NVIDIA® GeForce® GTS 450 / ATI® Radeon™ HD 5870 or better,DirectX 11,Windows 7 64-Bit / Windows 8 64-Bit,40,0
 Call of Duty: Ghosts,Intel® Core™ i5-680 @ 3.6GHz,8 GB RAM,NVIDIA® GeForce™ GTX 760 @ 4GB,DirectX 11,Windows 7 64-Bit / Windows 8 64-Bit,40,1
@@ -1539,7 +1539,7 @@ Call of Duty: Warzone 2.0,Intel® Core™ i5-6600K / Core™ i7-4770 or AMD Ryze
 Call of Duty: World at War,Intel(R) Pentium(R) 4 3.0 GHz or AMD(R) Athlon(TM) 64 3200+ processor or better supported,1GB,Nvidia 6600GT/ATI Radeon 1600XT or higher (Shader 3.0 or better) with 256MB memory ,Microsoft DirectX(R) 9.0c (included),Microsoft(R) Windows(R) XP or Windows Vista(R) (Windows 95/98/ME/2000 are unsupported),8,0
 Call of Duty: WWII,Intel® Core™ i3 3225 3.3 GHz or AMD Ryzen™ 5 1400,8 GB RAM,NVIDIA® GeForce® GTX 660 @ 2 GB / GTX 1050 or ATI® Radeon™ HD 7850 @ 2GB / AMD RX 550,Version 11,Windows 7 64-Bit or later,90,0
 Call of Duty: WWII,Intel® Core™ i5-2400 / AMD Ryzen R5 1600X,12 GB RAM,NVIDIA® GeForce® GTX 970 / GTX 1060 @ 6GB or AMD Radeon™ R9 390 / AMD RX 580,Version 11,Windows 7 64-Bit or later,90,1
-Call of Juarez,"2.2 GHz Pentium® 4, AMD Athlon™ 2400+, or 2.4 GHz Celeron or better (3 GHz Pentium 4, AMD Athlon 3000+, or 3 GHz Celeron or better recommended)",512 MB RAM (1 GB recommended),"nVidia: GF6600, ATI: Radeon 9800 or better video card*",DirectX 9.0c or higher,Windows® 2000/XP (only),2,0
+Call of Juarez,"2.2 GHz Pentium® 4, AMD Athlon™ 2400+, or 2.4 GHz Celeron or better (3 GHz Pentium 4, AMD Athlon 3000+, or 3 GHz Celeron or better recommended)",1 GB,"nVidia: GF6600, ATI: Radeon 9800 or better video card*",DirectX 9.0c or higher,Windows® 2000/XP (only),2,0
 Call of Juarez: Bound in Blood,"Intel Pentium 4 3.2 GHz Intel Pentium D 2.66 Ghz, AMD Athlon 64 3500 +",2GB,"Graphics card with 256 MB RAM, compatible with DirectX 10.0 or DirectX 9.0c with Shader Model 3.0 - supported cards: NVIDIA GeForce 6800/7600-7950/8600-8800/9600-9800/GTX 260-280, ATI RADEON X1650 - 1950/HD 2400-2900/3650-3870/4650-4870",DirectX 10.0 or DirectX 9.0c,Windows XP (with SP3) / Windows Vista (with SP1),4,0
 Call of Juarez: Gunslinger,2 GHz Intel® Core™2 Duo or 2 GHz AMD Athlon™ 64 X2,2 GB RAM,512 MB DirectX® 9.0c–compliant,9.0c,Windows® XP (SP3) / Windows Vista® (SP2) / Windows® 7 (SP1) / Windows® 8,5,0
 Call of Juarez: Gunslinger,3 GHz Intel® Core™2 Duo or 3 GHz AMD Athlon™ 64 X2 or better,4 GB RAM,1024 MB DirectX 10–compliant or higher,10,Windows® 7 (SP1),5,1
@@ -1814,7 +1814,7 @@ Cloud Chasers - Journey of Hope,2GHz Dual Core (SSE2 instruction set support),4 
 Cloud Gardens,2.4GHz Dual Core,1 GB RAM,512 MB NVIDIA GeForce 9800 / ATI Radeon HD 2600 XT,Version 10,"Windows 8+, 64-bit",0.3,0
 Cloud Pirates,Intel Core 2 Duo 2.1 GHz,2 GB RAM,"NVIDIA GeForce 8600 GT, 256 MB",Version 9.0c,Windows XP Service Pack 3 or newer,2,0
 Cloud Pirates,Intel Core 2 Quad 2.2 GHz,4 GB RAM,"NVIDIA GeForce GTS 250, 512 MB",Version 9.0c,Windows 7 Service Pack 1 or newer,2,1
-Cloudberry Kingdom,2.0 GHz Intel® Core™2 Duo E4400 or 2.0 GHz AMD Athlon™ 64 X2 3800+ or better ,1 GB RAM (2 GB or greater recommended) ,256 MB DirectX® 9.0c–compliant with Shader Model 4.0 or higher (see supported list)*,DirectX 9.0c,Windows® XP (SP3) / Windows Vista® (SP2) / Windows® 7 (SP1) / Windows® 8,0.75,0
+Cloudberry Kingdom,2.0 GHz Intel® Core™2 Duo E4400 or 2.0 GHz AMD Athlon™ 64 X2 3800+ or better ,2 GB,256 MB DirectX® 9.0c–compliant with Shader Model 4.0 or higher (see supported list)*,DirectX 9.0c,Windows® XP (SP3) / Windows Vista® (SP2) / Windows® 7 (SP1) / Windows® 8,0.75,0
 Cloudbuilt,2GHz Intel Dual Core processor,2 GB RAM,512 MB OpenGL 3.2 compatible card,,Windows 7,3,0
 Cloudbuilt,Intel Core i5 (or better),4 GB RAM,Nvidia Geforce 560 Ti (or ATI equivalent),,Windows 7,3,1
 Cloudpunk,AMD / Intel CPU (AMD FX-4300 or Intel i3-4130 or newer),8 GB RAM,"AMD / NVIDIA dedicated graphics card, with at least 2GB of dedicated VRAM and Shader Model 5.1 support (AMD R9 285 and NVIDIA GeForce GTX 760 or newer)",Version 11,Windows 7/10 (64 bit),7,0
@@ -1823,7 +1823,7 @@ Cloudy with a Chance of Meatballs,Pentium 4 / Athlon XP equivalent to 2Ghz,1GB,6
 Cloudy with a Chance of Meatballs,Pentium 4 / Athlon 64 equivalent to 2.8Ghz,2GB,128MB – 128Bit bus width DirectX 9.0c compatible video cards,DirectX 9.0c,Windows XP SP3 / Vista SP1,3.5,1
 Club Manager 2017,1.0 GHz Intel Single-Core Processor,512 MB RAM,3D-video card with 32 MB RAM,Version 8.0,Windows 8,2,0
 Club Manager 2017,2.0 GHz Intel Single-Core Processor,2 GB RAM,3D-video card with 512 MB RAM,Version 11,Windows 10,2,1
-Clustertruck,2Ghz,4 GB RAM (Recommended: 8 GB RAM),"Dedicated recommended, integrated will run at 720p",Version 9.0c,Windows 7,0.5,0
+Clustertruck,2Ghz,8 GB,"Dedicated recommended, integrated will run at 720p",Version 9.0c,Windows 7,0.5,0
 Clutch,Pentium IV 2.5 / AMD Athlon 2800+,512 МB RAM,"9.0s DirectX-compatible video card with 128 MB of memory, supports shader model 2",DirectX 9.0c,Microsoft Windows XP/Vista,1,0
 Cobalt,"1,5 GHz or faster processor",2 GB RAM,1GB VRAM,,"Windows 7, 8 or 10",2,0
 COCOON,Intel Core i7-2600 or AMD FX-8350,6 GB RAM,"NVIDIA GeForce GTX 1050, 4 GB or AMD Radeon R9 380, 4 GB",,Windows 10 (64-bit),,0
@@ -1948,7 +1948,7 @@ Condemned: Criminal Origins,Pentium 4/Athlon XP or better 2.4GHz,768MB,256 MB DX
 Confederate Express,3.2 GHz Quad-Core i7,8 GB RAM,"GTX 670 2GB VRAM, OpenGL 4.5",,7,2,0
 Confederate Express,3.7 GHz Quad-Core i7,16 GB RAM,"GTX 680 4GB VRAM, OpenGL 4.5",,10,2,1
 Conflict: Denied Ops,"2.0 Ghz Intel Pentium 4, AMD Athlon XP or equivalent processor",1 GB,128mb Direct X 9.0c card with full Shader 3.0 support,DirectX 9.0c,Microsoft Windows 2000/ Microsoft Windows XP/ Microsoft Windows Vista (admin rights required) 95/98/ME/NT4 no longer supported,7,0
-Conflict: Denied Ops,Intel Core 2 Duo / Athlon 64 X2 or Equivalent Multi-core CPU,2 GB system Memory (required for 8-player multiplayer games),256mb Direct X 9.0c card with full Shader 3.0 support (NVIDIA 7900GS or better),Direct X 9.0c,Microsoft Windows 2000/ Microsoft Windows XP / Microsoft Windows Vista (admin rights required) 95/98/ME/NT not supported.,7,1
+Conflict: Denied Ops,Intel Core 2 Duo / Athlon 64 X2 or Equivalent Multi-core CPU,2 GB,256mb Direct X 9.0c card with full Shader 3.0 support (NVIDIA 7900GS or better),Direct X 9.0c,Microsoft Windows 2000/ Microsoft Windows XP / Microsoft Windows Vista (admin rights required) 95/98/ME/NT not supported.,7,1
 Conflict: Desert Storm,Pentium III 450MHz Processor,128MB RAM,32MB DirectX compatible Video Card,DirectX 8.1,Windows 98/2000/ME/XP,0.93,0
 Conflict: Desert Storm,Pentium 4 1000MHz Processor,128MB RAM,64MB GeForce 4 Video Card,DirectX 8.1,Windows 98/2000/ME/XP,0.93,1
 Confrontation,AMD/INTEL DUAL-CORE 2.0 GHZ ,2048 MB ,256 MB 100% DIRECTX 9 AND SHADERS 3.0 COMPATIBLE. ATI RADEON HD 2600 XT/NVIDIA GEFORCE 7900 GTX OR HIGHER. ,9.0c,WINDOWS XP SP3/WINDOWS VISTA SP2/WINDOWS 7,4,0
@@ -2029,7 +2029,7 @@ Costume Quest,1.4 GHz dual core CPU 	,1 GB RAM	,(Any),,Windows XP SP3	,,0
 Costume Quest,2.2 GHz dual core CPU	,1 GB RAM		,(Any),,Windows 7	,,1
 Costume Quest 2,1.8 GHz dual core CPU,4 GB RAM,"256 MB GeForce 8800, Radeon 3850, or Intel HD 3000 Graphics",Version 9.0c,Windows Vista,1.5,0
 Costume Quest 2,"Intel Core 2 Duo at 2.2 GHz, or AMD Athlon 64 at 2.2 GHz",4 GB RAM,"512 MB GeForce 220, Radeon 4550, Intel HD 4000 Graphics",Version 9.0c,Windows 7,1.5,1
-Counter Terrorist Agency,"Intel Core i3 3.2 GHz, AMD Phenom II X4 955 - 4 Core, 3.2 GHz",4 GB RAM (Recommended: 8 GB RAM),GeForce GTX 560 / Radeon HD6870,Version 11,Windows 7 / 8 / 10,4,0
+Counter Terrorist Agency,"Intel Core i3 3.2 GHz, AMD Phenom II X4 955 - 4 Core, 3.2 GHz",8 GB,GeForce GTX 560 / Radeon HD6870,Version 11,Windows 7 / 8 / 10,4,0
 Counter-Strike,500 mhz processor,96mb ram,16mb video card,,Windows XP,,0
 Counter-Strike,800 mhz processor,128mb ram,32mb+ video card,,Windows XP,,1
 Counter-Strike 1 Anthology,Intel or AMD 500Mhz,96Mb Ram,PCI/AGP 16Mb,,Windows 98/2000/ME/XP,0.5,0
@@ -2120,7 +2120,7 @@ Cross Fire - Rival Factions,Pentium 4 - 1.5GHz ,512mb ,GeForce 5600 or equivalen
 Cross Fire - Rival Factions,Pentium 4 - 2 GHz ,1GB or higher,GeForce 6600 or equivalent class ,9.0 C or later ,"Windows XP, Windows Vista and Windows 7",1.2,1
 Cross of the Dutchman,Core 2 Duo,2 GB RAM,NVIDIA GeForce 8600 or better,,Windows Vista,1,0
 Cross of the Dutchman,Core i5,4 GB RAM,NVIDIA GeForce GTX 460,,Windows 8.1,1,1
-Cross Racing Championship 2005,Pentium IV 1.4 GHz or AMD 1.4 GHz CPU,256MB Ram (512 for XP),NVIDIA GeForce 2 MX 400 or ATI Radeon 8500,,"Windows 98, 2000, XP, Windows Vista, Windows 7",0.7,0
+Cross Racing Championship 2005,Pentium IV 1.4 GHz or AMD 1.4 GHz CPU,512 MB,NVIDIA GeForce 2 MX 400 or ATI Radeon 8500,,"Windows 98, 2000, XP, Windows Vista, Windows 7",0.7,0
 Cross Racing Championship 2005,Pentium IV 2.2 GHz or AMD 2.2 GHz CPU,512MB Ram,"NVIDIA 4200, 4600, 5600 or better
 or ATI RADEON 9500 or better",,"Windows 98, 2000, XP, Windows Vista, Windows 7",0.7,1
 CrossCode,2 GHz dual core,2 GB RAM,"Hardware Accelerated Graphics with dedicated memory, 1GB memory recommended",,Windows XP,,0
@@ -2179,7 +2179,7 @@ Crystal Rift,Dual Core 2.33 GHz Intel or 3.0 GHz AMD,2 GB RAM,"Geforce GTX 8800,
 Crystal Rift,Quad Core 2.66 Ghz Intel or 3.2 GHz AMD,4 GB RAM,Geforce GTX 660 Ti or AMD Radeon 6850 or better (1GB graphics memory or more. Shader Model 3.0 needs to be supported).,Version 10,Windows 8+,2,1
 CSI 4: Hard Deviance,1.5 GHz Pentium IV vagy AMD Athlon,256 MB,32MB DirectX 8.1-compatible NVIDIA GeForce 2/3/4/FX/6/7/8 or ATI RADEON 9000/X video card ,DirectX 9.0c or higher (on the disk),"Windows 2000, Windows XP, Windows Vista ",3.5,0
 CSI 4: Hard Deviance,2 GHz Pentium IV or AMD Athlon,512 MB,64MB DirectX 8.1-compatible NVIDIA GeForce 2/3/4/FX/6/7/8 or ATI RADEON 9000/X video card ,DirectX 9.0c or higher (on the disk),"Windows 2000, Windows XP, Windows Vista ",3.5,1
-CSI: Crime Scene Investigation,Pentium® II 300 / AMD K6-III 450 ,128 MB RAM (256 MB recommended for Win 2000 & Win XP) ,8 MB DirectX® 8.1-compatible graphics card ,DirectX 8.1 (included with product) ,Windows® 98/ME/2000/XP (only) ,0.5,0
+CSI: Crime Scene Investigation,Pentium® II 300 / AMD K6-III 450 ,256 MB,8 MB DirectX® 8.1-compatible graphics card ,DirectX 8.1 (included with product) ,Windows® 98/ME/2000/XP (only) ,0.5,0
 CSI: Crime Scene Investigation,Pentium III 500 / AMD K6-III 600 ,512 MB ,16 MB DirectX 8.1-compatible hardware-accelerated 3D graphics card ,DirectX 8.1 (included with product) ,Windows 98/ME/2000/XP (only) ,1.5,1
 Cthulhu: Books of Ancients,i3,8 GB RAM,NVidia,Version 11,Win7 (64-bit),5,0
 Cthulhu: Books of Ancients,i7,16 GB RAM,NVidia GeForce 960,Version 11,Windows 10 (64-bit),8,1
@@ -2234,7 +2234,7 @@ Dancing with the Stars: The PC Game,Pentium® 4 1.3GHz,512 MB RAM,"64 MB DirectX
 Dandara,1.8 GHz Processor,4 GB RAM,"Nvidia GeForce GT 220, Radeon HD 8400",,Microsoft® Windows® XP,1,0
 Danganronpa 2: Goodbye Despair,2.8 GHz Intel Core 2 Duo or better,3 GB RAM,OpenGL 3.2 compatible GPU with at least 1GB of VRAM,Version 9.0c,Windows 7,5,0
 Danganronpa 2: Goodbye Despair,Intel(R) Core(TM) i5-3470 or better,4 GB RAM,OpenGL 3.2 compatible GPU with at least 1GB of VRAM,Version 9.0c,Windows 7,6,1
-Danganronpa Another Episode: Ultra Despair Girls,Intel Core i3-530 CPU 2.93GHz or above,4 GB RAM (Recommended: 8 GB RAM),NVIDIA GeForce GTX650 1GB or AMD HD 7700 1GB(DirectX 11 graphic card required),Version 11,Windows 7,12,0
+Danganronpa Another Episode: Ultra Despair Girls,Intel Core i3-530 CPU 2.93GHz or above,8 GB,NVIDIA GeForce GTX650 1GB or AMD HD 7700 1GB(DirectX 11 graphic card required),Version 11,Windows 7,12,0
 Danganronpa V3: Killing Harmony,Intel Core i3-4170 @ 3.70GHz,4 GB RAM,NVIDIA@ GeForce@ GTX 460 or better,Version 11,Windows 7 64-bit,26,0
 Danganronpa V3: Killing Harmony,Intel Core i5-4690K @3.50GHz,8 GB RAM,NVIDIA@ GeForce@ GTX 960,Version 11,Windows 7 64-bit,26,1
 Danganronpa: Trigger Happy Havoc,2.8 GHz Intel Core 2 Duo or better,3 GB RAM,OpenGL 3.2 or DirectX 9.0c compatible GPU with at least 1GB of VRAM,Version 9.0c,Windows 7,5,0
@@ -2698,7 +2698,7 @@ Devotion,Intel Core i5,8 GB RAM,NVIDIA GeForce GTX 960,Version 11,"Windows 7/8/1
 Dex,"Intel Pentium/AMD, 2.0 GHz or faster",1536 MB RAM,NVIDIA® GeForce® 8800 / ATI™ Radeon™ 2600 or better,Version 9.0c,Microsoft Windows XP (SP2 or newer) / Vista / 7 / 8 / 10,8,0
 Dex,"Intel i5, 2.4 GHz",4 GB RAM,NVIDIA® GeForce® GT 650M / AMD™ Radeon™ HD 5770 or better,Version 9.0c,Microsoft Windows 8.1 or newer,8,1
 DGU,"Quad-core Intel or AMD, 2.5 GHz or faster",8 GB RAM,NVIDIA GeForce 470 GTX or AMD Radeon 6870 HD series or higher,Version 10,windows 7/8 64 bit,,0
-Diablo,Pentium-60,8MB RAM (16MB for Multiplayer),SVGA Video Card,,Windows 95,,0
+Diablo,Pentium-60,16 MB,SVGA Video Card,,Windows 95,,0
 Diablo II,Pentium® 233 or equivalent,32 MB RAM,DirectX™ compatible video card,,"Windows® 2000*, 95, 98, or NT 4.0 Service Pack 5",0.65,0
 Diablo II,Pentium® 233 or equivalent,64 MB RAM,DirectX™ compatible video card,,"Windows® 2000*, 95, 98, or NT 4.0 Service Pack 5",0.95,1
 Diablo II: Resurrected,Intel® Core i3-3250/AMD FX-4350,8 GB RAM,Nvidia GTX 660/AMD Radeon HD 7850,,Windows® 10,30,0
@@ -2739,7 +2739,7 @@ Dinkum,Intel Core i3,4 GB RAM,"NVIDIA GTX 560, AMD Radeon HD 6970",Version 9.0c,
 Dino D-Day,Pentium 4 3.0 GHz,1 GB,"128 MB, Shader model 2.0, ATI 9600, NVidia 6600 or better ",,Windows XP/Vista/7,5,0
 Dino Dini's Kick Off Revival,Dual Core CPU,,Dedicated Graphic Card,,"Windows 7, 8, 10",,0
 Dino Eggs: Rebirth,2 GHz Intel Core2 Duo or equivalent,1 GB RAM,Shader Model 1.1 or greater compatible graphics card with 256 MB video memory,Version 9.0c,Windows XP SP3 / Windows Vista / Windows 7 / Windows 8 / Windows 10,0.4,0
-Dinocide,Dual Core 1.6GHz or equivalent,1 GB RAM (Recommended: 2 GB RAM),"128MB of Video Memory, capable of Shader Model 2.0+; generally everything made since 2004 should work",Version 9.0c,Windows XP/Vista/7/8/10,0.3,0
+Dinocide,Dual Core 1.6GHz or equivalent,2 GB,"128MB of Video Memory, capable of Shader Model 2.0+; generally everything made since 2004 should work",Version 9.0c,Windows XP/Vista/7/8/10,0.3,0
 Diplomacy is Not an Option,Intel Core i5-6400 / AMD X8 FX-8300,6 GB RAM,GeForce GTX 960 / AMD Radeon R9 280,Version 11,"Windows 7, 8, 10, 64 bit",2,0
 Diplomacy is Not an Option,Intel Core i5-7400 / AMD Ryzen 3 2300X,8 GB RAM,GeForce GTX 1060 / AMD Radeon RX 480,Version 11,"Windows 7, 8, 10, 64 bit",2,1
 DiRT (Colin McRae),Pentium 4 @ 3.0GHz or Athlon 64 3.0GHz,1 GB,GeForce 6800/Radeon X1300 or better with Shader 3.0 Support,DirectX 9.0c,Windows XP,12.5,0
@@ -2765,8 +2765,8 @@ Dirty Bomb,2.0 GHz Quad Core or better,4 GB RAM,2GB - GeForce 710 or better,Vers
 Disc Jam,Intel Core i3-4160 @ 3.60GHz,4 GB RAM,"NVIDIA® GeForce® GTX 480, GTX 570, GTX 670, or better",Version 11,Windows 7,,0
 Disc Room,Intel Core i3-4160 (2 * 3600) or equivalent,4 GB RAM,GeForce GT 730 (2048 MB),,"Windows 7, 8.1, 10 x64",1,0
 Disc Room,Intel Core i5-2500K (4 * 3300) or equivalent,8 GB RAM,GeForce GTX 960 (4096 MB),,"Windows 7, 8.1, 10 x64",1,1
-Disciples III: Renaissance,AMD 3000+ or Intel Pentium 2 Ghz,512 megabytes,"ATI Radeon 9600 or NVidia (DirectX compatible), 128 megabytes",,Windows XP / Vista,4,0
-Disciples III: Renaissance,AMD 4800+ or Intel Core 2 Duo 2600,1 gigabytes,"ATI Radeon X1900 or NVidia GeForce 7600 (DirectX compatible), 256 megabytes",,Windows XP / Vista,4,1
+Disciples III: Renaissance,AMD 3000+ or Intel Pentium 2 Ghz,512 MB,"ATI Radeon 9600 or NVidia (DirectX compatible), 128 megabytes",,Windows XP / Vista,4,0
+Disciples III: Renaissance,AMD 4800+ or Intel Core 2 Duo 2600,1 GB,"ATI Radeon X1900 or NVidia GeForce 7600 (DirectX compatible), 256 megabytes",,Windows XP / Vista,4,1
 Disciples: Liberation,Intel Core i5-6402P or AMD Ryzen 1300X,8 GB RAM,NVIDIA GeForce GTX 960 4 GB or AMD Radeon R9 380 4 GB,Version 11,Windows 10 64-bit,8,0
 Disciples: Liberation,Intel Core i5-7600K or AMD Ryzen 1700,16 GB RAM,NVIDIA GeForce GTX 1660 Ti 6 GB or AMD Radeon RX 590 6 GB,Version 11,Windows 10 64-bit,8,1
 Disco Elysium,Intel Core 2 Duo,2 GB RAM,DirectX 11 compatible video card (integrated or dedicated with min 512MB memory),Version 11,"Windows 7, 64-bit",20,0
@@ -2986,7 +2986,7 @@ Dreamfall: The Longest Journey,Intel Pentium 4 2.5 GHz or AMD Athlon XP 3500+,1 
 Dreamkiller,2.4 GHz Dual Core Processor (Intel Core 2 Duo or AMD Athlon X2),2GB,3D Hardware Accelerator Card Required – 100% DirectX 9.0c compatible 256 MB Video Memory with Shader 3.0 support | ATI: Radeon HD 2600 | Nvidia: Geforce 7600,DirectX 9.0c,"Windows XP SP3, Windows Vista SP2, Windows 7 (Does not support Windows 95/98/ME/2000/NT)",10.1,0
 Dreamkiller,Intel Core 2 Duo 2.8 GHz or AMD Athlon X2 Dual-Core 5200+,2 GB RAM,512 MB 3D Hardware Accelerator Card | ATI: Radeon HD 3870 | Nvidia: Geforce 8800 GT,DirectX 9.0c,"Windows XP SP3, Windows Vista SP2, Windows 7 (Does not support Windows 95/98/ME/2000/NT)",10.1,1
 Dreamlords - The Reawakening,1.4 Ghz Intel P4 or equivalent,256 MB RAM,64 MB NVIDIA Geforce 3/ATI Radeon 8500 series or equivalent with Pixel Shader 1.1 support,Direct X 9.0c,Microsoft Windows XP,1.5,0
-Dreamlords - The Reawakening,2.4 Ghz Intel P4 or equivalent,At least 512 MB RAM,Geforce 5 series/ATI Radeon 9800 or equivalent with Pixel Shader 2.0 support,Direct X 9.0c,Microsoft Windows XP,1.5,1
+Dreamlords - The Reawakening,2.4 Ghz Intel P4 or equivalent,512 MB,Geforce 5 series/ATI Radeon 9800 or equivalent with Pixel Shader 2.0 support,Direct X 9.0c,Microsoft Windows XP,1.5,1
 Dreamscaper,Intel Core i3,3 GB RAM,GeForce GT 640,Version 10,Windows 7 64-bit,6,0
 Dreamscaper,Intel Core i5,4 GB RAM,GeForce GTX 970,Version 10,Windows 10 64-bit,6,1
 DreamWorks Dragons: Dawn of New Riders,Intel Core 2 Quad Q6600 (2.4 GHz) or AMD equivalent,4 GB RAM,GeForce GT 430 (1024 MB)/ Radeon HD 6850 (1024 MB),Version 9.0c,7 / 8 / 10,3,0
@@ -3417,7 +3417,7 @@ Euro Truck Simulator,Processor 2.4 GHz Intel Pentium 4 or equivalent,1GB,"128 MB
 Euro Truck Simulator,Processor 3.0 GHz Intel Pentium 4 or equivalent,2GB,"256 MB video card: GeForce 6 or better, ATI Radeon 9800 or better",DirectX 9.0,Windows XP or Windows Vista,0.6,1
 Euro Truck Simulator 2,Dual core CPU 2.4 GHz,4 GB RAM,GeForce GTS 450-class (Intel HD 4000),DirectX 9.0c,Windows 7,12,0
 Euro Truck Simulator 2,Quad core CPU 3.0 GHz,6 GB RAM,GeForce GTX 760-class (2 GB),DirectX 9.0c,Windows 7/8.1/10 64-bit,12,1
-Europa Universalis III,1.9GHz Intel Pentium 4 or AMD Athlon processor or equivalent ,512 MB RAM (1.0 GB RAM is highly recommended),128MB Video Card with Hardware T&L and support for Pixelshader 2.0 or better,DirectX9.0c,Windows® 2000 (with Service pack 1 or higher) or Windows® XP (Home/Professional/Media Edition) with Service Pack 2,1,0
+Europa Universalis III,1.9GHz Intel Pentium 4 or AMD Athlon processor or equivalent ,1 GB,128MB Video Card with Hardware T&L and support for Pixelshader 2.0 or better,DirectX9.0c,Windows® 2000 (with Service pack 1 or higher) or Windows® XP (Home/Professional/Media Edition) with Service Pack 2,1,0
 Europa Universalis IV,Intel® Core™ i3-2105 / AMD® FX 4300	,4 GB RAM	,Nvidia® GeForce™ GTX 460 / AMD® Radeon™ HD 5850,9.0c,Windows® 8.1 64 bit	,6,0
 Europa Universalis IV,Intel® Core™ i3-3240 / AMD® FX 8120	,8 GB RAM	,Nvidia® GeForce™ GTX 560 Ti,9.0c ,Windows® 10 Home 64 bit	,6,1
 Europa Universalis: Rome,1.9 GHz Processor,512 MB,128 MB DirectX 9.0c compatible video card & support for pixelshader 2.0,,Microsoft Windows XP/2000/Vista,,0
@@ -3746,7 +3746,7 @@ Fieldrunners 2,Dual-core 2.4 GHz,2 GB RAM,"OpenGL 1.1 compliant with 512 MB of v
 Fiends of Imprisonment,Intel dual core 2.0 Ghz,1 GB RAM,HD 5670,Version 9.0c,Windows XP,0.5,0
 Fiends of Imprisonment,Dual Core 3.0 GHz,1 GB RAM,HD 5670 or better,Version 11,Windows 7,0.5,1
 FIFA 07,"1.3 GHz or faster
-",256MB RAM (512 MB recommended),DirectX 9.0c Compatible 3D accelerated 64 MB video card or equivalent,DirectX 9.0c ,"Windows XP SP2 or Windows 2000 SP4
+",512 MB,DirectX 9.0c Compatible 3D accelerated 64 MB video card or equivalent,DirectX 9.0c ,"Windows XP SP2 or Windows 2000 SP4
 Note that Windows 95, Windows 98, Windows ME and Windows NT 4.0 are not supported.",1.17,0
 FIFA 08,1.3 GHz Intel Pentium III or equivalent processor,512 MB RAM,64 MB (AGP/PCI-E)*,"Direct-x 9 or higher installed.
 ","Windows 2000/XP, executable on Microsoft Windows Vista",4.5,0
@@ -3763,7 +3763,7 @@ Intel Core 2 Duo @ 1.8Ghz on Windows XP / Windows Vista / Windows 7",2GB,"Direct
 NVIDIA GeForce® 6800 or greater
 ATI Radeon X1600 or greater",DirectX® 9.0c,"Windows XP SP2, Windows Vista, Windows 7
 Note that Windows 95, Windows 98, Windows 2000, Windows ME, and Windows NT 4.0 are not supported. ",,0
-FIFA 11,Core 2 Duo 2.4 Ghz ,2 Gigabyte of RAM,8800GT or a Radeon HD3870,DirectX® 9.0c,"Windows XP SP2, Windows Vista, Windows 7
+FIFA 11,Core 2 Duo 2.4 Ghz ,2 GB,8800GT or a Radeon HD3870,DirectX® 9.0c,"Windows XP SP2, Windows Vista, Windows 7
 Note that Windows 95, Windows 98, Windows 2000, Windows ME, and Windows NT 4.0 are not supported. ",,1
 FIFA 12,"CPU with Dual core processor (Core duo 2 or better), Intel Core2Duo @ 1.8Ghz",2GB,"ATI Radeon™ HD 3600, NVIDIA GeForce 6800 GT, Intel’s Sandy Bridge (HD Graphics 2000) and Ivy Bridge (HD Graphics 3000)
 DirectX® 9.0c Compatible 3D accelerated 256 MB video card or equivalent (must support Shader Model 3.0 or above)",DirectX® 9.0c,"Windows® XP SP2, Windows® Vista, Windows® 7 *",8,0
@@ -3805,11 +3805,11 @@ FIFA Online 2,"PENTIUM 3 1.3GHZ or equivalent
 ",DirectX 9.0c or better,Windows 2000 SP4,2,0
 FIFA Online 2,PENTIUM 4 1.8GHZ or equivalent,1024MB ,DirectX 9.0c compatible card with 64 MB or more video memory and one of the following chipsets: ATI Radeon 9600 or better; NVIDIA GeForce FX 5200 or better,DirectX 9.0c or better,Windows XP,2,1
 FIFA World,CPU with Intel Core2 Quad Q6600 @ 2.4GHz / Athlon II X4 600e @ 2.2GHz,4GB,"Shader 3.0, GeForce 8800 GT / Radeon HD 3870",DirectX 9.0c,Windows XP SP3 / Windows Vista / Windows 7,3.96,1
-FIFA World Cup 2006,1.3 GHz Intel Pentium III or equivalent (Athlon/Duron/Celeron),256MB RAM or more (512 MB recommended) ,"DirectX 9.0c compatible Video card with 32 MB or more memory and one of these chipsets are required: ATI Radeon 7500 or greater; NVIDIA GeForce2 MX/GTS or greater; Intel 865, 915, 950 integrated chipsets; S3 GammaChrome *",DirectX 9.0c,Windows XP/2000,0.9,0
+FIFA World Cup 2006,1.3 GHz Intel Pentium III or equivalent (Athlon/Duron/Celeron),512 MB,"DirectX 9.0c compatible Video card with 32 MB or more memory and one of these chipsets are required: ATI Radeon 7500 or greater; NVIDIA GeForce2 MX/GTS or greater; Intel 865, 915, 950 integrated chipsets; S3 GammaChrome *",DirectX 9.0c,Windows XP/2000,0.9,0
 FIGHT KNIGHT,Intel i3-3110M (2.40ghz),8 GB RAM,Integrated Graphics Card,Version 11,Windows 7,0.3,0
 Fight of Gods,i5-4460,4 GB RAM,Geforce GTX 750,Version 11,Windows 7 (64 bit versions required),3,0
 Fight of Gods,i7-4790,8 GB RAM,Geforce GTX 960,Version 11,Windows 7 (64 bit versions required),3,1
-Fights in Tight Spaces,Multicore with SSE2 instruction set support,4 GB RAM (Recommended: 8 GB),1 GB DX9 (shader model 3.0),Version 9.0c,64 bit Windows,,0
+Fights in Tight Spaces,Multicore with SSE2 instruction set support,8 GB,1 GB DX9 (shader model 3.0),Version 9.0c,64 bit Windows,,0
 Figment,"Intel Core i5 4670T @2.3 GHz, AMD FX 8370E @3.3 GHz",8 GB RAM,"Nvidia Geforce GTX 480, Nvidia GeForce GTX 580M, AMD Radeon R7-265 or equivalent",Version 11,Windows 7/8/10,3,0
 Figment,"Intel Core i5 2500 @3.3 GHz, AMD FX 6120 @3.6 GHz",8 GB RAM,"Nvidia Geforce GTX 650 Ti, Nvidia GeForce GT 750M, Radeon HD5850 or equivalent",,Windows 10,3,1
 Figment 2: Creed Valley,"Intel Core i5-4670T @2.3 GHz, AMD FX-8370E @3.3 GHz",3 GB RAM,"Nvidia GeForce GTX 480, Nvidia GeForce GTX 580M, AMD Radeon R7-265 or equivalent",,Windows 7/8/10,3,0
@@ -3979,7 +3979,7 @@ Forgotten Realms: Demon Stone,Pentium III 1 GHz or AMD Athlon 1 GHz,256 MB RAM,6
 Forgotton Anne,"Intel Core i3-530, 2.93 Ghz or AMD Phenom II X4 965, 3.40Ghz",3 GB RAM,Nvidia GeForce GT 630 or AMD Radeon HD 4870,Version 9.0c,Windows 7 or above,12,0
 Forgotton Anne,"Intel Core i3-2125, 3.30 Ghz or AMD FX-4350, 4.20 Ghz",4 GB RAM,Nvidia GeForce GTX 650 Ti or AMD Radeon HD 5850,Version 9.0c,Windows 10,12,1
 forma.8,Intel Core 2 Duo (2Ghz) or equivalent,2 GB RAM,Intel HD series 5000 or equivalent,Version 9.0,Microsoft Windows 7 / 8 / 8.1 / 10 (32 or 64 bit),0.6,0
-Forsaken Remastered,Intel Quad Core 1.7 GHZ CPU,1 GB RAM (Recommended: 2 GB RAM),GPU with OpenGL 3.2 or DirectX 10 support (256 MB),Version 10,Windows 7 64-bit (32-bit not supported) (Recommended: Windows 10 64-bit (32-bit not supported)),1,0
+Forsaken Remastered,Intel Quad Core 1.7 GHZ CPU,2 GB,GPU with OpenGL 3.2 or DirectX 10 support (256 MB),Version 10,Windows 7 64-bit (32-bit not supported) (Recommended: Windows 10 64-bit (32-bit not supported)),1,0
 Forsaken World,Intel® Pentium® 4 at 1GHz,1GB of RAM,3D video chipset with support for Shader Model 2.0 or better. nVIDIA GeForce 6200 with 256MB RAM or AMD/ATI Radeon 9550 with 256MB RAM ,DirectX 9.0c,"Windows® XP, Vista, or Windows 7 ",8,0
 Forsaken World,Mid to High Range Dual-Core 2.5GHz CPU or better recommended,3GB,"3D video chipset with support for Shader Model 2.0 or better
 nVIDIA GeForce 9800GT with 1GB RAM or better recommended
@@ -4077,11 +4077,11 @@ Frostpoint VR: Proving Grounds,Intel Core i7,8 GB RAM,NVIDIA GTX 1080,,"Windows 
 Frostpoint VR: Proving Grounds,Intel Core i7-8700 / AMD Ryzen 7 2700X equivalent or greater,8 GB RAM,NVIDIA GeForce GTX 1080 / Radeon RX Vega 64 equivalent or greater,,"Windows 10, 64-bit",26,1
 Frostpunk,3.2 GHz Dual Core Processor,4 GB RAM,"GeForce GTX 660, Radeon R7 370 or equivalent with 2 GB of video RAM",Version 11,Windows 7/8/10 64-bit,8,0
 Frostpunk,3.2 GHz Quad Core Processor,8 GB RAM,"GeForce 970, Radeon RX 580 or equivalent with 4GB of video RAM",Version 11,Windows 7/8/10 64-bit,8,1
-Frozen Cortex,1.2GHz,4 GB RAM (Recommended: 8 GB RAM),Shader Model 3.0 & at least 1GB VRAM,Version 9.0c,Windows 7 64-bit,3,0
+Frozen Cortex,1.2GHz,8 GB,Shader Model 3.0 & at least 1GB VRAM,Version 9.0c,Windows 7 64-bit,3,0
 Frozen Hearth,Intel Pentium,1024 MB RAM,Nvidia GeForce graphics processor,9.0c,Windows XP Service Pack 2,2,0
 Frozen Hearth,Intel Core i7,4096 MB RAM,Nvidia Geforce GTS 250,9.0c,Windows 7,2,1
 Frozen Synapse,1.6 GHz ,512 MB,Netbook integrated graphics ,,"Windows XP, Vista, 7 ",0.22,0
-Frozen Synapse 2,2GHz Dual Core,4 GB RAM (Recommended: 8 GB RAM),Shader Model 3.0 & at least 1GB VRAM,Version 9.0c,Windows Vista 64-bit,4,0
+Frozen Synapse 2,2GHz Dual Core,8 GB,Shader Model 3.0 & at least 1GB VRAM,Version 9.0c,Windows Vista 64-bit,4,0
 Frozen Synapse Prime,Intel i3 760 @ 1.2GHz (Dual Core),1 GB RAM,ATI Radeon HD 5450 OR NVidia GeForce 7300,Version 9.0,Windows 7 64 bit,0.45,0
 Frozen Synapse Prime,Intel Core i5 760 @ 2.6GHz (Quad Core),2 GB RAM,ATI Radeon HD 6770 1GB or Nvidia GTX 460 1GB,Version 11,Windows 7 64 bit,0.45,1
 Frozenheim,Dual Core 3.2 GHz processor,4 GB RAM,"GeForce GTX 660, Radeon R7 265 or equivalent with 2 GB of video RAM",Version 11,Windows 10 (64-bit),5,0
@@ -4097,8 +4097,8 @@ Furi,Intel Core i3 / AMD Phenom II X4,4 GB RAM,GeForce GTX 650 / AMD R7 250 (1GB
 Furwind,2GHz,2GB RAM,512MB VRAM,,"Windows XP, service pack 3",0.1,0
 Fury Unleashed,Dual Core 2Ghz,4 GB RAM,DirectX 9 compatible,,Windows 7/8/10,1.6,0
 FUSER,8 Core Custom AMD 1.75 MHz or Core i5-4690 series,8 GB RAM,(Any),,Windows 7 (64 bit) or Newer (64 bit) Windows OS,,0
-Future Wars,Pentium D 3.0 GHZ or capable processors,1GB (2GB for multiplayer),ATI Radeon X1600XT or capable graphics adapter supporting PixelShader 2.0 or nVidia Geforce 8800GTS or better,DirectX 9.0c,Windows® XP / Vista™ / Windows® 7,0.5,0
-Future Wars,Intel Core2Duo 2.13GHZ or better,1GB (2GB for multiplayer),ATI Radeon X1600XT or capable graphics adapter supporting PixelShader 2.0 or nVidia Geforce 8800GTS or better,DirectX 9.0c,Windows® XP / Vista™ / Windows® 7,0.5,1
+Future Wars,Pentium D 3.0 GHZ or capable processors,2 GB,ATI Radeon X1600XT or capable graphics adapter supporting PixelShader 2.0 or nVidia Geforce 8800GTS or better,DirectX 9.0c,Windows® XP / Vista™ / Windows® 7,0.5,0
+Future Wars,Intel Core2Duo 2.13GHZ or better,2 GB,ATI Radeon X1600XT or capable graphics adapter supporting PixelShader 2.0 or nVidia Geforce 8800GTS or better,DirectX 9.0c,Windows® XP / Vista™ / Windows® 7,0.5,1
 FutureGrind,1.4GHz processor,2 GB RAM,GPU Supporting DX11,Version 11,Windows 7 and up (64-bit),0.5,0
 futureU - The Prep Game for SAT,Intel Pentium 4 1.8 GHz or AMD Athlon 64 2800+,1GB,"3D Hardware Accelerator Card Required – 100% DirectX 9.0c compatible 128 MB with latest drivers
 # Video Card (ATI): Radeon 9550
@@ -4402,7 +4402,7 @@ Gravi,Any - Dual Core or Quad Core 1.5ghz and up ,4 GB RAM,Any - Supports Direct
 gravilon,Dual-core 1.2gHz,1 GB RAM,GPU that supports Shader Model 3 and depth textures,Version 9.0c,Windows XP+,0.1,0
 Gravitron 2,1Ghz or higher,128MB or higher,Opengl capable,DirectX® 9.0 or higher,Microsoft Windows® XP or Vista,0.03,0
 Gravity Badgers,1 GHz,512 MB RAM,OpenGL 1.1 compatible,9.0,XP SP2,0.67,0
-Gravity Island,"Intel Core2 6600 with 2,4 GHz oder comparable",2 GB RAM (4 GB RAM Recommended),Radeon HD 4850 (512 MB VRam) or comparable,Version 9.0c,Windows Vista/7/8/10 32 or 64 Bit,0.08,0
+Gravity Island,"Intel Core2 6600 with 2,4 GHz oder comparable",4 GB,Radeon HD 4850 (512 MB VRam) or comparable,Version 9.0c,Windows Vista/7/8/10 32 or 64 Bit,0.08,0
 Gray Dawn,Intel Core i5-2400/AMD FX-8320,(4 GB RAM),GeForce GTX 770 / Radeon R9 280X,,Windows 64-bit,6,0
 Greak: Memories of Azur,Intel Core 2 Duo E6750 or AMD Athlon 64 X2 6400+,2 GB RAM,"NVIDIA GeForce 8800 GT, 512 MB or AMD Radeon HD 6570, 1 GB",,Windows 10 64-bit,3,0
 Greak: Memories of Azur,Intel Core 2 Duo E8400 or AMD Phenom II X2 550,4 GB RAM,"NVIDIA GeForce 9800 GTX, 1 GB or AMD Radeon HD 5750, 1 GB",,Windows 10 64-bit,3,1
@@ -4539,7 +4539,7 @@ Gunfire Reborn,Intel Core i5-7500 / AMD Ryzen 5 1400,8 GB RAM,GTX 1060 / R9 390,
 Gungrave G.O.R.E.,i7-4770k,16 GB RAM,Geforce GTX 1060,,"Windows 8, 64-bit",30,0
 Gungrave G.O.R.E.,i7-6700,16 GB RAM,GTX 1080,,"Windows 11, 64-bit",30,1
 GUNHEAD,Intel Core i5-2400/AMD FX-8320 or better,8 GB RAM,NVIDIA GTX 670 2GB/AMD Radeon HD 7870 2GB or better,,Windows 7/8.1/10 (64-bit versions),2,0
-Gunjack,Intel® i5-4590 / AMD FX 8350 equivalent or greater,4 GB RAM (8 GB RAM recommended),NVIDIA GeForce® GTX 970 / AMD Radeon™ R9 290 equivalent or greater,Version 11,Windows 7 SP1 or newer,5,0
+Gunjack,Intel® i5-4590 / AMD FX 8350 equivalent or greater,8 GB,NVIDIA GeForce® GTX 970 / AMD Radeon™ R9 290 equivalent or greater,Version 11,Windows 7 SP1 or newer,5,0
 Gunlock,Dual Core +,1 GB RAM,512 MB +,,Windows 7,0.05,0
 Gunlock,Dual Core +,2 GB RAM,512 MB +,,Windows 7 or Later,0.05,1
 Gunmetal Arcadia,1.2 GHz or faster,128 MB RAM,GeForce 8 series or equivalent,Version 9.0c,Windows XP SP2 or newer,0.1,0
@@ -4588,7 +4588,7 @@ Half-Life 2 Episode Two,1.7 GHz Processor,512MB RAM,DirectX® 8.1 level Graphics
 Half-Life 2 Episode Two,"Pentium 4 processor (3.0GHz, or better)",1GB RAM,DirectX® 9 level Graphics Card,,Windows® 7 (32/64-bit)/Vista/XP,,1
 Half-Life 2 Lost Coast,Pentium 4 2.4GHz or AMD 2800+ Processor,1GB RAM,DirectX 9 level graphics card,,Windows XP,,0
 Half-Life: Alyx,Core i5-7500 / Ryzen 5 1600,12 GB RAM,GTX 1060 / RX 580 - 6GB VRAM,,Windows 10 64-bit,,0
-Halo 2,2.0 gigahertz (GHz),1 gigabyte (GB) or random access memory (RAM),"ATI X700 or Nvidia 6100 display adapter with 128 megabytes (MB) of RAM and the following features:
+Halo 2,2.0 gigahertz (GHz),1 GB,"ATI X700 or Nvidia 6100 display adapter with 128 megabytes (MB) of RAM and the following features:
 •	Pixel shader: 2 or higher
 •	Vertex shader: 2 or higher
 
@@ -4785,7 +4785,7 @@ Heroes of Might & Magic V: Tribes of the East,Pentium 4 / Athlon 1.5 GHz,1024MB,
 Heroes of Might & Magic V: Tribes of the East,Core 2 Duo / Athlon 64X2 or higher,2048MB,256 MB AGP 8x GeForceFX 6600 / RADEON x800 or higher video card,DirectX 9.0C,Windows 2000 SP4/XP SP2/XP64 Pro,3,1
 Heroes of Might and Magic,"486DX, 33 MHz",8 MB,,,,0.025,0
 Heroes of Newerth,2.8GHz Pentium 4 / 2.0GHz Core 2 / AMD 2400+ or faster,1.5GB of RAM,128 MB GeForce 5 / ATI 9800 / GMA 950,,"Windows 2000, Windows XP, Windows Vista, Windows 7",,0
-Heroes of Newerth,2.4GHz Core 2 or i3 / 2.2GHz i5 or i7 / AMD 3500+ or faster,2.0+ GB for Win XP / 3.0+ GB for Win 7,256MB Geforce 7800+ or Radeon X1900+,,"32-bit Windows XP, 64-bit Windows 7",,1
+Heroes of Newerth,2.4GHz Core 2 or i3 / 2.2GHz i5 or i7 / AMD 3500+ or faster,3 GB,256MB Geforce 7800+ or Radeon X1900+,,"32-bit Windows XP, 64-bit Windows 7",,1
 Heroes of Paragon,SSE2 support,,DX 9 compatible (Shader 3.0) or DX11 compatible 9.3,,Windows 7/8/10,,0
 Heroes of the Storm,Intel® Core™ 2 Duo or AMD Athlon™ 64 X2 5600+,2 GB RAM,"NVIDIA® GeForce® 7600 GT, ATI Radeon™ HD 2600 XT",,Windows® XP / Windows Vista® / Windows® 7 / Windows® 8 with the latest service pack,10,0
 Heroes of the Storm,Intel® Core™ i5 or AMD™ FX Series Processor or better,4 GB RAM,NVIDIA® GeForce® GTX 650 or AMD Radeon™ HD 7790 or better,,Windows® 7 / Windows® 8 64-bit with the latest service pack,10,1
@@ -4881,7 +4881,7 @@ Holy Potatoes! We're in Space?!,Intel Pentium Dual Core 2.5GHz or AMD Athlon 64 
 Holy Potatoes! We're in Space?!,"Intel Core2 Duo 2.3GHz or AMD Phenom II X4 3,4GHz",4 GB RAM,ATI Radeon HD5000 series or nVidia GeForce 500 GTX series,Version 9.0c,Windows 7 / 8 / 10,3,1
 Holy Potatoes! What the Hell?!,Intel Pentium Dual Core 2.5GHz or AMD Athlon 64 X2 3GHz,4 GB RAM,ATI Radeon HD4000 series or nVidia GeForce 9000 series,,Windows 7 / 8 / 10,3,0
 Holy Potatoes! What the Hell?!,"Intel Core2 Duo 2.3GHz or AMD Phenom II X4 3,4GHz",8 GB RAM,ATI Radeon HD5000 series or nVidia GeForce 500 GTX series,Version 9.0c,Windows 7 / 8 / 10,3,1
-Home - A VR Spacewalk,Intel® i5-4590 / AMD FX 8350 equivalent,4 GB RAM (Recommended: 8 GB RAM),NVIDIA GeForce® GTX 970 / AMD Radeon™ R9 290 equivalent,,"7, 8.1, 10",0.85,0
+Home - A VR Spacewalk,Intel® i5-4590 / AMD FX 8350 equivalent,8 GB,NVIDIA GeForce® GTX 970 / AMD Radeon™ R9 290 equivalent,,"7, 8.1, 10",0.85,0
 Home Behind,1.6 GHz,2 GB RAM,(Any),,Windows XP/Vista/Windows 7/8/8.1/10 (32bit/64bit),1,0
 Home Sweet Home,Intel Core i3,4 GB RAM,NVIDIA® GeForce® GTX 560 or better,,Windows 7 / 8 / 8.1 / 10,11,0
 Home Sweet Home,Intel Core i5,8 GB RAM,NVIDIA® GeForce® GTX 770 or better,,Windows 7 / 8 / 8.1 / 10,11,1
@@ -5051,7 +5051,7 @@ Iconoclasts,"Dual Core CPU, 2 GHz",1 GB RAM,512 MB Video Memory,Version 9.0c,Win
 Idle Champions of the Forgotten Realms,"2.33GHz or faster x86-compatible processor, or Intel Atom™ 1.6GHz or faster processor for netbook class devices",2 GB RAM,DirectX 10 compatible graphics card,Version 10,Microsoft® Windows 7,2,0
 Idle Champions of the Forgotten Realms,"2.33GHz or faster x86-compatible processor, or Intel Atom™ 1.6GHz or faster processor for netbook class devices",8 GB RAM,DirectX 10 compatible graphics card,Version 10,Microsoft® Windows 10,3,1
 Iesabel,Dual core from Intel or AMD at 2.8 GHz,2 GB RAM,"nVidia GeForce 7800, ATI/AMD Radeaon HD2600/3600",Version 9.0c,Windows 7,2,0
-Ignite,Intel® Pentium IV 3.0 Ghz ,256 MB RAM (Recommended: 512 MB RAM) ,DirectX® 9.0c Compatible video card with minimum 512MB memory,DirectX® 9.0c or above ,"Windows® XP, Vista, or Windows 7 ",0.95,0
+Ignite,Intel® Pentium IV 3.0 Ghz ,512 MB,DirectX® 9.0c Compatible video card with minimum 512MB memory,DirectX® 9.0c or above ,"Windows® XP, Vista, or Windows 7 ",0.95,0
 Ignition,100 MHz Processor,8Mb RAM,,,,,0
 IHF Handball Challenge 14,Intel™ Core 2 Duo 2 GHz / AMD™ Athlon 64 X2 or above,1 GB RAM,NVIDIA® Geforce 8800 GT or AMD® Radeon™ HD 3870 or above (has to run Pixel Shader 3.0) with at least 512 MB video memory,Version 9.0c,Windows® XP updated with the latest Service Pack,1.5,0
 IHF Handball Challenge 14,Quad Core CPU with 2.4GHz,2 GB RAM,"NVIDIA® GeForce™ 9000 series or above, AMD® Radeon™ HD4000 or above (has to run Pixel Shader 3.0) with at least 1 GB video memory",Version 9.0c,Windows® 7 or 8 updated with the latest Service Pack,1.5,1
@@ -5129,7 +5129,7 @@ Infernal,Pentium 4 1.7 GHz or Athlon XP equivalent,512 MB system Memory,ATI 9600
 Infernal,Pentium 2.5 GHz or Athlon XP/64bit Equivalent,1 GB system Memory,Pixel Shader 3.0 compatible card,Direct X 9.0c,Microsoft Windows 2000/ Microsoft Windows XP/Microsoft Vista (admin rights required),2,1
 INFERNIUM,Intel Core 2 Duo E6850 GHz+ or AMD Phenom II X2 545 3.0 GHz+,2 GB RAM,"NVIDIA® GeForce® 9600GT, ATI Radeon™ HD 5870",Version 9.0c,"Windows Vista, Windows 7, or newer",3,0
 INFERNIUM,Intel® CoreTM i3 2100 3.10GHz or AMD® A8 3870K 3.0GHz,4 GB RAM,NVIDIA® GeForce® GTX 750 or ATI Radeon™ HD 6870 or higher,Version 9.0c,"Windows Vista, Windows 7, or newer",3,1
-Infestation: Survivor Stories,2.4 GHZ Dual Core or better,at least 2GB of RAM,Shader Model 3.0,DirectX 9,Windows XP,3,0
+Infestation: Survivor Stories,2.4 GHZ Dual Core or better,2 GB,Shader Model 3.0,DirectX 9,Windows XP,3,0
 Infestation: Survivor Stories,2.4 GHz quad core or better,4 GB system RAM,DirectX 9 compatible with 768 MB video RAM or better (NVIDIA GeForce GTX 460 / ATI Radeon HD 5850) ,DirectX 9,Windows Vista / Windows 7 (enhanced for 64-bit OS),3,1
 Infested Planet,2.2 GHz,1 GB RAM,256MB OpenGL Compartible,,Windows XP or later,0.2,0
 Infested Planet,2.4 GHz Quad Core,4 GB RAM,1024MB OpenGL Compartible,,Windows XP or later,0.2,1
@@ -5175,7 +5175,7 @@ Instinct,"1.8 ghz Pentium 4, or equivalent AMD CPU",512 MB,64MB 3D; compatible w
 Instinct,"2.6 ghz Pentium 4, or equivalent AMD CPU",1 GB (1024 mb),"256MB 3D; Nvidia Geforce 6800, Ati Radeon X800 or greater",DirectX 9.0c required (included with game),Microsoft Windows XP with Service Pack 2,5,1
 Instinction,i3-3220 INTEL or AMD Equivalent,8 GB RAM,Nvidia GTX 660/GTX 1050 or AMD Radeon HD 7770,Version 11,Windows 7 64 bit,45,0
 Instinction,Intel i5-6600 @3.3Ghz (6th Generation) or AMD Ryzen 5 1400,12 GB RAM,"NVIDIA GeForce GTX 970 or AMD Radeon R9 390X, with a minimum of 4GB of VRAM",Version 11,Windows 10 64 bit,45,1
-Insurgency,Intel® Core™ 2 Duo E6600 or AMD Phenom™ X3 8750 processor or better,4 GB RAM (Recommended: 8 GB RAM),Video card must be 512 MB or more and should be a DirectX 9-compatible with support for Pixel Shader 3.0 (Recommended: Video card 2048 MB or more),9.0c,Windows® 7,10,0
+Insurgency,Intel® Core™ 2 Duo E6600 or AMD Phenom™ X3 8750 processor or better,8 GB,Video card must be 512 MB or more and should be a DirectX 9-compatible with support for Pixel Shader 3.0 (Recommended: Video card 2048 MB or more),9.0c,Windows® 7,10,0
 Insurgency: Sandstorm,Intel Core i5-4440 (3.10GHz)/AMD FX-6300 (3.50GHz),8 GB RAM,NVIDIA GeForce GTX 760/AMD Radeon HD 7970,Version 11,Windows 7/8/10 (64 bits),40,0
 Insurgency: Sandstorm,Intel Core i7-8700 (3.20GHz)/AMD Ryzen 7 2700 (3.20GHz),16 GB RAM,NVIDIA GeForce GTX 980/AMD Radeon R9 390X,Version 11,Windows 7/8/10 (64 bits),40,1
 Insurmountable,"Intel® Core™ i5-4460, AMD FX™-6300",8 GB RAM,NVIDIA® GeForce® GTX 670 or AMD Radeon™ R7 260x,Version 11,"WINDOWS® 7, 8.1, 10, 64-BIT",4,0
@@ -5228,7 +5228,7 @@ Iron Man,2.8 GHz processor ,1 GB of system RAM ,"256 MB DirectX 9.0c video card
 ",6,0
 Iron Man,3.4 GHz processor ,1.5 GB of system RAM ,Radeon X1800/GeForce 7800 GT video card ,DirectX 9.0c ,"Microsoft Windows 2000/XP/Vista 
 ",6,1
-Iron Marines,Dual Core CPU,1 GB RAM (Recommended: 2 GB RAM),OpenGL 3.0 compliant with 512MB of video RAM,,Windows 7,0.5,0
+Iron Marines,Dual Core CPU,2 GB,OpenGL 3.0 compliant with 512MB of video RAM,,Windows 7,0.5,0
 Iron Roses,Pentium III 800MHz or better (1.0 GHz Vista),512 MB System RAM ,128MB AGP Video card with Full DirectX 9 support ,Direct-X 9c (10 Vista) ,Windows XP/Vista/7 ,,0
 Iron Sky - Invasion,Intel/AMD 2 GHz,2 GB RAM,"Per-Pixel-Shader 3.0, 512 MB RAM",9.0c,Windows XP,1.5,0
 Iron Sky - Invasion,Intel/AMD 2 GHz Multicore,4 GB RAM,Radeon HD 2900 / Geforce 8800 GTX or better,11,Windows Vista (or newer),1.5,1
@@ -5337,12 +5337,12 @@ Journey To The Center Of The Earth,2 GHZ,1 GB RAM,(Any),Version 9.0c,Windows XP,
 Journey to the Savage Planet,"Intel Core i5-750, 2.67 GHz",4 GB,NVIDIA GeForce GTX 660 | AMD Radeon HD 7950,DirectX 11,"Win 7, 8, 10",,0
 Judgment,"Intel Core i5-3470, 3.2 GHz or AMD Ryzen 3 1200, 3.1 GHz",8 GB RAM,"NVIDIA GeForce GTX 960, 2 GB or AMD Radeon RX 460, 2 GB",,"Windows 10, 64-bit",40,0
 Judgment,"Intel Core i7-4790, 3.6 GHz or AMD Ryzen 5 1600, 3.2 GHz",8 GB RAM,"NVIDIA GeForce RTX 2060, 6 GB or AMD Radeon RX Vega 56, 8 GB",,"Windows 10, 64-bit",60,1
-Juiced,933Mhz CPU,256 Megabytes of RAM,"3D accelerated DirectX9c compatible video card
+Juiced,933Mhz CPU,256 MB,"3D accelerated DirectX9c compatible video card
 NVIDIA GeForce2 or better
 ATI 8500 32 MB or better
 Intel 915G integrated graphics or better
 Matrox Parhelia",Directx 9.0c or better,Windows XP,2.6,0
-Juiced,2.8 Ghz CPU,512 Megabytes of RAM,"3D accelerated GeForceFX 6800, ATI Radeon 9800 or better DirectX9 compatible video card",Directx 9.0c or better,Windows XP,2.6,1
+Juiced,2.8 Ghz CPU,512 MB,"3D accelerated GeForceFX 6800, ATI Radeon 9800 or better DirectX9 compatible video card",Directx 9.0c or better,Windows XP,2.6,1
 Juiced 2 Hot Import Nights,Intel Pentium 4 3.0 Ghz / AMD XP X2 4200+,1 GB RAM,256 MB DirectX® 9.0 compatible card / nVIDIA® GeForce™ 7600 / ATI Radeon® X1600,DirectX® 9.0,Microsoft® Windows® XP (Service Pack 2) / Microsoft® Windows® Vista,6,0
 Juiced 2 Hot Import Nights,Intel Core 2 Duo E6400 / AMD 64 X2 4200+,2.0 GB RAM,256 MB DirectX® 9.0c compatible card / nVIDIA® GeForce™ 7900 / ATI Radeon® X1950,DirectX® 9.0,Microsoft® Windows® XP (Service Pack 2) / Microsoft® Windows® Vista,6,1
 JUJU,3.0 GHz Intel Pentium 4 or 1.8 GHz AMD Athlon 64 3000+,1 GB RAM,nVidia GeForce 6800GT or AMD Radeon X1950 Pro (256MB VRAM with Shader Model 3.0 or higher),9.0c,WindowsXP/Vista/7/8,3,0
@@ -5521,7 +5521,7 @@ Kingdom Rush Frontiers,Dual Core CPU,(1 GB RAM),OpenGL 3.0 compliant with 512MB 
 Kingdom Rush Frontiers,Dual Core CPU,(2 GB RAM),OpenGL 3.0 compliant with 1.0GB of video RAM.,,Windows 10,1.5,1
 Kingdom Rush Origins,Dual Core CPU,1 GB RAM,OpenGL 3.0 compliant with 512MB of video RAM,,Windows 7,0.5,0
 Kingdom Rush Origins,(Any),2 GB RAM,OpenGL 3.0 compliant with 1.0GB of video RAM,,(Windows 7),,1
-Kingdom Rush Vengeance,Dual Core CPU,4 GB RAM (Recommended: 8 GB),"OpenGL 3.0 compliant with 512MB of video RAM
+Kingdom Rush Vengeance,Dual Core CPU,8 GB,"OpenGL 3.0 compliant with 512MB of video RAM
 (Recommended: 1 GB VRAM)",,Windows 7 (Recommended: Windows 10),2,0
 Kingdom Shell,1.2 Ghz or superior,2 GB RAM,Hardware Accelerated Graphics with dedicated memory,,Windows 7,0.2,0
 Kingdom Two Crowns,Intel 4th Gen Dual Core 2.0Ghz,2 GB RAM,Nvida GTX Series 8,Version 9.0c,Windows 7,4,0
@@ -5622,7 +5622,7 @@ Lamp Chronicle,Intel Core i5+,8 GB RAM,GeForce GTX 960,,Windows 10,6,1
 Land of the Vikings,3 GHz Dual Core Processor,6 GB RAM,GTX 960 Series or Equivalent,Version 11,"Windows 10, 64-bit",10,0
 Land of the Vikings,3.2 GHz Quad Core Processor,8 GB RAM,GTX 1060 Series or Equivalent,Version 11,"Windows 10, 64-bit",10,1
 Landlord's Super,Intel Core i3 2GHz or equivalent,4 GB RAM,Dedicated graphics card with 1GB memory,,Windows 7/8/10 (64bit),1,0
-Lantern,Intel Core i3 (i5-2500K for VR),2 GB RAM (8 GB RAM for VR),Standard: nVidia GeForce GTX450 / VR: nVidia GeForce GTX970 or better,Version 9.0c,Windows 7 / 8.1 / 10,3,0
+Lantern,Intel Core i3 (i5-2500K for VR),8 GB,Standard: nVidia GeForce GTX450 / VR: nVidia GeForce GTX970 or better,Version 9.0c,Windows 7 / 8.1 / 10,3,0
 Lantern,Intel Core i5 or equivalent,4 GB RAM,Standard: nVidia GeForce GTX560 or similar / VR: nVidia GeForce GTX980 or better,Version 9.0c,Windows 7 / 8.1 / 10,3,1
 Lanterns,2.4ghz Intel Core 2 Duo or equivalent,1 GB RAM,Nvidia 260 GTS or Radeon HD 4850 - 512 MB of VRAM,,Windows 7/8/8.1/XP/Vista (32 or 64 bit),0.16,0
 Lara Croft and the Guardian of Light,3+ GHz Intel or 2.5+ GHZ AMD,2GB,NVIDIA GeForce 6 Series (6800GT or better) / ATI 1300XT or better,DirectX 9.0c,Windows 7 / Vista / XP,7,0
@@ -5919,7 +5919,7 @@ Lonely Mountains: Downhill,Intel Core i5-4690 / AMD FX-8320,4 GB RAM,NVIDIA GeFo
 Loop Hero,"Intel Core2 Duo E4500 (2 * 2200) or equivalent, AMD Athlon 64 X2 Dual Core 3600+ (2 * 1910) or equivalent",2 GB RAM,"GeForce 7300 GT (512 MB), Radeon X1300 Pro (256 MB)",,"Windows 7, 8.1, 10 x64",0.2,0
 Loop Hero,"Intel Core2 Duo E6750 (2 * 2660) or equivalent, AMD Athlon 64 X2 Dual Core 5000+ (2 * 2600) or equivalent",2 GB RAM,"GeForce 8600 GT (512 MB), Radeon HD 4650 (1024 MB)",,"Windows 7, 8.1, 10 x64",0.2,1
 Loot Rascals,"AMD Athlon 64 X2 Dual Core 6400+, 3.2GHz, Intel Core2 Duo E8400, 3.0GHz",1 GB RAM,"9800 GTX, Radeon HD 5850",,Windows 7,2,0
-Loot River,Intel i5 or higher,4 GB RAM (Recommended: 8 GB),GeForce GT 650M or higher,Version 10 (Recommended: Version 11),Windows 7 or higher (Recommended: Windows  10),3,0
+Loot River,Intel i5 or higher,8 GB,GeForce GT 650M or higher,Version 10 (Recommended: Version 11),Windows 7 or higher (Recommended: Windows  10),3,0
 Looterkings,"2,5 GHz Dual-Core 64-bit CPU",4 GB RAM,Nvidia GTX 560 with 2 GB Video Ram,Version 10,Windows 7,3,0
 Looterkings,2.5 GHz Quad-Core 64-bit CPU,8 GB RAM,Nvidia GTX 770 with 2+ GB Video RAM,Version 11,Windows 10,3,1
 Lord of Rigel,"Quad-core Intel or AMD processor, 2.5 GHz or faster",8 GB RAM,NVIDIA GeForce 470 GTX or AMD Radeon 6870 HD series card or higher,Version 9.0c,Windows Vista / 7 / 8 (64-bit),5,0
@@ -5995,7 +5995,7 @@ Lucius II: The Prophecy,Dual core,4 GB RAM,NVIDIA GEFORCE GTX 275 or better,9.0c
 Lucius II: The Prophecy,i5,8 GB RAM,NVIDIA GEFORCE GTX 550 or better,9.0c,Windows 7,4,1
 Lucius III,i5,8 GB RAM,Geforce GTX 660,Version 9.0,Windows 7 (64-bit),25,0
 Lucius III,i7,16 GB RAM,Geforce GTX 980 Ti,Version 12,Windows 10 (64-bit),25,1
-Lucky Luke - Go West,Pentium 2.4 GHz or Athlon XP 2800+,512 MB - 1 GB recommended,"GeForce FX5900 / Radeon 9500 or above 128 MB
+Lucky Luke - Go West,Pentium 2.4 GHz or Athlon XP 2800+,1 GB,"GeForce FX5900 / Radeon 9500 or above 128 MB
 (with pixel shader 2.x)",DirectX 9.0c,Windows XP / Vista,,0
 Ludwig,Intel Celeron 2.6 GHz,2 GB RAM,Geforce 8400 GS,9.0c,XP (SP3) / Vista / 7 / 8,0.6,0
 Ludwig,Intel Core i5,4 GB RAM,Geforce GTX 760,9.0c,Win. 7 / 8,0.6,1
@@ -6134,8 +6134,8 @@ Manor Lords,"Intel Core i5-4690K, AMD Ryzen 5 1400",16 GB RAM,NVIDIA GeForce 107
 Mantis Burn Racing,2.0 GHz Dual Core,3 GB RAM,NVIDIA GeForce 500 series,Version 10,Windows Vista,4.2,0
 Mantis Burn Racing,2.0+ GHz Dual Core,8 GB RAM,NVIDIA GeForce 700 series plus,Version 10,Windows 7+,4.2,1
 Manual Samuel,Intel Core 2 Quad Q9300 or equivalent,2 GB RAM,Intel HD Graphics 5500 or equivalent,,Windows /7/8/8.1/10 both x86 and x64,3,0
-MapleStory,Intel Core Duo 2.4Ghz / AMD Athlon 64 X2 2.4Ghz,At least 4GB RAM,GeForce 8600 GT / ATI Radeon HD 3450,,Windows Vista or later,20,0
-MapleStory,Intel Core Duo 3.0Ghz / AMD Athlon 64 X2 3.0Ghz,At least 4GB RAM,GeForce 9600 / ATI Radeon HD 3870 or higher,,Windows 7 or later,20,1
+MapleStory,Intel Core Duo 2.4Ghz / AMD Athlon 64 X2 2.4Ghz,4 GB,GeForce 8600 GT / ATI Radeon HD 3450,,Windows Vista or later,20,0
+MapleStory,Intel Core Duo 3.0Ghz / AMD Athlon 64 X2 3.0Ghz,4 GB,GeForce 9600 / ATI Radeon HD 3870 or higher,,Windows 7 or later,20,1
 MapleStory 2,Intel Core i3 or better,4 GB RAM,GeForce GT 730 / GeForce GT 630,,Windows 7 32-bit,8,0
 MapleStory 2,Intel Core i5 or better,8 GB RAM,GeForce GTX 750 / GTX 750 TI/ GTX 650TI / GT 1030,,Windows 7 64-bit,8,1
 Maquette,Intel Core i5-650 | AMD Phenom II X4 965,4 GB RAM,"Nvidia GeForce GTX 470, 1GB | AMD Radeon HD 6970, 2GB",Version 11,Windows 7 (64 Bit),5,0
@@ -6195,7 +6195,7 @@ Masked Shooters 2,Intel Core I5 2500k/AMD FX 8350,1 GB RAM,Geforce GTX 670/Radeo
 Masquerada: Songs and Shadows,2.4GHz Intel Core i3,4 GB RAM,Intel HD Graphics 4400,,Windows 7,16,0
 Mass Effect,2.4+GHZ Intel or 2.0+GHZ AMD,2GB,"NVIDIA GeForce 6 series(6800GT or better)
 ATI 1300XT or better (X1550, X1600 Pro and HD2400 are below minimum system requirements)",,Windows XP or Vista,12,0
-Mass Effect,2.6+GHZ Intel or 2.4+GHZ AMD,2 Gigabyte Ram,"NVIDIA GeForce 7900 GTX or higher.
+Mass Effect,2.6+GHZ Intel or 2.4+GHZ AMD,2 GB,"NVIDIA GeForce 7900 GTX or higher.
 ATI X1800 XL series or higher
 ",,"Windows XP or Vista
 ",12,1
@@ -6279,8 +6279,8 @@ Medal of Honor: Allied Assault,450 MHz Intel Pentium or 500 MHz AMD Athlon proce
 Medal of Honor: Allied Assault,700 MHz or faster recommended,256MB recommended,32 MB DirectX 8.0 compatible video card with OpenGL support,DirectX 8.0,Windows XP/ME/2000/98/95 (Windows NT is not supported),1.2,1
 Medal of Honor: Pacific Assault,Pentium 4 @ 1.5 GHz or Equivalent,512 MB RAM,3D video card with 64+ MB video memory which fully supports DirectX 8.1,DirectX 8.1,Windows 98/ME/2000/XP,3,0
 Medal of Honor: Pacific Assault,Pentium 4 @ 2 GHz or Equivalent,1 GB RAM,3D video card with 128+ MB video memory which fully supports DirectX 9.0,DirectX 9.0,Windows 98/ME/2000/XP,3,1
-Medal of Honor: Warfighter,Intel Core 2 Duo 2.4GHz / Athlon X2 2.7GHz,At least 2 GB,NVidia 8800 GTS 512 MB VRAM or better / ATI Radeon 3870 512 MB VRAM,DirectX 10.1 compatible,Windows Vista,20,0
-Medal of Honor: Warfighter,Intel Core 2 Quad 3GHz / AMD Phenom II X4 3GHz,At least 4 GB,NVidia GTX 560 1024 MB VRAM or better / ATI Radeon 6950 1024 MB VRAM,DirectX 11 compatible,Windows 7,20,1
+Medal of Honor: Warfighter,Intel Core 2 Duo 2.4GHz / Athlon X2 2.7GHz,2 GB,NVidia 8800 GTS 512 MB VRAM or better / ATI Radeon 3870 512 MB VRAM,DirectX 10.1 compatible,Windows Vista,20,0
+Medal of Honor: Warfighter,Intel Core 2 Quad 3GHz / AMD Phenom II X4 3GHz,4 GB,NVidia GTX 560 1024 MB VRAM or better / ATI Radeon 6950 1024 MB VRAM,DirectX 11 compatible,Windows 7,20,1
 Medieval Dynasty,3 GHz Quad Core Processor,8 GB RAM,"DirectX 11 compatible GPU, 4GB dedicated VRAM (GeForce GTX 970 / Radeon RX 480)",Version 11,"Windows 7, 8, 10",10,0
 Medieval Dynasty,4 GHz Quad Core Processor,16 GB RAM,"DirectX 11 compatible GPU, 6GB dedicated VRAM (GeForce GTX 1060 / Radeon RX 580)",Version 11,Windows 10,10,1
 Medieval Engineers,Intel Core2 Duo 2.0 GHz (or AMD equivalent),8 GB RAM,NVIDIA GeForce GTX 460 / AMD Radeon HD 5830 / Intel HD Graphics 4000,Version 11,Microsoft Windows 7 (latest SP) 64-bit,10,0
@@ -6503,7 +6503,7 @@ Ministry of Broadcast,2Ghz,4 GB RAM,1GB,,Windows 10,2,1
 Minit,Intel Pentium D 830 (2* 3000) or equivalent / AMD Athlon 64 4000+ (2600) or equivalent,1 GB RAM,GeForce 7600 GS (256 MB) / Radeon HD 2400 PRO (256 MB),,Windows XP/Vista/7/8/8.1/10 x86/x64,0.2,0
 Minoria,Intel Core 2 Duo E5200,4 GB RAM,GeForce 9800GTX+ (1GB),Version 10,Windows 7,3,0
 Minoria,Intel Core i5,8 GB RAM,GeForce GTX 560,Version 11,Windows 10,3,1
-Mint,"AMD Phenom II x64 840 (4CPUs), ~3.2GHz",1 GB RAM (Recommended: 2 GB RAM),NVIDIA Geforce GTX 650Ti,Version 11,"Windows 7,8,10",0.03,0
+Mint,"AMD Phenom II x64 840 (4CPUs), ~3.2GHz",2 GB,NVIDIA Geforce GTX 650Ti,Version 11,"Windows 7,8,10",0.03,0
 Minute of Islands,"2,5 GHz Dual Core",8 GB RAM,Geforce GT 540 (1024 MB) / Radeon HD 5570 (1024 MB),Version 11,Windows 7+ (64-bit OS required),2,0
 Minute of Islands,"2,5 GHz Quad Core",16 GB RAM,Geforce GTX 970 (AMD R9 290),Version 12,"Windows 10, 64-bit",4,1
 MIR4,Intel® Core™ i5-5200U 2.2Hz,4 GB RAM,Nvidia GTX 650 / AMD Radeon 530,Version 11,Windows 8.1 64-bit,10,0
@@ -6571,7 +6571,7 @@ Monster Jam Steel Titans 2,AMD / Intel Quad Core with 3.0 GHz,8 GB RAM,Geforce G
 Monster Loves You!,1GHz,1GB RAM,DirectX 9.0c capable,9.0c or higher,"Windows XP, Vista, 7, or 8",0.35,0
 Monster Madness: Battle for Suburbia,1.5 GHz,1GB,DirectX 9 (Radeon 9700 or GeForce 6600),DirectX9,Windows XP SP2 / Windows Vista,4,0
 Monster Madness: Battle for Suburbia,2 GHz,1GB,DirectX9 Shader Model 3 Graphics (Radeon X1900 or GeForce 6800),DirectX9,Windows XP SP2 / Windows Vista,4,1
-Monster Rancher 1 & 2 DX,Intel Core i3-4340 or over,4 GB RAM (Recommended: 8 GB),"NVIDIA GeForce GTX 570, AMD Radeon R9 280X, Intel HD Graphics 4600 or over",Version 11,"Windows® 8.1, 64bit / Windows® 10, 64bit",1.5,0
+Monster Rancher 1 & 2 DX,Intel Core i3-4340 or over,8 GB,"NVIDIA GeForce GTX 570, AMD Radeon R9 280X, Intel HD Graphics 4600 or over",Version 11,"Windows® 8.1, 64bit / Windows® 10, 64bit",1.5,0
 Monster Sanctuary,"Dual-Core, 2.0 GHz",2 GB RAM,"GeForce 8800 GT 512 MB, Radeon HD 4870 512 MB",Version 10,Windows 7,1,0
 Monster Sanctuary,"Dual-Core, 3.0 GHz",4 GB RAM,GeForce GTS 450 or Equivilant,Version 10,Windows 10 64-bit,2,1
 Monster Slayers,Processor 2 GHz (Dual Core),256 MB RAM,OpenGL 2.1 compatible 3D graphics card with 256 MB VRAM,Version 9.0,Windows XP / Vista / 7 / 8,0.04,0
@@ -6624,7 +6624,7 @@ Mortal Online,Dual Core 2.4GHz,6 GB RAM,(Any),Version 9.0,Windows 7 x64,16,0
 Mortal Online,Quad Core 3.4GHz,8 GB RAM,(Any),Version 10,Windows 10 x64,20,1
 Mortal Online 2,AMD FX-6100/Intel i3-3220 or Equivalent,16 GB RAM,"AMD Radeon HD 7750, NVIDIA GeForce GTX 650 or Equivalent",Version 11,Windows 7/8.1/10 (64-bit versions),90,0
 Mortal Online 2,AMD Ryzen 7 1700/Intel i7-6700K or Equivalent,32 GB RAM,"AMD RX Vega 56, Nvidia GTX 1070/GTX1660Ti or Equivalent",Version 12,Windows 7/8.1/10 (64-bit versions),110,1
-Mortal Royale,Dual Core 2.4GHz,6 GB RAM (Recommended: 8 GB RAM),(Any),Version 9.0,Windows 7 x64,16,0
+Mortal Royale,Dual Core 2.4GHz,8 GB,(Any),Version 9.0,Windows 7 x64,16,0
 Mortal Shell,Intel Core i5-4590 or AMD FX 8350,8 GB RAM,NVIDIA GTX 970 or AMD Radeon R9 290,,"Windows 7 SP1 or newer, 64-bit",12,0
 Mortal Shell,Intel Core i7 or AMD Ryzen 7,16 GB RAM,NVIDIA GTX 1070 or AMD Radeon RX Vega 56,,"Windows 10, 64-bit",12,1
 Mosaic,Intel i3,1024 MB RAM,Geforce GTX 860-series / RX vega 11,Version 9.0c,Windows 10 (64-bit),3,0
@@ -6917,7 +6917,7 @@ Need for Speed Heat,Ryzen 3 1300X or Equivalent / Core i7-4790 or Equivalent,16 
 Need For Speed Hot Pursuit 2,PII 400 or equivalent,64 MB RAM,16 MB VRAM,,,,0
 Need For Speed Hot Pursuit 2,PIII 933 or equivalent,256 MB RAM,32 MB VRAM,,,,1
 Need For Speed Most Wanted,1.4 GHz or faster,256 MB or more,Video card with 32 MB or more memory and one of these chipsets is required: ATI Radeon 7500 or greater; ATI Radeon Xpress 200; NVIDIA GeForce2 MX/GTS or greater; Intel 950/i915g; S3 GammaChrome S18 Pro,DirectX 9.0c,Windows XP or 2000,3,0
-Need For Speed Most Wanted,3 Ghz or faster,Atleast 1 GB,Atleast an NVidia 5900 or ATi 9800 with 256mb of video memory,DirectX 9.0c,Windows XP,3,1
+Need For Speed Most Wanted,3 Ghz or faster,1 GB,Atleast an NVidia 5900 or ATi 9800 with 256mb of video memory,DirectX 9.0c,Windows XP,3,1
 Need For Speed Most Wanted (2012),2 GHz Dual Core (Core 2 Duo 2.4 GHz or Althon X2 2.7 GHz) ,2 GB RAM,"Graphics card (AMD): DirectX 10.1 compatible with 512 MB RAM (ATI Radeon 3000, 4000, 5000 or 6000 series, with ATI Radeon 3870 or higher performance)
 Graphics card (NVIDIA): DirectX 10.0 compatible with 512 MB RAM (NVIDIA GeForce 8, 9, 200, 300, 400 or 500 series with NVIDIA GeForce 8800 GT or higher performance) ",DirectX 10.0,Windows Vista (Service Pack 2 and all available windows updates) 32-bit,20,0
 Need For Speed Most Wanted (2012),Quad-core CPU ,4 GB RAM,DirectX 11 compatible with 1024 MB RAM (NVIDIA GeForce GTX 560 or ATI Radeon 6950) ,DirectX 11,Windows 7 (Service Pack 1 and all available windows updates) 64-bit,20,1
@@ -7002,8 +7002,8 @@ Neverwinter Nights 2: Mask of the Betrayer,Intel® Pentium® 4 2.0 GHz or AMD® 
 Neverwinter Nights 2: Mask of the Betrayer,Intel® Pentium® 4 3.0 GHz or AMD® Athlon 64 or equivalent (or higher),1 GB RAM recommended,256 MB Shader Model 3.0-compatible video card recommended*,DirectX® version 9.0c of higher,Windows® XP,5.5,1
 Neverwinter Nights 2: Storm of Zehir,2.4 GHz Intel Pentium 4 or equivalent processor,1 GB RAM,ATI Radeon X700 or NVIDIA GeForce 6800 or higher ,DirectX version 9.0c (included) or higher,"Windows XP SP2, Windows Vista",8,0
 Neverwinter Nights 2: Storm of Zehir,2.6 GHz Intel Pentium D 805 or AMD X2 +3800 or faster,2 GB RAM,"ATI Radeon X1950 512MB series, NVIDIA GeForce 8800 512MB series, or higher",DirectX version 9.0c (included) or higher,"Windows XP SP2, Windows Vista",8,1
-Neverwinter Nights Diamond Edition,Pentium® III 800 MHz or equivalent,128 MB RAM (256 MB recommended for XP),32 MB video card with Hardware T&L support* ,DirectX® version 9.0b or higher,Windows 98/ME/2000SP2/XP,4.1,0
-Neverwinter Nights Diamond Edition,Pentium® 4 1.3 GHz or higher,256 MB (512 MB recommended for XP),64 MB video card with Hardware T&L support*,DirectX® version 9.0b or higher,Windows 98/ME/2000SP2/XP,4.1,1
+Neverwinter Nights Diamond Edition,Pentium® III 800 MHz or equivalent,256 MB,32 MB video card with Hardware T&L support* ,DirectX® version 9.0b or higher,Windows 98/ME/2000SP2/XP,4.1,0
+Neverwinter Nights Diamond Edition,Pentium® 4 1.3 GHz or higher,512 MB,64 MB video card with Hardware T&L support*,DirectX® version 9.0b or higher,Windows 98/ME/2000SP2/XP,4.1,1
 Neverwinter Nights: Enhanced Edition,1 GHZ,1 GB RAM,OpenGL 3.0 compatible,,"Windows 7, 8, or 10 (64-bit)",10,0
 Neverwinter Nights: Hordes of the Underdark,Pentium® III 800 MHz**,256MB,32 MB video card with Hardware T&L support* **,DirectX® version 8.1b or higher,Windows® 98/ME/2000/XP,1.5,0
 Neverwinter Nights: Hordes of the Underdark,Pentium® 4 1.3 GHz**,512MB,64 MB video card with Hardware T&L support* **,DirectX® version 8.1b or higher,Windows® 98/ME/2000/XP,1.5,1
@@ -7038,7 +7038,7 @@ Windows XP: NVIDIA GeForce 3, ATI Radeon 9000, Intel 915/950/965, or greater
 Windows Vista*: NVIDIA GeForce FX 5200, ATI Radeon 9500, or greater",DirectX 9.0c,"Windows XP SP2, Windows Vista ",3.1,0
 Ni no Kuni II: Revenant Kingdom,Intel Core i5-4460 / AMD FX-6300,4 GB RAM,NVIDIA GeForce GTX 750 Ti / AMD Radeon R7 260x (VRAM 2GB or higher),Version 11,"Windows 7 SP1 64bit, Windows 8.1 64bit, Windows 10 64bit",40,0
 Ni no Kuni II: Revenant Kingdom,Intel Core i7-3770 / AMD FX-8350,8 GB RAM,NVIDIA GeForce GTX 970 / ATI Radeon R9 series (VRAM 3GB or higher),Version 11,"Windows 7 SP1 64bit, Windows 8.1 64bit, Windows 10 64bit",40,1
-Ni no Kuni Wrath of the White Witch Remastered,Intel Core i3-2100 or AMD FX-4100,4 GB RAM (Recommended: 8 GB RAM),GeForce GTS 450 or Radeon HD 5750,Version 11,"Windows 7, 64-bit (Recommended: Windows 10, 64-bit)",45,0
+Ni no Kuni Wrath of the White Witch Remastered,Intel Core i3-2100 or AMD FX-4100,8 GB,GeForce GTS 450 or Radeon HD 5750,Version 11,"Windows 7, 64-bit (Recommended: Windows 10, 64-bit)",45,0
 Nickelodeon All-Star Brawl,Intel Core i5-4430 / AMD FX-6300,4 GB RAM,NVIDIA GeForce GTX 960 2GB / AMD Radeon R7 370 2GB,Version 11,"64-bit Windows 7, Windows 8.1, Windows 10",15,0
 Nickelodeon All-Star Brawl,Intel Core i5-6600K / AMD Ryzen 5 1600,8 GB RAM,NVIDIA GeForce GTX 1060 3GB / AMD Radeon RX 580 4GB,Version 11,"64-bit Windows 7, Windows 8.1, Windows 10",15,1
 Nidhogg,1.2GHz processor,512 MB RAM,DirectX 8-compatible graphics card with at least 32MB of video memory,Version 9.0c,Microsoft® Windows® XP / Vista / 7,0.2,0
@@ -7180,7 +7180,7 @@ OddPlanet,2 Ghz,1 GB RAM,256MB with Shader Model 2.0,Version 9.0c,Windows XPVist
 OddPlanet,Intel Core i3,2 GB RAM,GeForce GTS 450,Version 9.0c,Windows XPVista7810,0.5,1
 Oddsparks: An Automation Adventure,Intel Core i5 / AMD FX-6300,8 GB RAM,GTX 760 2GB/ Radeon R9 270X 2GB or better,Version 11,Windows 10 64bit,6,0
 Oddsparks: An Automation Adventure,Intel i7 / AMD Ryzen 7,8 GB RAM,GTX 1070 4GB / Radeon RX 5700-XT 4GB or better,Version 11,Windows 10 64bit,6,1
-Oddworld: Abe's Oddysee,166 MHz Pentium processor (200 MHz recommended),16 MB (32 MB or higher recommended),,6,A 100% Windows 2000/XP-compatible computer system (only),0.7,0
+Oddworld: Abe's Oddysee,166 MHz Pentium processor (200 MHz recommended),32 MB,,6,A 100% Windows 2000/XP-compatible computer system (only),0.7,0
 Oddworld: New 'n' Tasty,Intel i3-3220 (3.30GHz),4 GB RAM,Radeon HD 5770 / NVIDIA GTX 260,,Windows 7,10,0
 Oddworld: New 'n' Tasty,Intel i5,4 GB RAM,Radeon HD 6850 / NVIDIA GTX 560,,Windows 7 (64 bit) Service Pack 1 / Windows 8,10,1
 Oddworld: Soulstorm,Intel Quad Core 1.7Ghz CPU,8 GB RAM,nVidia GTX 670 or equivalent,,Windows 7 64 Bit,20,0
@@ -7195,8 +7195,8 @@ Of Kings And Men,Intel CPU Core i5-2500K 3.3GHz / AMD CPU Phenom II X4 940,8 GB 
 Of Kings And Men,Intel CPU Core i7 3770 3.4 GHz / AMD CPU AMD FX-8350 4 GHz,16 GB RAM,Nvidia GPU GeForce GTX 780 / AMD GPU Radeon R9 290,,"64-bit Windows 7, 64-bit Windows 8 (8.1) or 64-bit Windows 10",10,1
 OF MICE AND SAND -REVISED-,"Intel Celeron G1620, AMD A4-7300",2 GB RAM,Integrated Intel HD 3000 or equivalent,Version 10,Windows 7 / 8.1 / 10 (32bit/64bit),0.25,0
 Of Orcs and Men,AMD/Intel Dual-Core 2 GHz,2048 MB RAM,512 MB 100% DirectX 9 and shaders 4.0 compatible ATI Radeon HD 3850/Nvidia GeForce 8800 GT or Higher,9.0c,Windows Xp Sp3/Windows Vista Sp2/Windows 7,6,0
-Off-Road Drive,Intel Pentium IV 2 GHz,1 GB (2 GB for Win 7),NVidia video card DirectX 9.0 compatible with 256 MB RAM,DirectX 9.0,Windows XP/Vista,8,0
-Off-Road Drive,Intel Core 2 Duo 3 GHz or AMD Athlon 64 X2 4200+,2 GB (3 GB for Win 7),NVidia video card DirectX 9.0 compatible with 256 MB RAM,DirectX 9.0,Windows XP/Vista/Windows 7,8,1
+Off-Road Drive,Intel Pentium IV 2 GHz,2 GB,NVidia video card DirectX 9.0 compatible with 256 MB RAM,DirectX 9.0,Windows XP/Vista,8,0
+Off-Road Drive,Intel Core 2 Duo 3 GHz or AMD Athlon 64 X2 4200+,3 GB,NVidia video card DirectX 9.0 compatible with 256 MB RAM,DirectX 9.0,Windows XP/Vista/Windows 7,8,1
 Offensive Combat: Redux!,Intel Core i5-2500k or AMD Phenom II X4 955,4 GB RAM,GeForce GTX 570 or Radeon HD 6850,Version 11,Windows 7,4,0
 Offensive Combat: Redux!,Intel Core i5-7400 or AMD Athlon X4 845,8 GB RAM,Geforce GTX 1050 or Radeon RX 570 or higher,Version 11,"Windows 7, 8, 10",4,1
 Offroad Mechanic Simulator,i7-4770k,6 GB RAM,GTX 1060 6GB,Version 11,Windows 10 - 64bit,,0
@@ -7480,7 +7480,7 @@ Pankapu,Dual Core CPU,1 GB RAM,3D card with 512 MB,Version 9.0c,Vista or higher,
 Panoptic,Intel Core i5 4590 or AMD FX 8350 or greater,4 GB RAM,"GeForce GTX 970 or AMD Radeon R9 290 or better (Recommended: NVIDIA GeForce GTX 1060, AMD Radeon RX 480 equivalent or better)",,Windows 7 SP1 or newer,,0
 Pantropy,3 ghz,8 GB RAM,NVIDIA GTX 670 2GB/AMD Radeon HD 7870 2GB or better,Version 10,Windows 7 64bit,10,0
 Pantropy,4 ghz,16 GB RAM,Nvidia GTX 980,Version 11,Windows 10 64bit,10,1
-Panzer Command: Kharkov,"Pentium 1.2 GHz, AMD 2200+",256 MB (512 MB for XP),"DirectX 9 Compatible Video Card
+Panzer Command: Kharkov,"Pentium 1.2 GHz, AMD 2200+",512 MB,"DirectX 9 Compatible Video Card
 64MB (Low texture quality)
 128MB (Medium texture quality)
 256MB (High texture quality)",DirectX 9.0c,"Windows 98SE, ME, 2000, XP, Vista",0.55,0
@@ -7490,11 +7490,10 @@ Panzer Corps,Pentium 4 or equivalent,1GB RAM,64Mb Video Card,,Windows Vista/7/8,
 Panzer Corps,Pentium 4 or equivalent,2GB RAM,128Mb or more,,Windows Vista/7/8/10,0.5,1
 Panzer Corps 2,"Intel or AMD, Dual Core or better",8 GB RAM,"nVidia or AMD, 2GB VRAM",Version 11,64-bit Windows 8/10 (the game runs on Windows 7 but no support will be provided),12,0
 Panzer Corps 2,"Intel or AMD, Dual Core or better",8 GB RAM,"nVidia or AMD, 4GB of VRAM",Version 11,64-bit Windows 8/10 (the game runs on Windows 7 but no support will be provided),12,1
-Panzer Dragoon: Remake,Intel Core i5-2200 (or equivalent),4 GB RAM (Recommended: 8 GB),NVIDIA GTX 970 or AMD Radeon R9 290 (equivalent or better),Version 9.0,"Windows 8 / 10, 64-bit",7,0
+Panzer Dragoon: Remake,Intel Core i5-2200 (or equivalent),8 GB,NVIDIA GTX 970 or AMD Radeon R9 290 (equivalent or better),Version 9.0,"Windows 8 / 10, 64-bit",7,0
 Panzer Elite Action,PIII 800Mhz or AMD Duron 800Mhz or faster x86 compatible,"256Mb [DDRAM] or more 
 ",ATI Radeon 8500 or nVidia GeForce 3 Ti (must support ps.1.1) with at least 32Mb of video memory ,DirectX 9.0 or newer ,Windows XP ,3,0
-Panzer Elite Action,P4 2.0Ghz or AMD XP 2400+ or greater x86 or AMD64 processor. ,"1Gb of fast DDRAM (PC3200 recommended) 
-",ATI 9800XT or nVidia 6600Gt with 256Mb of video memory ,DirectX 9.0c,Windows XP with service pack 2 and updates ,3,1
+Panzer Elite Action,P4 2.0Ghz or AMD XP 2400+ or greater x86 or AMD64 processor. ,1 GB,ATI 9800XT or nVidia 6600Gt with 256Mb of video memory ,DirectX 9.0c,Windows XP with service pack 2 and updates ,3,1
 Paparazzi,1 Ghz or faster,512 MB RAM,,,Windows XP+,,0
 Paper Beast,Intel Core i5-6500,8 GB RAM,NVIDIA GeForce GTX 970,Version 11,Windows 7,,0
 "Papers, Please",1.5 GHz Core2Duo,2 GB RAM,OpenGL 1.4 or better,,Windows XP or later,0.1,0
@@ -7506,8 +7505,8 @@ Paradigm,Intel Core I3,4 GB RAM,1 GB dedicated graphics,Version 9.0c,Windows Vis
 Paradise Lost,i5,4 GB RAM,GeForce GTX 960,,Windows 10,30,0
 Paradise Lost,i7,8 GB RAM,Geforce GTX 1060,,Windows 10,30,1
 Paradox Wrench,2.0Ghz Dual Core,2 GB RAM,256MB DX9 (shader model 2.0),,Windows XP,0.11,0
-Paragon,Core i5 2.5 Ghz,4 GByte RAM,"1 GByte VRAM, Nvidia GeForce GTX 460 or AMD Radeon HD 6870 equivalent DX11 GPU",,Windows 7/8/10 64-bit,,0
-Paragon,Core i5 2.8 Ghz,8 GByte RAM,"2 GByte VRAM, Nvidia GTX 660 or AMD Radeon HD 7870 equivalent DX11 GPU",,Windows 7/8/10 64-bit,,1
+Paragon,Core i5 2.5 Ghz,4 GB,"1 GByte VRAM, Nvidia GeForce GTX 460 or AMD Radeon HD 6870 equivalent DX11 GPU",,Windows 7/8/10 64-bit,,0
+Paragon,Core i5 2.8 Ghz,8 GB,"2 GByte VRAM, Nvidia GTX 660 or AMD Radeon HD 7870 equivalent DX11 GPU",,Windows 7/8/10 64-bit,,1
 Paralives,2.3 GHz Intel i3 or comparable,6 GB RAM,DirectX® 10 compliant graphics card,,"Windows 7, Windows 8, Windows 10 (64-bit)",10,0
 Parallax,1.4 GHz,512 MB RAM,Shader Model 2.0 compatible,Version 9.0c,Windows XP/Vista/7/8,0.1,0
 Paranoia: Happiness is Mandatory,Intel Core i5-2300 or AMD FX-4350,4 GB RAM,NVIDIA GeForce GTX 650 or AMD Radeon HD 6870,Direct X10,Windows 7 64-bit,8,0
@@ -7583,7 +7582,7 @@ PC Building Simulator,Intel Core i5-2500K or AMD Athlon X4 740 (or equivalent),4
 PC Building Simulator 2,Intel Core i5-3570 or AMD FX-8350,8 GB,"NVIDIA GeForce GTX 1050 Ti, 4 GB or AMD Radeon R9 380X, 4 GB",,Windows 10,,0
 PC Building Simulator 2,Intel Core i5-10400 or AMD Ryzen 5 3600,12 GB,"NVIDIA GeForce GTX 1660 Super, 6 GB or AMD Radeon RX 5600 XT, 6 GB",,Windows 10,,1
 Peaky Blinders: Mastermind,Intel i5-760 (4*2800) or equivalent,8 GB RAM,GeForce GTX 760,Version 11,Windows 7/8.1/10 x64,5,0
-Peggle,700MHz processor,256MB of RAM (512+MB recommended),"DirectX-compatible video, 16MB of video memory",DirectX 8 or later,Windows XP/Vista/7,0.05,0
+Peggle,700MHz processor,512 MB,"DirectX-compatible video, 16MB of video memory",DirectX 8 or later,Windows XP/Vista/7,0.05,0
 Pekoe,1.6 GHz (Intel Core i3 or equivalent),4 GB RAM,OpenGL 2.0 Compatible Graphics Card,,Windows 7 or greater,2,0
 Pendula Swing,2.0 GHz,4 GB RAM,GPU: DirectX 9 compatible,Version 9.0,Windows XP SP2+,3,0
 Pengame,"Intel Core 2 Duo, 2.2 GHz",2 GB RAM,"Pixel Shader 3 compatible, 512 MB VRAM",Version 9.0c,Windows 7 / 8.1 / 10,4,0
@@ -7753,9 +7752,9 @@ Plants vs. Zombies,1.2GHz processor,512+MB of RAM,"128MB of video memory, 16-bit
 Plants vs. Zombies: Battle for Neighborville,"AMD FX-4350, Intel i3-3220, or equivalent",4 GB,"AMD Radeon HD 7730, NVIDIA GeForce GT 640, or equivalent",11,Windows 10 - 64-Bit,15,0
 Plants vs. Zombies: Battle for Neighborville,"AMD FX-6100, Intel i5-3570, or equivalent",8 GB,"AMD Radeon R9 285, NVIDIA GeForce GTX 970, or equivalent",11,Windows 10 - 64-Bit,15,1
 Plants vs. Zombies: Garden Warfare,Intel Core 2 Duo @ 3.0 GHz,4GB RAM,"NVIDIA 8800GT, AMD/ATI Radeon HD 5750",10.0+,Windows 7/8 64bit,15,0
-Plants vs. Zombies: Garden Warfare,Intel Quad Core / AMD Six Core,At least 8GB RAM,AMD Radeon 7870 3GB or Better / NVIDIA Geforce GTX 660 3GB or better,10.0+,Windows 7/8 64bit,15,1
+Plants vs. Zombies: Garden Warfare,Intel Quad Core / AMD Six Core,8 GB,AMD Radeon 7870 3GB or Better / NVIDIA Geforce GTX 660 3GB or better,10.0+,Windows 7/8 64bit,15,1
 Plants vs. Zombies: Garden Warfare 2,3.20 GHz Intel i5 650/ 2.5 GHz AMD Phenom X4 9850,4GB,NVIDIA GeForce GT 640/ AMD Radeon HD 5750,11,Windows 7 64-bit/ Windows 8.1 64-bit/ Windows 10 64-bit,20,0
-Plants vs. Zombies: Garden Warfare 2,Intel i5 6600 or equivalent,At least 16GB RAM,NVIDIA GeForce GTX 970 4GB / AMD Radeon R9 290 4GB,11.1,64-bit Windows 10 or later,40,1
+Plants vs. Zombies: Garden Warfare 2,Intel i5 6600 or equivalent,16 GB,NVIDIA GeForce GTX 970 4GB / AMD Radeon R9 290 4GB,11.1,64-bit Windows 10 or later,40,1
 Platformines,1.8 GHz or faster,1 GB RAM,256mb Video Memory,9.0c,"Windows XP, Vista, Windows 7, Windows 8",0.26,0
 Platoon,Pentium II 500 MHz,128MB RAM,3D accelerator videocard with 16 MB Vram and Directx 8.1 compatible,Directx 8.1,Windows 98/ME/2000/XP,0.5,0
 Platoon,Pentium III 600 MHz,256MB RAM,3D accelerator videocard with 32 MB Vram and Directx 8.1 compatible,Directx 8.1,Windows 98/ME/2000/XP,0.6,1
@@ -8263,7 +8262,7 @@ Ravenswatch,Intel Core i5-4670K (4 * 3400) / AMD FX-8350 (4 * 4000),8 GB RAM,GeF
 Ravenswatch,Intel Core i7-6700K (4 * 4000) / AMD Ryzen 5 1500X (4 * 3500),8 GB RAM,GeForce GTX 970 (2048 MB) / Radeon R9 Fury (4096 MB),Version 12,Windows 10 x64 (Version 1909 or newer),3,1
 Raw Data,Intel i5-4590,8 GB RAM,NVIDIA GeForce GTX 970,Version 11,Windows 10,10,0
 Raw Data,Intel i7-4770,16 GB RAM,NVIDIA GeForce GTX 980 Ti,Version 12,Windows 10,10,1
-RAWMEN: Food Fighter Arena,SSE2 instruction set support,8 GB RAM (Recommended: 16 GB),Graphics card with DX11 (shader model 3.0) capabilities.,Version 11,Windows 7 SP1+ (Recommended: Windows 10),4,0
+RAWMEN: Food Fighter Arena,SSE2 instruction set support,16 GB,Graphics card with DX11 (shader model 3.0) capabilities.,Version 11,Windows 7 SP1+ (Recommended: Windows 10),4,0
 Ray's The Dead,Intel Core i5-4460 3.2GHz equivalent or greater,8 GB RAM,NVIDIA GeForce GTX 750 Ti equivalent or greater,Version 10,"Windows 10, 64-bit versions only",8,0
 Rayman Legends,Intel Pentium IV @ 3.0 GHz or AMD Athlon64 3000 + @ 1.8 GHz,2 GB RAM,nVidia GeForce 6800GT or AMD Radeon X1950 Pro (256MB VRAM with Shader Model 3.0 or higher) ,9.0c,Windows XP SP3 or Windows Vista SP2 or Windows 7 SP1 or Windows 8 (both 32/64bit versions),6,0
 Rayman Legends,Intel Core 2 Duo E4400 @ 2.0 GHz or AMD Athlon64 X2 3800+@ 2 GHz,2 GB RAM,"nVidia GeForce 9600GT or higher, AMD Radeon HD3850 or higher (512MB VRAM with Shader Model 4.0) ",10,Windows XP SP3 or Windows Vista SP2 or Windows 7 SP1 or Windows 8 (both 32/64bit versions),6,1
@@ -8321,7 +8320,7 @@ Rec Room,Intel i5,8 GB RAM,GTX 970,Version 10,Win 7 or higher,1.4,0
 Rec Room,Intel i7,16 GB RAM,GTX 980 or better,Version 11,Win 10 or higher,1.4,1
 Receiver,2.0 GHz,1 GB RAM,,,Windows XP,0.15,0
 Receiver,2.0 GHz,2 GB RAM,,,Windows 7,0.15,1
-Receiver 2,Quad-core+ with SSE2 instruction set support,8 GB RAM (Recommended: 16 GB RAM),"DX10 (shader model 4.0) support, VRAM 2+ GB",Version 10,"Windows 7 SP1+, 64-bit",5,0
+Receiver 2,Quad-core+ with SSE2 instruction set support,16 GB,"DX10 (shader model 4.0) support, VRAM 2+ GB",Version 10,"Windows 7 SP1+, 64-bit",5,0
 Recettear: An Item Shop's Tale,Pentium 4 1.7ghz or Athlon XP 1700+ (or equivalent processor),512MB,DirectX 8.1-compatible video card of any type with at least 64 megabytes of video RAM; Nvidia and ATI tested (Intel Intregrated Graphics below X4000 series not recommended),DirectX 8.1,Windows XP/Vista/7,0.7,0
 reconquest,Intel Core i3-3250 / AMD Phenom II X4 B70,4 GB RAM,NVIDIA GeForce GTX 560 / AMD Radeon HD 7790,Version 11,32-bit Windows 7,2,0
 Record of Lodoss War: Deedlit in Wonder Labyrinth,Intel Core2 Duo or higher,2 GB RAM,Open GL compliant video card,,Windows 2000 / XP / Vista / 7 / 8 / 10,0.05,0
@@ -8362,7 +8361,7 @@ Redout 2,Intel Core i5-3470 | AMD Ryzen 3 1200,4 GB RAM,GeForce GTX 970 4 GB | A
 Redout 2,Intel Core i7-3770 | AMD Ryzen 5 1600,8 GB RAM,GeForce RTX 2060 6 GB | AMD Radeon RX 5700 XT,Version 12,Windows 10 64bit,25,1
 Redout: Space Assault,i3 2.6Ghz,4 GB RAM,GTX 570 or equivalent,Version 11,"Windows 7, 64-bit",14,0
 Redout: Space Assault,i5 2.6Ghz,8 GB RAM,GTX 970 or equivalent,Version 11,"Windows 10, 64-bit",14,1
-Redshirt,2 GHz (Dual Core),1 GB (4 GB recommended),Directx 9.0c-compatible 3D graphics card with 256 MB VRAM,DirectX 9.0c,Windows XP / Vista / 7 / 8,0.5,0
+Redshirt,2 GHz (Dual Core),4 GB,Directx 9.0c-compatible 3D graphics card with 256 MB VRAM,DirectX 9.0c,Windows XP / Vista / 7 / 8,0.5,0
 Refactor,2 GHz,2 GB RAM,(Any),Version 9.0,Windows XP SP2+,4,0
 Refactor,3 GHz,4 GB RAM,(Any),Version 11,Windows 7,4,1
 Reflex,Intel® Core™ i5 Processor,1 GB RAM,NVIDIA 500-series or equivalent (1GB VRAM),Version 10,Windows 7,1,0
@@ -8680,11 +8679,11 @@ Roller Champions,"AMD Ryzen 3 1200 @ 3.1 GHz, Intel Core i5-4460 @ 3.2 GHz, or b
 Roller Champions,"AMD Ryzen 5 1400 @ 3.2 GHz, Intel Core i5-4460 @ 3.2 GHz, or better",8 GB,"AMD Radeon RX 470 (8 GB), Nvidia GeForce GTX 1050 Ti (4 GB), or better",DirectX 11,Windows 10 (64-bit versions),10,1
 Roller Coaster Rampage,2.2 GHz dual core processor ,2 GB RAM,Nvidia 8800 GPU,DirectX 9.0 ,Windows XP or later ,2,0
 RollerCoaster Tycoon,Pentium 90 MHz ,16 MB RAM,SVGA Video Card 1MB,Directx 5.0,Windows 2000/95/98/Me/XP,0.18,0
-RollerCoaster Tycoon 3,Pentium® III 733 MHz or compatible,"128 MB RAM, 256 MB for XP",Any ATI Radeon™ or GeForce™ 2 with 32MB or higher; or other video card with 32MB and hardware T&L,DirectX® version 9 (included) or higher ,Windows® 98/Me/2000/XP ,0.6,0
-RollerCoaster Tycoon 3,Pentium® 4 1.2 GHz or compatible ,"256 MB, 384 MB for XP",ATI Radeon™ 64 MB SDR or GeForce™ 2 Pro or other video card with 64 MB or more memory and hardware T&L ,DirectX® version 9 (included) or higher ,Windows® XP,0.6,1
+RollerCoaster Tycoon 3,Pentium® III 733 MHz or compatible,256 MB,Any ATI Radeon™ or GeForce™ 2 with 32MB or higher; or other video card with 32MB and hardware T&L,DirectX® version 9 (included) or higher ,Windows® 98/Me/2000/XP ,0.6,0
+RollerCoaster Tycoon 3,Pentium® 4 1.2 GHz or compatible ,384 MB,ATI Radeon™ 64 MB SDR or GeForce™ 2 Pro or other video card with 64 MB or more memory and hardware T&L ,DirectX® version 9 (included) or higher ,Windows® XP,0.6,1
 RollerCoaster Tycoon 3: Complete Edition,Intel or AMD Dual Core Processor,2 GB RAM,256mb Graphics Memory/Intel HD 4000,Version 9.0,Windows 7 and Above,2,0
 RollerCoaster Tycoon 3: Complete Edition,Intel i3 Processor,4 GB RAM,Nvidia GTX 560,Version 9.0,Windows 7 and Above,2,1
-RollerCoaster Tycoon 3: Wild,Pentium® III 1 GHz or compatible,256 MB RAM; 512 MB required for XP,"64 MB video card with Hardware T&L - such as any 64MB ATI Radeon™ or
+RollerCoaster Tycoon 3: Wild,Pentium® III 1 GHz or compatible,512 MB,"64 MB video card with Hardware T&L - such as any 64MB ATI Radeon™ or
 GeForce™ 2 Ultra/Ti/Pro or higher* with 64MB
 - (Systems with GeForce 2 GTS/MX, GeForce 4 MX, or the Intel Extreme
 chipset family may exhibit performance degradation or graphical irregularities
@@ -8725,7 +8724,7 @@ Rosso Rabbit in Trouble,Pentium II 450MHz,128MB RAM,32MB graphic card,,,,0
 Routine,3.0 GHz Quad Core,6 GB RAM,DirectX 9 compatible card with 1 GB Video RAM or better (GeForce GTX 570 or ATI equivalent),Version 9.0,Windows 7 - 64 Bit / Windows 10 - 64 Bit,10,0
 Royal Agents: Sweet Zombie,Intel Core i3 2.00 GHz or AMD equivalent,4 GB RAM,NVIDIA GeForce 450 or higher with 1GB Memory,Version 9.0,Windows 7 or higher 64bit,0.1,0
 Royal Quest,Intel Core 2 Duo / AMD Athlon X2 64 3.0 GHz,2 GB RAM,512 MB nVidia GeForce 9500GT / ATI Radeon HD 3450,Version 9.0,Windows 7 / Vista / XP SP3,5,0
-RPG Time: The Legend of Wright,Intel Core i5-7500,4 GB RAM (Recommended: 6 GB),NVIDIA GeForce GTX 750Ti,Version 11,Windows 10 64-bit,3,0
+RPG Time: The Legend of Wright,Intel Core i5-7500,6 GB,NVIDIA GeForce GTX 750Ti,Version 11,Windows 10 64-bit,3,0
 RTL Winter Sports 2008 - The Ultimate Challenge,"Pentium 1,6 GHZ",512 MB RAM,100% DirectX 9.0c compatible 3D Graphic Card with 64MB Memory,DirectX 9.0c,Windows 2000 Pro (SP4) / XP (SP2),1.8,0
 RTL Winter Sports 2009,2.4 GHz,1 Gb,128 Mb,DirectX 9.0c,2000/XP/Vista,3,0
 RUGBY 18,Intel® Core i3 or AMD Phenom™ II X3,6 GB RAM,NVIDIA® GeForce® GTX 660 or AMD Radeon™ HD 7850 with 2 GB RAM,Version 11,"64bits version of Windows® 7, Windows® 8, Windows® 10",15,0
@@ -8801,8 +8800,8 @@ Sacred 2 Ice & Blood,Dual Core 2.0 GHz Processor,2 GB RAM,"Graphics card 512 MB 
 Sacred 3,Intel Pentium D945 (Dual Core 3400 MHz)/ AMD Athlon 64 X2 6000+ (Dual Core 3000 MHz),2 GB RAM,Nvidia GeForce GT 610 (1024MB) / ATI Radeon 4770 (512MB),9.0c,Windows Vista SP2 / 7 / 8,25,0
 Sacred 3,Intel Core i5-4430 (Quad Core 3000 MHz) / AMD Phenom 9500 (Quad Core 2200 MHz),4 GB RAM,Nvidia GeForce GT 640 (2048MB) / ATI Radeon HD 5570 (1024MB),9.0c,Windows Vista SP2 / 7 / 8,25,1
 Sacred Citadel,2GHz Dual Core,2 GB RAM,"256MB, Nvidia GeForce 8600 or better, ATI Radeon HD 2600 or better",9.0c,Vista/Win7,,0
-Sacrifice,Pentium II 300 Mhz Or Better Processor,At Least 64 Megabytes Of RAM,8 MB Or Better Direct X Certified D3D Accelerated Video Card,DirectX 7.0a,"Windows 95, 98, 2000, Or ME",0.65,0
-Sacrifice,Pentium II 450 Mhz Or Better Processor,128 Megabytes Of RAM,"16 MB Or Better Direct X Certified D3D Accelerated 
+Sacrifice,Pentium II 300 Mhz Or Better Processor,64 MB,8 MB Or Better Direct X Certified D3D Accelerated Video Card,DirectX 7.0a,"Windows 95, 98, 2000, Or ME",0.65,0
+Sacrifice,Pentium II 450 Mhz Or Better Processor,128 MB,"16 MB Or Better Direct X Certified D3D Accelerated 
 Video Card",DirectX 7.0a,"Windows 95, 98, 2000, Or ME",0.65,1
 SacriFire,Intel Core i3 2100 / AMD Phenom II x4 955,4 GB RAM,1 GB VRAM - NVIDIA GeForce GTX 470 / ATI Radeon HD5800,Version 11,"Windows 10, 64-bit versions only",8,0
 SacriFire,Intel Core i7 3770K / AMD FX 8350,6 GB RAM,2 GB VRAM - NVIDIA GeForce GTX 560 / AMD Radeon HD6850,Version 11,"Windows 10, 64-bit versions only",8,1
@@ -8973,7 +8972,7 @@ Second Life,"1.5 GHz (XP), 2-GHz (Vista) 32-bit (x86) or better",1 GB or more,"#
 Second Sight,Pentium III or Athlon at 1GHz,256Mb RAM,(GeForce 3 or Radeon 8xxx),DirectX 9.0c,Windows XP/2000,1,0
 Second Sight,Pentium 4 at 2GHz or AthlonXP 2000+,512Mb RAM,GeForce FX 5xxx or Radeon 9xxx,DirectX 9.0c,Windows XP/2000,1,1
 Secret Files 2 - Puritas Cordis,"Intel Pentium III 800MHz or compatible CPU
-",256 MByte,"32MB AGP or PCI Express, DirectX 9 compatible",DirectX 9,"Windows 2000, XP, Vista",2,0
+",256 MB,"32MB AGP or PCI Express, DirectX 9 compatible",DirectX 9,"Windows 2000, XP, Vista",2,0
 Secret Files 3,Pentium® IV 2 Ghz Single Core or 100 % compatible Processor,512 MB RAM,DirectX 9-compatible Graphicard with min. 128 MB memory,DirectX 9,Windows® XP/Vista™/Windows 7™/Windows 8™,2,0
 Secret Neighbor,"Intel Core i5-3330 3.0 GHz, AMD FX-8300 3.3 GHz",6 GB RAM,"NVIDIA GeForce GTX 760, Radeon R9 270",Version 11,Windows 7 and up,5,0
 Secret Neighbor,"Intel Core i5-4690 3.5 GHz, AMD Ryzen 3 1300X 3.5 GHz",8 GB RAM,"NVIDIA GeForce GTX 1060, Radeon RX 580",Version 11,Windows 10,5,1
@@ -9119,7 +9118,7 @@ Shantae and the Seven Sirens,4th generation core-i processor or better,8 GB RAM,
 Shape of the World,3.0GHz CPU Dual Core,4 GB RAM,Geforce GTX 750 / Radeon R7 260X,Version 11,"Windows 7, 64-bit",2,0
 Shape of the World,2.4GHz CPU Quad Core,8 GB RAM,Geforce GTX 780 / Radeon R9 290X,Version 11,"Windows 7, 64-bit",2,1
 ShapeRockets,2.4 GHz Dual core,2 GB RAM,NVIDIA GTX 260 or ATI 4850,Version 9.0c,Windows 7 or Newer,1,0
-shapez,2 Ghz or faster,2048 MB RAM (recommended: 4096 MB RAM),Any,,Windows 10 64bit,0.3,0
+shapez,2 Ghz or faster,4096 MB,Any,,Windows 10 64bit,0.3,0
 shapez 2,,4 GB RAM,,,Windows 7 64bit or later,2.0,0
 shapez 2,,8 GB RAM,,,Windows 10 64bit or later,2.0,1
 Shaq Fu: A Legend Reborn,intel Core i3-530/AMD Athlon II X4 640,4 GB RAM,Intel HD 4000/GeForce GT 630/Radeon R7 240,,Windows 7 64bit,3,0
@@ -9401,8 +9400,8 @@ SMALLAND,Intel i5-8400 / Equivalent,8 GB RAM,Nvidia GTX 1060 / Equivalent,Versio
 SMASH + GRAB,Intel Core i3-3220 or AMD FX-8120,4 GB RAM,GeForce GTX 460 or Radeon HD 6850 and 1GB of memory,Version 11,Windows 7 (64 bit only),6,0
 SMASH + GRAB,Intel i5-4590 or AMD FX-8370 or better,8 GB RAM,GeForce GTX 760 or Radeon R9 280 or higher and 4GB of memory,Version 11,"Windows 7, 8, 8.1 or 10 (64 bit only)",6,1
 Smashball,1.2 GHz Processor ,512 MB RAM,"DirectX® 7 Compatible, 128 MB",DirectX® 7,Microsoft® Windows® 2000/XP/Vista,4.5,0
-Smashing Toys,Athlon XP / 64 3000+ or Pentium IV 1.8 GHz,256 Megabytes of RAM,3D accelerated GeForce 128 MB or equivalent DirectX9.0c compatible*,DirectX 9.0c,Windows XP or Windows Vista 32bit,2,0
-Smashing Toys,(Athlon XP / 64 3000+ or Pentium IV 1.8 GHz),512 Megabytes of RAM,Geforce 8800 GTS or equivalent DirectX9 compatible,DirectX 9.0c,Windows XP or Windows Vista 32bit,2,1
+Smashing Toys,Athlon XP / 64 3000+ or Pentium IV 1.8 GHz,256 MB,3D accelerated GeForce 128 MB or equivalent DirectX9.0c compatible*,DirectX 9.0c,Windows XP or Windows Vista 32bit,2,0
+Smashing Toys,(Athlon XP / 64 3000+ or Pentium IV 1.8 GHz),512 MB,Geforce 8800 GTS or equivalent DirectX9 compatible,DirectX 9.0c,Windows XP or Windows Vista 32bit,2,1
 SMITE,Core 2 Duo 2.4 GHz or Athlon X2 2.7 GHz,4 GB RAM,Nvidia GeForce 8800 GT,,Windows 7 64-bit or newer,30,0
 SMITE,"Intel Core i5 or AMD Phenom II X3, 2.8 GHz",6 GB RAM,Nvidia GeForce GTX 660 or ATI Radeon HD 7950,,Windows 8/10 64-bit (latest Service Pack),30,1
 Smoke and Sacrifice,Intel® Core™ i3-4130 / AMD Phenom™ II X4 or equivalent,4 GB RAM,NVIDIA® GeForce® GTX 650 / AMD Radeon™ HD 5770 / Intel® HD Graphics 530 or equivalent,Version 11,Windows 7/8/8.1/10 (32-bit),4,0
@@ -9623,7 +9622,7 @@ Spear Master,1.7 GHz Dual Core CPU,2 GB RAM,"NVIDIA GeForce GTX 260, ATI Radeon 
 Spec Ops: The Line,Intel Core 2 Duo @ 2Ghz / AMD Athlon 64 X2 equivalent ,2 GB RAM,NVIDIA GeForce 8600 / ATI Radeon HD 2600XT (256 MB memory) ,9.0 ,Windows XP SP3 ,6,0
 Spec Ops: The Line,2.4 GHz Quad Core processor ,3 GB RAM ,NVIDIA GeForce 9800 GTX/ATI Radeon HD 4850 (512+ MB memory) ,9.0 ,Windows Vista/7,10,1
 Special Forces: Nemesis strike,Pentium III 1GHz Processor,128MB RAM,DirectX compatible GeForce 3 or ATi Radeon 8500 Class Video Card,DirectX 9,Windows 98/ME/2000/XP,3.5,0
-Special Forces: Nemesis strike,Pentium 4 or AMD Athlon 1.5GHz Processor,128MB RAM (256MB for 2000/XP),GeForce 5000 or Radeon 9000 Class Video Card,DirectX 9,Windows 98/ME/2000/XP,3.5,1
+Special Forces: Nemesis strike,Pentium 4 or AMD Athlon 1.5GHz Processor,256 MB,GeForce 5000 or Radeon 9000 Class Video Card,DirectX 9,Windows 98/ME/2000/XP,3.5,1
 Special Forces: Team X,Dual-Core CPU,2 GB RAM,256MB DX9 GPU (Geforce 8xxx or Radeon HD2xxx),9.0c,"Windows Vista, Windows 7 (32-bit)",1,0
 Special Forces: Team X,Quad-Core CPU,4 GB RAM,1GB+ DX10 GPU,10,Windows 7 (64-bit),1,1
 Spectra,2.6 GHz Dual Core,2 GB RAM,512 MB VRAM,Version 9.0c,Win XP / Win 7 / Win 8,0.2,0
@@ -9667,8 +9666,8 @@ Spider-Man: Friend or Foe,"Pentium 4/Athlon XP or better
 2 GHz",1GB,"128 MB video card 
 NVIDIA GeForce 6800+ 
 ATI Radeon X800+",DirectX 9.0c (included),Windows XP/Vista,5.5,1
-Spider-Man: Homecoming - Virtual Reality Experience,Intel Core i5 or higher,8 GB RAM (Recommended: 16 GB RAM),NVIDIA GTX 970 or greater,,Windows 10 or higher,2.1,0
-Spider-Man: Shattered Dimensions,Intel® Core™2 Duo 2.6 GHz or AMD Athlon™ 64 X2 3800+ or better,1 GB of RAM (2GB recommended),"3D hardware accelerator card required - 100% DirectX® 9.0c-compliant 256 MB video card and drivers*
+Spider-Man: Homecoming - Virtual Reality Experience,Intel Core i5 or higher,16 GB,NVIDIA GTX 970 or greater,,Windows 10 or higher,2.1,0
+Spider-Man: Shattered Dimensions,Intel® Core™2 Duo 2.6 GHz or AMD Athlon™ 64 X2 3800+ or better,2 GB,"3D hardware accelerator card required - 100% DirectX® 9.0c-compliant 256 MB video card and drivers*
 (GeForce® 7800 256 MB / Radeon™ X1800 256 MB)",DirectX® 9.0c (Included),Microsoft® Windows® XP with Service Pack 3 ,14,0
 Spider-Man: Web of Shadows,Pentium 4 @ 2.8 GHz/Athlon 2800+,1.5GB,256 MB (nVidia GeForce 7300 GT),DirectX: 9.0c,(XP),6.6,0
 Spikit,1.5Ghz or better,128 MB RAM,DirectX 9.0 Compatible,,Windows XP/Windows Vista/Windows 7/8/10,,0
@@ -9760,8 +9759,8 @@ Star Trek: Bridge Commander,Pentium® II 300Mhz processor (Pentium® II 450Mhz p
 100% DirectX® 8.0a compatible 16MB video card and drivers",DirectX® 8.0a or higher (included),US version of Microsoftâ Windows® 95 OSR2/98/ME/2000/XP operating system,0.65,0
 Star Trek: Bridge Crew,"Intel® i5-4590, AMD FX 8350 equivalent or better",8 GB RAM,"NVIDIA GeForce® GTX 970, AMD Radeon™ R9 290 equivalent or better",,"Windows 7 SP1, Windows 8.1 or Windows 10",,0
 Star Trek: D-A-C,Intel Pentium 4 - 2400 Mhz or AMD Athlon XP 2400+,2048MB,GeForce 6600 GT or ATI Radeon X1300-series with 256 MB dedicated video memory,DirectX 9.0c,"Windows XP, Vista, 7",0.4,0
-Star Trek: Deep Space Nine: The Fallen,Pentium II 266MHz or higher,64Mbytes system RAM,4Mbyte video card (3D accelerator recommended),DirectX version 7.0 or later.,Windows 95 or Windows 98 or Windows NT4.0 with Service Pack 4 installed or Windows 2000.,0.165,0
-Star Trek: Deep Space Nine: The Fallen,Pentium II 400MHz,128Mbytes system RAM,8MB+ 3D Accelerator card,DirectX version 7.0 or later.,Windows 95 or Windows 98 or Windows NT4.0 with Service Pack 4 installed or Windows 2000.,0.165,1
+Star Trek: Deep Space Nine: The Fallen,Pentium II 266MHz or higher,64 MB,4Mbyte video card (3D accelerator recommended),DirectX version 7.0 or later.,Windows 95 or Windows 98 or Windows NT4.0 with Service Pack 4 installed or Windows 2000.,0.165,0
+Star Trek: Deep Space Nine: The Fallen,Pentium II 400MHz,128 MB,8MB+ 3D Accelerator card,DirectX version 7.0 or later.,Windows 95 or Windows 98 or Windows NT4.0 with Service Pack 4 installed or Windows 2000.,0.165,1
 Star Trek: Elite Force II,Pentium® III 600 or Athlon™ processor or higher ,128MB of RAM ,3D Hardware Accelerator Card required - 100% DirectX® 9.0 compatible 32MB video card and drivers* ,DirectX® 9.0 (included) ,English version of Microsoft® Windows® 98/98SE/ME/2000/XP ,1.3,0
 Star Trek: Resurgence,AMD FX-8350 / Intel® Core™ i5-3330,8 GB RAM,AMD Radeon™ RX 5700 / NVIDIA® GeForce® GTX 1080,Version 12,Windows® 10 64-bit,16,0
 Star Trek: Resurgence,AMD Ryzen 5 3600XT / Intel® Core™i7 3GHz or higher,16 GB RAM,AMD Radeon RX 6700/ NVIDIA GeForce RTX 2080 or higher,Version 12,Windows® 10 64-bit,16,1
@@ -9836,8 +9835,8 @@ Starfield,"AMD Ryzen 5 2600X, Intel Core i7-6800K",16 GB RAM,"AMD Radeon RX 5700
 Starfield,"AMD Ryzen 5 3600X, Intel Core i5-10600K",16 GB RAM,"AMD Radeon RX 6800 XT, NVIDIA GeForce RTX 2080",Version 12,Windows 10/11 with updates (64-bit),125,1
 StarForge,Intel Dual-Core 2.4 GHz or 2.7 GHz AMD Athlon 64X2 ,4 GB RAM ,NVIDIA GeForce 8800GT or AMD Radeon HD 3830 or Intel HD Graphics 4000 with 512 MB VRAM,9.0c ,"Windows XP Service Pack 3, Windows Vista,7,8 (64 bit only) ",0.9,0
 StarForge,"Quad core CPU: AMD Phenom II X2 565, Intel Core i5-750",4 GB RAM ,NVIDIA GeForce GTX 560 or AMD Radeon HD 7750 with 1 GB VRAM or better ,9.0c ,Windows 7 ,2,1
-Stargate: Resistance,2.0+ GHZ Single Core Processor,512 Mbytes of System RAM,NVIDIA 6200+ or ATI Radeon 9600+ Video Card,,Windows XP SP2 or Windows Vista,8,0
-Stargate: Resistance,2.4+ GHZ Dual Core Processor,1 GBytes of System RAM,NVIDIA 7800GTX+ or ATI x1300+ Video Card,,Windows XP SP2 or Windows Vista,8,1
+Stargate: Resistance,2.0+ GHZ Single Core Processor,512 MB,NVIDIA 6200+ or ATI Radeon 9600+ Video Card,,Windows XP SP2 or Windows Vista,8,0
+Stargate: Resistance,2.4+ GHZ Dual Core Processor,1 GB,NVIDIA 7800GTX+ or ATI x1300+ Video Card,,Windows XP SP2 or Windows Vista,8,1
 Stargate: Timekeepers,"Intel Core i3-8100, AMD Ryzen 5 1600",8 GB RAM,"Nvidia GeForce GTX 950, Radeon R9 270X",Version 11,Windows 7 64bit,45,0
 Stargate: Timekeepers,"Intel Core i3-10100, AMD Ryzen 5 2600X",16 GB RAM,"Nvidia GeForce GTX 1650, Radeon RX 570",Version 11,Windows 10 64bit,45,1
 Starlight Drifter,1.66 Ghz,1 GB RAM,DirectX compatible card,,Windows XP,1,0
@@ -9989,7 +9988,7 @@ Streamline,Intel Core i5-2410M 2.3GHz or equivalent,4 GB RAM,Intel HD Graphics 3
 Streamline,3 GHz processor,8 GB RAM,Nvidia GeForce 8800/AMD Radeon HD 5670 or equivalent video card (Dedicated GPU with 512MB+ Video Memory(VRAM)),Version 11,Windows 7/8/10 (64-bit OS required),6,1
 Street Arena,Dual Core 2.0 GHz,1 GB RAM,GeForce GT 240,Version 9.0c,Windows XP/Vista/7/8,2,0
 Street Arena,Quad Core 2.0 GHz,2 GB RAM,GeForce 460 GTX,Version 9.0c,Windows XP/Vista/7/8,2,1
-Street Fighter 30th Anniversary Collection,Intel i3 @ 3.0GHz or AMD equivalent,4 GB RAM (Recommended: 8 GB RAM),Intel HD 4400,Version 11,Windows 7 (64-bit Required) (Recommended: Windows 10 (64-bit Required)),6,0
+Street Fighter 30th Anniversary Collection,Intel i3 @ 3.0GHz or AMD equivalent,8 GB,Intel HD 4400,Version 11,Windows 7 (64-bit Required) (Recommended: Windows 10 (64-bit Required)),6,0
 Street Fighter 6,Intel Core i5-7500 / AMD Ryzen 3 1200,8 GB RAM,GTX 1060 (VRAM 6GB) / Radeon RX 580 (VRAM 4GB),Version 12,Windows 10 (64 bit required),60,0
 Street Fighter 6,Intel Core i7-8700 / AMD Ryzen 5 3600,16 GB RAM,RTX 2070 / Radeon RX 5700XT,Version 12,Windows 10 (64 bit)/Windows 11 (64 bit),60,1
 Street Fighter IV,Intel Pentium4 2.0GHz or higher ,1GB RAM or higher ,"NVIDIA GeForce6600 series, ATI Radeon(TM) X1600 or higher or higher, DirectX 9.0c/Shader3.0 or higher compatible, VRAM 256MB or higher",DirectX 9.0c,"Windows XP, Windows Vista ",10,0
@@ -10453,7 +10452,7 @@ The Bradwell Conspiracy,Intel Core i7-7700HQ CPU @ 2.80GHz,8 GB RAM,NVIDIA GeFor
 The Bridge,1.0 GHz,512 MB RAM,,9.0,Windows 8,0.4,0
 The Bridge,2.0 GHz,1 GB RAM,,,Windows 10,,1
 The Brookhaven Experiment,Intel Core i5 4590 or AMD FX 8350 or greater,4 GB RAM,Nvidia GeForce GTX 970/AMD Radeon R9 290 equivalent or greater,,Windows 7 SP1 or newer,,0
-The Bug Butcher,Intel Core Duo or faster,4 GB RAM (8GB recommended),OpenGL 3.0 compliant video card,,Windows Vista or Later,1,0
+The Bug Butcher,Intel Core Duo or faster,8 GB,OpenGL 3.0 compliant video card,,Windows Vista or Later,1,0
 The Bunker,Core i3 / AMD A6 2.4Ghz,2 GB RAM,NVIDIA GeForce GTX 260 / AMD Radeon HD 5750 OpenGL 3.3,Version 11,Windows 7 64-bit,5,0
 The Bunker,Quad Core 2.3GHz or equivalent processor,4 GB RAM,Direct X 11.0 compliant video card with 2GB RAM (NVidia GeForce GTX 750 or AMD Radeon HD 7850),Version 11,Windows 7/Windows 8.1 64-bit,5,1
 The Bureau: XCOM Declassified,Intel Core 2 DUO 2.4 GHz / AMD Athlon X2 2.7 GHz ,2 GB RAM,DirectX9 Compatible ATI Radeon HD 3870 / NVIDIA 8800 GT ,,Windows Vista Service Pack 2 32-bit,12,0
@@ -10494,7 +10493,7 @@ The Climb,Intel i5-4590 equivalent or greater,8GB RAM,NVIDIA GTX 970 / AMD 290 e
 The Club,Intel Pentium 4 2.0Ghz / AMD Athlon XP 2000+ processor ,512MB system RAM,ATI Radeon X800 series or higher video card with latest manufacturer drivers,DirectX 9.0c (included on disc),Windows XP SP2 / Windows Vista,2.2,0
 The Club,Intel Pentium 4 2.5Ghz/ AMD Athlon XP 2500+ processor recommended,1GB system RAM recommended,ATI Radeon X800 series or higher video card with latest manufacturer drivers,DirectX 9.0c (included on disc),Windows XP SP2 / Windows Vista,2.2,1
 The Cold War Era,1.5 GHz,512 MB RAM,128 MB,Version 9.0,Windows,0.6,0
-The Colonists,Multicore with SSE2 instruction set support,4 GB RAM (Recommended: 8 GB RAM),1GB DX9 (shader model 3.0),Version 9.0c,64 bit Windows,1,0
+The Colonists,Multicore with SSE2 instruction set support,8 GB,1GB DX9 (shader model 3.0),Version 9.0c,64 bit Windows,1,0
 The Coma: Recut,Core2Duo,2 GB RAM,Any with hardware 3D acceleration,Version 7.0,Windows XP (64-bit),1,0
 The Coma: Recut,Core2Duo or above,4 GB RAM,Nvidia 7900 / equivalent,Version 9.0,Windows 10 (64-bit),1,1
 The Complex,Core i3 / AMD A6 2.4Ghz,2 GB RAM,"NVIDIA GeForce GTX 460 / AMD Radeon HD 5750, OpenGL 3.3",Version 11,Windows 7 32-bit,11,0
@@ -10650,7 +10649,7 @@ The Forgettable Dungeon,2 GHZ,512 MB RAM,OpenGL compatible graphics card,,Window
 The Forgotten City,3GHz (4 Core) CPU,8 GB RAM,NVIDIA GTX 750 Ti 2GB | AMD Radeon R7 265,Version 11,Windows 7 SP1 64-bit,26,0
 The Forgotten City,3.2 GHz (4 Core) CPU,8 GB RAM,NVIDIA GeForce GTX 1060 | AMD Radeon RX 580,Version 11,Windows 10 64-bit,26,1
 The Franz Kafka Videogame,1 GHz,512 MB RAM,"256 MB, OpenGL 3.0 support",Version 9.0,Windows 7 or higher,,0
-The Free Ones,Intel Core i5 2.00 GHz or AMD equivalent,4 GB RAM (Recommended: 6 GB RAM),"Radeon HD6970, Nvidia GT 750",Version 11,7,8,0
+The Free Ones,Intel Core i5 2.00 GHz or AMD equivalent,6 GB,"Radeon HD6970, Nvidia GT 750",Version 11,7,8,0
 The Frostrune,From 2007 or newer,1024 MB RAM,From 2007 or newer,Version 7.1,Windows 7 and newer,2,0
 The Frostrune,From 2007 or newer,2048 MB RAM,From 2011 or newer,Version 9.0,Windows 10,2,1
 The Gallery - Episode 2: Heart of the Emberstone,Intel Core i5-4590,8 GB RAM,Geforce GTX 970 OR AMD Radeon R9290,Version 11,Windows 7,,0
@@ -10707,15 +10706,15 @@ THE HOUSE OF THE DEAD: Remake,Intel i5-3570K / AMD RYZEN 3 3300X,8 GB RAM,GTX 10
 THE HOUSE OF THE DEAD: Remake,intel i7-7700 / AMD RYZEN 5 5600X,16 GB RAM,NVIDIA GTX 1070 / 1660 super / AMD Radeon RX Vega 56,Version 11,"Windows 10, 64-bit",7,1
 The Hunting God,"Intel Core 2 Duo 2GHz, AMD Athlon 64 X2 2GHz",4 GB RAM,NVIDIA GT 750 Ti 2 GB or AMD RADEON HD 7850 2 GB,Version 10,Windows 7 or higher 64-bit,6.6,0
 The Hunting God,"Quad-core Intel or AMD processor, 2.5 GHz or faster",6 GB RAM,NVIDIA GTX 970 or AMD RADEON R9 390X,Version 11,Windows 7 or higher 64-bit,6.6,1
-The Incredible Adventures of Van Helsing,Dual Core CPU 2.0 GHz,1 Gbyte,"Nvidia 8800 GT, Intel HD4000 or AMD HD3850",DirectX 9.0c,"Windows XP, Windows Vista, Windows 7, Windows 8",20,0
-The Incredible Adventures of Van Helsing,Quad Core CPU 2.0 GHz,"1,5 Gbyte",Nvidia 275 GTX or AMD HD5770,DirectX 9.0c,"Windows XP, Windows Vista, Windows 7, Windows 8",20,1
+The Incredible Adventures of Van Helsing,Dual Core CPU 2.0 GHz,1 GB,"Nvidia 8800 GT, Intel HD4000 or AMD HD3850",DirectX 9.0c,"Windows XP, Windows Vista, Windows 7, Windows 8",20,0
+The Incredible Adventures of Van Helsing,Quad Core CPU 2.0 GHz,1.5 GB,Nvidia 275 GTX or AMD HD5770,DirectX 9.0c,"Windows XP, Windows Vista, Windows 7, Windows 8",20,1
 The Incredible Adventures of Van Helsing II,Dual Core CPU 2.0 GHz,1 GB RAM,"Nvidia 8800 GT, Intel HD4000 or AMD HD3850",9.0c,"Windows XP, Vista, Windows 7, Windows 8",20,0
 The Incredible Adventures of Van Helsing II,Quad Core CPU 2.0 GHz,2 GB RAM,Nvidia GTX 275 or AMD HD5770,9.0c,"Windows XP, Vista, Windows 7, Windows 8",20,1
 The Incredible Adventures of Van Helsing III,Dual Core CPU 2.0 GHz,1 GB RAM,"Nvidia 8800 GT, Intel HD4000 or AMD HD3850",Version 9.0c,"Windows XP, Windows Vista, Windows 7, Windows 8",20,0
 The Incredible Adventures of Van Helsing III,Quad Core CPU 2.0 GHz,2 GB RAM,Nvidia 275 GTX or AMD HD5770,Version 9.0c,"Windows XP, Vista, Windows 7, Windows 8",20,1
 The Incredible Hulk,2.4+GHz Intel or 2.0+GHz AMD,2GB,"NVIDIA GeForce 6 series(6800GT or better)
 ATI 1300XT or better (X1550, X1600 Pro and HD2400 are below minimum system requirements) ",DirectX 9.0c,Windows XP or Vista ,12,0
-The Incredible Hulk,2.6+GHz Intel or 2.4+GHz AMD ,2 Gigabyte RAM ,"NVIDIA GeForce 7900 GTX or higher
+The Incredible Hulk,2.6+GHz Intel or 2.4+GHz AMD ,2 GB,"NVIDIA GeForce 7900 GTX or higher
 ATI X1800 XL series or higher ",DirectX 9.0c,Windows XP or Vista ,12,1
 The Infectious Madness of Doctor Dekker,Pentium 4 SSE2 onwards (dual core),2 GB RAM,Intel HD3000 or comparable,,"Windows 7,8,10",20,0
 The Initiate,Intel i7-4790k,8 GB RAM,NVIDIA GeForce GTX 680 or AMD equivalent,Version 9.0c,"Windows 7, 64-bits",7,0
@@ -10814,8 +10813,7 @@ The Lord of the Rings: Gollum,Intel Core i5-4690 / AMD Ryzen 3 1300X,8 GB RAM,"N
 The Lord of the Rings: Gollum,Intel Core i7-8700K / AMD Ryzen 5 3600X,16 GB RAM,"NVIDIA GeForce RTX 3070, 8GB (with DLSS Quality Setting) / AMD Radeon RX 6750 XT, 12GB",Version 12,"Windows 10/11, 64-bit",45,1
 The Lord of the Rings: The Battle for Middle-Earth,1.3 GHz Intel Pentium IV or AMD Athlon processor,256 MB RAM,32 MB or greater DirectX 9.0b compatible supported AGP video card (GeForce2+ / Radeon 7500+),DirectX 9.0b,Windows 2000/XP,4,0
 The Lord of the Rings: The Battle for Middle-Earth,Pentium 4 or Athlon XP 2.0 GHz,512 MB,64 MB or greater DirectX 9.0b compatible supported AGP video card (GeForce4 TI+ / Radeon 9500+),DirectX 9.0b,Windows 2000/XP,4,1
-The Lord of the Rings: The Battle for Middle-Earth 2,PC with 1.6 Ghz equivalent or higher processor,"256 MB of system RAM
-512 MB of system RAM for online play with 3 or more players","64 MB GeForce3-class video card. The game only officially supports cards with ATI (Radeon 8500 or greater) and Nvidia chipsets, and the Intel GMA 900 and GMA 950 products. The GeForce 4 MX is not supported.",DirectX 9.0c or above,Microsoft® Windows® XP,6,0
+The Lord of the Rings: The Battle for Middle-Earth 2,PC with 1.6 Ghz equivalent or higher processor,512 MB,"64 MB GeForce3-class video card. The game only officially supports cards with ATI (Radeon 8500 or greater) and Nvidia chipsets, and the Intel GMA 900 and GMA 950 products. The GeForce 4 MX is not supported.",DirectX 9.0c or above,Microsoft® Windows® XP,6,0
 The Lord of the Rings: The Battle for Middle-Earth 2,Pentium 4/Athlon XP or better 3 GHz,1 GB RAM,"128 MB video card (NVIDIA GeForce 6600, 6800 or 7800)","DirectX 9.0c or above
 ",Microsoft® Windows® XP,6,1
 The Lord of the Rings: The Battle for Middle-Earth 2 The Rise of the Witch-King,PC with 1.6 Ghz equivalent or higher processor,512 MB of system RAM,"64 MB GeForce3-class video card. The game only officially supports 
@@ -10824,7 +10822,7 @@ the Intel GMA 900 and GMA 950 products. Radeon 9200 PCI, Radeon 9250 PCI
 and the GeForce 4 MX are not supported.",DirectX 9.0c or above,Microsoft® Windows® XP ,3,0
 The Lord of the Rings: The Battle for Middle-Earth 2 The Rise of the Witch-King,Pentium 4/Athlon XP or better 3 GHz,1 GB of system RAM,128 MB AGP/PCIe only NVIDIA GeForce 6600+ / ATI Radeon 9700+),DirectX 9.0c or above,Microsoft® Windows® XP ,3,1
 The Lord of the Rings: The Return of the King,700 MHz or faster Intel Pentium III or AMD Athlon processor,256MB,"GeForce 2+, Radeon 7500+",DirectX 8.1,"Windows XP, ME, 2000, or 98. Windows 95 and NT are not supported",2.0,0
-The Lord of the Rings: The Return of the King,Intel Pentium IV or AMD Athlon XP processor,256 Megabytes of RAM,Supported DirectX 8.1 compatible video card (64+ MB),DirectX 8.1,"Windows XP, ME, 2000, or 98. Windows 95 and NT are not supported",2.0,1
+The Lord of the Rings: The Return of the King,Intel Pentium IV or AMD Athlon XP processor,256 MB,Supported DirectX 8.1 compatible video card (64+ MB),DirectX 8.1,"Windows XP, ME, 2000, or 98. Windows 95 and NT are not supported",2.0,1
 The Lord of the Rings: War in the North,Intel Core2 Duo 2.4 GHz or AMD 64 X2 440,2 GB RAM,2006 or later GeForce 8600 or Radeon HD 2600,DirectX 9.0c,"Windows XP, Windows Vista or Windows 7",10,0
 The Lord of the Rings: War in the North,Intel Core2 Duo 3 GHz or AMD X2 5000 or AMD Phenom X4 9600,4 GB RAM,GeForce 2xx Series or Radeon HD 6xxx series or greater,DirectX 9.0c,"Windows XP, Windows Vista or Windows 7",10,1
 The Lords of the Earth Flame,1 GHz,1 GB RAM,OpenGL 2.1 or higher,Version 9.0,Windows XP SP3+ or higher,0.25,0
@@ -10936,13 +10934,13 @@ The Saboteur,Core 2 Dual Core 2.4GHz or AMD equivalent,2GB or more,Nvidia Geforc
 The Saboteur,Quad Core running at 2.8 GHz or equivalent,3GB,nVidia 8800 GT graphics card with 512MB of VRAM,Direct X 9.0c,"Windows XP SP3, Windows Vista SP1, Windows 7",7,1
 The Scourge Project (Episodes 1 and 2),Intel Core 2 Duo at 1.8 GHz or Equivalent AMD,2GB,"256 MB VRAM – DirectX 9.0 Compatible with Pixel Shader 3.0 Support (nVidia GeForce 6800 GT or better / ATI Radeon X1600 Pro or better) nVidia GeForce 7300, 8100, 8200, 8300, 8400, and 9300; ATI Radeon HD3200, and HD4350 are below minimum system requirements.",DirectX 9.0c,Windows XP SP3 / Windows Vista SP 1 / Windows 7,5.4,0
 The Scourge Project (Episodes 1 and 2),Intel Core 2 Duo at 2.6 GHz or Equivalent AMD,2GB RAM (all OS's),512 MB VRAM – nVidia GeForce 8800 GT / ATI Radeon HD 2900 XT or better,DirectX 9.0c,Windows XP SP3 / Windows Vista SP 1 / Windows 7,5.4,1
-The Sea Will Claim Everything,You must have a processor.,512 MB RAM (2 GB RAM recommended),,Version 8.0,"XP (SP3), Vista, 7, 8, 10",0.242,0
+The Sea Will Claim Everything,You must have a processor.,2 GB,,Version 8.0,"XP (SP3), Vista, 7, 8, 10",0.242,0
 "The Secret Monster Society - Chapter 1: Monsters, Fires and Forbidden Forests",1.0 GHz Processor,2 GB RAM,100% DirectX compatible graphics,,Windows XP / Vista / 7,1,0
 "The Secret Monster Society - Chapter 1: Monsters, Fires and Forbidden Forests",1.5 GHz Processor,2 GB RAM,100% DirectX compatible graphics,,Windows 7,1,1
 The Secret of Monkey Island: Special Edition,Intel Pentium 4 3GHz or AMD Athlon 64 3000+,512MB,128 MB with Shader Model 2.0 capability,DirectX® 9.0c (March 2009),Windows XP® or Windows Vista®,2.5,0
 The Secret World,2.6 GHZ Intel Core 2 DUO or equivalent AMD CPU,3GB,nVidia 8800 series 512 VRAM or better/Radeon HD3850 512MB or better,DirectX 9.0c,Windows XP (SP 1) / Vista (SP 1) / Windows 7 (SP 1),30,0
 The Secret World,Intel Core i5 3.0Ghz or equivalent,6GB,Nvidia GTX 560 Ti 1Gb,Direct X 11.0,Windows 7 64 bit is highly-recommended,30,1
-The Settlers 7: Paths to a Kingdom,2 GHz Intel Pentium 4 / AMD XP 2600+ or better (Intel Core 2 Duo / AMD Athlon 64 X2 recommended),2 GB (4 GB recommended),"256 MB DirectX 9.0c-compliant, Shader 3.0-enabled video card (512 MB recommended)(*see supported list)",DirectX 9.0c,"Windows XP, Windows Vista, Windows 7",8,0
+The Settlers 7: Paths to a Kingdom,2 GHz Intel Pentium 4 / AMD XP 2600+ or better (Intel Core 2 Duo / AMD Athlon 64 X2 recommended),4 GB,"256 MB DirectX 9.0c-compliant, Shader 3.0-enabled video card (512 MB recommended)(*see supported list)",DirectX 9.0c,"Windows XP, Windows Vista, Windows 7",8,0
 The Settlers VI Rise Of An Empire,2 GHz Pentium 4 or AMD Athlon XP 2000+ (3.0 GHz Pentium 4 or Athlon 64 3400+ recommended),1GB,"128 MB DirectX 9.0c-compliant, Shader 1.3-enabled video card (256 MB recommended) (see supported list*)",DirectX 9 or higher (included),Windows XP / Vista (only),5,0
 The Settlers: New Allies,"Intel i3-6100, AMD Ryzen 3 1200 (quad cores, 3GHz)",8 GB (Dual channel),NVidia GeForce GTX 950 2 GB / AMD Radeon RX 550 2 GB,DirectX 11,Windows 10 (x64 bit only),20,0
 The Settlers: New Allies,"Intel i7-6700, AMD Ryzen 5 1600",8 GB (Dual channel),NVidia GeForce GTX 970 4 GB / AMD Radeon RX 470 4 GB,DirectX 11,Windows 10 (x64 bit only),20,0
@@ -11163,7 +11161,7 @@ theHunter: Call of the Wild,Intel i7 quad-core,8 GB RAM,NVidia GTX 760 / R9 270x
 theHunter: Primal,Intel 3 GHz or AMD Dual Core,4 GB RAM,"NVidia GeForce 8800, ATI/AMD Radeon HD 2400 (NVidia GeForce 8800, ATI/AMD Radeon HD 2400)",Version 9.0,Windows ® 8/7/Vista/XP,3,0
 Them's Fightin' Herds,Dual-core CPU (2 GHz or greater speed),2 GB RAM,Intel Core i3 550 Integrated graphics chipset or equivalent,Version 9.0c,Windows 7,2,0
 Them's Fightin' Herds,Dual-core CPU (2 GHz or greater speed),3 GB RAM,A dedicated GPU (Nvidia or AMD) with at least 750MB of VRAM strongly recommended,Version 10,"Windows 7, 8, 8.1 or 10",2,1
-Theme Park Studio,2.2 GHz dual core processor,2 GB RAM (Recommended: 3 GB RAM),Nvidia 8800 GPU,Version 9.0c,Windows XP or later,5,0
+Theme Park Studio,2.2 GHz dual core processor,3 GB,Nvidia 8800 GPU,Version 9.0c,Windows XP or later,5,0
 There's Poop In My Soup,2GHz,1024 MB RAM,512MB,Version 9.0,"7, 8",0.5,0
 Theseus,Intel i5-6400 or equivalent,8 GB RAM,NVIDIA GTX 970 or AMD R9 290,,Windows 7 SP1 64bit or later,3,0
 Theseus,Intel i5-4590 equivalent,8 GB RAM,NVIDIA GTX 1060 or AMD RX 480,,Windows 7 SP1 64bit or later,3,1
@@ -11238,7 +11236,7 @@ Timberborn,4-core 2.9 GHz or better,16 GB RAM,"GeForce RTX 2070, Radeon RX 5700 
 Timberman,1.0 GHz Processor,2 GB RAM,DirectX compatible graphics,,Windows 7,,0
 Timberman VS,1.0 GHz Processor,4 GB RAM,DirectX compatible graphics,Version 9.0c,Windows 7,0.2,0
 Time Carnage VR,Intel i5-4590 / AMD FX 8350 equivalent or greater,4 GB RAM,NVIDIA GeForce® GTX 970 / AMD Radeon™ R9 290 equivalent or greater,Version 11,"Windows 10, 64-bit",3,0
-"Time Gentlemen, Please! and Ben There, Dan That!","Pretty much anything post-millennial, anything that runs DirectX 9.0c for particle effects.","Anything over 256MB should do, anything that runs DirectX 9.0c for particle effects.",,DirectX 9.0c,Windows,0.15,0
+"Time Gentlemen, Please! and Ben There, Dan That!","Pretty much anything post-millennial, anything that runs DirectX 9.0c for particle effects.",256 MB,,DirectX 9.0c,Windows,0.15,0
 Time Machine VR,Intel Core i5 4670 (or equivalent),(4 GB),GeForce GTX 970 GPU (or equivalent),,Windows 7,,0
 Time Machine VR,Intel Core i5 4670 (or equivalent),(8 GB),GeForce GTX 980 GPU (or equivalent),,Windows 8,,1
 Time Mysteries: Inheritance,1.5 GHz,512 MB RAM,128 MB VRAM,Version 9.0,"Windows XP, Windows Vista, Windows 7, Windows 8",1,0
@@ -11423,7 +11421,7 @@ Total War Battles: KINGDOM,Core 2 Duo / Athlon X2 / 1.8 GHz,2 GB RAM,Intel HD400
 Total War Battles: KINGDOM,Core 2 Duo / Athlon X2 / 2.4 GHz,2 GB RAM,ATI Radeon HD5850 / Nvidia Geforce GTX 480 (1024MB),Version 11,Windows 7 32 bit,2,1
 Total War Saga: Thrones of Britannia,Intel® Core™ 2 Duo 3.0Ghz,4 GB RAM,NVIDIA GTX 460 1GB | AMD Radeon HD 5770 1GB | Intel HD4000 @720p,,Windows 7 64Bit,30,0
 Total War Saga: Thrones of Britannia,Intel® Core™ i5-4570 3.20GHz,8 GB RAM,NVIDIA GeForce GTX 770 4GB | AMD Radeon R9 290X 4GB @1080p,,Windows 7 / 8 (8.1)/ 10 64Bit,30,1
-Total War Saga: TROY,Intel Core 2 Duo 3.0 GHz/Intel i7 8550U 1.80GHz,4 GB/6 GB (It is 4 for dedicated GPU and 6 for integrated one),Nvidia GTX 460 1 GB/AMD Radeon HD 5770 1 GB/Intel UHD Graphics 620,Version 11,Windows 7/8.1/10 64 Bit,26,0
+Total War Saga: TROY,Intel Core 2 Duo 3.0 GHz/Intel i7 8550U 1.80GHz,6 GB,Nvidia GTX 460 1 GB/AMD Radeon HD 5770 1 GB/Intel UHD Graphics 620,Version 11,Windows 7/8.1/10 64 Bit,26,0
 Total War Saga: TROY,Intel i5-6600 / Ryzen 5 2600X,8 GB,Nvidia GTX 970 / AMD Radeon R9 270X 2 GB,Version 11,Windows 7/8.1/10 64 Bit,26,1
 Total War: ARENA,Intel Core i3-550 / AMD Phenom II x4 945,2 GB,Nvidia GeForce GTS 450 / AMD Radeon HD 5750,,"Windows 7, Windows 8, Windows 10",7,0
 Total War: Attila,Intel Core 2 Duo 3 GHz,3 GB RAM,"512 MB NVIDIA GeForce 8800 GT, AMD Radeon HD 2900 XT or Intel HD 4000",10,Windows Vista,35,0
@@ -11442,7 +11440,7 @@ Total War: ROME REMASTERED,Intel Core i3-4130 3.4GHz or AMD FX-6300 3.5GHz,6 GB 
 Total War: ROME REMASTERED,Intel Core i7-4770K 3.5GHz or AMD Ryzen 5 2600X 3.6GHz,8 GB RAM,NVIDIA GeForce GTX 1070 8GB or AMD Radeon RX VEGA 56 8GB,Version 11,Windows 10 64-bit (version 20H2),70,1
 Total War: SHOGUN 2,"2 GHz Intel Dual Core processor / 2.6 GHz Intel Single Core processor, or AMD equivalent (with SSE2)",2GB,256 MB DirectX 9.0c compatible graphics card (shader model 3) ,DirectX 9.0c,Windows 7 / Vista / XP,32,0
 Total War: SHOGUN 2,"2nd Generation Intel Core i5 processor (or greater), or AMD equivalent",4GB,AMD Radeon HD 5000 and 6000 series graphics cards or equivalent DirectX 11 compatible graphics card,DirectX 9.0c,Windows 7 / Vista / XP,32,1
-Total War: THREE KINGDOMS,Intel Core 2 Duo 3.00Ghz,4 GB RAM (6GB Memory if using integrated GPU),GTX 650 Ti 1GB|HD 7850 1GB|Intel UHD Graphics 620,Version 11,Windows 7 64 Bit,60,0
+Total War: THREE KINGDOMS,Intel Core 2 Duo 3.00Ghz,6 GB,GTX 650 Ti 1GB|HD 7850 1GB|Intel UHD Graphics 620,Version 11,Windows 7 64 Bit,60,0
 Total War: THREE KINGDOMS,Intel i5-6600 | Ryzen 5 2600X,8 GB RAM,GTX 970 | R9 Fury X 4GB VRAM,Version 11,Windows 10 64 Bit,60,1
 Total War: WARHAMMER,Intel Core 2 Duo 3.0Ghz,3 GB RAM,(DirectX 11) AMD Radeon HD 5770 1024MB / NVIDIA GTS 450 1024MB / Intel HD4000 @720p,Version 11,Windows 7 64Bit,35,0
 Total War: WARHAMMER,Intel Core i5-4570 3.2GHz,8 GB RAM,(DirectX 11) AMD Radeon R9 270X 2048MB / NVIDIA GeForce GTX 760 2048MB @ 1080p,Version 11,Windows 7/8.1/10 64Bit,35,1
@@ -11570,7 +11568,7 @@ Trek to Yomi,Intel Core i5-8250U / AMD Phenom II X4 965,8 GB RAM,GeForce MX150 (
 Trek to Yomi,Intel Core i7-4770S / AMD FX-9590,8 GB RAM,GeForce GTX 970 (4096 VRAM) / Radeon R9 390X (8192 VRAM),,"Windows 10, 64-bit",11,1
 Trepang2,Intel Core i5-2550K or AMD FX-8370,8 GB RAM,"NVIDIA GeForce GTX 760, 2 GB or AMD Radeon HD 7870, 2 GB or Intel Arc A380, 6 GB",Version 11,Windows 10 64 bit,35,0
 Trepang2,Intel Core i5-7600K or AMD Ryzen 5 2600X,8 GB RAM,"NVIDIA GeForce GTX 1060, 6 GB or AMD Radeon RX 590, 8 GB, or Intel Arc A750, 8 GB",Version 11,Windows 10 64 bit,35,1
-Trespassers,Intel i5,2 GB RAM (Recommended: 4 GB RAM),GeForce GTX 750,,Windows 7 64 bits (Recommended: Windows 10 64 bits),0.5,0
+Trespassers,Intel i5,4 GB,GeForce GTX 750,,Windows 7 64 bits (Recommended: Windows 10 64 bits),0.5,0
 Triad Wars,2.4GHz Intel i3 (or equivalent) - Intel HD 3000 integrated graphics (or equivalent),3GB,"DirectX 10/11, 512MB VRAM-, graphics board or more ATI Radeon HD 7670 / NVIDIA GeForce GTX 260",DirectX 10,Microsoft Windows Vista (service pack 2) / Windows 7: OS / Windows 8 - 64 bit,10,0
 Triad Wars,Quad-Core Intel or AMD CPU,4GB,"DirectX 11, 1GB VRAM, NVIDIA or AMD ATI card, NVIDIA GeForce GTX 560 or ATI Radeon 6950",DirectX 11,Windows 7 64-bit + DirectX 11,15,1
 Trials Evolution Gold Edition,Intel Core®2 Duo E6700 @ 2.6 GHz or AMD Athlon64 X2 6000+ @ 3.0Ghz,2 GB RAM,"DirectX® 10 compliant, 512 Mb video memory",10,Windows Vista SP2 or Windows 7,4,0
@@ -11816,7 +11814,7 @@ Unreal Tournament,Intel Pentium 200MHz or AMD K6 200MHz,32MB RAM,PCI Local Bus V
 Unreal Tournament,Intel Pentium 200MHz or AMD K6 200MHz or better processor,64MB,8M 3D accelerator,,Windows 95/98/2000/Windows NT 4.0/Linux/Mac,0.605,1
 Unreal Tournament 2003,Pentium III or AMD Athlon 1.0 GHz processor or faster,128 MB RAM,Any Windows-compatible video card,DirectX version 8.1(included)or higher,,3.5,0
 Unreal Tournament 2003,1.5 GHz or faster processor,256 MB,NVIDIA GeForce 2 or ATI Radeon with at least 64 megs of video memory,DirectX version 8.1(included)or higher,,3.5,1
-Unreal Tournament 2004,Pentium III 1.0 GHz or AMD Athlon 1.0 GHz or faster (Pentium® or AMD 1.2GHz or greater recommended) ,128MB RAM (256MB RAM or greater recommended),32 MB video card required (64 MB NVIDIA or ATI hardware T&L card recommended),"DirectX 9.0b
+Unreal Tournament 2004,Pentium III 1.0 GHz or AMD Athlon 1.0 GHz or faster (Pentium® or AMD 1.2GHz or greater recommended) ,256 MB,32 MB video card required (64 MB NVIDIA or ATI hardware T&L card recommended),"DirectX 9.0b
 
 DirectX is not required for using the software renderer ",Windows 2000/XP,5.5,0
 Unreal Tournament 2015,"Dual-core Intel or AMD processor, 2.5 GHz or faster",4GB RAM,DirectX 11 compatible GPU,,Windows 7 64-bit or Mac OS X 10.9.2 or later,,0
@@ -11824,7 +11822,7 @@ Unreal Tournament 3,2.0+ GHZ Single Core Processor,512 MB RAM,NVIDIA 6200+ or AT
 Unruly Heroes,Intel Core i3 2100,4 GB RAM,nVidia GeForce GTX 650,,Windows 7 (32/64bit versions),4,0
 Unsighted,Intel Core 2 Duo E6750,4 GB RAM,"nVidia GeForce 8800 GT, 512 MB | AMD Radeon 4870, 512 MB",Version 10,Windows 7,1.5,0
 Unsouled,Intel Core 2 Duo E6320 (2*1866) or equivalent,2 GB RAM,512mb video memory,,"Windows 7 or Later, 64-bit",2,0
-Unsung Story,Intel Core i3-2120 CPU 3.30 GHz,2 GB RAM (Recommended: 4 GB),NVIDIA® GeForce® GTX 550 or ATI™ Radeon™ HD 6XXX or higher (Recommended: NVIDIA GeForce GTX 770 or AMD R9 280),Version 11,Windows® XP/Windows® Vista/Windows® 7/Windows® 8/Windows® 10 (latest Service Packs),10,0
+Unsung Story,Intel Core i3-2120 CPU 3.30 GHz,4 GB,NVIDIA® GeForce® GTX 550 or ATI™ Radeon™ HD 6XXX or higher (Recommended: NVIDIA GeForce GTX 770 or AMD R9 280),Version 11,Windows® XP/Windows® Vista/Windows® 7/Windows® 8/Windows® 10 (latest Service Packs),10,0
 Untitled Goose Game,Intel Core i5 6600+ or AMD Ryzen 3 1300+,8 GB,DX10 Graphics (Shader Model 4),Version 10,Windows 7 SP1+ (64 Bit),0.83,0
 Unto The End,"Intel Core 2 Quad Q6600 @ 2.4 GHz, AMD FX 8120 @ 3.1 GHz",4 GB RAM,"NVIDIA GT 630 / 650m, AMD Radeon HD6570 or equivalent",Version 9.0c,Windows 7 or later,3,0
 Unto The End,"Intel i7 920 @ 2.7 GHz, AMD Phenom II 945 @ 3.0 GHz",8 GB RAM,"NVIDIA GTX 660, Radeon R9-270",Version 11,Windows 8/10 (64-bit OS required),3,1
@@ -11906,7 +11904,7 @@ Velvet Assassin,Singlecore CPU with 3GHZ,512MB RAM,Pixel Shader 3 Graphics Card 
 Velvet Assassin,Dual core CPU with 2Ghz,1GB RAM,Geforce 7900gt or ATI X1900 xt,,Windows XP / Vista,5,1
 Venetica,Pentium 4 CPU 2.4 GHz or comparable CPU,2048MB,Nvidia Geforce 7600 GT with 256 MiByte VRAM or comparable graphics card ,,Windows XP with Service Pack 2 or Windows Vista ,10,0
 Venetica,Intel Core 2 Duo E8200 2.6 GHz or comparable CPU ,3GB,Nvidia Geforce 8800 GT or comparable graphics card with 512 MiByte VRAM ,,Windows XP with Service Pack 2 or Windows Vista ,10,1
-Verdun,"Intel CPU Core i5-2500K 3.3GHz, AMD CPU Phenom II X4 940",4 GB RAM (Recommended: 8 GB),"Geforce GTX 960M / Radeon HD 7750 or higher, 1GB video card memory (Recommended: 4GB VRAM)",Version 10,Windows 8/10,12,0
+Verdun,"Intel CPU Core i5-2500K 3.3GHz, AMD CPU Phenom II X4 940",8 GB,"Geforce GTX 960M / Radeon HD 7750 or higher, 1GB video card memory (Recommended: 4GB VRAM)",Version 10,Windows 8/10,12,0
 Verne: The Shape of Fantasy,1.2Ghz+,1 GB RAM,(Any),,Windows 7 or later,1,0
 Verne: The Shape of Fantasy,2Ghz+,4 GB RAM,(Any),,Windows 10,1,1
 Vernon's Legacy,2 GHz Dual-Core CPU,4 GB RAM,NVIDIA GeForce GTX 560 1GB / Radeon R7 250X 1GB,Version 11,64 bit Windows 7,5,0
@@ -11921,7 +11919,7 @@ Victor Vran,2.5 GHz Quad Core CPU,8 GB RAM,"GeForce 560 or higher, AMD Radeon HD
 Victoria 3,Intel® Core™ i3-3250 or AMD® FX 8370 (AVX support required),8 GB RAM,Nvidia® GeForce™ GTX 660 (2GB) or AMD® R7 370 (2GB) or Intel® HD Graphics 630 or AMD Radeon™ Vega 8,,Windows® 10 Home 64 Bit,10,0
 Victoria 3,Intel® Core™ i5-6600K or AMD® Ryzen 5 2600X (AVX support required),16 GB RAM,Nvidia® GeForce™ GTX 1660 (6GB) or AMD® RX 590 (8GB),,Windows® 10 64 Bit or Windows® 11,10,1
 Victoria II,Intel® Pentium® IV 2.4 GHz or AMD 3500+,2 Gb RAM,NVIDIA® GeForce 8800 or ATI Radeon® X1900,DirectX 9.0c,XP/Vista/Windows7,2,0
-Vidar,Intel® Core i5 equivalent or faster processor,1 GB RAM (Recommended: 2 GB RAM),800 x 450 pixels or higher desktop resolution,Version 12,Microsoft® Windows® XP / Vista / 7 (32-bit/64-bit),0.5,0
+Vidar,Intel® Core i5 equivalent or faster processor,2 GB,800 x 450 pixels or higher desktop resolution,Version 12,Microsoft® Windows® XP / Vista / 7 (32-bit/64-bit),0.5,0
 Vietcong 2,Pentium 4 1.8 GHz/Athlon XP or better,512 MB,128 MB Shader 2.0 compliant video card,DirectX 9.0c,Windows 2000/XP,3.5,0
 Vietcong 2,Pentium 4 2.5 GHz/Athlon XP or better,1 GB,256 MB Shader 2.0 compliant video card,DirectX 9.0c,Windows 2000/XP,7,1
 Vietcong: Fist Alpha,PIII 500MHz processor or equivalent,128MB RAM,16MB 3D Accelerator,,Windows 95/98/2000/XP,1,0
@@ -12068,13 +12066,13 @@ Warhammer 40000: Dakka Squadron,Intel Core 2 Duo E8400,4 GB RAM,NVIDIA GeForce G
 Warhammer 40000: Darktide,Intel i5-6600 (3.30GHz) OR AMD Ryzen 5 2400G (3.6 GHz),8 GB RAM,NVIDIA GeForce GTX 970 OR AMD Radeon RX 570,Version 12,Windows 10 (64 bit) / Windows 11 (64 bit),50,0
 Warhammer 40000: Darktide,Intel i7-9700K (3.70GHz) OR AMD Ryzen 5 3600 (4.2GHz),16 GB RAM,NVIDIA GeForce RTX 3060 / RTX 2060 OR AMD Radeon RX 5700 XT,Version 12,Windows 10 (64 bit) / Windows 11 (64 bit),50,1
 Warhammer 40000: Dawn Of War,1.4 GHz Intel Pentium III or AMD Athlon XP processor,256 MB RAM,DirectX 9.0b compatible AGP video card with Hardware Transform and Lighting and 32MB of Video RAM.,DirectX 9.0b (included on disc),Windows® 98/2000/XP/ME,2,0
-Warhammer 40000: Dawn Of War,2.2 GHz Intel Pentium 4 or equivalent,512 MB System RAM (required for 8-player multiplayer games),nVidia GeForce 3 or ATI Radeon 8500 or equivalent with 64 MB of Video RAM,DirectX 9.0b (included on disc),Windows® 98/2000/XP/ME,2,1
+Warhammer 40000: Dawn Of War,2.2 GHz Intel Pentium 4 or equivalent,512 MB,nVidia GeForce 3 or ATI Radeon 8500 or equivalent with 64 MB of Video RAM,DirectX 9.0b (included on disc),Windows® 98/2000/XP/ME,2,1
 Warhammer 40000: Dawn Of War - Dark Crusade,1.8 GHz Intel Pentium III or equivalent AMD Athlon XP processor,256 MB RAM,32 MB DirectX 9.0b compatible AGP video card with Hardware Transform and Lighting,DirectX 9.0c (included on disc),Windows® 98SE/2000/XP/ME,2.5,0
-Warhammer 40000: Dawn Of War - Dark Crusade,2.4 GHz Intel Pentium 4 or equivalent,512 MB System RAM (required for 8-player multiplayer games),nVidia GeForce 3 or ATI Radeon 8500 or equivalent with 64 MB of Video RAM,DirectX 9.0c (included on disc),Windows® 98SE/2000/XP/ME,2.5,1
+Warhammer 40000: Dawn Of War - Dark Crusade,2.4 GHz Intel Pentium 4 or equivalent,512 MB,nVidia GeForce 3 or ATI Radeon 8500 or equivalent with 64 MB of Video RAM,DirectX 9.0c (included on disc),Windows® 98SE/2000/XP/ME,2.5,1
 Warhammer 40000: Dawn Of War - Soulstorm,"2.0 Ghz Intel Pentium 4, AMD Athlon XP or equivalent processor",512 MB RAM,64 MB DirectX 9.0c compatible AGP video card with Hardware Transformation and Lighting,Microsoft DirectX® 9.0c (included),Microsoft® Windows® XP or 2000,3.5,0
-Warhammer 40000: Dawn Of War - Soulstorm,2.4 GHz Intel Pentium 4 or equivalent,512 MB RAM (required for 8-player multiplayer games),nVidia GeForce 3 or equivalent with 64 MB of Video RAM,Microsoft DirectX® 9.0c (included),Windows® 98/2000/XP/ME,3.5,1
+Warhammer 40000: Dawn Of War - Soulstorm,2.4 GHz Intel Pentium 4 or equivalent,512 MB,nVidia GeForce 3 or equivalent with 64 MB of Video RAM,Microsoft DirectX® 9.0c (included),Windows® 98/2000/XP/ME,3.5,1
 Warhammer 40000: Dawn Of War - Winter Assault,1.8 GHz Intel Pentium III or equivalent AMD Athlon XP processor,256 MB RAM,32 MB DirectX 9.0b compatible AGP video card with Hardware Transform and Lighting,DirectX 9.0c (included on disc),Windows® 98SE/2000/XP/ME,2.5,0
-Warhammer 40000: Dawn Of War - Winter Assault,2.4 GHz Intel Pentium 4 or equivalent,512 MB System RAM (required for 8-player multiplayer games),nVidia GeForce 3 or ATI Radeon 8500 or equivalent with 64 MB of Video RAM,DirectX 9.0c (included on disc),Windows® 98SE/2000/XP/ME,2.5,1
+Warhammer 40000: Dawn Of War - Winter Assault,2.4 GHz Intel Pentium 4 or equivalent,512 MB,nVidia GeForce 3 or ATI Radeon 8500 or equivalent with 64 MB of Video RAM,DirectX 9.0c (included on disc),Windows® 98SE/2000/XP/ME,2.5,1
 Warhammer 40000: Dawn Of War 2,P4 3.2 GHz (single core) or any Dual Core processor ,1.5GB,"A 128MB Video Card (Shader Model 3) - Nvidia GeForce 6600 GT / ATI X1600, or equivalent ",,Windows XP SP2 or Windows Vista SP1 ,5.5,0
 Warhammer 40000: Dawn Of War 2,AMD Athlon 64×2 4400+ or any Intel Core 2 Duo ,2GB,"A 256MB Video Card (Shader Model 3) - Nvidia GeForce 7800 GT / ATI X1900, or equivalent ",,Windows XP SP2 or Windows Vista SP1 ,5.5,1
 Warhammer 40000: Dawn Of War 2 - Chaos Rising,P4 3.2 GHz (single core) or any Dual Core processor,1.5GB,"A 128MB Video Card (Shader Model 3) - Nvidia GeForce 6600 GT / ATI X1600, or equivalent",,Windows XP SP2 or Windows Vista SP1,5.5,0
@@ -12371,7 +12369,7 @@ World of Speed,"Intel(R) Core(TM) i5 CPU, 3.5GHz",8 GB RAM,NVIDIA GeForce GTX 66
 World of Tanks,A processor with at least two physical cores supporting SSE2,2 GB RAM,"NVIDIA GeForce 8600, ATI Radeon HD 4550",Version 10,Windows 7 / 8 / 10,57,0
 World of Tanks,Intel Core i5 (Desktop),4 GB RAM,GeForce GTX660 (2GB) / Radeon HD 7850 (2GB),Version 10,Windows 7 / 8 / 10 – 64-bit,57,1
 World of Tanks Blitz,2 GHz,2 GB RAM, DirectX 9.0c compliant video card with 256 MB RAM,11,"Windows 7, 8.0, 8.1, 10 ",3,0
-World Of Warcraft,Intel® Core™ i5-3450 / AMD FX™ 8300,4 GB RAM (8 GB if using supported integrated graphics),NVIDIA® GeForce® GTX 760 2 GB or AMD Radeon™ RX 560 2 GB or Intel® UHD Graphics 630 (45W TDP),,Windows® 7 64-bit,100,0
+World Of Warcraft,Intel® Core™ i5-3450 / AMD FX™ 8300,8 GB,NVIDIA® GeForce® GTX 760 2 GB or AMD Radeon™ RX 560 2 GB or Intel® UHD Graphics 630 (45W TDP),,Windows® 7 64-bit,100,0
 World Of Warcraft,Intel® Core™ i7-6700K / AMD Ryzen™ 7 2700X,8 GB RAM,NVIDIA® GeForce® GTX 1080 8 GB or AMD Radeon™ RX Vega 64 8 GB or better,,Windows® 10 64-bit,100,1
 World Of Warcraft - Burning Crusade,Intel Pentium3 800MHz or AMD Athlon 800MHz,512 MB RAM,"32MB 3D graphics processor with Hardware Transform and Lighting, such as an NVIDIA GeForce 2 class card or above",,Windows 2000 (Service Pack 4) or Windows XP (Service Pack 2),,0
 World Of Warcraft - Burning Crusade,(Intel Pentium3 800MHz or AMD Athlon 800MHz),1GB RAM,"64MB VRAM 3D graphics processor with Vertex and Pixel Shader capability, such as an NVIDIA GeForce FX 5700 class card or above",,Windows 2000 (Service Pack 4) or Windows XP (Service Pack 2),,1
@@ -12383,19 +12381,19 @@ Windows Vista 32/64-Bit (with the latest Service Packs)
 Windows 7** 32/64-Bit (with the latest updates) ",15,1
 World Of Warcraft - Wrath of the Lich King,Intel Pentium 4 1.3 GHz or AMD Athlon XP 1500+,1GB,3D graphics processor with Hardware Transform and Lighting with 32 MB VRAM Such as an ATI Radeon 7200 or NVIDIA GeForce 2 class card or better,,"Windows XP (Service Pack 3), Windows Vista (Service Pack 1)",15,0
 World Of Warcraft - Wrath of the Lich King,"Dual-core processor, such as the Intel Pentium D or AMD Athlon 64 X2",2GB,3D graphics processor with Vertex and Pixel Shader capability with 128 MB VRAM Such as an ATI Radeon X1600 or NVIDIA GeForce 7600 GT class card or better,,"Windows XP (Service Pack 3), Windows Vista (Service Pack 1)",15,1
-World Of Warcraft Classic,Intel® Core™ 2 Duo E6600 or AMD Phenom™ X3 8750,2 GB RAM (4 GB for integrated graphics such as Intel HD Graphics Series),"NVIDIA® GeForce® 8800 GT 512 MB, AMD Radeon™ HD 4850 512 MB, or Intel® HD Graphics 4000",,Windows® 7 64-bit (with latest Service Packs),5,0
+World Of Warcraft Classic,Intel® Core™ 2 Duo E6600 or AMD Phenom™ X3 8750,4 GB,"NVIDIA® GeForce® 8800 GT 512 MB, AMD Radeon™ HD 4850 512 MB, or Intel® HD Graphics 4000",,Windows® 7 64-bit (with latest Service Packs),5,0
 World of Warplanes,Intel Core i3-2xxx or higher,4 GB RAM,"Shaders 3.0 (NVIDIA GeForce 9600 GT 512MB, Radeon HD 3870) / higher)",Version 9.0c,Windows 7 / 8 / 10,35,0
 World of Warplanes,"Intel Core i5-2ххх, AMD FX 8xxx / higher",8 GB RAM,"NVidia GeForce GTX 660 1GB, Radeon HD 7870 / higher",Version 9.0c,Windows 7 x64 / 8 / 10,45,1
 World of Warships,"Intel Core 2 Duo 2.66 GHz, Core i3 2.5 GHz, AMD Athlon II X2 2.7 GHz",4 GB RAM,"Nvidia GeForce GT 440/630, AMD Radeon HD 7660",Version 11,Windows 7 x64 SP1,62,0
 World of Warships,"Intel Core i5 3.4 GHz, AMD FX 6350 3.9 GHz",6 GB RAM,"Nvidia GeForce GTX 660, AMD Radeon R9 270x",Version 11,Windows 7 x64 SP1 / 8.1 / 10,65,1
 World Racing 2,1.8GHz Pentium IV or Athlon XP 1800 Processor,256MB RAM,64MB 3D Video Card,,Windows XP/2000/98SE/ME,1.7,0
 World Racing 2,2.4GHz Pentium IV or Athlon XP 2400 Processor,512MB RAM,Radeon 9600 XT or GeForce FX 5900 XT,,Windows XP/2000/98SE/ME,4.2,1
-World to the West,Core i3,2 GB RAM (Recommended: 4 GB RAM),Intel HD Graphics 4400,,Windows 7,3,0
+World to the West,Core i3,4 GB,Intel HD Graphics 4400,,Windows 7,3,0
 World War 3,Intel Core i5-2500K CPU,8 GB RAM,Geforce GTX 770 or AMD Radeon HD 7870,Version 11,Windows 7 SP1 (x64),55,0
 World War 3,Intel Core i7-4790k CPU,16 GB RAM,Geforce GTX 970 or AMD Radeon R9 290,Version 12,"Windows 7 SP1 (x64), Windows 8 (x64), Windows 10 (x64)",55,1
 World War I,1.5 GHz,128 MB RAM,64 Mb GPU with pixel shaders support,,Windows 98/2000/XP,3,0
 World War III - Black Gold,"Pentium MMX 300 MHz
-",At least 32 MB RAM,"DirectX- compatible graphic card with hardware acceleration (Direct3D,OpenGL or Glide)",,"Windows 9x, ME, 2000 ",0.2,0
+",32 MB,"DirectX- compatible graphic card with hardware acceleration (Direct3D,OpenGL or Glide)",,"Windows 9x, ME, 2000 ",0.2,0
 World War III - Black Gold,Pentium III 450 MHz,64 MB RAM,16 MB RAM graphic card with acceleration,,"Windows 9x, ME, 2000 ",0.8,1
 World War Z,Core i3-3220/AMD A10-5700,8 GB,GF650Ti/ Intel 630/ Radeon HD 5870,DX11,Windows 7 and later,35,0
 World War Z,Intel Core i7-3970 @ 3.50GHz,16 GB,GeForce GTX 960 / Radeon R9 280,DX11,64 bit Windows 10,35,1
@@ -12696,7 +12694,7 @@ Zulu Response,Dual Core 2.4 GHz,4 GB RAM,NVidia GeForce GT 630 / Radeon HD 7660D
 Zulu Response,Quad Core i7-4820 or better,6 GB RAM,GeForce GTX 760 / Radeon R9 270X,Version 9.0c,Windows XP,8,1
 Zuma's Revenge!,"700MHz (minimum, lo-res mode)","256MB (minimum, lo-res mode)","DirectX-compatible; 16MB (minimum, lo-res mode),
 16-bit or 32-bit color mode (256 colors may not work)","DirectX 8.1 (required, lo-res mode); 9.0c+ (required, hi-res mode) ",Windows XP/Vista,0.25,0
-Zuma's Revenge!,"1+GHz (recommended, hi-res mode)","768+MB (recommended, hi-res mode)","DirectX-compatible; 92+MB (recommended, hi-res mode)
+Zuma's Revenge!,"1+GHz (recommended, hi-res mode)",768 MB,"DirectX-compatible; 92+MB (recommended, hi-res mode)
 16-bit or 32-bit color mode (256 colors may not work) -
 Note: For hi-res mode, you need at least 768MB of RAM and at least 92MB of video RAM, as well as a desktop resolution greater than or equal to 1000 pixels in height.","DirectX 9.0c+ (required, hi-res mode) ",Windows XP/Vista,0.25,1
 Zup!,Intel Celeron 1800 MHz,256 MB RAM,Intel HD Graphics,Version 9.0,"Windows XP, 7, Vista, 8, 8.1, 10",0.015,0
@@ -12710,7 +12708,7 @@ Zwei: The Ilvard Insurrection,Intel Xeon W3505 @ 2.5 GHz (2-Core),1 GB RAM,NVIDI
 '83,Intel Core i5-2500K CPU,8 GB RAM,Geforce GTX 770 or AMD Radeon R290,Version 11,Windows 7 SP1 (x64),35,0
 .hack//G.U. Last Recode,"AMD Phenom II X4 940, 3.0 GHz / Intel Core i3-2100, 3.10 GHz",4 GB RAM,"Radeon HD 6870, 1 GB / GeForce GTX 460, 768 MB",Version 11,Windows 7/8/10 (64-bit OS required),40,0
 .hack//G.U. Last Recode,"AMD A10-7850K, 3.7 GHz / Intel Core i3-2125, 3.30 GHz",4 GB RAM,GeForce GTX 660 TI 3GB or higher,Version 11,Windows 7/8/10 (64-bit OS required),40,1
-0 A.D.,1 GHz Intel or x86 compatible,At least 512 MB,"Any supporting OpenGL 1.3 with 3D hardware accelerated drivers and at least 128 MB memory, e.g., Radeon 9000, GeForce 3, or similar",,"XP, Vista, 7 or 8",,0
+0 A.D.,1 GHz Intel or x86 compatible,512 MB,"Any supporting OpenGL 1.3 with 3D hardware accelerated drivers and at least 128 MB memory, e.g., Radeon 9000, GeForce 3, or similar",,"XP, Vista, 7 or 8",,0
 007 Legends,Intel® Core™ 2 Duo E6600 or AMD Phenom™ X3 8750 processor or better,2 GB RAM,Shader 3.0 or better NVIDIA® GeForce™ 9600GT 512MB / ATI® Radeon™ HD 3870 512MB or better,9.0c,Windows® XP/ Windows® Vista / Windows® 7,10,0
 1 Screen Platformer,2 GHz,1 GB RAM,512 MB VRAM,Version 9.0c,Windows 7 or Later,0.05,0
 1 Screen Platformer,3 GHz,2 GB RAM,1 GB VRAM,Version 9.0c,Windows 7 or Later,0.05,1
@@ -12726,7 +12724,7 @@ Zwei: The Ilvard Insurrection,Intel Xeon W3505 @ 2.5 GHz (2-Core),1 GB RAM,NVIDI
 112 Operator,"2.6 Ghz, multi-core",8 GB RAM,NVIDIA GeForce GTX 1050,Version 10,"Windows 7 SP1+, 64-bit",8,1
 140,1.5 Ghz,1 GB RAM,(Any),Version 9.0c,Windows XP,0.1,0
 16bit Trader,Intel Celeron or AMD at 1.6 GHz,2 GB RAM,"nVidia GeForce 6600, ATI/AMD Radeaon HD2400 XT",,Windows 7,,0
-1701 A.D. Gold Edition,2.2 GHz Intel® Pentium® 4® or AMD® Athlon® 3200+,"512 MB - For more than two players, 1 GB of system memory is required.",3D Hardward Accelerator Required – 100% Direct X 9.0c compatible with latest drivers and 64 MB RAM*,DirectX® 9.0c,"Microsoft® Windows®XP or Windows®2000 English Version — This product does not support Windows 95/98/ME, NT or Vista!",3.5,0
+1701 A.D. Gold Edition,2.2 GHz Intel® Pentium® 4® or AMD® Athlon® 3200+,1 GB,3D Hardward Accelerator Required – 100% Direct X 9.0c compatible with latest drivers and 64 MB RAM*,DirectX® 9.0c,"Microsoft® Windows®XP or Windows®2000 English Version — This product does not support Windows 95/98/ME, NT or Vista!",3.5,0
 18 Wheels of Steel: Across America,PIII 700 MHz ,256 MB,16 MB 3D Video Accelerator with DirectX 8.1 compliant video drivers,Directx 8.1 ,Windows® 98/ME/XP,0.4,0
 18 Wheels of Steel: Across America,PIII 700 MHz ,256 MB,32 MB 3D accelerator with DirectX 8.1 compliant video drivers,Directx 8.1 ,Windows® 98/ME/XP,0.4,1
 18 Wheels of Steel: American Long Haul,1.4 GHz Pentium 4 or equivalent,1GB,OpenGL 1.3 compatible 64 MB AGP with hardware T&L,DirectX 9 or higher,Windows 2000/XP/Vista,0.54,0
