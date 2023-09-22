@@ -7,10 +7,10 @@ export default function BoardDetailComponent() {
   const [comment, setComment] = useState("");
   const [commentList, setCommentList] = useState([]);
 
-  const handleCommnet = (e) => {
+  const handleCommentChange = (e) => {
     setComment((current) => e.target.value);
   };
-  const handleCommentList = () => {
+  const handleCommentSubmit = () => {
     setCommentList((currentList) => [...currentList, comment]);
     setComment("");
   };
@@ -37,11 +37,11 @@ export default function BoardDetailComponent() {
           <textarea
             className="comment_input"
             value={comment}
-            onChange={handleCommnet}
+            onChange={handleCommentChange}
           />
           <button
             className="comment_input_button"
-            onClick={handleCommentList}
+            onClick={handleCommentSubmit}
             type="button"
           >
             등록
