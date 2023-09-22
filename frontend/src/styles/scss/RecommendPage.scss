@@ -32,24 +32,42 @@ $mainColor-strong: rgba(175, 106, 234, 1);
         border: 3.5px solid #{$mainColor-default};
 
         .process {
-          margin: 5px;
+          box-sizing: border-box;
+          height: 100%;
+          width: 100%;
+          padding: 5px;
 
           .sub {
+            box-sizing: border-box;
             height: 100%;
             width: 100%;
-
-            &.proc1 {
+            
+            .jc {
+              box-sizing: border-box;
+              height: 100%;
+              width: 100%;
               display: flex;
               justify-content: center;
               align-items: center;
-
-              .center {
-                display: flex;
-                justify-content: center;
-              }
+              flex-direction: column;
             }
 
-            &.proc2 {
+            .text {
+              font-size: 2.5rem;
+            }
+
+            .btn-group {
+              // justify-content: space-evenly;
+
+              .btn {
+                font-size: 2rem;
+                cursor: pointer;
+                transition: all 200ms ease-in-out;
+
+                &:hover {
+                  color: red;
+                }
+              }
             }
           }
         }
