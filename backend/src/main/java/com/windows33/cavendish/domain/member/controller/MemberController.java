@@ -34,7 +34,7 @@ public class MemberController {
     public CommonResponse<TokenInfo> login(
             @RequestBody MemberLoginRequestDto memberLoginRequestDto
     ) {
-        String memberId = memberLoginRequestDto.getMemberId();
+        String memberId = memberLoginRequestDto.getLoginId();
         String password = memberLoginRequestDto.getPassword();
 
         TokenInfo tokenInfo = memberService.login(memberId, password);
@@ -56,7 +56,7 @@ public class MemberController {
     }
 
     @Operation(summary = "회원탈퇴", description = "회원탈퇴")
-    @DeleteMapping("/remove")
+    @DeleteMapping
     public CommonResponse<Void> memberRemove() {
         memberService.removeMember();
 
@@ -64,7 +64,7 @@ public class MemberController {
     }
 
     @Operation(summary = "회원조회", description = "회원조회")
-    @GetMapping("/details")
+    @GetMapping
     public CommonResponse<MemberDetailResponseDto> memberDetails() {
         return OK(memberService.findMember());
     }
@@ -73,7 +73,7 @@ public class MemberController {
     @Parameters({
             @Parameter(name = "memberModifyRequestDto", description = "변경할 회원 정보")
     })
-    @PutMapping("/modify")
+    @PutMapping
     public CommonResponse<Boolean> memberModify(
             @RequestBody MemberModifyRequestDto memberModifyRequestDto
     ) {

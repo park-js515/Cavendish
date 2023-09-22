@@ -17,8 +17,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.UUID;
+
 @Service
-@Transactional(readOnly = true)
+@Transactional
 @RequiredArgsConstructor
 public class MemberServiceImpl implements MemberService {
 
@@ -26,12 +28,11 @@ public class MemberServiceImpl implements MemberService {
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     private final JwtTokenProvider jwtTokenProvider;
 
-    @Transactional
     @Override
-    public TokenInfo login(String memberId, String password) {
+    public TokenInfo login(String loginId, String password) {
         // 1. Login ID/PW 를 기반으로 Authentication 객체 생성
         // 이때 authentication 는 인증 여부를 확인하는 authenticated 값이 false
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(memberId, password);
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(loginId, password);
 
         // 2. 실제 검증 (사용자 비밀번호 체크)이 이루어지는 부분
         // authenticate 매서드가 실행될 때 CustomUserDetailsService 에서 만든 loadUserByUsername 메서드가 실행
@@ -43,57 +44,53 @@ public class MemberServiceImpl implements MemberService {
         return tokenInfo;
     }
 
-    @Transactional
     @Override
     public void signup(MemberSignupRequestDto memberSignupRequestDto) {
         memberRepository.save(Member.builder()
-                .memberId(memberSignupRequestDto.getMemberId())
+                .loginId(memberSignupRequestDto.getLoginId())
                 .password(memberSignupRequestDto.getPassword())
                 .nickname(memberSignupRequestDto.getNickname())
                 .build()
         );
     }
 
-    @Transactional
     @Override
     public void removeMember() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        String memberId = ((UserDetails)principal).getUsername();
+        String loginId = ((UserDetails)principal).getUsername();
 
-        Member member = memberRepository.findByMemberId(memberId).orElseThrow(() -> new NotFoundException(Member.class, memberId));
+        Member member = memberRepository.findByLoginId(loginId).orElseThrow(() -> new NotFoundException(Member.class, loginId));
 
         memberRepository.delete(member);
     }
 
-    @Transactional
     @Override
     public MemberDetailResponseDto findMember() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        String memberId = ((UserDetails)principal).getUsername();
+        String loginId = ((UserDetails)principal).getUsername();
 
-        Member member = memberRepository.findByMemberId(memberId).orElseThrow(() -> new NotFoundException(Member.class, memberId));
-        MemberDetailResponseDto memberDetailResponseDto = new MemberDetailResponseDto(member.getMemberId(), member.getNickname());
+        Member member = memberRepository.findByLoginId(loginId).orElseThrow(() -> new NotFoundException(Member.class, loginId));
+        MemberDetailResponseDto memberDetailResponseDto = new MemberDetailResponseDto(member.getLoginId(), member.getNickname());
 
         return memberDetailResponseDto;
     }
 
-    @Transactional
     @Override
     public Boolean modifyMember(MemberModifyRequestDto memberModifyRequestDto) {
         String password = memberModifyRequestDto.getPassword();
         String nickname = memberModifyRequestDto.getNickname();
 
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        String memberId = ((UserDetails)principal).getUsername();
+        String loginId = ((UserDetails)principal).getUsername();
 
-        Member member = memberRepository.findByMemberId(memberId).orElseThrow(() -> new NotFoundException(Member.class, memberId));
+        Member member = memberRepository.findByLoginId(loginId).orElseThrow(() -> new NotFoundException(Member.class, loginId));
 
         if(!member.getPassword().equals(password)) return false;
 
         member.updateMember(nickname);
-        Member updateMember = memberRepository.save(member);
+        Member check = memberRepository.save(member);
 
-        if(!updateMember.getNickname().equals(nickname)) return false;
+        if(!check.getNickname().equals(nickname)) return false;
 
         return true;
     }

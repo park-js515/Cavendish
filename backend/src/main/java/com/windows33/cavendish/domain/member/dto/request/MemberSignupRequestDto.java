@@ -7,7 +7,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class MemberSignupRequestDto {
 
-    private String memberId;
+    private String loginId;
     private String password;
     private String nickname;
 
