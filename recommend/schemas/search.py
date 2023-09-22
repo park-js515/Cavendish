@@ -2,15 +2,15 @@ from pydantic import BaseModel
 from typing import List, Optional
 
 class ProcessListStep1(BaseModel):
-    case: str = ""
-    cooler: str = ""
-    cpu: str = ""
-    gpu: str = ""
-    hdd: str = ""
-    mainboard: str = ""
-    power: str = ""
-    ram: str = ""
-    ssd: str = ""
+    case: int = -1
+    cooler: int = -1
+    cpu: int = -1
+    gpu: int = -1
+    hdd: int = -1
+    mainboard: int = -1
+    power: int = -1
+    ram: int = -1
+    ssd: int = -1
 
 class ProcessListStep2(BaseModel):
     usage: str = ""

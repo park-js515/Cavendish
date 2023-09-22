@@ -17,6 +17,14 @@ from models.power import Power
 
 from routes.compatibility.cpu import router as cpu_router
 from routes.compatibility.cooler import router as cooler_router
+from routes.compatibility.hdd import router as hdd_router
+from routes.compatibility.mainboard import router as mainboard_router
+from routes.compatibility.ram import router as ram_router
+from routes.compatibility.gpu import router as gpu_router
+from routes.compatibility.case import router as case_router
+from routes.compatibility.ssd import router as ssd_router
+from routes.compatibility.power import router as power_router
+
 
 from db.connection import engineconn
 
@@ -47,11 +55,23 @@ common_prefix = "/api"
 
 routers = [
     cpu_router,
-    cooler_router
+    cooler_router,
+    hdd_router,
+    mainboard_router,
+    ram_router,
+    gpu_router,
+    case_router,
+    ssd_router,
+    power_router
 ]
 
 engine = engineconn()
 session = engine.sessionmaker()
+
+
+
+for router in routers:
+    app.include_router(router, prefix=common_prefix)
 
 # @app.get("/")
 # async def root():
@@ -107,7 +127,3 @@ session = engine.sessionmaker()
 # async def power():
 #     example = session.query(Power).all()
 #     return example
-
-
-for router in routers:
-    app.include_router(router, prefix=common_prefix)

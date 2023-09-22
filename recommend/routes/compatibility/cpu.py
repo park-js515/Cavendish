@@ -26,7 +26,25 @@ router = APIRouter(
     prefix="/search/cpu", # url 앞에 고정적으로 붙는 경로추가
 ) # Route 분리
 
+
+
 @router.get("/{keyword:str}/{page:int}")
 async def cpu_search(keyword: str, page: int, state: ProcessListStep1 = Depends()):
-    result = session.query(CPU).filter(CPU.name.like(f'%{keyword}%')).offset((page-1)*10).limit(10).all()
+    
+    result = session.query(CPU).filter(CPU.name.like(f'%{keyword}%')).all()
+
+    if state.mainboard != -1:
+        mainboard = session.query(Mainboard).filter(Mainboard.id == state.mainboard).first()
+        result = [cpu for cpu in result if cpu.socket == mainboard.socket]
+    
+    if state.ram != -1:
+        ram = session.query(RAM).filter(RAM.id == state.ram).first()
+        result = [cpu for cpu in result if cpu.memory_type == ram.memory_type]
+    
+    if state.ssd != -1:
+        ssd = session.query(SSD).filter(SSD.id == state.ssd).first()
+        # result = [cpu for cpu in result if cpu.pcie_version == ssd.]
+
+    # result = session.query(CPU).filter(CPU.name.like(f'%{keyword}%')).offset((page-1)*10).limit(10).all()
+    
     return result
