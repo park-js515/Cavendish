@@ -19,8 +19,8 @@ spring:
 
   datasource:
     url: jdbc:mariadb://localhost:3306/s09p22c105
-    username: ${DB_ID}
-    password: ${DB_PW}
+    username: S09P22C105
+    password: S09P22C105
 
   sql:
     init:
@@ -42,8 +42,8 @@ spring:
 
   datasource:
     url: jdbc:mariadb://stg-yswa-kr-practice-db-master.mariadb.database.azure.com:3306/S09P22C105
-    username: ${DB_ID}
-    password: ${DB_PW}
+    username: S09P22C105
+    password: S09P22C105
 
   sql:
     init:
