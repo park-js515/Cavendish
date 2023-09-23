@@ -6,6 +6,7 @@ import com.windows33.cavendish.domain.member.dto.request.MemberModifyRequestDto;
 import com.windows33.cavendish.domain.member.dto.request.MemberSignupRequestDto;
 import com.windows33.cavendish.domain.member.dto.response.MemberDetailResponseDto;
 import com.windows33.cavendish.domain.member.service.MemberServiceImpl;
+import com.windows33.cavendish.global.jwt.UserPrincipal;
 import com.windows33.cavendish.global.response.CommonResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -25,6 +26,7 @@ import static com.windows33.cavendish.global.response.CommonResponse.*;
 public class MemberController {
 
     private final MemberServiceImpl memberService;
+    private final UserPrincipal userPrincipal = new UserPrincipal();
 
     @Operation(summary = "로그인", description = "로그인")
     @Parameters({
@@ -58,7 +60,7 @@ public class MemberController {
     @Operation(summary = "회원탈퇴", description = "회원탈퇴")
     @DeleteMapping
     public CommonResponse<Void> memberRemove() {
-        memberService.removeMember();
+        memberService.removeMember(userPrincipal.getLoginId());
 
         return OK(null);
     }
@@ -66,7 +68,7 @@ public class MemberController {
     @Operation(summary = "회원조회", description = "회원조회")
     @GetMapping
     public CommonResponse<MemberDetailResponseDto> memberDetails() {
-        return OK(memberService.findMember());
+        return OK(memberService.findMember(userPrincipal.getLoginId()));
     }
 
     @Operation(summary = "회원수정", description = "회원수정")
@@ -77,7 +79,7 @@ public class MemberController {
     public CommonResponse<Boolean> memberModify(
             @RequestBody MemberModifyRequestDto memberModifyRequestDto
     ) {
-        return OK(memberService.modifyMember(memberModifyRequestDto));
+        return OK(memberService.modifyMember(memberModifyRequestDto, userPrincipal.getLoginId()));
     }
 
 }

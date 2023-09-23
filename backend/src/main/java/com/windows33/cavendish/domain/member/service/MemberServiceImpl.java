@@ -12,12 +12,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.UUID;
 
 @Service
 @Transactional
@@ -55,20 +51,14 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public void removeMember() {
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        String loginId = ((UserDetails)principal).getUsername();
-
+    public void removeMember(String loginId) {
         Member member = memberRepository.findByLoginId(loginId).orElseThrow(() -> new NotFoundException(Member.class, loginId));
 
         memberRepository.delete(member);
     }
 
     @Override
-    public MemberDetailResponseDto findMember() {
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        String loginId = ((UserDetails)principal).getUsername();
-
+    public MemberDetailResponseDto findMember(String loginId) {
         Member member = memberRepository.findByLoginId(loginId).orElseThrow(() -> new NotFoundException(Member.class, loginId));
         MemberDetailResponseDto memberDetailResponseDto = new MemberDetailResponseDto(member.getLoginId(), member.getNickname());
 
@@ -76,12 +66,9 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public Boolean modifyMember(MemberModifyRequestDto memberModifyRequestDto) {
+    public Boolean modifyMember(MemberModifyRequestDto memberModifyRequestDto, String loginId) {
         String password = memberModifyRequestDto.getPassword();
         String nickname = memberModifyRequestDto.getNickname();
-
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        String loginId = ((UserDetails)principal).getUsername();
 
         Member member = memberRepository.findByLoginId(loginId).orElseThrow(() -> new NotFoundException(Member.class, loginId));
 
