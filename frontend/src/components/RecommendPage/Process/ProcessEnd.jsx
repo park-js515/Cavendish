@@ -4,8 +4,8 @@ import { setTab } from "../Tab/TabGroup";
 import { useDispatch } from "react-redux";
 import * as recom from "redux/recommendSlice";
 
-const ProcessEnd = () => {
-  return <div className="process">ProcesssEnd</div>;
+const ProcessEnd = ({ className }) => {
+  return <div className={className}>ProcesssEnd</div>;
 };
 
 export default ProcessEnd;

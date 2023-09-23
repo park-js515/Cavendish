@@ -1,21 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
-import _ from "lodash";
 
 const initialState_origin = {
   processNo: -1,
   processList: [
     // process1: 부품 사전 선택
-    {
-      item0: "",
-      item1: "",
-      item2: "",
-      item3: "",
-      item4: "",
-      item5: "",
-      item6: "",
-      item7: "",
-      item8: "",
-    },
+    [
+      { name: "case", value: "-1" },
+      { name: "cooler", value: "-1" },
+      { name: "cpu", value: "-1" },
+      { name: "gpu", value: "-1" },
+      { name: "hdd", value: "-1" },
+      { name: "mainboard", value: "-1" },
+      { name: "power", value: "-1" },
+      { name: "ram", value: "-1" },
+      { name: "ssd", value: "-1" },
+    ],
     // process2: 용도 선택
     { usage: "" },
     // process3: 세부 용도 선택
@@ -38,14 +37,10 @@ const recommendSlice = createSlice({
       state.processNo = action.payload;
     },
     addProcess: (state, action) => {
-      console.log(`before: ${state.processList[state.processNo]}`);
-      console.log(action.payload);
-      state.processNo++;
       state.processList[state.processNo] = {
         ...state.processList[state.processNo],
         ...action.payload,
       };
-      console.log(`after: ${JSON.stringify(initialState_origin)}`);
     },
     removeProcess: (state) => {
       state.processList[state.processNo] = initialState_origin[state.processNo];

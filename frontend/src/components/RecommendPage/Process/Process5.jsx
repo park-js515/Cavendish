@@ -6,10 +6,10 @@ import * as recom from "redux/recommendSlice";
 
 // 우선순위 선택
 // 우선순위 컴포넌트 -> 반응형
-const Process5 = () => {
+const Process5 = ({ className }) => {
   const dispatch = useDispatch();
   return (
-    <div className="process">
+    <div className={className}>
       {" "}
       <p>Process5</p>
       <button

@@ -6,11 +6,11 @@ import * as recom from "redux/recommendSlice";
 
 // 3. 용도 선택 자세히
 // 입력창?
-const Process3 = () => {
+const Process3 = ({ className }) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="process">
+    <div className={className}>
       <p>Process3</p>
       <button
         onClick={() => {

@@ -39,7 +39,7 @@ const RecommendPageComponent = () => {
       <div className="bottom">
         <div className="left">
           <div className="wrapper">
-            <NowProcess />
+            <NowProcess className="process"/>
           </div>
         </div>
         <div className="right">

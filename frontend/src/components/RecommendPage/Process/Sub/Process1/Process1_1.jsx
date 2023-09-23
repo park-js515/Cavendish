@@ -1,13 +1,14 @@
 // 가지고 있는 부품이 있는가?
 const Process1_1 = ({ setSubProcess }) => {
   return (
-    <div className="sub">
-      <div className="jc">
-        <div className="text">가지고 있는 본체 부품이 있나요?</div>
+    <div className="proc1_1">
+      <div>
+        <div className="text">가지고 있는 컴퓨터 본체 부품이 있나요?</div>
+        <br />
         <br />
         <div className="btn-group">
           <div
-            className="btn"
+            className="btn-item"
             onClick={() => {
               setSubProcess(1);
             }}
@@ -15,9 +16,9 @@ const Process1_1 = ({ setSubProcess }) => {
             네
           </div>
           <div
-            className="btn"
+            className="btn-item"
             onClick={() => {
-              setSubProcess(2);
+              setSubProcess(3);
             }}
           >
             아니오

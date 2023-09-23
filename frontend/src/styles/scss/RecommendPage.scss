@@ -1,6 +1,7 @@
 $mainColor-weak: rgba(175, 106, 234, 0.5);
 $mainColor-default: rgba(175, 106, 234, 0.75);
 $mainColor-strong: rgba(175, 106, 234, 1);
+$proc1-fs: 2.5rem;
 
 .recommend {
   .top {
@@ -37,37 +38,50 @@ $mainColor-strong: rgba(175, 106, 234, 1);
           width: 100%;
           padding: 5px;
 
-          .sub {
-            box-sizing: border-box;
+          // proc1_1
+          .proc1_1 {
             height: 100%;
             width: 100%;
-            
-            .jc {
-              box-sizing: border-box;
-              height: 100%;
-              width: 100%;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              flex-direction: column;
-            }
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
             .text {
-              font-size: 2.5rem;
+              font-size: #{$proc1-fs};
+              font-weight: 500;
+              display: flex;
+              justify-content: center;
             }
 
             .btn-group {
-              // justify-content: space-evenly;
+              display: flex;
+              justify-content: space-evenly;
+              align-items: center;
 
-              .btn {
-                font-size: 2rem;
+              .btn-item {
+                width: 120px;
+                font-size: #{$proc1-fs};
                 cursor: pointer;
                 transition: all 200ms ease-in-out;
+                border-radius: 5px;
+                display: flex;
+                justify-content: center;
 
                 &:hover {
-                  color: red;
+                  background-color: #{$mainColor-weak};
+                  color: white;
                 }
               }
+            }
+          }
+
+          // proc1_2
+          .proc1_2 {
+            .plusBtn {
+              height: 80px;
+              aspect-ratio: 1/1;
+              border-radius: 10%;
+              border: 5px dashed #{$mainColor-default};
             }
           }
         }
