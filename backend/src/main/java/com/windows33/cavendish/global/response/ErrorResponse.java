@@ -1,9 +1,11 @@
 package com.windows33.cavendish.global.response;
 
+import lombok.Getter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.http.HttpStatus;
 
+@Getter
 public class ErrorResponse {
 
     private final String message;
