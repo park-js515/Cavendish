@@ -7,6 +7,7 @@ USE s09p22c105;
 
 DROP TABLE IF EXISTS `boards_like`;
 DROP TABLE IF EXISTS `comments`;
+DROP TABLE IF EXISTS `boards_image`;
 DROP TABLE IF EXISTS `boards`;
 DROP TABLE IF EXISTS `part_bookmark`;
 DROP TABLE IF EXISTS `quotation`;
@@ -89,10 +90,10 @@ CREATE TABLE `boards` (
 	`title` varchar(100) NOT NULL,
 	`contents` varchar(1000) NOT NULL,
 	`create_date` date NOT NULL,
-	`image_path` varchar(100) NOT NULL,
-	`status` tinyint NOT NULL COMMENT '0:일반, 1: 삭제',
-	`view` int NULL,
-	`like` int NULL,
+	`image_path` varchar(100) NULL,
+	`status` tinyint NOT NULL DEFAULT 0 COMMENT '0:일반, 1: 삭제',
+	`view` int NULL DEFAULT 0,
+	`like` int NULL DEFAULT 0,
 	PRIMARY KEY (`id`),
 	CONSTRAINT `fk_boards_user_id`
 		FOREIGN KEY (`user_id`)
@@ -100,6 +101,22 @@ CREATE TABLE `boards` (
 	CONSTRAINT `fk_boards_quotation_id`
 		FOREIGN KEY (`quotation_id`)
 		REFERENCES `quotation` (`id`) ON UPDATE CASCADE
+)
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
+
+-- 게시판 이미지 테이블
+
+CREATE TABLE `boards_image` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `board_id` int NOT NULL,
+    `image_path` varchar(100) NOT NULL,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `fk_boards_image_board_id`
+        FOREIGN KEY (`board_id`)
+        REFERENCES `boards` (`id`) ON UPDATE CASCADE ON DELETE CASCADE
 )
 ENGINE = InnoDB
 AUTO_INCREMENT = 1
@@ -131,7 +148,7 @@ CREATE TABLE `comments` (
 	`user_id` int NOT NULL COMMENT '작성자',
 	`contents` varchar(100) NOT NULL,
 	`create_date` date NOT NULL,
-	`status` tinyint NOT NULL COMMENT '0:일반, 1: 삭제',
+	`status` tinyint NOT NULL DEFAULT 0 COMMENT '0:일반, 1: 삭제',
 	PRIMARY KEY (`id`),
 	CONSTRAINT `fk_comments_board_id`
 		FOREIGN KEY (`board_id`)
