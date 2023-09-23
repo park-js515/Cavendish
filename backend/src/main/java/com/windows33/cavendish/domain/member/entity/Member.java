@@ -1,50 +1,47 @@
 package com.windows33.cavendish.domain.member.entity;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.*;
 
+@ToString
 @Getter
 @SuperBuilder
 @NoArgsConstructor
+@Table(name = "users")
 @Entity
 public class Member implements UserDetails {
 
     @Id
-    @Column(updatable = false, unique = true, nullable = false)
-    private String memberId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-    @Column(nullable = false)
+    private String loginId;
+
     private String password;
 
-    @Column(nullable = false)
     private String nickname;
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    @Builder.Default
-    private List<String> roles = new ArrayList<>(Arrays.asList("USER"));
+    @Column(insertable = false)
+    private String roles;
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.roles.stream()
-                .map(SimpleGrantedAuthority::new)
-                .collect(Collectors.toList());
-    }
+    @Column(insertable = false)
+    private Byte state;
 
     @Override
     public String getUsername() {
-        return memberId;
+        return loginId;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
     }
 
     @Override

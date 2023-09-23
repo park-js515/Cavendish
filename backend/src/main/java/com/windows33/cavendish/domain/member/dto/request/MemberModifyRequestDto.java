@@ -1,4 +1,4 @@
-package com.windows33.cavendish.domain.member.dto;
+package com.windows33.cavendish.domain.member.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
