@@ -20,9 +20,6 @@ import java.util.*;
 public class Member implements UserDetails {
 
     @Id
-//    @GeneratedValue(generator = "uuid")
-//    @GenericGenerator(name = "uuid", strategy = "uuid2")
-//    @Column(insertable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 

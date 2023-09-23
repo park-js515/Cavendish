@@ -27,11 +27,11 @@ DROP TABLE IF EXISTS `power`;
 -- 사용자 테이블
 
 CREATE TABLE `users` (
-	`id` UUID NOT NULL,
+	`id` int NOT NULL AUTO_INCREMENT,
 	`login_id` varchar(20) NOT NULL UNIQUE,
 	`password` varchar(20) NOT NULL,
 	`nickname` varchar(20) NOT NULL UNIQUE,
-	`roles` varchar(10) NOT NULL,
+	`roles` varchar(10) NOT NULL DEFAULT 'USER',
 	`state` tinyint NOT NULL DEFAULT 0 COMMENT '0:일반, 1: 탈퇴',
 	PRIMARY KEY (`id`)
 )
@@ -43,7 +43,7 @@ COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE `part_bookmark` (
 	`id` int NOT NULL AUTO_INCREMENT,
-	`user_id` UUID NOT NULL,
+	`user_id` int NOT NULL,
 	`pid` tinyint NOT NULL COMMENT '0:CPU, 1:메인보드, 2:메모리, 3:그래픽카드, 4:SSD, 5:HDD, 6: 케이스, 7: 파워, 8:쿨러',
 	`part_id` int NOT NULL,
 	PRIMARY KEY (`id`),
@@ -60,7 +60,7 @@ COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE `quotation` (
 	`id` int NOT NULL AUTO_INCREMENT,
-	`user_id` UUID NULL COMMENT '견적함',
+	`user_id` int NULL COMMENT '견적함',
 	`cpu_id` int NULL,
 	`power_id` int NULL,
 	`mainboard_id` int NULL,
@@ -84,7 +84,7 @@ COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE `boards` (
 	`id` int NOT NULL AUTO_INCREMENT,
-	`user_id` UUID NOT NULL,
+	`user_id` int NOT NULL,
 	`quotation_id` int NULL,
 	`title` varchar(100) NOT NULL,
 	`contents` varchar(1000) NOT NULL,
@@ -109,7 +109,7 @@ COLLATE = utf8mb4_unicode_ci;
 -- 게시글 좋아요 테이블
 
 CREATE TABLE `boards_like` (
-	`user_id` UUID NOT NULL,
+	`user_id` int NOT NULL,
 	`board_id` int NOT NULL,
 	PRIMARY KEY (`user_id`, `board_id`),
 	CONSTRAINT `fk_boards_like_user_id`
@@ -128,7 +128,7 @@ COLLATE = utf8mb4_unicode_ci;
 CREATE TABLE `comments` (
 	`id` int NOT NULL AUTO_INCREMENT,
 	`board_id` int NOT NULL,
-	`user_id` UUID NOT NULL COMMENT '작성자',
+	`user_id` int NOT NULL COMMENT '작성자',
 	`contents` varchar(100) NOT NULL,
 	`create_date` date NOT NULL,
 	`status` tinyint NOT NULL COMMENT '0:일반, 1: 삭제',
