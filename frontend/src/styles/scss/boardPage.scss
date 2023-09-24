@@ -71,16 +71,18 @@
   }
   .board_number {
     bottom: 10px;
-    button {
+    .page_button {
       margin: 3px;
+      padding: 4px;
       width: 30px;
       height: 30px;
       background: #fff;
-      border-radius: 1rem;
+      border-radius: 50%;
       border: 1px solid gray;
       &:hover {
         opacity: 90%;
         background-color: #eee;
+        cursor: pointer;
       }
     }
   }
