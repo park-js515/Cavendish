@@ -34,11 +34,11 @@ public class GlobalExceptionHandler {
         return newResponse(e, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<?> test(Exception e) {
-        log.error("Unexpected service exception occurred: {}", e.getMessage(), e);
-        return newResponse(e, HttpStatus.INTERNAL_SERVER_ERROR);
-    }
+//    @ExceptionHandler(Exception.class)
+//    public ResponseEntity<?> test(Exception e) {
+//        log.error("Unexpected service exception occurred: {}", e.getMessage(), e);
+//        return newResponse(e, HttpStatus.INTERNAL_SERVER_ERROR);
+//    }
 
     @GetMapping("/error")
     public ResponseEntity<?> notFoundException(NoHandlerFoundException e){

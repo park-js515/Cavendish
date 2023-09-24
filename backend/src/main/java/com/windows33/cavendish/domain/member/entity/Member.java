@@ -2,12 +2,10 @@ package com.windows33.cavendish.domain.member.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 
-@ToString
 @Getter
 @SuperBuilder
 @NoArgsConstructor
@@ -31,7 +29,6 @@ public class Member {
     @Column(insertable = false)
     private Byte state;
 
-    // 회원 정보 수정
     public void updateMember(String nickname) {
         this.nickname = nickname;
     }

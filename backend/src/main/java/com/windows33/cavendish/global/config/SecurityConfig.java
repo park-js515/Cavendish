@@ -32,7 +32,9 @@ public class SecurityConfig {
     private static final String[] PERMIT_USER = {
             /* 회원 */
             "/api/member/remove",
-            "/api/member"
+            "/api/member",
+            /* 게시판 */
+            "/api/board"
     };
 
 

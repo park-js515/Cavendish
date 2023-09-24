@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,6 +24,7 @@ public class MemberServiceImpl implements MemberService {
     private final MemberRepository memberRepository;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     private final JwtTokenProvider jwtTokenProvider;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public TokenInfo login(String loginId, String password) {
@@ -44,7 +46,7 @@ public class MemberServiceImpl implements MemberService {
     public void signup(MemberSignupRequestDto memberSignupRequestDto) {
         memberRepository.save(Member.builder()
                 .loginId(memberSignupRequestDto.getLoginId())
-                .password(memberSignupRequestDto.getPassword())
+                .password(passwordEncoder.encode(memberSignupRequestDto.getPassword()))
                 .nickname(memberSignupRequestDto.getNickname())
                 .build()
         );
