@@ -30,7 +30,7 @@ DROP TABLE IF EXISTS `power`;
 CREATE TABLE `users` (
 	`id` int NOT NULL AUTO_INCREMENT,
 	`login_id` varchar(20) NOT NULL UNIQUE,
-	`password` varchar(20) NOT NULL,
+	`password` varchar(100) NOT NULL,
 	`nickname` varchar(20) NOT NULL UNIQUE,
 	`roles` varchar(10) NOT NULL DEFAULT 'USER',
 	`state` tinyint NOT NULL DEFAULT 0 COMMENT '0:일반, 1: 탈퇴',
@@ -89,7 +89,7 @@ CREATE TABLE `boards` (
 	`quotation_id` int NULL,
 	`title` varchar(100) NOT NULL,
 	`contents` varchar(1000) NOT NULL,
-	`create_date` date NOT NULL,
+	`create_date` date NOT NULL DEFAULT current_timestamp,
 	`status` tinyint NOT NULL DEFAULT 0 COMMENT '0:일반, 1: 삭제',
 	`view` int NULL DEFAULT 0,
 	`like` int NULL DEFAULT 0,
