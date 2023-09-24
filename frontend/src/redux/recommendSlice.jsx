@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState_origin = {
   processNo: -1,
+  selected: "",
   processList: [
     // process1: 부품 사전 선택
     [
@@ -36,6 +37,9 @@ const recommendSlice = createSlice({
     setProcessNo: (state, action) => {
       state.processNo = action.payload;
     },
+    setSelected: (state, action) => {
+      state.selected = action.payload;
+    },
     addProcess: (state, action) => {
       state.processList[state.processNo] = {
         ...state.processList[state.processNo],
@@ -49,6 +53,6 @@ const recommendSlice = createSlice({
   },
 });
 
-export const { resetProcessAll, setProcessNo, addProcess, removeProcess } =
+export const { resetProcessAll, setProcessNo, setSelected, addProcess, removeProcess } =
   recommendSlice.actions;
 export default recommendSlice.reducer;
