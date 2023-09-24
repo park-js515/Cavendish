@@ -90,7 +90,6 @@ CREATE TABLE `boards` (
 	`title` varchar(100) NOT NULL,
 	`contents` varchar(1000) NOT NULL,
 	`create_date` date NOT NULL,
-	`image_path` varchar(100) NULL,
 	`status` tinyint NOT NULL DEFAULT 0 COMMENT '0:일반, 1: 삭제',
 	`view` int NULL DEFAULT 0,
 	`like` int NULL DEFAULT 0,
