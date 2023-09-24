@@ -1,7 +1,10 @@
+$shadow: gray;
 $mainColor-weak: rgba(175, 106, 234, 0.5);
 $mainColor-default: rgba(175, 106, 234, 0.75);
 $mainColor-strong: rgba(175, 106, 234, 1);
 $proc1-fs: 2.5rem;
+$proc3-btn: rgba(174, 171, 171, 0.5);
+$proc3-btn-hover: rgba(174, 171, 171, 0.75);
 
 .recommend {
   .top {
@@ -100,7 +103,6 @@ $proc1-fs: 2.5rem;
                 cursor: pointer;
 
                 &:hover .card-front {
-
                   transform: rotateY(180deg);
                   opacity: 0;
                 }
@@ -137,6 +139,61 @@ $proc1-fs: 2.5rem;
                   opacity: 0;
                 }
               }
+            }
+          }
+        }
+
+        // PartSelect
+        .partSelect {
+          height: 100%;
+          width: 100%;
+
+          .search-wrapper {
+            display: flex;
+            justify-content: center;
+            .search {
+              font-size: 40px;
+              border: 2px solid #{shadow};
+              outline: none;
+
+              &:focus {
+                border: 2px solid #{$mainColor-default};
+              }
+
+              &:hover:not(:focus) {
+                border: 2px solid #{$mainColor-strong};
+              }
+            }
+
+            .btn {
+              height: 48px;
+              width: 48px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              cursor: pointer;
+              transition: all 300ms ease-in-out;
+              border-radius: 5px;
+              background-color: #{$proc3-btn};
+
+              &:hover {
+                background-color: #{$proc3-btn-hover};
+              }
+            }
+          }
+
+          .item-list {
+            width: 100%;
+            height: 100%;
+
+            .item-group {
+              .item {
+                display: flex;
+              }
+            }
+
+            .footer {
+              display: flex;
             }
           }
         }

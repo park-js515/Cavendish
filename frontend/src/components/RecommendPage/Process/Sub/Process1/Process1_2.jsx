@@ -46,6 +46,7 @@ const Card = ({ front, back, imgUrl, onClick, style }) => {
   );
 };
 
+// 수정 예정
 const BackDetail = ({ name, value }) => {
   const text = value !== "-1" ? value : "선택된 제품이 없습니다";
   return (
@@ -93,7 +94,7 @@ const Process1_2 = ({ setSubProcess }) => {
               imgUrl={imgUrl}
               back={<BackDetail {...item} />}
               onClick={() => {
-                setSelected(item.name);
+                setSelected(index);
                 setSubProcess(2);
               }}
             />

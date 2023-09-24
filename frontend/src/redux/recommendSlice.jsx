@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState_origin = {
   processNo: -1,
-  selected: "",
+  selected: 0,
   processList: [
     // process1: 부품 사전 선택
     [
