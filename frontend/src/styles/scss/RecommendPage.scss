@@ -194,6 +194,29 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
 
             .footer {
               display: flex;
+              justify-content: center;
+
+              @mixin btn($bgc) {
+                background-color: $bgc;
+              }
+
+              .btn {
+                &-default {
+                  @include btn($bgc: white);
+                }
+
+                &-active {
+                  @include btn($bgc: rgba(0, 0, 255, 0.5));
+                }
+
+                &-side {
+                  @include btn($bgc: white);
+
+                  &:hover {
+                    background-color: rgba(0, 0, 255, 0.5);
+                  }
+                }
+              }
             }
           }
         }

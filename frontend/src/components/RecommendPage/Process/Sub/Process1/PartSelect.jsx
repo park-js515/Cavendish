@@ -5,8 +5,6 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 
 // 검색결과 페이지네이션
-const maxValue = 72;
-
 const PartSelect = ({ setSubProcess }) => {
   const selected = useSelector((state) => {
     return state.recommend.selected;

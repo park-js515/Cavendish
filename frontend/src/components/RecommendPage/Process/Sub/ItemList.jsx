@@ -21,7 +21,8 @@ const dummy = [
   { imgUrl: defaultCPU, name: "dummy" },
 ];
 
-const itemsPerPage = 10;
+const maxValue = 72; // 추후 axios로 받아올 값
+const itemsPerPage = 10; // 확정은 아닌 값
 
 const Item = ({ imgUrl, name }) => {
   const selectedItem = useSelector((state) => {
@@ -30,7 +31,19 @@ const Item = ({ imgUrl, name }) => {
   return <div className="item"></div>;
 };
 
-const Pagenate = (maxValue) => {
+const Pagenate = ({
+  page,
+  maxValue,
+  handlePage,
+  handlePageAdd,
+  handlePageAdd2,
+  handlePageSub,
+  handlePageSub2,
+}) => {
+  const Btn = ({ value }) => {
+    const className1 = page === value ? "btn-active" : "btn-default";
+    const className2 = "btn-side";
+  };
   return <></>;
 };
 
@@ -75,10 +88,20 @@ const ItemList = ({ maxValue }) => {
   //   페이지 갱신
   // }, [page])
 
+  const footerProps = {
+    page,
+    maxValue,
+    handlePage,
+    handlePageAdd,
+    handlePageAdd2,
+    handlePageSub,
+    handlePageSub2,
+  };
+
   return (
     <div className="item-list">
       <div className="item-group"></div>
-      <div className="footer"></div>
+      <Pagenate {...footerProps} />
     </div>
   );
 };
