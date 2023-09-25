@@ -40,10 +40,20 @@ const Pagenate = ({
   handlePageSub,
   handlePageSub2,
 }) => {
-  const Btn = ({ value }) => {
-    const className1 = page === value ? "btn-active" : "btn-default";
-    const className2 = "btn-side";
+  const Btn = ({ value, type, onClick }) => {
+    const classNames = [
+      page === value ? "btn-active" : "btn-default",
+      "btn-side",
+    ];
+    return (
+      <button onClick={onClick} className={classNames[type]}>
+        {value}
+      </button>
+    );
   };
+
+  const cur10 = (page - 1) % 10;
+  
   return <></>;
 };
 
@@ -66,7 +76,7 @@ const ItemList = ({ maxValue }) => {
 
   const handlePageAdd2 = () => {
     setPage((current) => {
-      const cur10 = current % 10;
+      const cur10 = (current - 1) % 10;
       current = Math.min((cur10 + 1) * 10, maxValue);
     });
   };
@@ -79,7 +89,7 @@ const ItemList = ({ maxValue }) => {
 
   const handlePageSub2 = () => {
     setPage((current) => {
-      const cur10 = current % 10;
+      const cur10 = (current - 1) % 10;
       current = Math.max((cur10 - 1) * 10 + 9, 1);
     });
   };
@@ -100,7 +110,7 @@ const ItemList = ({ maxValue }) => {
 
   return (
     <div className="item-list">
-      <div className="item-group"></div>
+      <div className="item-group">{}</div>
       <Pagenate {...footerProps} />
     </div>
   );
