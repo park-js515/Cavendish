@@ -54,7 +54,7 @@ public class BoardController {
             @Parameter(name = "pageable", description = "페이지 정보")
     })
     @GetMapping
-    public CommonResponse<Page<BoardListResponseDto>> addArticle(
+    public CommonResponse<Page<BoardListResponseDto>> findAllArticle(
             @PageableDefault(sort="modifyDateTime", direction = Sort.Direction.DESC) Pageable pageable,
             @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
     ) {
