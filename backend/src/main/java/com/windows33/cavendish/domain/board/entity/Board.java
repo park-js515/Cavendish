@@ -18,11 +18,11 @@ public class Board {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
-    private int userId;
+    private Integer userId;
 
-    private int quotationId;
+    private Integer quotationId;
 
     private String title;
 
