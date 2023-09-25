@@ -1,15 +1,58 @@
 package com.windows33.cavendish.global.jwt;
 
-import org.springframework.security.core.context.SecurityContextHolder;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.ToString;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class UserPrincipal {
+import java.util.Collection;
+import java.util.List;
 
-    public String getLoginId() {
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        String loginId = ((UserDetails)principal).getUsername();
+@ToString
+@Builder
+@Getter
+@AllArgsConstructor
+public class UserPrincipal implements UserDetails {
 
+    private int id;
+    private String loginId;
+    private String password;
+    private List<GrantedAuthority> authorities;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return authorities;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
         return loginId;
     }
 
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }

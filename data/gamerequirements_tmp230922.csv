@@ -8088,7 +8088,7 @@ Purrfect Date,Intel Core i3-3225 / AMD FX-6300 / Core i5-4300M,8 GB RAM,​Intel
 PUSS!,Core i3,2 GB RAM,(Any),Version 9.0,Windows 7 or later,0.75,0
 PUSS!,Core i5 or higher,8 GB RAM,(Any),Version 11,Windows 7 or later (64-bit),0.75,1
 Puyo Puyo Tetris,Intel Core i3 or AMD equivalent,4 GB RAM,DX11 compliant video card with 1 GB VRAM,Version 11,Microsoft Windows 7 / 8 (8.1) / 10 64Bit,4,0
-Puzzle Agent 2,1.8 GHz Pentium 4 or equivalent (Rec: 2.0GHz Pentium 4 or equivalent),3 GB,ATI or NVidia card w/ 256 MB RAM (Rec: ATI or NVidia card w/ 512 MB RAM),Direct X 9.0c ,XP Service Pack 3 / Vista / Windows 7 ,0.5,0
+Puzzle Agent 2,1.8 GHz Pentium 4 or equivalent (Rec: 2.0GHz Pentium 4 or equivalent),2 GB RAM (Rec: 3GB RAM),ATI or NVidia card w/ 256 MB RAM (Rec: ATI or NVidia card w/ 512 MB RAM),Direct X 9.0c ,XP Service Pack 3 / Vista / Windows 7 ,0.5,0
 Puzzle Dimension,1.7 GHz Processor ,1 GB,DirectX® 9.0c (Shader Model 3) compatible graphics card ,DirectX® 9.0c,Windows® 7/Vista/XP SP3,0.5,0
 Puzzle Kingdoms,"Pentium 4, 1.5GHz or better CPU",256 MB RAM,"NVidia 5 series or better, ATI 8 series or better",DirectX 9.0c,Microsoft® Windows® XP or Vista,0.5,0
 Puzzle Quest 2,Intel® Core 2 @ 1.8 Ghz / AMD Athlon 64 X2 2.0 Ghz ,1GB RAM ,256 Mb (GeForce® 7 / Radeon® X800) ,DirectX® 9.0c,Microsoft® Windows® XP/Vista ,0.475,0
@@ -8106,9 +8106,11 @@ Q.U.B.E.,Dual core recommended,2 GB,Shader Model 3 compatible video card. NVIDIA
 Q.U.B.E. 2,"Quad-core Intel or AMD processor, 2.5 GHz",4 GB RAM,NVIDIA GeForce GTX 470 or AMD Radeon 6870 HD series card,Version 11,Windows 7 64-bit,4,0
 Q.U.B.E. 2,"Quad-core Intel or AMD processor, 2.5 GHz or faster",8 GB RAM,NVIDIA GeForce GTX 780 or AMD R9 290X series card or higher,Version 11,Windows 7 64-bit or later,4,1
 Quadrilateral Cowboy,2.0 GHz,3 GB RAM,"NVIDIA GeForce 9800 GT or ATI Radeon HD 5750, 1 GB video RAM",,Windows 7 and above,1.2,0
-Quake,Intel Pentium(R) 75 MHz processor or better,16 MB,"VGA compatible display or better
+Quake,Intel Pentium(R) 75 MHz processor or better,"DOS -- 8 MB RAM required
+Win 95 -- 16 MB RAM required","VGA compatible display or better
 ",,MS-DOS 5.0 or higher or Windows(R) 95/98 operating system,0.08,0
-Quake,Intel Pentium(R) 75 MHz processor or better,24 MB,"VGA compatible display or better
+Quake,Intel Pentium(R) 75 MHz processor or better,"DOS -- 16 MB
+Win 95 -- 24 MB","VGA compatible display or better
 ",,MS-DOS 5.0 or higher or Windows(R) 95/98 operating system,0.08,1
 Quake 4,Intel® Pentium® 4 2.0 GHz or AMD® Athlon® XP 2000+ processor or higher,512 MB RAM,100% DirectX® 9.0c compatible 64MB 3D hardware accelerated video card required,9.0c,Windows® XP,2.8,0
 Quake Champions,Intel Core i5-750 / AMD Phenom II X4-810,8 GB RAM,Nvidia GT 730 2GB / AMD R7 240 / Intel HD 530,,Windows 10 and later,32,0
@@ -8132,13 +8134,17 @@ ATI Radeon 8500 or better,
 Intel i915 chipset or better",,Windows XP or Vista,,0
 Quake Live,2 GHz Intel Processor or better,,"NVIDIA GeForce 7 Series or better,
 ATI Radeon X1800 series or better",,Windows XP or Vista,,1
-Quake Mission Pack 1: Scourge of Armagon,Intel Pentium(R) 75 MHz processor or better,16 MB,"VGA compatible display or better
+Quake Mission Pack 1: Scourge of Armagon,Intel Pentium(R) 75 MHz processor or better,"DOS -- 8 MB RAM required
+Win 95 -- 16 MB RAM required","VGA compatible display or better
 ",,MS-DOS 5.0 or higher or Windows(R) 95/98 operating system,0.08,0
-Quake Mission Pack 1: Scourge of Armagon,Intel Pentium(R) 75 MHz processor or better,24 MB,"VGA compatible display or better
+Quake Mission Pack 1: Scourge of Armagon,Intel Pentium(R) 75 MHz processor or better,"DOS -- 16 MB
+Win 95 -- 24 MB","VGA compatible display or better
 ",,MS-DOS 5.0 or higher or Windows(R) 95/98 operating system,0.08,1
-Quake Mission Pack 2: Dissolution of Eternity,Intel Pentium(R) 75 MHz processor or better,16 MB,"VGA compatible display or better
+Quake Mission Pack 2: Dissolution of Eternity,Intel Pentium(R) 75 MHz processor or better,"DOS -- 8 MB RAM required
+Win 95 -- 16 MB RAM required","VGA compatible display or better
 ",,MS-DOS 5.0 or higher or Windows(R) 95/98 operating system,0.08,0
-Quake Mission Pack 2: Dissolution of Eternity,Intel Pentium(R) 75 MHz processor or better,24 MB,"VGA compatible display or better
+Quake Mission Pack 2: Dissolution of Eternity,Intel Pentium(R) 75 MHz processor or better,"DOS -- 16 MB
+Win 95 -- 24 MB","VGA compatible display or better
 ",,MS-DOS 5.0 or higher or Windows(R) 95/98 operating system,0.08,1
 Quantum Break,"Intel Core i5-4460, 2.70GHz or AMD FX-6300",8 GB RAM,NVIDIA GeForce GTX 760 or AMD Radeon R7 260x,Version 11,Windows 7 - 64 bit,68,0
 Quantum Break,"Intel Core i5 4690, 3.9GHz or AMD equivalent",16 GB RAM,NVIDIA GeForce GTX 970 or AMD Radeon R9 390,Version 12,Windows 10 - 64 bit,68,1
@@ -10478,9 +10484,9 @@ The Chronicles of Riddick: Assault on Dark Athena,Intel Pentium D 805 or AMD Ath
 The Chronicles of Riddick: Assault on Dark Athena,Intel Core2Duo 1.8GHz or AMD Athlon X2 +5200,2 GB,ATI Radeon HD 3850 or NVIDIA GeForce 8800 GT or higher video card,DirectX version 9.0c (included) or higher,"Windows XP SP2, Windows Vista",11,1
 The Chronicles of Riddick: Escape From Butcher Bay,Pentium(R) 4 1.8 GHz or AMD equivalent,256 MB RAM,"64 MB AGP OpenGL 1.5-compatible video card, supporting programmable shading. (ATI Radeon(R) 8500 or NVIDIA(R) GeForce(TM) 3 and above - except GeForce(TM) 4 MX) ",DirectX(R) 9.0 or better,Windows(R) 2000 (Service Pack 4) / Windows(R) XP (Service Pack 1),3.7,0
 The Chronicles of Riddick: Escape From Butcher Bay,Intel(R) Pentium(R) 4 2.6 GHz or AMD(R) Athlon(TM) XP 2500+,512 MB RAM,ATI Radeon(R) 9700 or NVIDIA(R) GeForce(TM) FX 5900 or better,DirectX(R) 9.0 or better,Windows(R) XP (Service Pack 1),3.7,1
-The Chronicles of Spellborn,Pentium 4 2.0 GHz,1 GB,"3D Graphics card, 128MB
+The Chronicles of Spellborn,Pentium 4 2.0 GHz,Memory 1 GB,"3D Graphics card, 128MB
 Pixel Shaders 2 Support",DirectX 9.0c or higher,Windows XP/Vista,12,0
-The Chronicles of Spellborn,Pentium 4 2.6 GHz,2 GB,"3D Graphics card, 256 MB
+The Chronicles of Spellborn,Pentium 4 2.6 GHz,Memory 2 GB,"3D Graphics card, 256 MB
 Pixel Shaders 2 Support",DirectX 9.0c or higher,Windows XP/Vista,12,1
 The Church in the Darkness,Dual Core CPU - 2GHz,4 GB RAM,(Any),,Windows 7 or later (32 or 64 bit),2,0
 The Climb,Intel i5-4590 equivalent or greater,8GB RAM,NVIDIA GTX 970 / AMD 290 equivalent or greater,,Windows 7 SP1 or newer,,0
@@ -12314,7 +12320,7 @@ Wo Long: Fallen Dynasty,"Intel® Core™ i7-8700, AMD Ryzen™ 5 3600XT",16 GB R
 Wolcen: Lords of Mayhem,Intel Core i5-4570T 2.9 GHz / AMD FX-6100 3.3 GHz,8 GB RAM,NVIDIA GeForce GTX 560 Ti / AMD Radeon HD 6850,Version 11,"Windows 7 64-Bit SP1, Windows 8.1 64-Bit, Windows 10 64-Bit",18,0
 Wolcen: Lords of Mayhem,Intel Core i7-4770S 3.1 GHz / AMD FX-8320 3.5 GHz,16 GB RAM,NVIDIA GeForce GTX 1060 / AMD Radeon RX 570,Version 11,"Windows 7 64-Bit SP1, Windows 8.1 64-Bit, Windows 10 64-Bit",18,1
 Wolfenstein,Intel(R) Pentium(R) 4 3.2 GHz or AMD Athlon(TM) 64 3400+ processor,1GB RAM,256MB NVIDIA(R) Geforce(R) 6800 GT or ATI Radeon(TM) X800,Microsoft DirectX(R) 9.0c (included & required for Windows XP & Vista),Microsoft(R) Windows(R) XP or Windows Vista(R) (Windows 95/98/ME/2000 are unsupported),8,0
-Wolfenstein 3D,IBM 286 Computer,0.5 MB,,,,0.011,0
+Wolfenstein 3D,IBM 286 Computer,528k of conventional memory,,,,0.011,0
 Wolfenstein II: The New Colossus,AMD FX-8350/Ryzen 5 1400 or Intel Core i5-3570/i7-3770,8 GB RAM,Nvidia GTX 770 4GB/AMD Radeon R9 290 4GB or better,,"Win7, 8.1, or 10 (64-Bit versions)",55,0
 Wolfenstein II: The New Colossus,AMD FX-9370/Ryzen 5 1600X or Intel Core i7-4770,16 GB RAM,Nvidia GTX 1060 6GB/AMD Radeon RX 470 4GB or better,,"Win7, 8.1, or 10 64-Bit",55,1
 Wolfenstein: Cyberpilot,Intel Core i5-4590 or AMD FX 8350 or better,8 GB RAM,Nvidia GeForce GTX 1070 / AMD RX Vega 56 or better,,Windows 7/8.1/10 (64-bit versions),30,0
