@@ -26,6 +26,7 @@ from routes.compatibility.ssd import router as ssd_router
 from routes.compatibility.power import router as power_router
 
 
+from fastapi.responses import JSONResponse
 from db.connection import engineconn
 
 app = FastAPI()

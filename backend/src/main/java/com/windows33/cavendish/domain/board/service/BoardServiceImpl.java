@@ -24,8 +24,8 @@ import java.util.List;
 public class BoardServiceImpl implements BoardService {
 
     private final BoardRepository boardRepository;
-//    private final BoardImageRepository boardImageRepository;
-//    private final LocalFileUtil localFileUtil;
+    private final BoardImageRepository boardImageRepository;
+    private final LocalFileUtil localFileUtil;
 
     @Override
     public void addArticle(BoardAddRequestDto boardAddRequestDto, List<MultipartFile> img, int id) {
@@ -35,15 +35,10 @@ public class BoardServiceImpl implements BoardService {
                 .userId(id)
                 .title(boardAddRequestDto.getTitle())
                 .contents(boardAddRequestDto.getContents())
-                .quotationId(null);
-
-//        if(boardAddRequestDto.getQuotationId() != null) {
-//            board.quotationId(boardAddRequestDto.getQuotationId());
-//        }
+                .quotationId(boardAddRequestDto.getQuotationId());
 
         boardRepository.save(board.build());
 
-//        // S3에 이미지 저장
 //        List<String> images = localFileUtil.uploadFiles("BoardImage", img);
 //
 //        // 이미지 테이블 저장
