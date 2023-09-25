@@ -36,6 +36,8 @@ public class MemberController {
     public CommonResponse<TokenInfo> login(
             @RequestBody MemberLoginRequestDto memberLoginRequestDto
     ) {
+        System.out.println(memberLoginRequestDto.toString());
+
         String memberId = memberLoginRequestDto.getLoginId();
         String password = memberLoginRequestDto.getPassword();
 

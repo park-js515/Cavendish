@@ -53,14 +53,14 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public void removeMember(int id) {
+    public void removeMember(Integer id) {
         Member member = memberRepository.findById(id).orElseThrow(() -> new NotFoundException(Member.class, id));
 
         memberRepository.delete(member);
     }
 
     @Override
-    public MemberDetailResponseDto findMember(int id) {
+    public MemberDetailResponseDto findMember(Integer id) {
         Member member = memberRepository.findById(id).orElseThrow(() -> new NotFoundException(Member.class, id));
         MemberDetailResponseDto memberDetailResponseDto = new MemberDetailResponseDto(member.getLoginId(), member.getNickname());
 
@@ -68,7 +68,7 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public Boolean modifyMember(MemberModifyRequestDto memberModifyRequestDto, int id) {
+    public Boolean modifyMember(MemberModifyRequestDto memberModifyRequestDto, Integer id) {
         String password = memberModifyRequestDto.getPassword();
         String nickname = memberModifyRequestDto.getNickname();
 
