@@ -1,5 +1,7 @@
 package com.windows33.cavendish.domain.board.repository;
 
+import com.querydsl.core.types.Order;
+import com.querydsl.core.types.OrderSpecifier;
 import com.querydsl.core.types.Projections;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.JPAExpressions;
@@ -12,9 +14,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.windows33.cavendish.domain.board.entity.QBoard.board;
@@ -33,6 +37,8 @@ public class BoardQueryRepository {
      */
     public Page<BoardListResponseDto> findBoardList(Pageable pageable, Integer id) {
 
+        List<OrderSpecifier> ORDERS = getAllOrderSpecifiers(pageable);
+
         List<BoardListResponseDto> boardList = jpaQueryFactory
                 .select(Projections.constructor(BoardListResponseDto.class,
                         member.nickname,
@@ -45,6 +51,9 @@ public class BoardQueryRepository {
                 ))
                 .from(board)
                 .leftJoin(member).on(board.userId.eq(member.id))
+                .orderBy(new OrderSpecifier<>(Order.DESC, post.id))
+                .offset(pageable.getOffset())
+                .limit(pageable.getPageSize())
                 .fetch();
 
         long count = jpaQueryFactory
@@ -53,6 +62,28 @@ public class BoardQueryRepository {
                 .fetchCount();
 
         return new PageImpl<>(boardList, pageable, count);
+    }
+
+    private List<OrderSpecifier> getAllOrderSpecifiers(Pageable pageable) {
+        List<OrderSpecifier> ORDERS = new ArrayList<>();
+
+        if (!isEmpty(pageable.getSort())) {
+            for (Sort.Order order : pageable.getSort()) {
+                Order direction = order.getDirection().isAscending() ? Order.ASC : Order.DESC;
+
+                switch (order.getProperty()) {
+                    case "createdDate":
+                        OrderSpecifier<?> createdDate = QueryDslUtil
+                                .getSortedColumn(direction, Qnotice.notice, "createdDate");
+                        ORDERS.add(createdDate);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        return ORDERS;
     }
 
 }
