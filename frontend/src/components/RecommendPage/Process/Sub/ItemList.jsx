@@ -8,25 +8,35 @@ import { useDispatch, useSelector } from "react-redux";
 import * as recom from "redux/recommendSlice";
 
 const dummy = [
-  { imgUrl: defaultCPU, name: "dummy" },
-  { imgUrl: defaultCPU, name: "dummy" },
-  { imgUrl: defaultCPU, name: "dummy" },
-  { imgUrl: defaultCPU, name: "dummy" },
-  { imgUrl: defaultCPU, name: "dummy" },
-  { imgUrl: defaultCPU, name: "dummy" },
-  { imgUrl: defaultCPU, name: "dummy" },
-  { imgUrl: defaultCPU, name: "dummy" },
-  { imgUrl: defaultCPU, name: "dummy" },
-  { imgUrl: defaultCPU, name: "dummy" },
+  { imgUrl: defaultCPU, name: "dummy1" },
+  { imgUrl: defaultCPU, name: "dummy2" },
+  { imgUrl: defaultCPU, name: "dummy3" },
+  { imgUrl: defaultCPU, name: "dummy4" },
+  { imgUrl: defaultCPU, name: "dummy5" },
+  { imgUrl: defaultCPU, name: "dummy6" },
+  { imgUrl: defaultCPU, name: "dummy7" },
+  { imgUrl: defaultCPU, name: "dummy8" },
+  { imgUrl: defaultCPU, name: "dummy9" },
+  { imgUrl: defaultCPU, name: "dummy10" },
 ];
 
 const maxValue = 72; // 추후 axios로 받아올 값
-const itemsPerPage = 10; // 확정은 아닌 값
+// const itemsPerPage = 10; // 확정은 아닌 값
 
 // 클릭 시 confirm을 띄운 후 redux 업데이트 여부 결정
 const Item = ({ imgUrl, name, style }) => {
+  const dispatch = useDispatch();
+  const selected = useSelector((state) => {
+    return state.recommend.selected;
+  });
   return (
-    <div className="item" onClick={() => {alert("향후에 추가될 기능")}}>
+    <div
+      className="item"
+      onClick={() => {
+        console.log(name);
+        dispatch(recom.setProcessList0({ value: name }));
+      }}
+    >
       <div className="partImg">
         <div
           className="inner"

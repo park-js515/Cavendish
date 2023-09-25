@@ -141,7 +141,7 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
               }
             }
           }
-          
+
           // PartSelect
           .partSelect {
             height: 100%;
@@ -272,6 +272,55 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
                 }
               }
             }
+          }
+
+          .proc2 {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar {
+              display: none;
+            }
+
+            .item {
+              &-top {
+                height: 150px;
+                width: 280px;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                margin: 5px 5px 0 5px;
+                cursor: pointer;
+                transition: all 200ms ease-in-out;
+              }
+
+              &-bot {
+                height: 60px;
+                width: 280px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 5px 5px 5px;
+                cursor: pointer;
+                transition: all 200ms ease-in-out;
+              }
+            }
+          }
+
+          .proc3 {
+          }
+
+          .proc4 {
+          }
+
+          .proc5 {
+          }
+
+          .procEnd {
           }
         }
       }

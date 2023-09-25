@@ -40,9 +40,15 @@ const recommendSlice = createSlice({
     setSelected: (state, action) => {
       state.selected = action.payload;
     },
-    addProcess: (state, action) => {
-      state.processList[state.processNo] = {
-        ...state.processList[state.processNo],
+    setProcess: (state, action) => {
+      state.processList[state.processNo + 1] = {
+        ...state.processList[state.processNo + 1],
+        ...action.payload,
+      };
+    },
+    setProcessList0: (state, action) => {
+      state.processList[0][state.selected] = {
+        ...state.processList[0][state.selected],
         ...action.payload,
       };
     },
@@ -53,6 +59,12 @@ const recommendSlice = createSlice({
   },
 });
 
-export const { resetProcessAll, setProcessNo, setSelected, addProcess, removeProcess } =
-  recommendSlice.actions;
+export const {
+  resetProcessAll,
+  setProcessNo,
+  setSelected,
+  setProcessList0,
+  setProcess,
+  removeProcess,
+} = recommendSlice.actions;
 export default recommendSlice.reducer;
