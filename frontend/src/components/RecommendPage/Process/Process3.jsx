@@ -14,10 +14,17 @@ const Process3 = ({ className }) => {
       <p>Process3</p>
       <button
         onClick={() => {
+          dispatch(recom.setProcessNo(0));
+        }}
+      >
+        back
+      </button>
+      <button
+        onClick={() => {
           dispatch(recom.setProcessNo(2));
         }}
       >
-        버튼1
+        go
       </button>
     </div>
   );

@@ -141,133 +141,133 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
               }
             }
           }
-        }
-
-        // PartSelect
-        .partSelect {
-          height: 100%;
-          width: 100%;
-
-          .search-wrapper {
-            display: flex;
-            justify-content: center;
-            .search {
-              font-size: 40px;
-              border: 2px solid #{shadow};
-              outline: none;
-
-              &:focus {
-                border: 2px solid #{$mainColor-default};
-              }
-
-              &:hover:not(:focus) {
-                border: 2px solid #{$mainColor-strong};
-              }
-            }
-
-            .btn {
-              height: 48px;
-              width: 48px;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              cursor: pointer;
-              transition: all 300ms ease-in-out;
-              border-radius: 5px;
-              background-color: #{$proc3-btn};
-
-              &:hover {
-                background-color: #{$proc3-btn-hover};
-              }
-            }
-          }
-
-          .item-list {
+          
+          // PartSelect
+          .partSelect {
+            height: 100%;
             width: 100%;
-            height: calc(100% - 70px);
 
-            .item-group {
-              display: flex;
-              justify-content: space-evenly;
-              align-items: center;
-              flex-wrap: wrap;
-
-              .item {
-                height: 200px;
-                width: 200px;
-                margin: 5px 5px;
-                cursor: pointer;
-                transition: all 200ms ease-in-out;
-                border: 1px solid white;
-                border-radius: 5px;
-
-                &:hover {
-                  border: 1px solid black;
-                }
-
-                .partImg {
-                  height: 80%;
-                  width: 100%;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-
-                  .inner {
-                    height: 100%;
-                    aspect-ratio: 1/1;
-                    background-size: cover;
-                    background-repeat: no-repeat;
-                    background-position: center;
-                  }
-                }
-
-                .text {
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                }
-              }
-            }
-
-            .footer {
+            .search-wrapper {
               display: flex;
               justify-content: center;
+              .search {
+                font-size: 40px;
+                border: 2px solid #{shadow};
+                outline: none;
 
-              @mixin btn($bgc) {
-                background-color: $bgc;
-                font-size: 18px;
-                margin: 0 2px;
-                cursor: pointer;
-                height: 24px;
-                width: 30px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                transition: all 150ms ease-in-out;
+                &:focus {
+                  border: 2px solid #{$mainColor-default};
+                }
+
+                &:hover:not(:focus) {
+                  border: 2px solid #{$mainColor-strong};
+                }
               }
 
               .btn {
-                &-default {
-                  @include btn($bgc: white);
+                height: 48px;
+                width: 48px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                transition: all 300ms ease-in-out;
+                border-radius: 5px;
+                background-color: #{$proc3-btn};
+
+                &:hover {
+                  background-color: #{$proc3-btn-hover};
+                }
+              }
+            }
+
+            .item-list {
+              width: 100%;
+              height: calc(100% - 70px);
+
+              .item-group {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                flex-wrap: wrap;
+
+                .item {
+                  height: 200px;
+                  width: 200px;
+                  margin: 5px 5px;
+                  cursor: pointer;
+                  transition: all 200ms ease-in-out;
+                  border: 1px solid white;
+                  border-radius: 5px;
 
                   &:hover {
-                    background-color: rgba(0, 0, 255, 0.5);
+                    border: 1px solid black;
+                  }
+
+                  .partImg {
+                    height: 80%;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .inner {
+                      height: 100%;
+                      aspect-ratio: 1/1;
+                      background-size: cover;
+                      background-repeat: no-repeat;
+                      background-position: center;
+                    }
+                  }
+
+                  .text {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                   }
                 }
+              }
 
-                &-active {
-                  @include btn($bgc: rgba(255, 255, 0, 0.5));
+              .footer {
+                display: flex;
+                justify-content: center;
 
-                  &:hover {
-                    background-color: rgba(0, 0, 255, 0.5);
-                  }
+                @mixin btn($bgc) {
+                  background-color: $bgc;
+                  font-size: 18px;
+                  margin: 0 2px;
+                  cursor: pointer;
+                  height: 24px;
+                  width: 30px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  transition: all 150ms ease-in-out;
                 }
 
-                &-side {
-                  @include btn($bgc: white);
+                .btn {
+                  &-default {
+                    @include btn($bgc: white);
 
-                  &:hover {
-                    background-color: rgba(0, 0, 255, 0.5);
+                    &:hover {
+                      background-color: rgba(0, 0, 255, 0.5);
+                    }
+                  }
+
+                  &-active {
+                    @include btn($bgc: rgba(255, 255, 0, 0.5));
+
+                    &:hover {
+                      background-color: rgba(0, 0, 255, 0.5);
+                    }
+                  }
+
+                  &-side {
+                    @include btn($bgc: white);
+
+                    &:hover {
+                      background-color: rgba(0, 0, 255, 0.5);
+                    }
                   }
                 }
               }
