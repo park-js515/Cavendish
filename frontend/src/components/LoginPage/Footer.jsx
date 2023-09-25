@@ -21,11 +21,15 @@ const Footer = ({ isLogin, checkList, loginInfo, signupInfo }) => {
 
   const login = () => {
     memberLogin(
-      { memberId: loginInfo.id, password: loginInfo.password },
+      { loginId: loginInfo.id, password: loginInfo.password },
       (response) => {
-        console.log(response);
-        // dispatch(reduxLogin());
-        // goBackorHome();
+        localStorage.setItem("accessToken", response.data.response.accessToken);
+        localStorage.setItem(
+          "refreshToken",
+          response.data.response.refreshToken,
+        );
+        dispatch(reduxLogin());
+        goBackorHome();
       },
       (error) => {
         console.error(error);
@@ -47,15 +51,30 @@ const Footer = ({ isLogin, checkList, loginInfo, signupInfo }) => {
 
     memberSignUp(
       {
-        memberId: signupInfo.id,
+        loginId: signupInfo.id,
         password: signupInfo.password,
         nickname: signupInfo.nickname,
       },
       (response) => {
-        console.log(response);
+        memberLogin(
+          { loginId: signupInfo.id, password: signupInfo.password },
+          (response) => {
+            localStorage.setItem(
+              "accessToken",
+              response.data.response.accessToken,
+            );
+            localStorage.setItem(
+              "refreshToken",
+              response.data.response.refreshToken,
+            );
+            dispatch(reduxLogin());
+            goBackorHome();
+          },
+          (error) => {
+            console.error(error);
+          },
+        );
         resetSignupList();
-        alert("회원가입 성공!");
-        // goBackorHome();
       },
       (error) => {
         console.error(error);
