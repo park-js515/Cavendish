@@ -1,27 +1,22 @@
 import { useState } from "react";
-import { Link, useParams } from "../../../node_modules/react-router-dom/dist/index";
+import {
+  Link,
+  useParams,
+} from "../../../node_modules/react-router-dom/dist/index";
 import { current } from "../../../node_modules/@reduxjs/toolkit/dist/index";
 import CommentComponent from "components/Comment/index";
+import CommentCreateComponent from "components/Comment/CommentCreateComponent";
 
 export default function BoardDetailComponent() {
-
   const { id } = useParams();
-  const item={
-    id:id,
+  const item = {
+    id: id,
     title: "게시글 제목",
-    content: "게시글 내용"
-  }
+    content: "게시글 내용",
+  };
 
   const [comment, setComment] = useState("");
   const [commentList, setCommentList] = useState([]);
-
-  const handleCommentChange = (e) => {
-    setComment((current) => e.target.value);
-  };
-  const handleCommentSubmit = () => {
-    setCommentList((currentList) => [...currentList, comment]);
-    setComment("");
-  };
 
   return (
     <div className="detail_page">
@@ -41,25 +36,20 @@ export default function BoardDetailComponent() {
 
       <div className="comment_block">
         <h2>댓글</h2>
-        <div className="comment_area">
-          <textarea
-            className="comment_input"
-            value={comment}
-            onChange={handleCommentChange}
-          />
-          <button
-            className="comment_input_button"
-            onClick={handleCommentSubmit}
-            type="button"
-          >
-            등록
-          </button>
-        </div>
+        <CommentCreateComponent
+          commentList={commentList}
+          setCommentList={setCommentList}
+        />
+
         <ul className="comment_list">
           {commentList.map((comment) => {
             return (
               <li>
-                <CommentComponent content={comment} />
+                <CommentComponent
+                  content={comment}
+                  commentList={commentList}
+                  setCommentList={setCommentList}
+                />
               </li>
             );
           })}
