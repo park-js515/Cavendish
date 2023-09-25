@@ -29,15 +29,15 @@ public class Board {
     private String contents;
 
     @Column(insertable = false)
-    private Timestamp createDateTime;
+    private Timestamp createDate;
 
     @Column(insertable = false)
     private Byte status;
 
     @Column(insertable = false)
-    int view;
+    private Integer view;
 
     @Column(insertable = false)
-    int like;
+    private Integer like;
 
 }
