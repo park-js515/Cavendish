@@ -2,6 +2,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import { memberInfo, memberRemove } from "api/member";
 import { useEffect, useRef, useState } from "react";
 import MyPageUpdateComponent from "./MyPageUpdateComponent";
+import { current } from "../../../node_modules/@reduxjs/toolkit/dist/index";
 
 export default function MyPageComponent() {
   const check = useRef(false);
@@ -10,6 +11,12 @@ export default function MyPageComponent() {
   const [isUpdate, setIsUpdate] = useState(false);
   const updateHandler = () => {
     if (isUpdate === false) setIsUpdate(true);
+  };
+
+  const [toggle, setToggle] = useState(0);
+
+  const toggleHandelr = (e) => {
+    setToggle((current) => e.target.value);
   };
 
   useEffect(() => {
@@ -35,7 +42,7 @@ export default function MyPageComponent() {
         <div className="mypage_info">
           <image className="user_img" src="#" alt="user_img" />
           <div className="user_info">
-            <div className="user_id">{data.memberId}</div>
+            <div className="user_id">{data.loginId}</div>
             <div className="user_nickname">{data.nickname}</div>
           </div>
           <button onClick={updateHandler}>수정</button>
@@ -45,13 +52,38 @@ export default function MyPageComponent() {
         <MyPageUpdateComponent data={data} setIsUpdate={setIsUpdate} />
       )}
       <ul className="mypage_content">
-        {["내가 쓴 글", "내 견적함"].map((content) => {
-          return (
-            <li key={content}>
-              <Link to={`/mypage/`}>{content}</Link>
-            </li>
-          );
-        })}
+        <li
+          value={0}
+          className={toggle === 0 ? "selected" : ""}
+          onClick={toggleHandelr}
+        >
+          내가 쓴 글
+        </li>
+        <li
+          value={1}
+          className={toggle === 1 ? "selected" : ""}
+          onClick={toggleHandelr}
+        >
+          내 견적함
+        </li>
+      </ul>
+      <ul>
+        {toggle === 0 && (
+          <div>
+            <div>게시글1</div>
+            <div>게시글2</div>
+            <div>게시글3</div>
+            <div>게시글4</div>
+          </div>
+        )}
+        {toggle === 1 && (
+          <div>
+            <div>견적1</div>
+            <div>견적2</div>
+            <div>견적3</div>
+            <div>견적4</div>
+          </div>
+        )}
       </ul>
     </div>
   );
