@@ -279,10 +279,3 @@ cooler_com = {
         14 : '자석 고정형'
     }
 }
-
-
-
-# 이진수를 십진수로 변환하는 함수 (문자열 반환)
-def decimal_to_binary(decimal_number, length):
-    binary_number = bin(decimal_number)
-    return binary_number[2:].zfill(length)  # '0b' 접두어 제거

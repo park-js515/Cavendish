@@ -14,8 +14,8 @@ from models.ssd import SSD
 from models.quotation import Quotation
 from models.programs import Program
 from models.power import Power
+from .com_data import *
 
-from core.calc import decimal_to_binary
 
 from schemas.search import ProcessListStep1
 
