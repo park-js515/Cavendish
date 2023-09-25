@@ -11,10 +11,10 @@ public interface MemberService {
 
     void signup(MemberSignupRequestDto memberSignupRequestDto);
 
-    void removeMember(int id);
+    void removeMember(Integer id);
 
-    MemberDetailResponseDto findMember(int id);
+    MemberDetailResponseDto findMember(Integer id);
 
-    Boolean modifyMember(MemberModifyRequestDto memberModifyRequestDto, int id);
+    Boolean modifyMember(MemberModifyRequestDto memberModifyRequestDto, Integer id);
 
 }
