@@ -36,9 +36,6 @@ public class BoardQueryRepository {
      * 글 목록 조회
      */
     public Page<BoardListResponseDto> findBoardList(Pageable pageable, Integer id) {
-
-        List<OrderSpecifier> ORDERS = getAllOrderSpecifiers(pageable);
-
         List<BoardListResponseDto> boardList = jpaQueryFactory
                 .select(Projections.constructor(BoardListResponseDto.class,
                         member.nickname,
@@ -51,7 +48,7 @@ public class BoardQueryRepository {
                 ))
                 .from(board)
                 .leftJoin(member).on(board.userId.eq(member.id))
-                .orderBy(new OrderSpecifier<>(Order.DESC, post.id))
+                .orderBy(boardSort(pageable))
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize())
                 .fetch();
@@ -64,26 +61,24 @@ public class BoardQueryRepository {
         return new PageImpl<>(boardList, pageable, count);
     }
 
-    private List<OrderSpecifier> getAllOrderSpecifiers(Pageable pageable) {
-        List<OrderSpecifier> ORDERS = new ArrayList<>();
-
-        if (!isEmpty(pageable.getSort())) {
-            for (Sort.Order order : pageable.getSort()) {
+    private OrderSpecifier<?> boardSort(Pageable page) {
+        if (!page.getSort().isEmpty()) {
+            for (Sort.Order order : page.getSort()) {
                 Order direction = order.getDirection().isAscending() ? Order.ASC : Order.DESC;
-
                 switch (order.getProperty()) {
+                    case "title":
+                        return new OrderSpecifier(direction, board.title);
+                    case "contents":
+                        return new OrderSpecifier(direction, board.contents);
                     case "createdDate":
-                        OrderSpecifier<?> createdDate = QueryDslUtil
-                                .getSortedColumn(direction, Qnotice.notice, "createdDate");
-                        ORDERS.add(createdDate);
-                        break;
-                    default:
-                        break;
+                        return new OrderSpecifier(direction, board.createDate);
+                    case "like":
+                        return new OrderSpecifier(direction, board.like);
+                    case "view":
+                        return new OrderSpecifier(direction, board.view);
                 }
             }
         }
-
-        return ORDERS;
+        return null;
     }
-
 }
