@@ -2,7 +2,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import { memberInfo, memberRemove } from "api/member";
 import { useEffect, useRef, useState } from "react";
 import MyPageUpdateComponent from "./MyPageUpdateComponent";
-import { current } from "../../../node_modules/@reduxjs/toolkit/dist/index";
+import { current } from "@reduxjs/toolkit";
 
 export default function MyPageComponent() {
   const check = useRef(false);
