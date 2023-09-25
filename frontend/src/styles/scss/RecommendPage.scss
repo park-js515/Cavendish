@@ -184,11 +184,48 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
 
           .item-list {
             width: 100%;
-            height: 100%;
+            height: calc(100% - 70px);
 
             .item-group {
+              display: flex;
+              justify-content: space-evenly;
+              align-items: center;
+              flex-wrap: wrap;
+
               .item {
-                display: flex;
+                height: 200px;
+                width: 200px;
+                margin: 5px 5px;
+                cursor: pointer;
+                transition: all 200ms ease-in-out;
+                border: 1px solid white;
+                border-radius: 5px;
+
+                &:hover {
+                  border: 1px solid black;
+                }
+
+                .partImg {
+                  height: 80%;
+                  width: 100%;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+
+                  .inner {
+                    height: 100%;
+                    aspect-ratio: 1/1;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                  }
+                }
+
+                .text {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                }
               }
             }
 
@@ -198,15 +235,32 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
 
               @mixin btn($bgc) {
                 background-color: $bgc;
+                font-size: 18px;
+                margin: 0 2px;
+                cursor: pointer;
+                height: 24px;
+                width: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: all 150ms ease-in-out;
               }
 
               .btn {
                 &-default {
                   @include btn($bgc: white);
+
+                  &:hover {
+                    background-color: rgba(0, 0, 255, 0.5);
+                  }
                 }
 
                 &-active {
-                  @include btn($bgc: rgba(0, 0, 255, 0.5));
+                  @include btn($bgc: rgba(255, 255, 0, 0.5));
+
+                  &:hover {
+                    background-color: rgba(0, 0, 255, 0.5);
+                  }
                 }
 
                 &-side {

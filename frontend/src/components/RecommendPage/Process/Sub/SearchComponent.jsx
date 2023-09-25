@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import ItemList from "./ItemList";
 
 // icon
 import { FaSearch } from "react-icons/fa";
