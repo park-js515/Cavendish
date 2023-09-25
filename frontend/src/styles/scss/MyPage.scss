@@ -32,7 +32,15 @@
     li {
       list-style-type: none;
       border: 1px solid black;
+      border-top-right-radius: 0.4rem;
+      border-top-left-radius: 0.4rem;
       padding: 6px;
+      cursor: pointer;
+    }
+    .selected{
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: default;
     }
   }
 }
