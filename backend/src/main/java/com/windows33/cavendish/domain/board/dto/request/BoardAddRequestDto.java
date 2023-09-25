@@ -7,4 +7,8 @@ import lombok.Data;
 @AllArgsConstructor
 public class BoardAddRequestDto {
 
+    Integer quotationId;
+    String title;
+    String contents;
+
 }
