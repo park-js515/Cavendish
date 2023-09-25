@@ -12,4 +12,21 @@ const memberDefaultInstance = () => {
   return instance;
 };
 
-export { memberCustomInstance, memberDefaultInstance };
+const boardCustomInstance = () => {
+  const instance = createCustomAxios("/boards");
+
+  return instance;
+};
+
+const boardDefaultInstance = () => {
+  const instance = createDefaultAxios("/boards");
+
+  return instance;
+};
+
+export {
+  memberCustomInstance,
+  memberDefaultInstance,
+  boardCustomInstance,
+  boardDefaultInstance,
+};
