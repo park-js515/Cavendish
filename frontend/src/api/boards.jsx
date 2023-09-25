@@ -23,7 +23,7 @@ const getBoardsList = (sucess, fail) => {
 const createBoardContent = (body, sucess, fail) => {
   const api = boardDefaultInstance();
   api.defaults.headers["Content-Type"] = "multipart/form-data";
-  api.post(`/create`).then(sucess).catch(fail);
+  api.post(``).then(sucess).catch(fail);
 };
 
 export { getBoardsList, createBoardContent };
