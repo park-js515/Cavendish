@@ -15,6 +15,8 @@ from models.quotation import Quotation
 from models.programs import Program
 from models.power import Power
 
+from core.compatibility import cpu_compatibility
+
 from schemas.search import ProcessListStep1
 
 from db.connection import engineconn
@@ -35,7 +37,7 @@ async def cpu_search(keyword: str, page: int, state: ProcessListStep1 = Depends(
 
     if state.mainboard != -1:
         mainboard = session.query(Mainboard).filter(Mainboard.id == state.mainboard).first()
-        result = [cpu for cpu in result if cpu.socket == mainboard.socket]
+        result = [cpu for cpu in result if cpu.socket == mainboard.cpu_socket]
     
     if state.ram != -1:
         ram = session.query(RAM).filter(RAM.id == state.ram).first()
@@ -47,4 +49,6 @@ async def cpu_search(keyword: str, page: int, state: ProcessListStep1 = Depends(
 
     # result = session.query(CPU).filter(CPU.name.like(f'%{keyword}%')).offset((page-1)*10).limit(10).all()
     
+    test = cpu_compatibility(state)
+
     return result
