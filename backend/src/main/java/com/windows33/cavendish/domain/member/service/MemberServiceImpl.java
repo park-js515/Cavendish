@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,6 +24,7 @@ public class MemberServiceImpl implements MemberService {
     private final MemberRepository memberRepository;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     private final JwtTokenProvider jwtTokenProvider;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public TokenInfo login(String loginId, String password) {
@@ -44,33 +46,33 @@ public class MemberServiceImpl implements MemberService {
     public void signup(MemberSignupRequestDto memberSignupRequestDto) {
         memberRepository.save(Member.builder()
                 .loginId(memberSignupRequestDto.getLoginId())
-                .password(memberSignupRequestDto.getPassword())
+                .password(passwordEncoder.encode(memberSignupRequestDto.getPassword()))
                 .nickname(memberSignupRequestDto.getNickname())
                 .build()
         );
     }
 
     @Override
-    public void removeMember(String loginId) {
-        Member member = memberRepository.findByLoginId(loginId).orElseThrow(() -> new NotFoundException(Member.class, loginId));
+    public void removeMember(int id) {
+        Member member = memberRepository.findById(id).orElseThrow(() -> new NotFoundException(Member.class, id));
 
         memberRepository.delete(member);
     }
 
     @Override
-    public MemberDetailResponseDto findMember(String loginId) {
-        Member member = memberRepository.findByLoginId(loginId).orElseThrow(() -> new NotFoundException(Member.class, loginId));
+    public MemberDetailResponseDto findMember(int id) {
+        Member member = memberRepository.findById(id).orElseThrow(() -> new NotFoundException(Member.class, id));
         MemberDetailResponseDto memberDetailResponseDto = new MemberDetailResponseDto(member.getLoginId(), member.getNickname());
 
         return memberDetailResponseDto;
     }
 
     @Override
-    public Boolean modifyMember(MemberModifyRequestDto memberModifyRequestDto, String loginId) {
+    public Boolean modifyMember(MemberModifyRequestDto memberModifyRequestDto, int id) {
         String password = memberModifyRequestDto.getPassword();
         String nickname = memberModifyRequestDto.getNickname();
 
-        Member member = memberRepository.findByLoginId(loginId).orElseThrow(() -> new NotFoundException(Member.class, loginId));
+        Member member = memberRepository.findById(id).orElseThrow(() -> new NotFoundException(Member.class, id));
 
         if(!member.getPassword().equals(password)) return false;
 
