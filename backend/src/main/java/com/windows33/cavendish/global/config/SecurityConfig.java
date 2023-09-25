@@ -20,33 +20,33 @@ public class SecurityConfig {
 
     private final JwtTokenProvider jwtTokenProvider;
 
-    private static final String[] PERMIT_URL_ARRAY = {
-            "/v2/api-docs",
-            "/swagger-resources",
-            "/swagger-resources/**",
-            "/configuration/ui",
-            "/configuration/security",
-            "/swagger-ui.html",
-            "/webjars/**",
+    private static final String[] PERMIT_ALL = {
             /* swagger */
             "/api-docs/**",
-            "/v3/api-docs/**",
             "/api/swagger-ui/**",
             /* 회원 */
-            "/api/member/**",
-            "/api/test"
+            "/api/member/login",
+            "/api/member/signup"
     };
+
+    private static final String[] PERMIT_USER = {
+            /* 회원 */
+            "/api/member/remove"
+    };
+
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .httpBasic().disable()
                 .csrf().disable()
+                .cors()
+                .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers(PERMIT_URL_ARRAY).permitAll()
-                .antMatchers("/members/test").hasRole("USER")
+                .antMatchers(PERMIT_ALL).permitAll()
+                .antMatchers(PERMIT_USER).hasRole("USER")
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);

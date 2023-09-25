@@ -19,7 +19,6 @@ public class GlobalExceptionHandler {
     private ResponseEntity<CommonResponse<?>> newResponse(Throwable throwable, HttpStatus status) {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/json");
-
         return new ResponseEntity<>(CommonResponse.ERROR(throwable, status), headers, status);
     }
 
@@ -31,6 +30,12 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(ServiceRuntimeException.class)
     public ResponseEntity<?> handleServiceRuntimeException(ServiceRuntimeException e) {
+        log.error("Unexpected service exception occurred: {}", e.getMessage(), e);
+        return newResponse(e, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<?> test(Exception e) {
         log.error("Unexpected service exception occurred: {}", e.getMessage(), e);
         return newResponse(e, HttpStatus.INTERNAL_SERVER_ERROR);
     }
