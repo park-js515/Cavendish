@@ -7,7 +7,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class MemberDetailResponseDto {
 
-    private String memberId;
+    private String loginId;
     private String nickname;
 
 }
