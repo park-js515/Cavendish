@@ -1,42 +1,29 @@
-import { useState } from "react";
+import { getBoardsList } from "api/boards";
+import { useEffect, useRef, useState } from "react";
 import { Link, Route, useParams } from "react-router-dom";
 
 export default function BoardPageComponent() {
-  // 더미데이터
-  const boardContentData = [
-    {
-      id: 1,
-      title: "1번 테스트",
-      content: "테스트를 위한 게시글 내용",
-    },
-    {
-      id: 2,
-      title: "2번 테스트",
-      content: "테스트를 위한 게시글 내용",
-    },
-    {
-      id: 3,
-      title: "3번 테스트",
-      content: "테스트를 위한 게시글 내용",
-    },
-    {
-      id: 4,
-      title: "4번 테스트",
-      content: "테스트를 위한 게시글 내용",
-    },
-    {
-      id: 5,
-      title: "5번 테스트",
-      content: "테스트를 위한 게시글 내용",
-    },
-  ];
+  const check = useRef(false);
+  const [boardData, setBoardData] = useState([]);
+
+  useEffect(()=>{
+    if (!check.current) {
+      getBoardsList(
+        (response) => {
+          const data = response.data.response;
+          setBoardData(data);
+        },
+        () => {
+          console.log("error");
+        },
+      );
+    }
+    return () => {
+      check.current = true;
+    };
+  }, []);
 
   const page = useParams();
-  // 더미 페이지 데이터
-  const itemsPerPage = 5; // 페이지당 아이템 개수
-  const startIndex = (page - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const filteredData = boardContentData.slice(startIndex, endIndex);
 
   return (
     <div className="board_main">
@@ -52,7 +39,7 @@ export default function BoardPageComponent() {
           </div>
         </div>
         <ul>
-          {boardContentData.map((item) => {
+          {boardData.map((item) => {
             return (
               <Link to={`/board/detail/${item.id}`} key={item.id}>
                 <li>

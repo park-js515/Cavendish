@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "../../../node_modules/react-router-dom/dist/index";
 import { current } from "../../../node_modules/@reduxjs/toolkit/dist/index";
+import { createBoardContent } from "api/boards";
 
 export default function BoardCreateComponent() {
   const [title, setTitle] = useState("");
@@ -12,6 +13,10 @@ export default function BoardCreateComponent() {
   const handleContent = (e) => {
     setContent((current) => e.target.value);
   };
+
+  const createHandler = () => {
+    createBoardContent({title:title,contents:content},()=>{},()=>{console.error();})
+  }
 
   return (
     <div className="create_page">
@@ -30,7 +35,7 @@ export default function BoardCreateComponent() {
           onChange={handleContent}
         />
         <div className="buttons">
-          <Link className="button_link" to="/board">
+          <Link className="button_link" onClick={createHandler} to="/board">
             생성
           </Link>
           <Link className="button_link" to="/board">
