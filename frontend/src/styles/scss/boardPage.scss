@@ -7,17 +7,25 @@
     padding: 5px;
     padding-left: 10px;
     padding-right: 10px;
-    width: 80px;
-    height: 30px;
+    width: 100px;
+    height: 35px;
     background: #fff;
     border-radius: 0.2rem;
     border: 1px solid gray;
     justify-content: center;
     align-items: center;
+    font-size: 1rem;
     font-weight: 700;
+    color: black;
+    box-sizing: border-box;
+
     &:hover {
       opacity: 90%;
       background-color: #eee;
+      cursor:pointer;
+    }
+    a {
+      font-size:1.1rem;
     }
   }
 }
@@ -51,6 +59,7 @@
       width: 800px;
       li {
         display: flex;
+        flex-direction: column;
         padding: 10px;
         margin: 4px;
         height: 120px;
@@ -65,6 +74,21 @@
         img {
           width: 100px;
           height: 100px;
+        }
+
+        .content-header {
+          display: flex;
+          justify-content: space-between;
+        }
+        .content-description {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        .content-date {
+          display: flex;
+          justify-content: end;
+          align-items: end;
         }
       }
     }
