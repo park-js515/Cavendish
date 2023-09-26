@@ -3,32 +3,47 @@ import { Link, useParams } from "react-router-dom";
 import { current } from "@reduxjs/toolkit";
 import CommentComponent from "components/Comment/index";
 import CommentCreateComponent from "components/Comment/CommentCreateComponent";
+import { getBoardDetailContent } from "api/boards";
+import { useEffect } from "react";
 
 export default function BoardDetailComponent() {
   const { id } = useParams();
-  // console.log(id);
-  const item = {
-    id: id,
-    title: "게시글 제목",
-    content: "게시글 내용",
-  };
+  
+  const [nickname, setNickname] = useState("")
+  const [title, setTitle] = useState("")
+  const [contents, setContents] = useState("")
 
   const [comment, setComment] = useState("");
   const [commentList, setCommentList] = useState([]);
 
+  useEffect(() => {
+    getBoardDetailContent(
+      id,
+      (response) => {
+        const data = response.data.response;
+        // console.log(data);
+        setNickname(data.nickname)
+        setTitle(data.title)
+        setContents(data.contents)
+      },
+      () => {},
+    );
+  });
+
+
   return (
     <div className="detail_page">
       <div className="detail_header">
-        <h2>{item.title}</h2>
+        <h2>{title}</h2>
         <div className="header_info">
           <div>일시 2023-09-22</div>
-          <div>nickname</div>
+          <div>{nickname}</div>
         </div>
       </div>
 
       <hr />
 
-      <div className="detail_content">{item.contents}</div>
+      <div className="detail_content">{contents}</div>
 
       <hr />
 
