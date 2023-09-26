@@ -15,6 +15,9 @@ public class LocalFileUtil {
 
     private final String currentPath = System.getProperty("user.dir");
 
+    /**
+     * 파일 업로드
+     */
     public List<String> uploadFiles(String fileType, List<MultipartFile> multipartFiles) {
         List<String> filePaths = new ArrayList<>();
         String uploadFilePath = currentPath + "\\" + "CavendishStore" + "\\" + fileType + "\\" + getDate();

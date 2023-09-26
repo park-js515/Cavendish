@@ -37,9 +37,6 @@ public class BoardServiceImpl implements BoardService {
 
         boardRepository.save(board.build());
 
-
-        System.out.println("!!!!!!" + img.size());
-
         List<String> images = localFileUtil.uploadFiles("BoardImage", img);
 
         // 이미지 테이블 저장
