@@ -3,8 +3,12 @@ import { useSelector } from "react-redux";
 import TabItem from "./TabItem";
 
 // 리스트로 미리 추후 쌓을 것을 만들어 놓기
+// 제거 버튼
+// 정보를 제공해야 함
+// 현재 선택 중일 때는 이 과정을 하고 있다고 강조
+// 
 const tabList_origin = [
-  { title: "부품 사전 선택", content: "", className: "tab-item-before" },
+  { title: "보유 부품 확인", content: "", className: "tab-item-before" },
   { title: "용도 선택", content: "", className: "tab-item-before" },
   { title: "세부 용도 선택", content: "", className: "tab-item-before" },
   { title: "예산 선택", content: "", className: "tab-item-before" },
@@ -46,6 +50,7 @@ const TabGroup = () => {
               resetTab(index);
             }}
             {...item}
+            index={index}
           />
         );
       })}

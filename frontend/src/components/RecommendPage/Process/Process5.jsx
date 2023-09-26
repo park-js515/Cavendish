@@ -45,20 +45,6 @@ const Process5 = ({ className }) => {
   const [selectedOptions, setSelectedOptions] = useState([]);
   return (
     <div className={className}>
-      <button
-        onClick={() => {
-          dispatch(recom.setProcessNo(2));
-        }}
-      >
-        back
-      </button>
-      <button
-        onClick={() => {
-          dispatch(recom.setProcessNo(4));
-        }}
-      >
-        go
-      </button>
       <div className="proc5">
         <div className="proc5-top">
           <div className="text">우선순위를 골라주세요...</div>

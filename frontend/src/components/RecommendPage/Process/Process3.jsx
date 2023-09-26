@@ -60,20 +60,6 @@ const Process3 = ({ className }) => {
 
   return (
     <div className={className}>
-      <button
-        onClick={() => {
-          dispatch(recom.setProcessNo(0));
-        }}
-      >
-        back
-      </button>
-      <button
-        onClick={() => {
-          dispatch(recom.setProcessNo(2));
-        }}
-      >
-        go
-      </button>
       <div className="proc3">
         {dummy.map((item, index) => {
           return <Item key={index} {...item} />;
