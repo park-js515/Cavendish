@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
 
 class RAMSchema(BaseModel):
     id: int
@@ -23,9 +23,10 @@ class RAMSchema(BaseModel):
     led_color: Optional[str] = None
     reg_date: Optional[int] = None
     bookmark: Optional[int] = 0
+    compatibility: Optional[List[str]] = None
 
 
-def serialize_ram(ram_object):
+def serialize_ram(ram_object, compatibility):
     ram_dict = RAMSchema(
         id=ram_object.id,
         name=ram_object.name,
@@ -47,6 +48,7 @@ def serialize_ram(ram_object):
         led=ram_object.led,
         led_color=ram_object.led_color,
         reg_date=ram_object.reg_date,
-        bookmark=ram_object.bookmark
+        bookmark=ram_object.bookmark,
+        compatibility=compatibility
     ).__dict__
     return ram_dict

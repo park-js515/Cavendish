@@ -16,6 +16,7 @@ from models.programs import Program
 from models.power import Power
 
 from .com_data import cpu_com
+from .common import decimal_to_name
 
 from schemas.search import ProcessListStep1
 
@@ -66,7 +67,7 @@ def cpu_com_ram(target, check):
             result.append(item)
             continue
         # item['data'].memory_type = decimal_to_name(item['data'].memory_type, check_len, cpu_com['memory_type'])
-        if check.generation in item['data'].memory_type:
+        if check.generation in decimal_to_name(item['data'].memory_type, check_len, cpu_com['memory_type']):
             pass
         else:
             item['compatibility'].append('ram')

@@ -11,6 +11,7 @@ class ProcessListStep1(BaseModel):
     power: int = -1
     ram: int = -1
     ssd: int = -1
+    ram_num: int = 0
 
 class ProcessListStep2(BaseModel):
     usage: str = ""
