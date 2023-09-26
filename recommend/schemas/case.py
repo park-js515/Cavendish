@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
 
 class CaseSchema(BaseModel):
     id: int
@@ -44,9 +44,9 @@ class CaseSchema(BaseModel):
     led_color: Optional[str] = None
     reg_date: Optional[int] = None
     bookmark: Optional[int] = 0
+    compatibility: Optional[List[str]] = []
 
-
-def serialize_case(case_object):
+def serialize_case(case_object, compatibility):
     case_dict = CaseSchema(
         id=case_object.id,
         name=case_object.name,
@@ -89,6 +89,7 @@ def serialize_case(case_object):
         feature=case_object.feature,
         led_color=case_object.led_color,
         reg_date=case_object.reg_date,
-        bookmark=case_object.bookmark
+        bookmark=case_object.bookmark,
+        compatibility=compatibility
     ).__dict__
     return case_dict
