@@ -301,7 +301,7 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
                   filter: brightness(80%);
                   ~ .item-bot {
                     background-color: #{$mainColor-weak};
-                  } 
+                  }
                 }
               }
 
@@ -321,13 +321,172 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
           .proc3 {
             height: 100%;
             width: 100%;
-            
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar {
+              display: none;
+            }
+
+            .item {
+              &-top {
+                height: 150px;
+                width: 280px;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                margin: 5px 5px 0 5px;
+                cursor: pointer;
+                transition: all 200ms ease-in-out;
+
+                &:hover {
+                  filter: brightness(80%);
+                  ~ .item-bot {
+                    background-color: #{$mainColor-weak};
+                  }
+                }
+              }
+
+              &-bot {
+                height: 60px;
+                width: 280px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 5px 5px 5px;
+                cursor: pointer;
+                transition: all 200ms ease-in-out;
+              }
+            }
           }
 
           .proc4 {
+            height: 100%;
+            width: 100%;
+
+            .upper {
+              height: 40%;
+              width: 100%;
+              display: flex;
+              font-size: 2.5rem;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+
+            .lower {
+              height: 40%;
+              width: 100%;
+              display: flex;
+              justify-content: center;
+
+              p {
+                font-size: 2.5rem;
+              }
+
+              .budget-recom {
+                font-size: 1.5rem;
+                color: rgba(128, 128, 128, 0.5);
+                display: flex;
+                justify-content: center;
+              }
+            }
+
+            .submitBtn-wrapper {
+              height: 20%;
+              width: 100%;
+              display: flex;
+              justify-content: flex-end;
+
+              .submitBtn {
+                height: 60px;
+                width: 90px;
+                font-size: 1.75rem;
+                border-radius: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #{$mainColor-default};
+                border: 2px solid white;
+                cursor: pointer;
+                transition: all 200ms ease-in-out;
+                margin-right: 40px;
+
+                &:hover {
+                  background-color: white;
+                  border: 2px solid #{$mainColor-default};
+                }
+              }
+            }
+
+            .budget-wrapper {
+              .budget {
+                font-size: 2.5rem;
+                width: 200px;
+                text-align: right;
+                margin-right: 10px;
+                &::-webkit-inner-spin-button {
+                  appearance: none;
+                  -moz-appearance: none;
+                  -webkit-appearance: none;
+                }
+              }
+            }
           }
 
           .proc5 {
+            height: 100%;
+            width: 100%;
+
+            .proc5-top {
+              width: 100%;
+              height: 60%;
+              
+              .text {
+                font-size: 2rem;
+                display: flex;
+                justify-content: center;
+              }
+
+              .select-wrapper {
+                width: 60%;
+                margin: 30px auto;
+                
+              }
+            }
+            .proc5-bot {
+              width: 100%;
+              height: 40%;
+
+              .submitBtn-wrapper {
+                height: 20%;
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+  
+                .submitBtn {
+                  height: 60px;
+                  width: 90px;
+                  font-size: 1.75rem;
+                  border-radius: 5px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  background-color: #{$mainColor-default};
+                  border: 2px solid white;
+                  cursor: pointer;
+                  transition: all 200ms ease-in-out;
+                  margin-right: 40px;
+  
+                  &:hover {
+                    background-color: white;
+                    border: 2px solid #{$mainColor-default};
+                  }
+                }
+              }
+            }
           }
 
           .procEnd {
@@ -341,7 +500,6 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
       width: 30%;
       height: 100%;
       padding: 5px;
-      border: 1px dashed black;
 
       .tab-group {
         width: 100%;

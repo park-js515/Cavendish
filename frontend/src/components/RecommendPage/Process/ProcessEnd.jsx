@@ -1,4 +1,5 @@
 import { setTab } from "../Tab/TabGroup";
+import Loading from "components/common/Loading";
 
 //redux
 import { useDispatch } from "react-redux";
