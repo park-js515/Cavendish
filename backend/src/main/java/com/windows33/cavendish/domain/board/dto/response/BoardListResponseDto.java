@@ -15,7 +15,7 @@ public class BoardListResponseDto {
     private String nickname;
     private String title;
     private String contents;
-    private Timestamp createDateTime;
+    private Timestamp createDate;
     private Integer view;
     private Integer like;
 
