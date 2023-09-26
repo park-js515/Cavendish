@@ -7,17 +7,25 @@
     padding: 5px;
     padding-left: 10px;
     padding-right: 10px;
-    width: 80px;
-    height: 30px;
+    width: 100px;
+    height: 35px;
     background: #fff;
     border-radius: 0.2rem;
     border: 1px solid gray;
     justify-content: center;
     align-items: center;
+    font-size: 1rem;
     font-weight: 700;
+    color: black;
+    box-sizing: border-box;
+
     &:hover {
       opacity: 90%;
       background-color: #eee;
+      cursor:pointer;
+    }
+    a {
+      font-size:1.1rem;
     }
   }
 }
