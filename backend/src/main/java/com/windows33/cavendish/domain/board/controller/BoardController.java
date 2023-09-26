@@ -1,6 +1,7 @@
 package com.windows33.cavendish.domain.board.controller;
 
 import com.windows33.cavendish.domain.board.dto.request.BoardAddRequestDto;
+import com.windows33.cavendish.domain.board.dto.request.BoardModifyRequestDto;
 import com.windows33.cavendish.domain.board.dto.response.BoardDetailResponseDto;
 import com.windows33.cavendish.domain.board.dto.response.BoardListResponseDto;
 import com.windows33.cavendish.domain.board.service.BoardQueryService;
@@ -83,6 +84,22 @@ public class BoardController {
             @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
     ) {
         boardService.removeArticle(boardId, userPrincipal.getId());
+
+        return CommonResponse.OK(null);
+    }
+
+    @Operation(summary = "글 수정", description = "글 수정")
+    @Parameters({
+            @Parameter(name = "boardId", description = "")
+    })
+    @PatchMapping("/update/{boardId}")
+    public CommonResponse<Integer> articleModify(
+            @PathVariable("boardId") Integer boardId,
+            @RequestPart(value = "data") BoardModifyRequestDto boardModifyRequestDto,
+            @RequestPart(value = "files") List<MultipartFile> multipartFiles,
+            @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
+    ) {
+//        boardService.removeArticle(boardId, userPrincipal.getId());
 
         return CommonResponse.OK(null);
     }
