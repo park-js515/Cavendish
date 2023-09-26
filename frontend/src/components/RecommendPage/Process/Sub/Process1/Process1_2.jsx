@@ -94,6 +94,10 @@ const Process1_2 = ({ setSubProcess }) => {
               onClick={() => {
                 setSelected(index);
                 setSubProcess(2);
+
+                if (index === 7) {
+                  dispatch(recom.setRamNo(1));
+                }
               }}
             />
           );
