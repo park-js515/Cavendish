@@ -49,27 +49,29 @@ async def mainboard_search(keyword: str, page: int=1, state: ProcessListStep1 = 
         if state.cpu != -1:
             # cpu 소켓
             cpu = session.query(CPU).filter(CPU.id == state.cpu).first()
-            result = mainboard_com_cpu(result, cpu)
+            for target in result:
+                mainboard_com_cpu(target, cpu)
 
         if state.case != -1:
             # 폼팩터 크기
             case = session.query(Case).filter(Case.id == state.case).first()
-            result = mainboard_com_case(result, case)
+            mainboard_com_case(result, case)
 
         if state.ram != -1:
             # 램 타입, 램 개수, xmp, expo
             ram = session.query(RAM).filter(RAM.id == state.ram).first()
-            result = mainboard_com_ram(result, ram)
+            for target in result:
+                mainboard_com_ram(target, ram, state.ram_num)
 
         if state.ssd != -1:
             # ssd 타입, ssd 개수,
             ssd = session.query(SSD).filter(SSD.id == state.ssd).first()
-            result = mainboard_com_ssd(result, ssd)
+            mainboard_com_ssd(result, ssd)
 
         if state.gpu != -1:
             # 그래픽카드 인터페이스
             gpu = session.query(GPU).filter(GPU.id == state.gpu).first()
-            result = mainboard_com_gpu(result, gpu)
+            mainboard_com_gpu(result, gpu)
 
 
         headers = {"max_page": str(page_size)}
