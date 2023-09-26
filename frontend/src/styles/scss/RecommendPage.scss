@@ -11,9 +11,10 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
     box-sizing: border-box;
     width: 100vw;
     height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    
   }
 
   .bottom {
@@ -490,6 +491,9 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
           }
 
           .procEnd {
+            .test {
+              color: "red";
+            }
           }
         }
       }

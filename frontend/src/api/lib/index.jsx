@@ -28,9 +28,16 @@ const boardDefaultInstance = (params) => {
   return instance;
 };
 
+const searchDefaultInstance = () => {
+  const instance = createDefaultAxios(`/search`);
+
+  return instance;
+};
+
 export {
   memberCustomInstance,
   memberDefaultInstance,
   boardCustomInstance,
   boardDefaultInstance,
+  searchDefaultInstance,
 };
