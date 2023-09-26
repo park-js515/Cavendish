@@ -7,8 +7,8 @@ import { boardCustomInstance, boardDefaultInstance } from "./lib/index";
  * @param {function} fail [callback]
  */
 
-const getBoardsList = (sucess, fail) => {
-  const api = boardDefaultInstance();
+const getBoardsList = (params, sucess, fail) => {
+  const api = boardDefaultInstance(params);
   api.get(``).then(sucess).catch(fail);
 };
 
@@ -21,9 +21,9 @@ const getBoardsList = (sucess, fail) => {
  */
 
 const createBoardContent = (body, sucess, fail) => {
-  const api = boardDefaultInstance();
+  const api = boardCustomInstance();
   api.defaults.headers["Content-Type"] = "multipart/form-data";
-  api.post(``).then(sucess).catch(fail);
+  api.post(``, JSON.stringify(body)).then(sucess).catch(fail);
 };
 
 export { getBoardsList, createBoardContent };

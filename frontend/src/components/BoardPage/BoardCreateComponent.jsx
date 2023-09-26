@@ -15,8 +15,17 @@ export default function BoardCreateComponent() {
   };
 
   const createHandler = () => {
-    createBoardContent({title:title,contents:content},()=>{},()=>{console.error();})
-  }
+    createBoardContent(
+      {
+        data: { quotationId: null, title: title, contents: content },
+        files: { files: null },
+      },
+      () => {},
+      () => {
+        console.error();
+      },
+    );
+  };
 
   return (
     <div className="create_page">
@@ -34,6 +43,7 @@ export default function BoardCreateComponent() {
           value={content}
           onChange={handleContent}
         />
+        <input type="file" name="files" multiple="multiple" />
         <div className="buttons">
           <Link className="button_link" onClick={createHandler} to="/board">
             생성
