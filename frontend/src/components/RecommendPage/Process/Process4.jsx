@@ -1,4 +1,3 @@
-import { setTab } from "../Tab/TabGroup";
 import { useState } from "react";
 
 //redux
@@ -41,20 +40,6 @@ const Process4 = ({ className }) => {
 
   return (
     <div className={className}>
-      <button
-        onClick={() => {
-          dispatch(recom.setProcessNo(1));
-        }}
-      >
-        back
-      </button>
-      <button
-        onClick={() => {
-          dispatch(recom.setProcessNo(3));
-        }}
-      >
-        go
-      </button>
       <div className="proc4">
         <div className="upper">예산을 입력해주세요.</div>
         <div className="lower">
