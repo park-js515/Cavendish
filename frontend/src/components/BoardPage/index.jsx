@@ -54,6 +54,7 @@ export default function BoardPageComponent() {
           <div>
             <h2>게시판</h2>
           </div>
+          {}
           <div className="buttons">
             <Link className="button_link" to="/board/create">
               생성하기
