@@ -540,8 +540,15 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
           .wrapper {
             font-weight: bolder;
             display: flex;
+            justify-content: flex-start;
             align-items: center;
+          }
 
+          .wrapper2 {
+            font-weight: 400;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
           }
 
           .cancelBtn {

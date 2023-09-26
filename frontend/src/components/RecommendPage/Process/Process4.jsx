@@ -8,7 +8,9 @@ const dummyBudget = 120;
 
 const BudgetComponent = ({ value, setValue }) => {
   const onChange = (event) => {
-    setValue(Math.max(0, event.target.value));
+    const inputValue = event.target.value;
+    const newValue = inputValue === "" ? "" : Math.max(0, inputValue);
+    setValue(newValue);
   };
 
   return (
@@ -54,7 +56,8 @@ const Process4 = ({ className }) => {
         <div className="submitBtn-wrapper">
           <SubmitBtn
             onClick={() => {
-              dispatch(recom.setProcess({ budget: budget }));
+              const fixedBudget = budget !== "" ? budget : 0;
+              dispatch(recom.setProcess({ budget: fixedBudget }));
               dispatch(recom.setProcessNo(3));
             }}
           />

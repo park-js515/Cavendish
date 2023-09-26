@@ -53,27 +53,54 @@ const TabItem = ({ className, title, resetTab, index }) => {
       <div>
         {data.map((item, index) => {
           return item.value === "-1" ? null : item.name === "ram" ? (
-            <div key={index} className="wrapper">
+            <div key={index} className="wrapper2">
               {`${item.name}: ${item.value}(${recommend.ramNo})`}
-              <AiFillMinusCircle
-                size="25"
-                onClick={() => {
-                  handleRam(-1);
-                }}
-                style={{ cursor: "pointer" }}
-              />
-              <AiFillPlusCircle
-                size="25"
-                onClick={() => {
-                  handleRam(1);
-                }}
-                style={{ cursor: "pointer" }}
-              />
-              
+              <div className="wrapper2">
+                <AiFillMinusCircle
+                  size="25"
+                  onClick={() => {
+                    handleRam(-1);
+                  }}
+                  style={{ cursor: "pointer" }}
+                />
+                <AiFillPlusCircle
+                  size="25"
+                  onClick={() => {
+                    handleRam(1);
+                  }}
+                  style={{ cursor: "pointer" }}
+                />
+                <BsFillTrash3Fill
+                  size="20"
+                  onClick={() => {
+                    dispatch(
+                      recom.removeProcessList0({
+                        index: index,
+                        data: { value: "-1", id: "" },
+                      }),
+                    );
+                  }}
+                  style={{ cursor: "pointer" }}
+                />
+              </div>
             </div>
           ) : (
-            <div className="wrapper" key={index}>
+            <div className="wrapper2" key={index}>
               {`${item.name}: ${item.value}`}
+              <div className="wrapper2">
+                <BsFillTrash3Fill
+                  size="20"
+                  onClick={() => {
+                    dispatch(
+                      recom.removeProcessList0({
+                        index: index,
+                        data: { value: "-1", id: "" },
+                      }),
+                    );
+                  }}
+                  style={{ cursor: "pointer" }}
+                />
+              </div>
             </div>
           );
         })}
@@ -83,18 +110,37 @@ const TabItem = ({ className, title, resetTab, index }) => {
 
   const TabContent1 = () => {
     const data = recommend.processList[1];
+
+    return <div className="wrapper2">{data.usage}</div>;
   };
 
   const TabContent2 = () => {
     const data = recommend.processList[2];
+
+    return <div className="wrapper2">{data.program}</div>;
   };
 
   const TabContent3 = () => {
     const data = recommend.processList[3];
+
+    return <div className="wrapper2">{`${data.budget} 만원`}</div>;
   };
 
   const TabContent4 = () => {
     const data = recommend.processList[4];
+
+    return (
+      <div>
+        {Object.keys(data).map((key) => {
+          if (data[key]) {
+            return (
+              <div key={key} className="wrapper2">{`${key}: ${data[key]}`}</div>
+            );
+          }
+          return null;
+        })}
+      </div>
+    );
   };
 
   const TabContent = [
@@ -115,7 +161,7 @@ const TabItem = ({ className, title, resetTab, index }) => {
           <CancelBtn resetTab={resetTab} processNo={processNo} />
         ) : null}
       </div>
-      {pos <= 0 ? <Content /> : null}
+      {pos >= 0 ? <Content /> : null}
     </div>
   );
 };
