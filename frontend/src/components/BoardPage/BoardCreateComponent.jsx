@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "../../../node_modules/react-router-dom/dist/index";
 import { current } from "../../../node_modules/@reduxjs/toolkit/dist/index";
+import { createBoardContent } from "api/boards";
 
 export default function BoardCreateComponent() {
   const [title, setTitle] = useState("");
@@ -11,6 +12,19 @@ export default function BoardCreateComponent() {
   };
   const handleContent = (e) => {
     setContent((current) => e.target.value);
+  };
+
+  const createHandler = () => {
+    createBoardContent(
+      {
+        data: { quotationId: null, title: title, contents: content },
+        files: { files: null },
+      },
+      () => {},
+      () => {
+        console.error();
+      },
+    );
   };
 
   return (
@@ -29,8 +43,9 @@ export default function BoardCreateComponent() {
           value={content}
           onChange={handleContent}
         />
+        <input type="file" name="files" multiple="multiple" />
         <div className="buttons">
-          <Link className="button_link" to="/board">
+          <Link className="button_link" onClick={createHandler} to="/board">
             생성
           </Link>
           <Link className="button_link" to="/board">
