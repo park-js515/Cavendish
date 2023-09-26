@@ -18,6 +18,5 @@ public class BoardListResponseDto {
     private Timestamp createDateTime;
     private Integer view;
     private Integer like;
-    private Boolean isMine;
 
 }

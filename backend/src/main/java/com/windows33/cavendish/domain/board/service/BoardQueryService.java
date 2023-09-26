@@ -6,6 +6,6 @@ import org.springframework.data.domain.Pageable;
 
 public interface BoardQueryService {
 
-    Page<BoardListResponseDto> findBoardList(Pageable pageable, Integer id);
+    Page<BoardListResponseDto> findBoardList(Pageable pageable);
 
 }
