@@ -29,13 +29,14 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public void addArticle(BoardAddRequestDto boardAddRequestDto, List<MultipartFile> img, int id) {
+        // 글 작성
         Board.BoardBuilder board = Board.builder()
                 .userId(id)
                 .title(boardAddRequestDto.getTitle())
                 .contents(boardAddRequestDto.getContents())
                 .quotationId(boardAddRequestDto.getQuotationId());
 
-        boardRepository.save(board.build());
+        int boardId = boardRepository.save(board.build()).getId();
 
         List<String> images = localFileUtil.uploadFiles("BoardImage", img);
 
@@ -43,7 +44,7 @@ public class BoardServiceImpl implements BoardService {
         for(String image : images) {
             boardImageRepository.save(
                     BoardImage.builder()
-                            .boardId(id)
+                            .boardId(boardId)
                             .imagePath(image)
                             .build()
             );
