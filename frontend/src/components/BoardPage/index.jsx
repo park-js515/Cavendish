@@ -1,7 +1,43 @@
 import { useState } from "react";
-import { Link, Route } from "../../../node_modules/react-router-dom/dist/index";
+import { Link, Route, useParams } from "react-router-dom";
 
 export default function BoardPageComponent() {
+  // 더미데이터
+  const boardContentData = [
+    {
+      id: 1,
+      title: "1번 테스트",
+      content: "테스트를 위한 게시글 내용",
+    },
+    {
+      id: 2,
+      title: "2번 테스트",
+      content: "테스트를 위한 게시글 내용",
+    },
+    {
+      id: 3,
+      title: "3번 테스트",
+      content: "테스트를 위한 게시글 내용",
+    },
+    {
+      id: 4,
+      title: "4번 테스트",
+      content: "테스트를 위한 게시글 내용",
+    },
+    {
+      id: 5,
+      title: "5번 테스트",
+      content: "테스트를 위한 게시글 내용",
+    },
+  ];
+
+  const page = useParams();
+  // 더미 페이지 데이터
+  const itemsPerPage = 5; // 페이지당 아이템 개수
+  const startIndex = (page - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const filteredData = boardContentData.slice(startIndex, endIndex);
+
   return (
     <div className="board_main">
       <div className="board_list">
@@ -16,62 +52,53 @@ export default function BoardPageComponent() {
           </div>
         </div>
         <ul>
-          <Link to="/board/detail">
-            <li>
-              <div>
-                <img src="images/logo.png" alt="ㅋㅋ" />
-              </div>
-              <div>
-                <h2>샘플 게시글 제목</h2>
-                <span>샘플 게시글 내용</span>
-              </div>
-            </li>
-          </Link>
-          <Link to="/board/detail">
-            <li>
-              <div>
-                <img src="images/logo.png" alt="ㅋㅋ" />
-              </div>
-              <div>
-                <h2>샘플 게시글 제목</h2>
-                <span>샘플 게시글 내용</span>
-              </div>
-            </li>
-          </Link>
-          <Link to="/board/detail">
-            <li>
-              <div>
-                <img src="images/logo.png" alt="ㅋㅋ" />
-              </div>
-              <div>
-                <h2>샘플 게시글 제목</h2>
-                <span>샘플 게시글 내용</span>
-              </div>
-            </li>
-          </Link>
-          <Link to="/board/detail">
-            <li>
-              <div>
-                <img src="images/logo.png" alt="ㅋㅋ" />
-              </div>
-              <div>
-                <h2>샘플 게시글 제목</h2>
-                <span>샘플 게시글 내용</span>
-              </div>
-            </li>
-          </Link>
+          {boardContentData.map((item) => {
+            return (
+              <Link to={`/board/detail/${item.id}`} key={item.id}>
+                <li>
+                  <div>
+                    <img src="images/logo.png" alt="ㅋㅋ" />
+                  </div>
+                  <div>
+                    <h2>{item.title}</h2>
+                    <span>{item.content}</span>
+                  </div>
+                </li>
+              </Link>
+            );
+          })}
         </ul>
       </div>
       <div className="board_number">
-        <button type="button">{"<<"}</button>
-        <button type="button">{"<"}</button>
-        <button type="button">1</button>
-        <button type="button">2</button>
-        <button type="button">3</button>
-        <button type="button">4</button>
-        <button type="button">5</button>
-        <button type="button">{">"}</button>
-        <button type="button">{">>"}</button>
+        <Link
+          className="page_button"
+          to={`/board/${parseInt(page) > 1 ? parseInt(page) - 1 : 1}`}
+          type="button"
+        >
+          {"<"}
+        </Link>
+        <Link className="page_button" to={`/board/1`} type="button">
+          1
+        </Link>
+        <Link className="page_button" to={`/board/2`} type="button">
+          2
+        </Link>
+        <Link className="page_button" to={`/board/3`} type="button">
+          3
+        </Link>
+        <Link className="page_button" to={`/board/4`} type="button">
+          4
+        </Link>
+        <Link className="page_button" to={`/board/5`} type="button">
+          5
+        </Link>
+        <Link
+          className="page_button"
+          to={`/board/${parseInt(page) + 1}`}
+          type="button"
+        >
+          {">"}
+        </Link>
       </div>
     </div>
   );

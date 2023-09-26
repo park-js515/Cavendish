@@ -1,4 +1,4 @@
-const TabItem = ({ resetTab, processHandler, className }) => {
+const TabItem = ({ className }) => {
   return <div className={className}>TabItem</div>;
 };
 

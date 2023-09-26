@@ -14,12 +14,12 @@ import storage from "redux-persist/lib/storage";
 // import storageSession from "redux-persist/lib/storage/session"
 
 // Slice(Reducer)
-import navSlice from "./navSlice";
 import userSlice from "./userSlice";
+import recommendSlice from "./recommendSlice";
 
 const rootReducer = combineReducers({
-  nav: navSlice,
   user: userSlice,
+  recommend: recommendSlice,
 });
 
 const persistConfig = {
@@ -27,7 +27,7 @@ const persistConfig = {
   // storage 타입: localStorage
   storage,
   // whitelist: 포함시킬 것
-  whitelist: ["user"],
+  whitelist: ["user", "recommend"],
 };
 
 // 조건이 설정된 reducer

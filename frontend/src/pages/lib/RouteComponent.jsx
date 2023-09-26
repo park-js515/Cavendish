@@ -19,7 +19,7 @@ import SignupPage from "pages/SignupPage";
 const RouteComponent = () => {
   return (
     <Routes>
-      <Route path="/board/detail" element={<BoardDetailPage />}></Route>
+      <Route path="/board/detail/:id" element={<BoardDetailPage />}></Route>
       <Route path="/board/create" element={<BoardCreatePage />}></Route>
       <Route path="/board" element={<BoardPage />}></Route>
       <Route path="/login" element={<LoginPage />}></Route>

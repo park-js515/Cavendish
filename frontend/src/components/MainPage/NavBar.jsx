@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BiMenuAltRight } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -10,6 +11,9 @@ function Navbar() {
     width: 0,
     height: 0,
   });
+
+  const isLogin = useSelector((state) => state.user.isLogin);
+
   useEffect(() => {
     const handleResize = () => {
       setSize({
@@ -41,14 +45,25 @@ function Navbar() {
           ${menuOpen && size.width < 768 ? `${"isMenu"}` : ""} 
           }`}
         >
-          <ul>
-            <Link to="/signup">
-              <button className="btn">Register</button>
-            </Link>
-            <Link to="/login">
-              <button className="btn btn__login">Login</button>
-            </Link>
-          </ul>
+          {!isLogin ? (
+            <ul>
+              <Link to="/signup">
+                <button className="btn">Register</button>
+              </Link>
+              <Link to="/login">
+                <button className="btn btn__login">Login</button>
+              </Link>
+            </ul>
+          ) : (
+            <ul>
+              <Link to="/mypage">
+                <button className="btn">MyPage</button>
+              </Link>
+              <Link to="/logout">
+                <button className="btn">Logout</button>
+              </Link>
+            </ul>
+          )}
         </nav>
         <div className="mainheader__content__toggle">
           {!menuOpen ? (
