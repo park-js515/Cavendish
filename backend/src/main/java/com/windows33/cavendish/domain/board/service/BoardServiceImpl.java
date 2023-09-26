@@ -1,6 +1,7 @@
 package com.windows33.cavendish.domain.board.service;
 
 import com.windows33.cavendish.domain.board.dto.request.BoardAddRequestDto;
+import com.windows33.cavendish.domain.board.dto.request.BoardModifyRequestDto;
 import com.windows33.cavendish.domain.board.entity.Board;
 import com.windows33.cavendish.domain.board.entity.BoardImage;
 import com.windows33.cavendish.domain.board.repository.BoardImageRepository;
@@ -31,7 +32,7 @@ public class BoardServiceImpl implements BoardService {
     private final LocalFileUtil localFileUtil;
 
     @Override
-    public void addArticle(BoardAddRequestDto boardAddRequestDto, List<MultipartFile> img, Integer id) {
+    public Integer addArticle(BoardAddRequestDto boardAddRequestDto, List<MultipartFile> img, Integer id) {
         Board.BoardBuilder board = Board.builder()
                 .userId(id)
                 .title(boardAddRequestDto.getTitle())
@@ -51,6 +52,8 @@ public class BoardServiceImpl implements BoardService {
                             .build()
             );
         }
+
+        return boardId;
     }
 
     @Override
@@ -63,6 +66,31 @@ public class BoardServiceImpl implements BoardService {
         // 이미지 제거
         List<Integer> ids = localFileUtil.deleteFiles(images);
         boardImageRepository.deleteByIdIn(ids);
+    }
+
+    @Override
+    public Integer modifyArticle(BoardModifyRequestDto boardModifyRequestDto, List<MultipartFile> img, Integer id) {
+        Board.BoardBuilder board = Board.builder()
+                .userId(id)
+                .title(boardModifyRequestDto.getTitle())
+                .contents(boardModifyRequestDto.getContents())
+                .quotationId(boardModifyRequestDto.getQuotationId());
+
+        int boardId = boardRepository.save(board.build()).getId();
+
+        List<String> images = localFileUtil.uploadFiles("BoardImage", img);
+
+        // 이미지 테이블 저장
+        for(String image : images) {
+            boardImageRepository.save(
+                    BoardImage.builder()
+                            .boardId(boardId)
+                            .imagePath(image)
+                            .build()
+            );
+        }
+
+        return boardId;
     }
 
     private Board checkAuthority(Integer boardId, Integer id) {

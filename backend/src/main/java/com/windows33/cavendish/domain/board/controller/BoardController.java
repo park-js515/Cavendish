@@ -41,14 +41,12 @@ public class BoardController {
             @Parameter(name = "multipartFiles", description = "이미지")
     })
     @PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE})
-    public CommonResponse<Void> articleAdd(
+    public CommonResponse<Integer> articleAdd(
             @RequestPart(value = "data") BoardAddRequestDto boardAddRequestDto,
             @RequestPart(value = "files") List<MultipartFile> multipartFiles,
             @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
     ) {
-        boardService.addArticle(boardAddRequestDto, multipartFiles, userPrincipal.getId());
-
-        return CommonResponse.OK(null);
+        return CommonResponse.OK(boardService.addArticle(boardAddRequestDto, multipartFiles, userPrincipal.getId()));
     }
 
     @Operation(summary = "글 목록 조회", description = "글 목록 조회")
