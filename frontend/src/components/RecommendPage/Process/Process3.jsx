@@ -1,4 +1,3 @@
-import { setTab } from "../Tab/TabGroup";
 import dummyImg from "assets/defaultImgs2/Briar.png";
 
 //redux
@@ -18,7 +17,7 @@ const dummy = [
   { imgUrl: dummyImg, program: "로블록스" },
 ];
 
-const temp = 4 - (dummy.length % 4);
+const temp = 3 - (dummy.length % 3);
 for (let i = 0; i < temp; i++) {
   dummy.push({ imgUrl: "", usage: "" });
 }
@@ -36,18 +35,22 @@ const Item = ({ imgUrl, program }) => {
     }
   };
 
-  return (
-    <div className="item" onClick={onClick}>
-      <div
-        className="item-top"
-        style={{
-          backgroundImage: `url(${imgUrl})`,
-          visibility: program ? "visible" : "hidden",
-        }}
-      ></div>
-      <div className="item-bot">{program}</div>
-    </div>
-  );
+  if (imgUrl) {
+    return (
+      <div className="item" onClick={onClick}>
+        <div
+          className="item-top"
+          style={{
+            backgroundImage: `url(${imgUrl})`,
+            visibility: program ? "visible" : "hidden",
+          }}
+        ></div>
+        <div className="item-bot">{program}</div>
+      </div>
+    );
+  }
+
+  return <div className="item-hidden"></div>;
 };
 
 // 3. 용도 선택 자세히

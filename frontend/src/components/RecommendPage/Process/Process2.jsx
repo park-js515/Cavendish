@@ -1,4 +1,3 @@
-import { setTab } from "../Tab/TabGroup";
 import dummyImg from "assets/defaultImgs2/Briar.png";
 
 //redux
@@ -18,7 +17,7 @@ const dummy = [
   { imgUrl: dummyImg, usage: "비디오 인코딩" },
 ];
 
-const temp = 4 - (dummy.length % 4);
+const temp = 3 - (dummy.length % 3);
 for (let i = 0; i < temp; i++) {
   dummy.push({ imgUrl: "", usage: "" });
 }
@@ -36,18 +35,22 @@ const Item = ({ imgUrl, usage }) => {
     }
   };
 
-  return (
-    <div className="item" onClick={onClick}>
-      <div
-        className="item-top"
-        style={{
-          backgroundImage: `url(${imgUrl})`,
-          visibility: usage ? "visible" : "hidden",
-        }}
-      ></div>
-      <div className="item-bot">{usage}</div>
-    </div>
-  );
+  if (imgUrl) {
+    return (
+      <div className="item" onClick={onClick}>
+        <div
+          className="item-top"
+          style={{
+            backgroundImage: `url(${imgUrl})`,
+            visibility: usage ? "visible" : "hidden",
+          }}
+        ></div>
+        <div className="item-bot">{usage}</div>
+      </div>
+    );
+  }
+
+  return <div className="item-hidden"></div>;
 };
 
 // 2. 용도 선택 대분류

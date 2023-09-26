@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { setTab } from "components/RecommendPage/Tab/TabGroup";
 
 // imgs
 import defaultCase from "assets/defaultImgs/default_case.avif";

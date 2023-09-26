@@ -294,8 +294,8 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
                 background-repeat: no-repeat;
                 background-position: center;
                 margin: 5px 5px 0 5px;
-                cursor: pointer;
                 transition: all 200ms ease-in-out;
+                cursor: pointer;
 
                 &:hover {
                   filter: brightness(80%);
@@ -314,7 +314,17 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
                 margin: 0 5px 5px 5px;
                 cursor: pointer;
                 transition: all 200ms ease-in-out;
+
+                &:hover {
+                  background-color: #{$mainColor-weak};
+                }
               }
+            }
+
+            .item-hidden {
+              height: 210px;
+              width: 280px;
+              display: hidden;
             }
           }
 
@@ -358,7 +368,17 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
                 margin: 0 5px 5px 5px;
                 cursor: pointer;
                 transition: all 200ms ease-in-out;
+
+                &:hover {
+                  background-color: #{$mainColor-weak};
+                }
               }
+            }
+
+            .item-hidden {
+              height: 210px;
+              width: 280px;
+              display: hidden;
             }
           }
 
@@ -507,14 +527,29 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
         width: 100%;
         height: 100%;
 
-        .tab-item-before {
-          width: 100%;
-          height: 10%;
-        }
-
         .tab-item {
           width: 100%;
           height: 20%;
+          border-top: 2px dashed #{$mainColor-default};
+          overflow-y: scroll;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+
+          .wrapper {
+            font-weight: bolder;
+            display: flex;
+            align-items: center;
+
+          }
+
+          .cancelBtn {
+            cursor: pointer;
+            display: inline;
+            height: 30px;
+            width: 30px;
+          }
         }
       }
     }
