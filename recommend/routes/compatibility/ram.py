@@ -61,7 +61,7 @@ async def ram_search(keyword: str, page: int, state: ProcessListStep1 = Depends(
         if state.mainboard != -1:
             mainboard = session.query(Mainboard).filter(Mainboard.id == state.mainboard).first()
             for i in range(len(result)):
-                if ram_com_mainboard(ram[i].generation, mainboard.memory_type):
+                if ram_com_mainboard(result[i]['data'].generation, mainboard.memory_type):
                     pass
                 else:
                     result[i]['compatibility'].append('mainboard')

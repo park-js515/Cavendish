@@ -25,4 +25,20 @@ from db.connection import engineconn
 engine = engineconn()
 session = engine.sessionmaker()
 
-# def gpu_com_cpu(gpu)
+def gpu_com_cpu(gpu_interface, cpu_pcie_version):
+    pass
+
+def gpu_com_mainboard(gpu_interface, mainboard_vga_connection):
+    pass
+
+def gpu_com_case(gpu_length, case_gpu_size):
+    if gpu_length <= case_gpu_size:
+        return True
+    else:
+        return False
+
+def gpu_com_power(gpu_recommend_power, power_rated_power):
+    if gpu_recommend_power <= power_rated_power:
+        return True
+    else:
+        return False

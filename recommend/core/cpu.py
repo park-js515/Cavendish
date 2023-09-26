@@ -29,11 +29,14 @@ def cpu_com_mainboard(target, check):
     check_len = len(cpu_com['pcie_version'])
     result = []
     for item in target:
-        if check.pcie_version == 0 or item['data'].pcie_version == 0 or item['data'].pcie_version == None:
+        if check.cpu_socket != item['data'].socket:
+            item['compatibility'].append('mainboard')
+
+        elif check.pcie_version == 0 or item['data'].pcie_version == 0 or item['data'].pcie_version == None:
             item['compatibility'].append('mainboard')
         # 메인보드 pcie 버전 3.0
         elif 4 <= check.pcie_version and check.pcie_version <=7:
-            if (item['data'].pcie_version / 4) % 2 == 1: 
+            if (item['data'].pcie_version / 4) % 2 == 1:
                 pass
             else:
                 item['compatibility'].append('mainboard')
