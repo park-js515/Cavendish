@@ -3,18 +3,19 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState_origin = {
   processNo: -1,
   selected: 0,
+  ramNo: 0,
   processList: [
     // process1: 부품 사전 선택
     [
-      { name: "case", value: "-1" },
-      { name: "cooler", value: "-1" },
-      { name: "cpu", value: "-1" },
-      { name: "gpu", value: "-1" },
-      { name: "hdd", value: "-1" },
-      { name: "mainboard", value: "-1" },
-      { name: "power", value: "-1" },
-      { name: "ram", value: "-1" },
-      { name: "ssd", value: "-1" },
+      { name: "case", value: "-1", id: "" },
+      { name: "cooler", value: "-1", id: "" },
+      { name: "cpu", value: "-1", id: "" },
+      { name: "gpu", value: "-1", id: "" },
+      { name: "hdd", value: "-1", id: "" },
+      { name: "mainboard", value: "-1", id: "" },
+      { name: "power", value: "-1", id: "" },
+      { name: "ram", value: "-1", id: "" },
+      { name: "ssd", value: "-1", id: "" },
     ],
     // process2: 용도 선택
     { usage: "" },
@@ -53,8 +54,11 @@ const recommendSlice = createSlice({
       };
     },
     removeProcess: (state) => {
-      state.processList[state.processNo] = initialState_origin[state.processNo];
+      state.processList[state.processNo] = initialState_origin.processList[state.processNo];
       state.processNo--;
+    },
+    setRamNo: (state, action) => {
+      state.ramNo = action.payload;
     },
   },
 });
@@ -66,5 +70,6 @@ export const {
   setProcessList0,
   setProcess,
   removeProcess,
+  setRamNo,
 } = recommendSlice.actions;
 export default recommendSlice.reducer;

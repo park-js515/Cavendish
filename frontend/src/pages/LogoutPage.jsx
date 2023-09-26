@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 // redux
 import { useDispatch } from "react-redux";
 import { logout } from "redux/userSlice";
+import * as recom from "redux/recommendSlice"
 
 const LogoutPage = () => {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ const LogoutPage = () => {
 
       const promise = new Promise((resolve) => {
         dispatch(logout());
+        dispatch(recom.resetProcessAll());
         clearLocalStorage();
         setTimeout(() => {
           resolve();

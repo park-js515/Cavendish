@@ -1,4 +1,4 @@
-import { boardCustomInstance, boardDefaultInstance } from "./lib/index";
+import { boardCustomInstance, boardDefaultInstance, boardDetailDefaultInstance } from "./lib/index";
 
 // 1. 게시글 조회
 /**
@@ -27,8 +27,6 @@ const createBoardContent = (body, sucess, fail) => {
   api.post(``, body).then(sucess).catch(fail);
 };
 
-export { getBoardsList, createBoardContent };
-
 // 3. 게시글 상세 페이지 조회
 /**
  *
@@ -36,3 +34,10 @@ export { getBoardsList, createBoardContent };
  * @param {function} sucess [callback]
  * @param {function} fail [callback]
  */
+
+const getBoardDetailContent = (id, sucess, fail) => {
+  const api = boardDetailDefaultInstance();
+  api.get(`/detail/${id}`).then(sucess).catch(fail);
+};
+
+export { getBoardsList, createBoardContent, getBoardDetailContent };
