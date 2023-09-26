@@ -26,7 +26,13 @@ public class BoardDetailResponseDto {
 
     public void setBoardData(BoardDataDto boardDataDto) {
         this.nickname = boardDataDto.getNickname();
-        // 작업중
+        this.title = boardDataDto.getTitle();
+        this.contents = boardDataDto.getContents();
+        this.quotationId = boardDataDto.getQuotationId();
+        this.createDateTime = boardDataDto.getCreateDateTime();
+        this.view = boardDataDto.getView();
+        this.like = boardDataDto.getLike();
+        this.isMine = boardDataDto.getIsMine();
     }
 
 }

@@ -102,12 +102,6 @@ public class BoardQueryRepository {
             isMine = Expressions.FALSE;
         }
 
-        List<String> images = jpaQueryFactory
-                .select(boardImage.imagePath)
-                .from(boardImage)
-                .where(board.id.eq(boardId))
-                .fetch();
-
         BoardDataDto boardDataDto = jpaQueryFactory
                 .select(Projections.constructor(BoardDataDto.class,
                         member.nickname,
@@ -120,10 +114,18 @@ public class BoardQueryRepository {
                         isMine))
                 .from(board)
                 .leftJoin(member).on(board.userId.eq(member.id))
-                .leftJoin(boardImage).on(board.id.eq(boardImage.boardId))
                 .where(board.id.eq(boardId))
                 .fetchOne();
 
+        // images
+        List<String> images = jpaQueryFactory
+                .select(boardImage.imagePath)
+                .from(boardImage)
+                .where(board.id.eq(boardId))
+                .leftJoin(board).on(boardImage.boardId.eq(board.id))
+                .fetch();
+
+        boardDetailResponseDto.setBoardData(boardDataDto);
         boardDetailResponseDto.setImages(images);
 
         return boardDetailResponseDto;
