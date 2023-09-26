@@ -59,6 +59,7 @@
       width: 800px;
       li {
         display: flex;
+        flex-direction: column;
         padding: 10px;
         margin: 4px;
         height: 120px;
@@ -73,6 +74,21 @@
         img {
           width: 100px;
           height: 100px;
+        }
+
+        .content-header {
+          display: flex;
+          justify-content: space-between;
+        }
+        .content-description {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        .content-date {
+          display: flex;
+          justify-content: end;
+          align-items: end;
         }
       }
     }

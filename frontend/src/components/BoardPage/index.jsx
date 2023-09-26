@@ -54,7 +54,6 @@ export default function BoardPageComponent() {
           <div>
             <h2>게시판</h2>
           </div>
-          {}
           <div className="buttons">
             <Link className="button_link" to="/board/create">
               생성하기
@@ -65,11 +64,17 @@ export default function BoardPageComponent() {
           {boardData.map((item) => {
             return (
               <Link to={`/board/detail/${item.boardId}`} key={item.boardId}>
+                {/* {console.log(item)} */}
                 <li>
-                  <div>
+                  <div className="content-header">
+                    <h2>{item.boardId}</h2>
+                    <h2>{item.nickname}</h2>
+                  </div>
+                  <div className="content-description">
                     <h2>{item.title}</h2>
                     <span>{item.contents}</span>
                   </div>
+                  <div className="content-date">{item.createDate}</div>
                 </li>
               </Link>
             );

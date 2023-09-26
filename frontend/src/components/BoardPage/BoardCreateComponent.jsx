@@ -15,7 +15,7 @@ export default function BoardCreateComponent() {
     setContent((current) => e.target.value);
   };
 
-  const onSubmit = async (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
 
     let files = e.target.files.files;
@@ -29,14 +29,18 @@ export default function BoardCreateComponent() {
 
     formData.append("data", JSON.stringify(dataSet));
 
-    for (let i = 0; i < files.length; i++) {
-      formData.append("files", files[i]);
+    if (files === null) formData.append("files", null);
+    else {
+      for (let i = 0; i < files.length; i++) {
+        formData.append("files", files[i]);
+        console.log(files[i]);
+      }
     }
 
     console.log(formData.get("data"));
     console.log(formData.getAll("files"));
 
-    await createBoardContent(
+    createBoardContent(
       formData,
       () => {
         navigate.push("/board");
