@@ -35,16 +35,16 @@ public class BoardQueryRepository {
     /**
      * 글 목록 조회
      */
-    public Page<BoardListResponseDto> findBoardList(Pageable pageable, Integer id) {
+    public Page<BoardListResponseDto> findBoardList(Pageable pageable) {
         List<BoardListResponseDto> boardList = jpaQueryFactory
                 .select(Projections.constructor(BoardListResponseDto.class,
+                        board.id,
                         member.nickname,
                         board.title,
                         board.contents,
                         board.createDate,
                         board.view,
-                        board.like,
-                        board.userId.eq(id)
+                        board.like
                 ))
                 .from(board)
                 .leftJoin(member).on(board.userId.eq(member.id))
