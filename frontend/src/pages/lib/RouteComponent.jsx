@@ -21,7 +21,8 @@ const RouteComponent = () => {
     <Routes>
       <Route path="/board/detail/:id" element={<BoardDetailPage />}></Route>
       <Route path="/board/create" element={<BoardCreatePage />}></Route>
-      <Route path="/board" element={<BoardPage />}></Route>
+      <Route path="/board/:page" element={<BoardPage />}></Route>
+      <Route path="/board/*" element={<BoardPage page="1" />} />
       <Route path="/login" element={<LoginPage />}></Route>
       <Route path="/logout" element={<LogoutPage />}></Route>
       <Route path="/" element={<MainPage />}></Route>

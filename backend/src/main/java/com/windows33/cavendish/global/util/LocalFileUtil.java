@@ -15,23 +15,30 @@ public class LocalFileUtil {
 
     private final String currentPath = System.getProperty("user.dir");
 
+    /**
+     * 파일 업로드
+     */
     public List<String> uploadFiles(String fileType, List<MultipartFile> multipartFiles) {
-        StringBuilder uploadFilePath = new StringBuilder();
         List<String> filePaths = new ArrayList<>();
-
-        uploadFilePath
-                .append(currentPath)
-                .append("/")
-                .append("CavendishStore")
-                .append("/")
-                .append(fileType)
-                .append("/")
-                .append(getDate());
+        String uploadFilePath = currentPath + "\\" + "CavendishStore" + "\\" + fileType + "\\" + getDate();
 
         for (MultipartFile multipartFile : multipartFiles) {
+            if(multipartFile.isEmpty()) continue;
+
             String originalFileName = multipartFile.getOriginalFilename();
             String uploadFileName = getUuidFileName(originalFileName);
-            String uploadFileUrl = uploadFilePath + "/" + uploadFileName;
+            String uploadFileUrl = uploadFilePath + "\\" + uploadFileName;
+
+            // 폴더 생성
+            File Folder = new File(uploadFilePath);
+            if (!Folder.exists()) {
+                try {
+                    Folder.mkdirs();
+                }
+                catch(Exception e) {
+                    e.getStackTrace();
+                }
+            }
 
             // 파일 저장
             try {
@@ -52,7 +59,7 @@ public class LocalFileUtil {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         Date date = new Date();
         String str = sdf.format(date);
-        return str.replace("-", "/");
+        return str.replace("-", "\\");
     }
 
     // UUID 생성

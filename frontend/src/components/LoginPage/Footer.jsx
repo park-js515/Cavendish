@@ -32,6 +32,7 @@ const Footer = ({ isLogin, checkList, loginInfo, signupInfo }) => {
         goBackorHome();
       },
       (error) => {
+        alert("로그인 정보가 일치하지 않습니다.");
         console.error(error);
       },
     );

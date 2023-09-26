@@ -20,8 +20,8 @@ const initialState_origin = {
     { usage: "" },
     // process3: 세부 용도 선택
     { program: "", spec: [] },
-    // process4: 예산 선택
-    { budget: "" },
+    // process4: 예산 선택 (단위: 만원)
+    { budget: 0 },
     // process5: 우선순위 선택
     { priority1: "", priority2: "", priority3: "" },
   ],
@@ -40,9 +40,15 @@ const recommendSlice = createSlice({
     setSelected: (state, action) => {
       state.selected = action.payload;
     },
-    addProcess: (state, action) => {
-      state.processList[state.processNo] = {
-        ...state.processList[state.processNo],
+    setProcess: (state, action) => {
+      state.processList[state.processNo + 1] = {
+        ...state.processList[state.processNo + 1],
+        ...action.payload,
+      };
+    },
+    setProcessList0: (state, action) => {
+      state.processList[0][state.selected] = {
+        ...state.processList[0][state.selected],
         ...action.payload,
       };
     },
@@ -53,6 +59,12 @@ const recommendSlice = createSlice({
   },
 });
 
-export const { resetProcessAll, setProcessNo, setSelected, addProcess, removeProcess } =
-  recommendSlice.actions;
+export const {
+  resetProcessAll,
+  setProcessNo,
+  setSelected,
+  setProcessList0,
+  setProcess,
+  removeProcess,
+} = recommendSlice.actions;
 export default recommendSlice.reducer;

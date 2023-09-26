@@ -29,27 +29,26 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public void addArticle(BoardAddRequestDto boardAddRequestDto, List<MultipartFile> img, int id) {
-        log.info("addArticle 진입");
-
+        // 글 작성
         Board.BoardBuilder board = Board.builder()
                 .userId(id)
                 .title(boardAddRequestDto.getTitle())
                 .contents(boardAddRequestDto.getContents())
                 .quotationId(boardAddRequestDto.getQuotationId());
 
-        boardRepository.save(board.build());
+        int boardId = boardRepository.save(board.build()).getId();
 
-//        List<String> images = localFileUtil.uploadFiles("BoardImage", img);
-//
-//        // 이미지 테이블 저장
-//        for(String image : images) {
-//            boardImageRepository.save(
-//                    BoardImage.builder()
-//                            .boardId(id)
-//                            .imagePath(image)
-//                            .build()
-//            );
-//        }
+        List<String> images = localFileUtil.uploadFiles("BoardImage", img);
+
+        // 이미지 테이블 저장
+        for(String image : images) {
+            boardImageRepository.save(
+                    BoardImage.builder()
+                            .boardId(boardId)
+                            .imagePath(image)
+                            .build()
+            );
+        }
     }
 
 }

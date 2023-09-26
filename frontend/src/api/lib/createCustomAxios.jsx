@@ -40,15 +40,26 @@ const createCustomAxios = (URL) => {
   return customAxios;
 };
 
-const createDefaultAxios = (URL) => {
+const createRecomAxios = (URL) => {
   const defaultAxios = axios.create({
-    baseURL: `${process.env.REACT_APP_API}${URL}`,
+    baseURL: `${process.env.REACT_APP_API}${URL}`, // 추후 변경 예정
     headers: {
       "Content-Type": "application/json;charset=utf-8",
-    }
+    },
   });
 
   return defaultAxios;
 };
 
-export { createCustomAxios, createDefaultAxios };
+const createDefaultAxios = (URL) => {
+  const defaultAxios = axios.create({
+    baseURL: `${process.env.REACT_APP_API}${URL}`,
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+  });
+
+  return defaultAxios;
+};
+
+export { createCustomAxios, createRecomAxios, createDefaultAxios };

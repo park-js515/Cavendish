@@ -13,13 +13,23 @@ const memberDefaultInstance = () => {
 };
 
 const boardCustomInstance = () => {
-  const instance = createCustomAxios("/boards");
+  const instance = createCustomAxios(`/board`);
 
   return instance;
 };
 
-const boardDefaultInstance = () => {
-  const instance = createDefaultAxios("/boards");
+const boardDefaultInstance = (params) => {
+  const instance = createDefaultAxios(
+    `/board?page=${params.page ? params.page : 0}&size=${
+      params.size ? params.size : 10
+    }&sort=${params.sort ? params.sort : "contents,ASC"}`,
+  );
+
+  return instance;
+};
+
+const searchDefaultInstance = () => {
+  const instance = createDefaultAxios(`/search`);
 
   return instance;
 };
@@ -29,4 +39,5 @@ export {
   memberDefaultInstance,
   boardCustomInstance,
   boardDefaultInstance,
+  searchDefaultInstance,
 };

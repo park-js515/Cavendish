@@ -1,42 +1,51 @@
-import { useState } from "react";
+import { getBoardsList } from "api/boards";
+import { useEffect, useRef, useState } from "react";
 import { Link, Route, useParams } from "react-router-dom";
 
 export default function BoardPageComponent() {
-  // 더미데이터
-  const boardContentData = [
-    {
-      id: 1,
-      title: "1번 테스트",
-      content: "테스트를 위한 게시글 내용",
-    },
-    {
-      id: 2,
-      title: "2번 테스트",
-      content: "테스트를 위한 게시글 내용",
-    },
-    {
-      id: 3,
-      title: "3번 테스트",
-      content: "테스트를 위한 게시글 내용",
-    },
-    {
-      id: 4,
-      title: "4번 테스트",
-      content: "테스트를 위한 게시글 내용",
-    },
-    {
-      id: 5,
-      title: "5번 테스트",
-      content: "테스트를 위한 게시글 내용",
-    },
-  ];
+  const check = useRef(false);
+  const [boardData, setBoardData] = useState([]);
+  const [page, setpage] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
 
-  const page = useParams();
-  // 더미 페이지 데이터
-  const itemsPerPage = 5; // 페이지당 아이템 개수
-  const startIndex = (page - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const filteredData = boardContentData.slice(startIndex, endIndex);
+  useEffect(() => {
+    getBoardsList(
+      { page: page, size: 10, sort: "contents,ASC" },
+      (response) => {
+        const data = response.data.response.content;
+        setTotalPages(response.data.response.totalPages);
+        setBoardData(data);
+      },
+      () => {
+        console.error();
+      },
+    );
+  }, [page]);
+
+  const pageHandler = (newPage) => {
+    setpage(newPage);
+  };
+
+  // 페이지 버튼을 렌더링할 때 반복문을 사용하여 단순화
+  const renderPageButtons = () => {
+    const buttons = [];
+
+    for (let i = 0; i < totalPages; i++) {
+      buttons.push(
+        <Link
+          className="page_button"
+          to={`/board/${i + 1}`}
+          key={i}
+          onClick={() => pageHandler(i)}
+          type="button"
+        >
+          {i + 1}
+        </Link>,
+      );
+    }
+
+    return buttons;
+  };
 
   return (
     <div className="board_main">
@@ -52,17 +61,20 @@ export default function BoardPageComponent() {
           </div>
         </div>
         <ul>
-          {boardContentData.map((item) => {
+          {boardData.map((item) => {
             return (
-              <Link to={`/board/detail/${item.id}`} key={item.id}>
+              <Link to={`/board/detail/${item.boardId}`} key={item.boardId}>
+                {/* {console.log(item)} */}
                 <li>
-                  <div>
-                    <img src="images/logo.png" alt="ㅋㅋ" />
+                  <div className="content-header">
+                    <h2>{item.boardId}</h2>
+                    <h2>{item.nickname}</h2>
                   </div>
-                  <div>
+                  <div className="content-description">
                     <h2>{item.title}</h2>
-                    <span>{item.content}</span>
+                    <span>{item.contents}</span>
                   </div>
+                  <div className="content-date">{item.createDate}</div>
                 </li>
               </Link>
             );
@@ -72,29 +84,19 @@ export default function BoardPageComponent() {
       <div className="board_number">
         <Link
           className="page_button"
-          to={`/board/${parseInt(page) > 1 ? parseInt(page) - 1 : 1}`}
+          to={`/board/${page - 1 > 0 ? page - 1 : 1}`}
+          onClick={() => pageHandler(page - 1 > 0 ? page - 1 : 0)}
           type="button"
         >
           {"<"}
         </Link>
-        <Link className="page_button" to={`/board/1`} type="button">
-          1
-        </Link>
-        <Link className="page_button" to={`/board/2`} type="button">
-          2
-        </Link>
-        <Link className="page_button" to={`/board/3`} type="button">
-          3
-        </Link>
-        <Link className="page_button" to={`/board/4`} type="button">
-          4
-        </Link>
-        <Link className="page_button" to={`/board/5`} type="button">
-          5
-        </Link>
+        {renderPageButtons()}
         <Link
           className="page_button"
-          to={`/board/${parseInt(page) + 1}`}
+          to={`/board/${page + 1 < totalPages - 1 ? page + 1 : totalPages}`}
+          onClick={() =>
+            pageHandler(page + 1 < totalPages - 1 ? page + 1 : totalPages - 1)
+          }
           type="button"
         >
           {">"}

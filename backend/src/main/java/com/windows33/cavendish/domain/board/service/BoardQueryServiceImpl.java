@@ -1,5 +1,6 @@
 package com.windows33.cavendish.domain.board.service;
 
+import com.windows33.cavendish.domain.board.dto.response.BoardDetailResponseDto;
 import com.windows33.cavendish.domain.board.dto.response.BoardListResponseDto;
 import com.windows33.cavendish.domain.board.repository.BoardQueryRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +21,11 @@ public class BoardQueryServiceImpl implements BoardQueryService {
     @Override
     public Page<BoardListResponseDto> findBoardList(Pageable pageable) {
         return boardQueryRepository.findBoardList(pageable);
+    }
+
+    @Override
+    public BoardDetailResponseDto findBoardDetail(Integer boardId, Integer userId) {
+        return boardQueryRepository.findBoardDetail(boardId, userId);
     }
 
 }

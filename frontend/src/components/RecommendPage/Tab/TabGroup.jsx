@@ -23,8 +23,8 @@ const setTab = (index, props) => {
 };
 
 const setClassName = (index) => {
-  for (let i = 1; i <= index; i++) {
-    tabList[i - 1].className = "tab-item";
+  for (let i = 0; i <= index; i++) {
+    tabList[i].className = "tab-item";
   }
 };
 
