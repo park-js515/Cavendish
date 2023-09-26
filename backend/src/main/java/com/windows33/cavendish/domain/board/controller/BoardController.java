@@ -1,6 +1,7 @@
 package com.windows33.cavendish.domain.board.controller;
 
 import com.windows33.cavendish.domain.board.dto.request.BoardAddRequestDto;
+import com.windows33.cavendish.domain.board.dto.response.BoardDetailResponseDto;
 import com.windows33.cavendish.domain.board.dto.response.BoardListResponseDto;
 import com.windows33.cavendish.domain.board.service.BoardQueryService;
 import com.windows33.cavendish.domain.board.service.BoardService;
@@ -58,6 +59,18 @@ public class BoardController {
             @PageableDefault(sort="modifyDateTime", direction = Sort.Direction.DESC) Pageable pageable
     ) {
         return CommonResponse.OK(boardQueryService.findBoardList(pageable));
+    }
+
+    @Operation(summary = "글 상세 조회", description = "글 상세 조회")
+    @Parameters({
+            @Parameter(name = "boardId", description = "")
+    })
+    @GetMapping("/detail/{boardId}")
+    public CommonResponse<BoardDetailResponseDto> findAllArticle(
+            @PathVariable("boardId") Integer boardId,
+            @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
+    ) {
+        return CommonResponse.OK(boardQueryService.findBoardDetail(boardId, userPrincipal!=null?userPrincipal.getId():null));
     }
 
 }

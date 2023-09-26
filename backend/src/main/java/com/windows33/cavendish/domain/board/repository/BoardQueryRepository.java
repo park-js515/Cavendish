@@ -1,12 +1,18 @@
 package com.windows33.cavendish.domain.board.repository;
 
+import com.querydsl.core.BooleanBuilder;
+import com.querydsl.core.types.Expression;
 import com.querydsl.core.types.Order;
 import com.querydsl.core.types.OrderSpecifier;
 import com.querydsl.core.types.Projections;
 import com.querydsl.core.types.dsl.BooleanExpression;
+import com.querydsl.core.types.dsl.Expressions;
 import com.querydsl.jpa.JPAExpressions;
+import com.querydsl.jpa.JPQLQuery;
 import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import com.windows33.cavendish.domain.board.dto.data.BoardDataDto;
+import com.windows33.cavendish.domain.board.dto.response.BoardDetailResponseDto;
 import com.windows33.cavendish.domain.board.dto.response.BoardListResponseDto;
 import com.windows33.cavendish.domain.board.entity.QBoard;
 import lombok.RequiredArgsConstructor;
@@ -20,8 +26,8 @@ import org.springframework.stereotype.Repository;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
-
 import static com.windows33.cavendish.domain.board.entity.QBoard.board;
+import static com.windows33.cavendish.domain.board.entity.QBoardImage.boardImage;
 import static com.windows33.cavendish.domain.member.entity.QMember.member;
 import static org.hibernate.internal.util.NullnessHelper.coalesce;
 
@@ -81,4 +87,46 @@ public class BoardQueryRepository {
         }
         return null;
     }
+
+    /**
+     * 글 상세 조회
+     */
+    public BoardDetailResponseDto findBoardDetail(Integer boardId, Integer userId) {
+        BoardDetailResponseDto boardDetailResponseDto = new BoardDetailResponseDto();
+
+        // 동적 쿼리
+        BooleanExpression isMine;
+        if(userId != null) {
+            isMine = board.userId.eq(userId);
+        } else {
+            isMine = Expressions.FALSE;
+        }
+
+        List<String> images = jpaQueryFactory
+                .select(boardImage.imagePath)
+                .from(boardImage)
+                .where(board.id.eq(boardId))
+                .fetch();
+
+        BoardDataDto boardDataDto = jpaQueryFactory
+                .select(Projections.constructor(BoardDataDto.class,
+                        member.nickname,
+                        board.title,
+                        board.contents,
+                        board.quotationId,
+                        board.createDate,
+                        board.view,
+                        board.like,
+                        isMine))
+                .from(board)
+                .leftJoin(member).on(board.userId.eq(member.id))
+                .leftJoin(boardImage).on(board.id.eq(boardImage.boardId))
+                .where(board.id.eq(boardId))
+                .fetchOne();
+
+        boardDetailResponseDto.setImages(images);
+
+        return boardDetailResponseDto;
+    }
+
 }
