@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface BoardService {
 
-    void addArticle(BoardAddRequestDto boardAddRequestDto, List<MultipartFile> img, int id);
+    void addArticle(BoardAddRequestDto boardAddRequestDto, List<MultipartFile> img, Integer id);
+
+    void removeArticle(Integer boardId, Integer id);
 
 }

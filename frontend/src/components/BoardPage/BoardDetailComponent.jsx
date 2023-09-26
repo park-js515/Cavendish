@@ -6,7 +6,7 @@ import CommentCreateComponent from "components/Comment/CommentCreateComponent";
 
 export default function BoardDetailComponent() {
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
   const item = {
     id: id,
     title: "게시글 제목",
@@ -40,9 +40,9 @@ export default function BoardDetailComponent() {
         />
 
         <ul className="comment_list">
-          {commentList.map((comment) => {
+          {commentList.map((comment, idx) => {
             return (
-              <li>
+              <li key={idx}>
                 <CommentComponent
                   content={comment}
                   commentList={commentList}

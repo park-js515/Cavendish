@@ -3,6 +3,7 @@ import { boardCustomInstance, boardDefaultInstance } from "./lib/index";
 // 1. 게시글 조회
 /**
  *
+ * @param {params} params [{page:int, size:int, sort:"contents,ASC"}]
  * @param {function} sucess [callback]
  * @param {function} fail [callback]
  */
@@ -23,7 +24,15 @@ const getBoardsList = (params, sucess, fail) => {
 const createBoardContent = (body, sucess, fail) => {
   const api = boardCustomInstance();
   api.defaults.headers["Content-Type"] = "multipart/form-data";
-  api.post(``, JSON.stringify(body)).then(sucess).catch(fail);
+  api.post(``, body).then(sucess).catch(fail);
 };
 
 export { getBoardsList, createBoardContent };
+
+// 3. 게시글 상세 페이지 조회
+/**
+ *
+ * @param {id} id [{id:int}]
+ * @param {function} sucess [callback]
+ * @param {function} fail [callback]
+ */
