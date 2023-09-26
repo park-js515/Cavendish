@@ -111,7 +111,7 @@ COLLATE = utf8mb4_unicode_ci;
 CREATE TABLE `boards_image` (
     `id` int NOT NULL AUTO_INCREMENT,
     `board_id` int NOT NULL,
-    `image_path` varchar(100) NOT NULL,
+    `image_path` varchar(1000) NOT NULL,
     PRIMARY KEY (`id`),
     CONSTRAINT `fk_boards_image_board_id`
         FOREIGN KEY (`board_id`)
