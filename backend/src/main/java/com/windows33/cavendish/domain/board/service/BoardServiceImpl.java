@@ -7,6 +7,8 @@ import com.windows33.cavendish.domain.board.repository.BoardImageRepository;
 import com.windows33.cavendish.domain.board.repository.BoardRepository;
 import com.windows33.cavendish.domain.member.entity.Member;
 import com.windows33.cavendish.domain.member.repository.MemberRepository;
+import com.windows33.cavendish.global.exception.InvalidException;
+import com.windows33.cavendish.global.exception.NotFoundException;
 import com.windows33.cavendish.global.util.LocalFileUtil;
 import lombok.Builder;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Service
@@ -28,8 +31,7 @@ public class BoardServiceImpl implements BoardService {
     private final LocalFileUtil localFileUtil;
 
     @Override
-    public void addArticle(BoardAddRequestDto boardAddRequestDto, List<MultipartFile> img, int id) {
-        // 글 작성
+    public void addArticle(BoardAddRequestDto boardAddRequestDto, List<MultipartFile> img, Integer id) {
         Board.BoardBuilder board = Board.builder()
                 .userId(id)
                 .title(boardAddRequestDto.getTitle())
@@ -49,6 +51,28 @@ public class BoardServiceImpl implements BoardService {
                             .build()
             );
         }
+    }
+
+    @Override
+    public void removeArticle(Integer boardId, Integer id) {
+        Board board = checkAuthority(boardId, id);
+
+        // 이미지 조회
+        List<BoardImage> images = boardImageRepository.findByBoardId(boardId).orElseThrow(() -> new NotFoundException(BoardImage.class, boardId));
+
+        // 이미지 제거
+        List<Integer> ids = localFileUtil.deleteFiles(images);
+        boardImageRepository.deleteByIdIn(ids);
+    }
+
+    private Board checkAuthority(Integer boardId, Integer id) {
+        Board board = boardRepository.findById(boardId).orElseThrow(() -> new NotFoundException(Board.class, boardId));
+
+        if(!board.getUserId().equals(id)) {
+            throw new InvalidException(Board.class, boardId);
+        }
+
+        return board;
     }
 
 }
