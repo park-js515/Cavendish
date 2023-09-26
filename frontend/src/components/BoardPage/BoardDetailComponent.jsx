@@ -1,14 +1,12 @@
 import { useState } from "react";
-import {
-  Link,
-  useParams,
-} from "../../../node_modules/react-router-dom/dist/index";
-import { current } from "../../../node_modules/@reduxjs/toolkit/dist/index";
+import { Link, useParams } from "react-router-dom";
+import { current } from "@reduxjs/toolkit";
 import CommentComponent from "components/Comment/index";
 import CommentCreateComponent from "components/Comment/CommentCreateComponent";
 
 export default function BoardDetailComponent() {
   const { id } = useParams();
+  console.log(id);
   const item = {
     id: id,
     title: "게시글 제목",
@@ -30,7 +28,7 @@ export default function BoardDetailComponent() {
 
       <hr />
 
-      <div className="detail_content">{item.content}</div>
+      <div className="detail_content">{item.contents}</div>
 
       <hr />
 

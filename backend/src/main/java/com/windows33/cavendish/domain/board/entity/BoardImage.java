@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @SuperBuilder
 @NoArgsConstructor
-@Table(name = "board_image")
+@Table(name = "boards_image")
 @Entity
 public class BoardImage {
 

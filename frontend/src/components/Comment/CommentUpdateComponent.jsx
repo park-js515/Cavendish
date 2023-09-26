@@ -12,7 +12,7 @@ export default function CommentUpdateComponent({
     setNewComment((current) => e.target.value);
   };
   const handleCommentSubmit = () => {
-    setCommentList((commentList) => [...commentList, comment]);
+    setCommentList((commentList) => [...commentList, newComment]);
     setIsUpdate(false);
   };
 

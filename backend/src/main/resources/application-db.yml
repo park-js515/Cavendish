@@ -41,7 +41,7 @@ spring:
         show_sql: false   # SQL 쿼리 확인 X
 
   datasource:
-    url: jdbc:mariadb://stg-yswa-kr-practice-db-master.mariadb.database.azure.com:3306/S09P22C105
+    url: https://j9c105.p.ssafy.io:3306/S09P22C105
     username: S09P22C105
     password: S09P22C105
 
