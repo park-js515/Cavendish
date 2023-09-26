@@ -71,13 +71,18 @@ const Process5 = ({ className }) => {
         </div>
         <div className="proc5-bot">
           <div className="submitBtn-wrapper">
-            <SubmitBtn onClick={() => {
-              // const text = `priority`;
-              // const priority = {};
-              // selectedOptions.map((item, index) => {
-                
-              // })
-            }} />
+            <SubmitBtn
+              onClick={() => {
+                const text = `priority`;
+                const priority = {};
+                for (let i = 0; i < selectedOptions.length; i++) {
+                  // priority[`${text}${i + 1}`] = selectedOptions[i].label;
+                  priority[`${text}${i + 1}`] = selectedOptions[i].value;
+                }
+                dispatch(recom.setProcess(priority));
+                dispatch(recom.setProcessNo(4));
+              }}
+            />
           </div>
         </div>
       </div>
