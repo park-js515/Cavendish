@@ -15,6 +15,10 @@ from models.quotation import Quotation
 from models.programs import Program
 from models.power import Power
 
+from fastapi.responses import JSONResponse
+
+from core.mainboard import *
+
 from schemas.search import ProcessListStep1
 
 from db.connection import engineconn
@@ -27,6 +31,56 @@ router = APIRouter(
 ) # Route 분리
 
 @router.get("/{keyword:str}/{page:int}")
-async def mainboard_search(keyword: str, page: int, state: ProcessListStep1 = Depends()):
-    result = session.query(Mainboard).filter(Mainboard.name.like(f'%{keyword}%')).offset((page-1)*10).limit(10).all()
+async def mainboard_search(keyword: str, page: int=1, state: ProcessListStep1 = Depends()):
+    mainboard = session.query(Mainboard).filter(Mainboard.name.like(f'%{keyword}%')).all()
+    page_size = (len(mainboard) // 10) + 1
+    if page > page_size:
+        return JSONResponse(content={"error": "Bad Request"}, status_code=400)
+    try:
+        result = []
+
+        for i in range(len(mainboard)):
+            item = {
+                'data': mainboard[i],
+                'compatibility': [],
+            }
+            result.append(item)
+
+        if state.cpu != -1:
+            # cpu 소켓
+            cpu = session.query(CPU).filter(CPU.id == state.cpu).first()
+            result = mainboard_com_cpu(result, cpu)
+
+        if state.case != -1:
+            # 폼팩터 크기
+            case = session.query(Case).filter(Case.id == state.case).first()
+            result = mainboard_com_case(result, case)
+
+        if state.ram != -1:
+            # 램 타입, 램 개수, xmp, expo
+            ram = session.query(RAM).filter(RAM.id == state.ram).first()
+            result = mainboard_com_ram(result, ram)
+
+        if state.ssd != -1:
+            # ssd 타입, ssd 개수,
+            ssd = session.query(SSD).filter(SSD.id == state.ssd).first()
+            result = mainboard_com_ssd(result, ssd)
+
+        if state.gpu != -1:
+            # 그래픽카드 인터페이스
+            gpu = session.query(GPU).filter(GPU.id == state.gpu).first()
+            result = mainboard_com_gpu(result, gpu)
+
+
+        headers = {"max_page": str(page_size)}
+
+        response = JSONResponse(content=result[(page-1)*10:page*10], status_code=200, headers=headers)
+
+        return response
+    except:
+        return JSONResponse(content={"error": "Bad Request"}, status_code=400)
+    finally:
+        session.close()
+
+
     return result
