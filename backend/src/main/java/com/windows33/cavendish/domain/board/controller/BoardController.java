@@ -27,7 +27,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/boards")
+@RequestMapping("/api/board")
 public class BoardController {
 
     private final BoardService boardService;
@@ -55,10 +55,9 @@ public class BoardController {
     })
     @GetMapping
     public CommonResponse<Page<BoardListResponseDto>> findAllArticle(
-            @PageableDefault(sort="modifyDateTime", direction = Sort.Direction.DESC) Pageable pageable,
-            @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
+            @PageableDefault(sort="modifyDateTime", direction = Sort.Direction.DESC) Pageable pageable
     ) {
-        return CommonResponse.OK(boardQueryService.findBoardList(pageable, userPrincipal.getId()));
+        return CommonResponse.OK(boardQueryService.findBoardList(pageable));
     }
 
 }

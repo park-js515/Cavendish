@@ -11,12 +11,12 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 public class BoardListResponseDto {
 
+    private Integer boardId;
     private String nickname;
     private String title;
     private String contents;
     private Timestamp createDateTime;
     private Integer view;
     private Integer like;
-    private Boolean isMine;
 
 }
