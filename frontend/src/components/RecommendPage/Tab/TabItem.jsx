@@ -40,6 +40,7 @@ const TabItem = ({ className, title, resetTab, index }) => {
     return state.recommend;
   });
 
+  // 제거 버튼 추가하기
   const TabContent0 = () => {
     const data = recommend.processList[0];
     const handleRam = (val) => {
