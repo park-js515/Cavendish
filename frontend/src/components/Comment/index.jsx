@@ -22,7 +22,6 @@ export default function CommentComponent({
         <div className="comment_body">
           <div className="comment_header">
             <div className="comment_user">
-              <image className="user_img" src="#" alt="user_img" />
               <div>닉네임</div>
             </div>
             <div className="buttons">

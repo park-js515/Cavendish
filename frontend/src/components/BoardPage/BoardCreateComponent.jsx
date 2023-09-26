@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Link } from "../../../node_modules/react-router-dom/dist/index";
-import { current } from "../../../node_modules/@reduxjs/toolkit/dist/index";
+import { Link, useNavigate } from "react-router-dom";
+import { current } from "@reduxjs/toolkit";
 import { createBoardContent } from "api/boards";
 
 export default function BoardCreateComponent() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const navigate = useNavigate();
 
   const handleTitle = (e) => {
     setTitle((current) => e.target.value);
@@ -14,13 +15,32 @@ export default function BoardCreateComponent() {
     setContent((current) => e.target.value);
   };
 
-  const createHandler = () => {
-    createBoardContent(
-      {
-        data: { quotationId: null, title: title, contents: content },
-        files: { files: null },
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    let files = e.target.files.files;
+    let formData = new FormData();
+
+    let dataSet = {
+      quotation_id: null,
+      title: title,
+      contents: content,
+    };
+
+    formData.append("data", JSON.stringify(dataSet));
+
+    for (let i = 0; i < files.length; i++) {
+      formData.append("files", files[i]);
+    }
+
+    console.log(formData.get("data"));
+    console.log(formData.getAll("files"));
+
+    await createBoardContent(
+      formData,
+      () => {
+        navigate.push("/board");
       },
-      () => {},
       () => {
         console.error();
       },
@@ -29,10 +49,11 @@ export default function BoardCreateComponent() {
 
   return (
     <div className="create_page">
-      <form className="create_form">
+      <form className="create_form" onSubmit={(e) => onSubmit(e)}>
         <input
           className="create_title"
           type="text"
+          name="title"
           value={title}
           onChange={handleTitle}
           placeholder="제목을 입력해 주세요."
@@ -40,14 +61,15 @@ export default function BoardCreateComponent() {
         <textarea
           className="create_body"
           type="text"
+          name="content"
           value={content}
           onChange={handleContent}
         />
         <input type="file" name="files" multiple="multiple" />
         <div className="buttons">
-          <Link className="button_link" onClick={createHandler} to="/board">
+          <button type="submit" className="button_link">
             생성
-          </Link>
+          </button>
           <Link className="button_link" to="/board">
             취소
           </Link>
