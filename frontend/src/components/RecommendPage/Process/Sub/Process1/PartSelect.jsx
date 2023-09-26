@@ -1,4 +1,5 @@
 import SearchComponent from "../SearchComponent";
+import ItemList from "../ItemList";
 
 //redux
 import { useSelector } from "react-redux";
@@ -21,6 +22,7 @@ const PartSelect = ({ setSubProcess }) => {
         back
       </button>
       <SearchComponent value={value} setValue={setValue} />
+      <ItemList />
     </div>
   );
 };

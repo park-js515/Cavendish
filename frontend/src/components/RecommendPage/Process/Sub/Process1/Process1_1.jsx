@@ -3,7 +3,7 @@ const Process1_1 = ({ setSubProcess }) => {
   return (
     <div className="proc1_1">
       <div>
-        <div className="text">가지고 있는 컴퓨터 본체 부품이 있나요?</div>
+        <div className="text">추가로 가지고 있는 컴퓨터 본체 부품이 있나요?</div>
         <br />
         <br />
         <div className="btn-group">
