@@ -53,8 +53,12 @@ const recommendSlice = createSlice({
         ...action.payload,
       };
     },
+    removeProcessList0: (state, action) => {
+      state.processList[0][action.payload.index] = action.payload.data;
+    },
     removeProcess: (state) => {
-      state.processList[state.processNo] = initialState_origin.processList[state.processNo];
+      state.processList[state.processNo] =
+        initialState_origin.processList[state.processNo];
       state.processNo--;
     },
     setRamNo: (state, action) => {
@@ -69,6 +73,7 @@ export const {
   setSelected,
   setProcessList0,
   setProcess,
+  removeProcessList0,
   removeProcess,
   setRamNo,
 } = recommendSlice.actions;
