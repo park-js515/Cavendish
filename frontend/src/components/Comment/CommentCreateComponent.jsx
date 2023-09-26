@@ -9,7 +9,7 @@ export default function CommentCreateComponent({
   };
   const handleCommentSubmit = () => {
     if (comment === "") return;
-    setCommentList((commentList) => [...commentList, comment]);
+    setCommentList((commentList) => [comment, ...commentList]);
     setComment("");
   };
 
