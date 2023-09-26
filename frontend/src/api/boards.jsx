@@ -23,8 +23,7 @@ const getBoardsList = (params, sucess, fail) => {
 
 const createBoardContent = (body, sucess, fail) => {
   const api = boardCustomInstance();
-  if (body.files !== null)
-    api.defaults.headers["Content-Type"] = "multipart/form-data";
+  api.defaults.headers["Content-Type"] = "multipart/form-data";
   api.post(``, body).then(sucess).catch(fail);
 };
 
