@@ -29,11 +29,10 @@ export default function BoardCreateComponent() {
 
     formData.append("data", JSON.stringify(dataSet));
 
-    if (files === null) formData.append("files", null);
-    else {
+    if (files !== null) {
       for (let i = 0; i < files.length; i++) {
         formData.append("files", files[i]);
-        console.log(files[i]);
+        // console.log(files[i]);
       }
     }
 

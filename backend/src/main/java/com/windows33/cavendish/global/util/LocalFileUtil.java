@@ -1,5 +1,6 @@
 package com.windows33.cavendish.global.util;
 
+import com.windows33.cavendish.domain.board.entity.BoardImage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -8,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.List;
 
 @Slf4j
 @Component
@@ -52,6 +54,30 @@ public class LocalFileUtil {
         }
 
         return filePaths;
+    }
+
+    /**
+     * 파일 삭제
+     */
+    public List<Integer> deleteFiles(List<BoardImage> images) {
+        List<Integer> result = new ArrayList<>();
+
+        for(BoardImage image : images) {
+            try {
+                File file = new File(image.getImagePath());
+
+                if(file.exists()) {
+                    file.delete();
+                    result.add(image.getId());
+                } else {
+                    log.error("File not found");
+                }
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        return result;
     }
 
     // 날짜 문자열 생성(연/월/일)

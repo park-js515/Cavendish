@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { setTab } from "components/RecommendPage/Tab/TabGroup";
 
 // imgs
 import defaultCase from "assets/defaultImgs/default_case.avif";
@@ -95,6 +94,10 @@ const Process1_2 = ({ setSubProcess }) => {
               onClick={() => {
                 setSelected(index);
                 setSubProcess(2);
+
+                if (index === 7) {
+                  dispatch(recom.setRamNo(1));
+                }
               }}
             />
           );

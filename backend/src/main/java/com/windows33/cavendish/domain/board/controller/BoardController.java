@@ -40,7 +40,7 @@ public class BoardController {
             @Parameter(name = "multipartFiles", description = "이미지")
     })
     @PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE})
-    public CommonResponse<Void> addArticle(
+    public CommonResponse<Void> articleAdd(
             @RequestPart(value = "data") BoardAddRequestDto boardAddRequestDto,
             @RequestPart(value = "files") List<MultipartFile> multipartFiles,
             @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
@@ -55,7 +55,7 @@ public class BoardController {
             @Parameter(name = "pageable", description = "페이지 정보")
     })
     @GetMapping
-    public CommonResponse<Page<BoardListResponseDto>> findAllArticle(
+    public CommonResponse<Page<BoardListResponseDto>> articleList(
             @PageableDefault(sort="modifyDateTime", direction = Sort.Direction.DESC) Pageable pageable
     ) {
         return CommonResponse.OK(boardQueryService.findBoardList(pageable));
@@ -66,11 +66,25 @@ public class BoardController {
             @Parameter(name = "boardId", description = "")
     })
     @GetMapping("/detail/{boardId}")
-    public CommonResponse<BoardDetailResponseDto> findAllArticle(
+    public CommonResponse<BoardDetailResponseDto> articleDetails(
             @PathVariable("boardId") Integer boardId,
             @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
     ) {
         return CommonResponse.OK(boardQueryService.findBoardDetail(boardId, userPrincipal!=null?userPrincipal.getId():null));
+    }
+
+    @Operation(summary = "글 삭제", description = "글 삭제")
+    @Parameters({
+            @Parameter(name = "boardId", description = "")
+    })
+    @DeleteMapping("/delete/{boardId}")
+    public CommonResponse<Void> articleRemove(
+            @PathVariable("boardId") Integer boardId,
+            @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
+    ) {
+        boardService.removeArticle(boardId, userPrincipal.getId());
+
+        return CommonResponse.OK(null);
     }
 
 }

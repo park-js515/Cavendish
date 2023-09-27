@@ -1,4 +1,3 @@
-import { setTab } from "../Tab/TabGroup";
 import { useState } from "react";
 
 //redux
@@ -9,7 +8,9 @@ const dummyBudget = 120;
 
 const BudgetComponent = ({ value, setValue }) => {
   const onChange = (event) => {
-    setValue(Math.max(0, event.target.value));
+    const inputValue = event.target.value;
+    const newValue = inputValue === "" ? "" : Math.max(0, inputValue);
+    setValue(newValue);
   };
 
   return (
@@ -41,20 +42,6 @@ const Process4 = ({ className }) => {
 
   return (
     <div className={className}>
-      <button
-        onClick={() => {
-          dispatch(recom.setProcessNo(1));
-        }}
-      >
-        back
-      </button>
-      <button
-        onClick={() => {
-          dispatch(recom.setProcessNo(3));
-        }}
-      >
-        go
-      </button>
       <div className="proc4">
         <div className="upper">예산을 입력해주세요.</div>
         <div className="lower">
@@ -69,7 +56,8 @@ const Process4 = ({ className }) => {
         <div className="submitBtn-wrapper">
           <SubmitBtn
             onClick={() => {
-              dispatch(recom.setProcess({ budget: budget }));
+              const fixedBudget = budget !== "" ? budget : 0;
+              dispatch(recom.setProcess({ budget: fixedBudget }));
               dispatch(recom.setProcessNo(3));
             }}
           />

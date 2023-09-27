@@ -33,7 +33,6 @@ const Item = ({ imgUrl, name, style }) => {
     <div
       className="item"
       onClick={() => {
-        console.log(name);
         dispatch(recom.setProcessList0({ value: name }));
       }}
     >
