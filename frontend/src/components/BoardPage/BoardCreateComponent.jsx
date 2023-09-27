@@ -15,34 +15,43 @@ export default function BoardCreateComponent() {
     setContent((current) => e.target.value);
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
 
-    let files = e.target.files.files;
+    let files = e.target.uploadedFile.files;
     let formData = new FormData();
 
-    let dataSet = {
+    let data = {
       quotation_id: null,
       title: title,
       contents: content,
     };
 
-    formData.append("data", JSON.stringify(dataSet));
+    formData.append(
+      "data",
+      new Blob([JSON.stringify(data)], { type: "application/json" }),
+    );
 
-    if (files !== null) {
+    if (files.length > 0) {
       for (let i = 0; i < files.length; i++) {
         formData.append("files", files[i]);
-        // console.log(files[i]);
       }
-    }
+    } else formData.append("files", new Blob([], { type: "application/json" }));
 
-    console.log(formData.get("data"));
-    console.log(formData.getAll("files"));
+    // console.log(formData.get("data"));
+    // console.log(formData.getAll("files"));
 
-    createBoardContent(
+    // for (let key of formData.keys()) {
+    //   console.log(key);
+    // }
+    // for (let value of formData.values()) {
+    //   console.log(value);
+    // }
+
+    await createBoardContent(
       formData,
       () => {
-        navigate.push("/board");
+        navigate("/board");
       },
       () => {
         console.error();
@@ -68,7 +77,7 @@ export default function BoardCreateComponent() {
           value={content}
           onChange={handleContent}
         />
-        <input type="file" name="files" multiple="multiple" />
+        <input type="file" name="uploadedFile" multiple="multiple" />
         <div className="buttons">
           <button type="submit" className="button_link">
             생성
