@@ -118,8 +118,8 @@ public class BoardQueryRepository {
                 .fetchOne();
 
         // images
-        List<String> images = jpaQueryFactory
-                .select(boardImage.imagePath)
+        List<Integer> images = jpaQueryFactory
+                .select(boardImage.id)
                 .from(boardImage)
                 .where(board.id.eq(boardId))
                 .leftJoin(board).on(boardImage.boardId.eq(board.id))

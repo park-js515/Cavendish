@@ -22,7 +22,7 @@ public class BoardDetailResponseDto {
     private Integer view;
     private Integer like;
     private Boolean isMine;
-    private List<String> images = new ArrayList<>();
+    private List<Integer> images = new ArrayList<>();
 
     public void setBoardData(BoardDataDto boardDataDto) {
         this.nickname = boardDataDto.getNickname();
