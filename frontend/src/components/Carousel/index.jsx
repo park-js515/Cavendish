@@ -3,7 +3,7 @@ import "styles/css/carousel.css";
 
 function Carousel({ carouselList }) {
   const [currentIndex, setCurrentIndex] = useState(1);
-  const [currentList, setCurrentList] = useState([]);
+  const [currentList, setCurrentList] = useState(carouselList);
   let touchStartX = null;
 
   const carouselRef = useRef(null);
@@ -99,7 +99,7 @@ function Carousel({ carouselList }) {
           {currentList.map((image, idx) => (
             <li key={`${image}-${idx}`} className="carouselItem">
               <img
-                src={image}
+                src={`https://localhost:5000/api/image/${image}`}
                 alt="carousel-img"
                 onDragStart={(e) => e.preventDefault()}
               />

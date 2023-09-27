@@ -43,6 +43,9 @@
       li {
         flex: none;
         object-fit: contain;
+        img {
+          max-width: 100px;
+        }
       }
     }
   }
