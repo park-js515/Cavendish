@@ -3,9 +3,9 @@ from sqlalchemy.orm import sessionmaker
 
 app = {
     "name" : "mysql+pymysql",
-    "user" : "S09P22C105",
-    "password" : "S09P22C105",
-    "host" : "localhost",
+    "user" : "root",
+    "password" : "ssafy",
+    "host" : "mariadb",
     "port" : 3306,
     "database" : "s09p22c105"
 }

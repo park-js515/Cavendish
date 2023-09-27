@@ -75,6 +75,9 @@ routers = [
 engine = engineconn()
 session = engine.sessionmaker()
 
+if __name__ == '__main__':
+    uvicorn.run("main:app", port=8888, host='0.0.0.0', reload = True, reload_dirs = ["html_files"], ssl_keyfile="/etc/letsencrypt/live/j9c105.p.ssafy.io/privkey.pem", ssl_certfile="/etc/letsencrypt/live/j9c105.p.ssafy.io/fullchain.pem")
+
 # if __name__ == '__main__':
 #     Popen(['python', '-m', 'https_redirect'])  # Add this
 #     uvicorn.run(

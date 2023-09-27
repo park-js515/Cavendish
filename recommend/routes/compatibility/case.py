@@ -47,10 +47,31 @@ async def case_search(keyword: str, page: int, state: ProcessListStep1 = Depends
             result.append(item)
 
         if state.gpu != -1:
-            pass
+            gpu = session.query(GPU).filter(GPU.id == state.gpu).first()
+            for i in range(len(result)):
+                if gpu_com_case(gpu.length, result[i]['data'].gpu_size):
+                    pass
+                else:
+                    result[i]['compatibility'].append('gpu')
 
         if state.power != -1:
-            pass
+            power = session.query(Power).filter(Power.id == state.power).first()
+            for i in range(len(result)):
+                if power_com_case(power.depth, result[i]['data'].power_size):
+                    pass
+                else:
+                    result[i]['compatibility'].append('power')
+                    continue
+                if power_com_case_support(power.category, result[i]['data'].power_support):
+                    pass
+                else:
+                    result[i]['compatibility'].append('power')
+
+        if state.mainboard != -1:
+            mainboard = session.query(Mainboard).filter(Mainboard.id == state.mainboard).first()
+
+        if state.cooler != -1:
+            cooler = session.query(Cooler).filter(Cooler.id == state.cooler).first()
 
     except:
         return JSONResponse(content={"error" : "Bad Request"}, status_code=400)
