@@ -23,7 +23,6 @@ const Item = ({ imgUrl, usage }) => {
   });
 
   const onClick = () => {
-    console.log(JSON.stringify(data))
     if (data.includes(usage)) {
       dispatch(recom.removeProcessList1({ value: usage }));
     } else {
@@ -31,9 +30,11 @@ const Item = ({ imgUrl, usage }) => {
     }
   };
 
+  const className = data.includes(usage) ? "item-active" : "item";
+
   if (imgUrl) {
     return (
-      <div className="item" onClick={onClick}>
+      <div className={className} onClick={onClick}>
         <div
           className="item-top"
           style={{
