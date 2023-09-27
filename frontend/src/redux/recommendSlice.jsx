@@ -65,7 +65,7 @@ const recommendSlice = createSlice({
       }
     },
     removeProcessList1: (state, action) => {
-      const value = action.payload;
+      const value = action.payload.value;
       delete state.processList[2][value];
     },
     addProcessList2: (state, action) => {

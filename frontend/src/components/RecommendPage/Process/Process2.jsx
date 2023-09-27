@@ -23,6 +23,7 @@ const Item = ({ imgUrl, usage }) => {
   });
 
   const onClick = () => {
+    console.log(JSON.stringify(data))
     if (data.includes(usage)) {
       dispatch(recom.removeProcessList1({ value: usage }));
     } else {
