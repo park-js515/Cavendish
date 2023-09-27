@@ -39,8 +39,9 @@ class PowerSchema(BaseModel):
     as_years: Optional[int] = None
     reg_date: Optional[int] = None
     bookmark: Optional[int] = 0
+    compatibility: Optional[list[str]] = []
 
-def serialize_power(power_object):
+def serialize_power(power_object, compatibility):
     power_dict = PowerSchema(
         id=power_object.id,
         name=power_object.name,
@@ -78,6 +79,7 @@ def serialize_power(power_object):
         protection=power_object.protection,
         as_years=power_object.as_years,
         reg_date=power_object.reg_date,
-        bookmark=power_object.bookmark
+        bookmark=power_object.bookmark,
+        compatibility=compatibility
     ).__dict__
     return power_dict

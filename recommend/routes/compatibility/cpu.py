@@ -78,7 +78,7 @@ async def cpu_search(keyword: str, page: int = 1, state: ProcessListStep1 = Depe
             else:    
                 result[i]['data'].memory_type = decimal_to_name(result[i]['data'].memory_type, len(cpu_com['memory_type']), cpu_com['memory_type'])
             result[i] = serialize_cpu(result[i]['data'], result[i]['compatibility'])
-
+            
         headers = {"max_page": str(page_size)}
     # 데이터를 리스트에 넣을 필요가 있는 경우만 리스트로 만듦
         response = JSONResponse(content=result[(page-1)*10:min(page*10, page_size*10)], status_code=200, headers=headers)
