@@ -3,18 +3,22 @@ import { Link, useParams } from "react-router-dom";
 import { current } from "@reduxjs/toolkit";
 import CommentComponent from "components/Comment/index";
 import CommentCreateComponent from "components/Comment/CommentCreateComponent";
-import { getBoardDetailContent } from "api/boards";
+import { deleteBoardContent, getBoardDetailContent } from "api/boards";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function BoardDetailComponent() {
   const { id } = useParams();
-  
-  const [nickname, setNickname] = useState("")
-  const [title, setTitle] = useState("")
-  const [contents, setContents] = useState("")
+
+  const [nickname, setNickname] = useState("");
+  const [title, setTitle] = useState("");
+  const [contents, setContents] = useState("");
+  const [date, setDate] = useState("");
 
   const [comment, setComment] = useState("");
   const [commentList, setCommentList] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     getBoardDetailContent(
@@ -22,21 +26,34 @@ export default function BoardDetailComponent() {
       (response) => {
         const data = response.data.response;
         // console.log(data);
-        setNickname(data.nickname)
-        setTitle(data.title)
-        setContents(data.contents)
+        setNickname(data.nickname);
+        setTitle(data.title);
+        setContents(data.contents);
+        setDate(data.createDateTime);
       },
       () => {},
     );
   });
 
+  const deleteHandler = () => {
+    deleteBoardContent(
+      id,
+      () => {
+        console.log("delete complete");
+        navigate(`/board`);
+      },
+      () => {
+        console.error();
+      },
+    );
+  };
 
   return (
     <div className="detail_page">
       <div className="detail_header">
         <h2>{title}</h2>
         <div className="header_info">
-          <div>일시 2023-09-22</div>
+          <div>일시 {date}</div>
           <div>{nickname}</div>
         </div>
       </div>
@@ -73,6 +90,9 @@ export default function BoardDetailComponent() {
         <Link className="button_link right" to="/board">
           돌아가기
         </Link>
+        <button className="button_link" onClick={deleteHandler} type="button">
+          삭제하기
+        </button>
       </div>
     </div>
   );

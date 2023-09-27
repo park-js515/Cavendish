@@ -40,7 +40,7 @@ export default function MyPageComponent() {
     <div className="mypage_main">
       {!isUpdate && (
         <div className="mypage_info">
-          <image className="user_img" src="#" alt="user_img" />
+          {/* <image className="user_img" src="#" alt="user_img" /> */}
           <div className="user_info">
             <div className="user_id">{data.loginId}</div>
             <div className="user_nickname">{data.nickname}</div>
