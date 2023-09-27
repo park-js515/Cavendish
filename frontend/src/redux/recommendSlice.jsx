@@ -65,6 +65,7 @@ const recommendSlice = createSlice({
       }
     },
     removeProcessList1: (state, action) => {
+      // 제거하는 코드 
       const value = action.payload.value;
       delete state.processList[2][value];
     },
