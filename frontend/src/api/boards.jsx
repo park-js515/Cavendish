@@ -2,6 +2,7 @@ import {
   boardCustomInstance,
   boardDefaultInstance,
   boardDetailDefaultInstance,
+  imageDefaultInstance,
 } from "./lib/index";
 
 // 1. 게시글 조회
@@ -55,9 +56,23 @@ const deleteBoardContent = (id, sucess, fail) => {
   api.delete(`/delete/${id}`).then(sucess).catch(fail);
 };
 
+// 5. 이미지 로드
+/**
+ *
+ * @param {function} sucess [callback]
+ * @param {function} fail [callback]
+ */
+
+const getBoardImage = (id, sucess, fail) => {
+  const api = imageDefaultInstance();
+  api.defaults.headers["Content-Type"] = "multipart/form-data";
+  api.get(`/${id}`).then(sucess).catch(fail);
+};
+
 export {
   getBoardsList,
   createBoardContent,
   getBoardDetailContent,
   deleteBoardContent,
+  getBoardImage,
 };
