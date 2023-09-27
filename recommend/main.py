@@ -1,5 +1,7 @@
 from fastapi import FastAPI, APIRouter, Query
 from fastapi.middleware.cors import CORSMiddleware
+import uvicorn
+from subprocess import Popen
 from pydantic import BaseModel
 from typing import List
 from models.users import User
@@ -25,11 +27,12 @@ from routes.compatibility.case import router as case_router
 from routes.compatibility.ssd import router as ssd_router
 from routes.compatibility.power import router as power_router
 
-
+from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
 from fastapi.responses import JSONResponse
 from db.connection import engineconn
 
 app = FastAPI()
+# app.add_middleware(HTTPSRedirectMiddleware)
 
 
 origins = [
@@ -37,7 +40,10 @@ origins = [
     "https://localhost.tiangolo.com",
     "http://localhost",
     "http://localhost:8080",
-    "http://localhost:3000"
+    "http://localhost:3000",
+    "https://localhost",
+    "https://localhost:8080",
+    "https://localhost:3000",
 ]
 
 app.add_middleware(
@@ -52,7 +58,7 @@ app.add_middleware(
 #     prefix="/api", # url 앞에 고정적으로 붙는 경로추가
 # ) # Route 분리
 
-common_prefix = "/api"
+common_prefix = "/fapi"
 
 routers = [
     cpu_router,
@@ -69,7 +75,13 @@ routers = [
 engine = engineconn()
 session = engine.sessionmaker()
 
-
+# if __name__ == '__main__':
+#     Popen(['python', '-m', 'https_redirect'])  # Add this
+#     uvicorn.run(
+#         'main:app', port=8000, host='127.0.0.1',
+#         reload=True,
+#         ssl_keyfile='/path/to/certificate-key.pem',
+#         ssl_certfile='/path/to/certificate.pem')
 
 for router in routers:
     app.include_router(router, prefix=common_prefix)

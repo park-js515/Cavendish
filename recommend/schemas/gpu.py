@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
 
 class GPUSchema(BaseModel):
     id: int
@@ -36,9 +36,10 @@ class GPUSchema(BaseModel):
     bench_mark: Optional[int] = None
     reg_date: Optional[int] = None
     bookmark: Optional[int] = 0
+    compatibility: Optional[List[str]] = []
 
 
-def serialize_gpu(gpu_object):
+def serialize_gpu(gpu_object, compatibility):
     gpu_dict = GPUSchema(
         id=gpu_object.id,
         name=gpu_object.name,
@@ -73,6 +74,7 @@ def serialize_gpu(gpu_object):
         as_years=gpu_object.as_years,
         bench_mark=gpu_object.bench_mark,
         reg_date=gpu_object.reg_date,
-        bookmark=gpu_object.bookmark
+        bookmark=gpu_object.bookmark,
+        compatibility=compatibility
     ).__dict__
     return gpu_dict
