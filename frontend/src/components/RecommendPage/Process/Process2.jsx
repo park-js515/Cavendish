@@ -1,4 +1,6 @@
+import { useState } from "react";
 import dummyImg from "assets/defaultImgs2/Briar.png";
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 
 //redux
 import { useDispatch, useSelector } from "react-redux";
@@ -32,27 +34,61 @@ const Item = ({ imgUrl, usage }) => {
 
   const className = data.includes(usage) ? "item-active" : "item";
 
-  if (imgUrl) {
-    return (
-      <div className={className} onClick={onClick}>
-        <div
-          className="item-top"
-          style={{
-            backgroundImage: `url(${imgUrl})`,
-            visibility: usage ? "visible" : "hidden",
-          }}
-        ></div>
-        <div className="item-bot">{usage}</div>
-      </div>
-    );
-  }
+  return (
+    <div className={className} onClick={onClick}>
+      <div
+        className="item-top"
+        style={{
+          backgroundImage: `url(${imgUrl})`,
+          visibility: usage ? "visible" : "hidden",
+        }}
+      ></div>
+      <div className="item-bot">{usage}</div>
+    </div>
+  );
+};
 
-  return <div className="item-hidden"></div>;
+const TopIcons = ({ disabled }) => {
+  const [left, setLeft] = useState("20");
+  const [leftCol, setLeftCol] = useState("black");
+  const [right, setRight] = useState("20");
+  const [rightCol, setRightCol] = useState("black");
+
+  return (
+    <div
+      style={{
+        height: "30px",
+        display: "flex",
+        justifyContent: "space-between",
+      }}
+    >
+      <AiOutlineArrowLeft
+        size={left}
+        col={leftCol}
+        onMouseEnter={() => {
+          setLeft("30");
+          setLeftCol("red");
+        }}
+        onMouseLeave={() => {
+          setLeft("20");
+          setLeftCol("black");
+        }}
+        style={{
+          cursor: "pointer",
+        }}
+      />
+      <AiOutlineArrowRight
+        size={right}
+        col={rightCol}
+        style={{ cursor: "pointer" }}
+        disabled={disabled}
+      />
+    </div>
+  );
 };
 
 // 2. 용도 선택 대분류
 // 용도 선택 컴포넌트
-// overflow -> scroll: 나중에 좀 더 많은 요소가 들어올 수 있음.
 const Process2 = ({ className }) => {
   const dispatch = useDispatch();
 
