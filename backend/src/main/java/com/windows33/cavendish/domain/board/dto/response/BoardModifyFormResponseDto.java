@@ -22,7 +22,6 @@ public class BoardModifyFormResponseDto {
     private Timestamp createDateTime;
     private Integer view;
     private Integer like;
-    private Boolean isMine;
     private List<BoardModifyFormImageComponentDto> images;
 
     public void setBoardModifyFormComponent(BoardModifyFormComponentDto boardModifyFormComponentDto) {
