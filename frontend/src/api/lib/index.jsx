@@ -34,6 +34,12 @@ const boardDetailDefaultInstance = () => {
   return instance;
 };
 
+const imageDefaultInstance = () => {
+  const instance = createDefaultAxios(`/image`);
+
+  return instance;
+};
+
 const searchDefaultInstance = () => {
   const instance = createDefaultAxios(`/search`);
 
@@ -47,4 +53,5 @@ export {
   boardDefaultInstance,
   boardDetailDefaultInstance,
   searchDefaultInstance,
+  imageDefaultInstance,
 };

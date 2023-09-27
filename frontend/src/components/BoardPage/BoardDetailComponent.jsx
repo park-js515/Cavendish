@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { current } from "@reduxjs/toolkit";
 import CommentComponent from "components/Comment/index";
 import CommentCreateComponent from "components/Comment/CommentCreateComponent";
-import { deleteBoardContent, getBoardDetailContent } from "api/boards";
+import {
+  deleteBoardContent,
+  getBoardDetailContent,
+  getBoardImage,
+} from "api/boards";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Carousel from "components/Carousel/index";
 
 export default function BoardDetailComponent() {
   const { id } = useParams();
@@ -18,6 +23,8 @@ export default function BoardDetailComponent() {
   const [comment, setComment] = useState("");
   const [commentList, setCommentList] = useState([]);
 
+  const [imageData, setImageData] = useState([]);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,22 +32,22 @@ export default function BoardDetailComponent() {
       id,
       (response) => {
         const data = response.data.response;
-        // console.log(data);
         setNickname(data.nickname);
         setTitle(data.title);
         setContents(data.contents);
         setDate(data.createDateTime);
+        setImageData(data.images);
       },
       () => {},
     );
-  });
+  }, []);
 
-  const deleteHandler = () => {
-    deleteBoardContent(
+  const deleteHandler = async () => {
+    await deleteBoardContent(
       id,
       () => {
-        console.log("delete complete");
         navigate(`/board`);
+        console.log("delete complete");
       },
       () => {
         console.error();
@@ -60,7 +67,10 @@ export default function BoardDetailComponent() {
 
       <hr />
 
-      <div className="detail_content">{contents}</div>
+      <div className="detail_content">
+        <Carousel carouselList={imageData} />
+        {contents}
+      </div>
 
       <hr />
 
