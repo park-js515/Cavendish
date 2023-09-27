@@ -72,7 +72,8 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public Integer modifyArticle(BoardModifyRequestDto boardModifyRequestDto, List<MultipartFile> img, Integer id) {
+    public Integer modifyArticle(BoardModifyRequestDto boardModifyRequestDto, Integer id) {
+
 //        Board board = Board.builder()
 //                .userId(id)
 //                .title(boardModifyRequestDto.getTitle())

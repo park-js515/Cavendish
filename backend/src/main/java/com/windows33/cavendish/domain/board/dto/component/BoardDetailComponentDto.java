@@ -1,4 +1,4 @@
-package com.windows33.cavendish.domain.board.dto.data;
+package com.windows33.cavendish.domain.board.dto.component;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BoardDataDto {
+public class BoardDetailComponentDto {
 
     private String nickname;
     private String title;

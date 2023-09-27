@@ -1,6 +1,6 @@
 package com.windows33.cavendish.domain.board.dto.response;
 
-import com.windows33.cavendish.domain.board.dto.data.BoardDataDto;
+import com.windows33.cavendish.domain.board.dto.component.BoardDetailComponentDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,15 +24,15 @@ public class BoardDetailResponseDto {
     private Boolean isMine;
     private List<Integer> images = new ArrayList<>();
 
-    public void setBoardData(BoardDataDto boardDataDto) {
-        this.nickname = boardDataDto.getNickname();
-        this.title = boardDataDto.getTitle();
-        this.contents = boardDataDto.getContents();
-        this.quotationId = boardDataDto.getQuotationId();
-        this.createDateTime = boardDataDto.getCreateDateTime();
-        this.view = boardDataDto.getView();
-        this.like = boardDataDto.getLike();
-        this.isMine = boardDataDto.getIsMine();
+    public void setBoardData(BoardDetailComponentDto boardDetailComponentDto) {
+        this.nickname = boardDetailComponentDto.getNickname();
+        this.title = boardDetailComponentDto.getTitle();
+        this.contents = boardDetailComponentDto.getContents();
+        this.quotationId = boardDetailComponentDto.getQuotationId();
+        this.createDateTime = boardDetailComponentDto.getCreateDateTime();
+        this.view = boardDetailComponentDto.getView();
+        this.like = boardDetailComponentDto.getLike();
+        this.isMine = boardDetailComponentDto.getIsMine();
     }
 
 }

@@ -62,7 +62,7 @@ public class BoardController {
 
     @Operation(summary = "글 상세 조회", description = "글 상세 조회")
     @Parameters({
-            @Parameter(name = "boardId", description = "")
+            @Parameter(name = "boardId", description = "게시글 ID")
     })
     @GetMapping("/detail/{boardId}")
     public CommonResponse<BoardDetailResponseDto> articleDetails(
@@ -74,7 +74,7 @@ public class BoardController {
 
     @Operation(summary = "글 삭제", description = "글 삭제")
     @Parameters({
-            @Parameter(name = "boardId", description = "")
+            @Parameter(name = "boardId", description = "게시글 ID")
     })
     @DeleteMapping("/delete/{boardId}")
     public CommonResponse<Void> articleRemove(
@@ -86,9 +86,22 @@ public class BoardController {
         return CommonResponse.OK(null);
     }
 
+    @Operation(summary = "글 수정 인터페이스", description = "글 수정 인터페이스")
+    @Parameters({
+            @Parameter(name = "boardId", description = "게시글 ID")
+    })
+    @GetMapping("/update/{boardId}")
+    public CommonResponse<Integer> articleModify(
+            @PathVariable("boardId") Integer boardId,
+            @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
+    ) {
+
+        return CommonResponse.OK(null);
+    }
+
     @Operation(summary = "글 수정", description = "글 수정")
     @Parameters({
-            @Parameter(name = "boardId", description = "")
+            @Parameter(name = "boardId", description = "게시글 ID")
     })
     @PatchMapping("/update/{boardId}")
     public CommonResponse<Integer> articleModify(
