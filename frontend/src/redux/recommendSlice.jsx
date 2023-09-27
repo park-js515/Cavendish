@@ -59,7 +59,7 @@ const recommendSlice = createSlice({
     },
     addProcessList1: (state, action) => {
       if (state.processList[1].length < 2) {
-        const value = action.payload;
+        const value = action.payload.value;
         state.processList[1].push(value);
         state.processList[2][value] = [];
       }
