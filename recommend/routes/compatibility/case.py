@@ -18,6 +18,9 @@ from models.power import Power
 
 from schemas.search import ProcessListStep1
 
+from core.gpu import gpu_com_case
+from core.power import power_com_case, power_com_case_support
+from schemas.case import serialize_case
 from db.connection import engineconn
 
 engine = engineconn()
@@ -43,6 +46,11 @@ async def case_search(keyword: str, page: int, state: ProcessListStep1 = Depends
             }
             result.append(item)
 
-        
+        if state.gpu != -1:
+            pass
+
+        if state.power != -1:
+            pass
+
     except:
         return JSONResponse(content={"error" : "Bad Request"}, status_code=400)
