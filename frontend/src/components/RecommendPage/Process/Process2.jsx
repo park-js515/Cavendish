@@ -40,7 +40,7 @@ const Item = ({ imgUrl, usage }) => {
         className="item-top"
         style={{
           backgroundImage: `url(${imgUrl})`,
-          visibility: usage ? "visible" : "hidden",
+          // visibility: usage ? "visible" : "hidden",
         }}
       ></div>
       <div className="item-bot">{usage}</div>
@@ -48,40 +48,54 @@ const Item = ({ imgUrl, usage }) => {
   );
 };
 
-const TopIcons = ({ disabled }) => {
-  const [left, setLeft] = useState("20");
+const TopIcons = () => {
   const [leftCol, setLeftCol] = useState("black");
-  const [right, setRight] = useState("20");
   const [rightCol, setRightCol] = useState("black");
+  const dispatch = useDispatch();
+  const disabled =
+    useSelector((state) => {
+      return state.recommend.processList[1].length;
+    }) < 1;
 
   return (
     <div
       style={{
-        height: "30px",
+        height: "20px",
         display: "flex",
         justifyContent: "space-between",
       }}
     >
       <AiOutlineArrowLeft
-        size={left}
-        col={leftCol}
+        size="20"
+        color={leftCol}
         onMouseEnter={() => {
-          setLeft("30");
           setLeftCol("red");
         }}
         onMouseLeave={() => {
-          setLeft("20");
           setLeftCol("black");
+        }}
+        onClick={() => {
+          dispatch(recom.setProcessNo(-1));
         }}
         style={{
           cursor: "pointer",
         }}
       />
       <AiOutlineArrowRight
-        size={right}
-        col={rightCol}
-        style={{ cursor: "pointer" }}
-        disabled={disabled}
+        size="20"
+        color={disabled ? "gray" : rightCol}
+        onMouseEnter={() => {
+          setRightCol("red");
+        }}
+        onMouseLeave={() => {
+          setRightCol("black");
+        }}
+        onClick={() => {
+          if (!disabled) {
+            dispatch(recom.setProcessNo(1));
+          }
+        }}
+        style={{ cursor: disabled ? "not-allowed" : "pointer" }}
       />
     </div>
   );
@@ -94,6 +108,7 @@ const Process2 = ({ className }) => {
 
   return (
     <div className={className}>
+      <TopIcons />
       <div className="proc2">
         {list.map((item, index) => {
           return <Item key={index} {...item} />;

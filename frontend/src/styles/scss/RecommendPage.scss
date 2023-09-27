@@ -401,22 +401,6 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
                 transition: all 200ms ease-in-out;
               }
             }
-
-            .item-active {
-              @extend .item;
-              background-color: rgba(0, 255, 0, 0.25);
-
-              &:hover {
-                background-color: rgba(255, 0, 0, 0.25);
-              }
-            }
-
-            .item-hidden {
-              height: 210px;
-              width: 280px;
-              margin: 5px;
-              display: hidden;
-            }
           }
 
           .proc4 {
