@@ -1,4 +1,4 @@
-package com.windows33.cavendish.domain.image.controller;
+package com.windows33.cavendish.domain.image;
 
 import com.windows33.cavendish.domain.board.entity.Board;
 import com.windows33.cavendish.domain.board.entity.BoardImage;
