@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import defaultCPU from "assets/defaultImgs/default-cpu.avif";
 
 // axios
@@ -29,11 +29,26 @@ const Item = ({ imgUrl, name, style }) => {
   const selected = useSelector((state) => {
     return state.recommend.selected;
   });
+  const selectedValue = useSelector((state) => {
+    return state.recommend.processList[0][selected].value;
+  });
+  const className = selectedValue === name ? "item-selected" : "item";
+
   return (
     <div
-      className="item"
+      className={className}
       onClick={() => {
-        dispatch(recom.setProcessList0({ value: name }));
+        if (className === "item-selected") {
+          dispatch(recom.removeProcessList0({ index: selected }));
+          if (selected === 7) {
+            dispatch(recom.setRamNo(0));
+          }
+        } else {
+          dispatch(recom.setProcessList0({ value: name }));
+          if (selected === 7) {
+            dispatch(recom.setRamNo(1));
+          }
+        }
       }}
     >
       <div className="partImg">

@@ -14,13 +14,16 @@ const PartSelect = ({ setSubProcess }) => {
 
   return (
     <div className="partSelect">
-      <button
-        onClick={() => {
-          setSubProcess(1);
-        }}
-      >
-        back
-      </button>
+      <div className="back-wrapper">
+        <div
+          className="back"
+          onClick={() => {
+            setSubProcess(1);
+          }}
+        >
+          back
+        </div>
+      </div>
       <SearchComponent value={value} setValue={setValue} />
       <ItemList />
     </div>

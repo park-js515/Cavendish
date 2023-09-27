@@ -18,9 +18,9 @@ const initialState_origin = {
       { name: "ssd", value: "-1", id: "" },
     ],
     // process2: 용도 선택
-    { usage: "" },
+    [],
     // process3: 세부 용도 선택
-    { program: "", spec: [] },
+    {},
     // process4: 예산 선택 (단위: 만원)
     { budget: 0 },
     // process5: 우선순위 선택
@@ -54,7 +54,31 @@ const recommendSlice = createSlice({
       };
     },
     removeProcessList0: (state, action) => {
-      state.processList[0][action.payload.index] = action.payload.data;
+      state.processList[0][action.payload.index] =
+        initialState_origin.processList[0][action.payload.index];
+    },
+    addProcessList1: (state, action) => {
+      if (state.processList[1].length < 2) {
+        const value = action.payload;
+        state.processList[1].push(value);
+        state.processList[2][value] = [];
+      }
+    },
+    removeProcessList1: (state, action) => {
+      const value = action.payload;
+      delete state.processList[2][value];
+    },
+    addProcessList2: (state, action) => {
+      const key = action.payload.key;
+      const value = action.payload.value;
+      if (state.processList[2][key].length < 3) {
+        state.processList[2][key].push(value);
+      }
+    },
+    removeProcessList2: (state, action) => {
+      const key = action.payload.key;
+      const index = action.payload.index;
+      state.processList[2][key].splice(index, 1);
     },
     removeProcess: (state) => {
       state.processList[state.processNo] =
@@ -71,9 +95,13 @@ export const {
   resetProcessAll,
   setProcessNo,
   setSelected,
-  setProcessList0,
   setProcess,
+  setProcessList0,
   removeProcessList0,
+  addProcessList1,
+  removeProcessList1,
+  addProcessList2,
+  removeProcessList2,
   removeProcess,
   setRamNo,
 } = recommendSlice.actions;

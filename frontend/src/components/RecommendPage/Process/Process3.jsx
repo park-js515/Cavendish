@@ -4,6 +4,8 @@ import dummyImg from "assets/defaultImgs2/Briar.png";
 import { useSelector, useDispatch } from "react-redux";
 import * as recom from "redux/recommendSlice";
 
+// 후에 axios로 데이터를 받아야하며, 컴포넌트화가 필요하다.
+// Subprocess가 필요하다.
 const dummy = [
   { imgUrl: dummyImg, program: "리그오브레전드" },
   { imgUrl: dummyImg, program: "오버워치2" },
