@@ -1,5 +1,5 @@
 import "styles/css/RecommendPage.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 // ProgressBar
@@ -25,6 +25,9 @@ const ProcessList = [
   ProcessEnd,
 ];
 
+// useEffect를 사용해서 이미 견적을 짜고 있었을 때를 처리하기
+// Yes -> 계속 작성
+// No -> 처음부터 작성
 const RecommendPageComponent = () => {
   const processNo = useSelector((state) => {
     return state.recommend.processNo + 1;

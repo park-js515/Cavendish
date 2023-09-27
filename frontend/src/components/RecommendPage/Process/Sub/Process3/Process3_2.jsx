@@ -1,3 +1,8 @@
+import { useDispatch } from "react-redux";
+import * as recom from "redux/recommendSlice";
+
+const selected = "pc 게임";
+
 const Item = ({ imgUrl, value }) => {
   const onClick = () => {};
 
@@ -17,6 +22,7 @@ const Item = ({ imgUrl, value }) => {
 // 소분류에 해당하는 것1
 // 검색 및 페이지네이션
 // 컴포넌트 재사용 기존에 존재하던 것
+// 게임만 사용할 것 -> selected가 필요하지 않음
 const Process3_2 = ({ setSubProcess }) => {
   return <></>;
 };

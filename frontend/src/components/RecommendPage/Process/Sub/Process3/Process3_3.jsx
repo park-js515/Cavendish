@@ -1,3 +1,6 @@
+import { useDispatch } from "react-redux";
+import * as recom from "redux/recommendSlice";
+
 const Item = ({ imgUrl, value }) => {
   const onClick = () => {};
 
@@ -17,7 +20,7 @@ const Item = ({ imgUrl, value }) => {
 // 소분류에 해당하는 것2
 // 컴포넌트만 존재
 // 컴포넌트 재사용 기존에 존재하던 것
-const Process3_3 = ({ setSubProcess }) => {
+const Process3_3 = ({ setSubProcess, selected }) => {
   return <></>;
 };
 

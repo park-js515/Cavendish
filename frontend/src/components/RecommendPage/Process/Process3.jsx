@@ -14,6 +14,7 @@ const Process3 = ({ className }) => {
   const dispatch = useDispatch();
   // subProcess3: [{0: Process3_1, 1: Process3_2, 2: Process3_3, 2: go to Process4}]
   const [subProcess3, setSubProcess3] = useState(0);
+  const [selected, setSelected] = useState("");
   const isChecked = useRef(false);
   const NowComponent = subProcess3 <= 2 ? subProcessList[subProcess3] : null;
 
@@ -33,7 +34,13 @@ const Process3 = ({ className }) => {
   return (
     <div className={className}>
       <div className="proc3">
-        {NowComponent ? <NowComponent setSubProcess={setSubProcess3} /> : null}
+        {NowComponent ? (
+          <NowComponent
+            setSubProcess={setSubProcess3}
+            selected={selected}
+            setSelected={setSelected}
+          />
+        ) : null}
       </div>
       ;
     </div>
