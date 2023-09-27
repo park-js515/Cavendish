@@ -31,17 +31,22 @@ def mainboard_com_cpu(target, check):
     if check.socket != target['data'].cpu_socket:
         target['compatibility'].append('cpu')
 
-    elif check.pcie_version == 0 or target['data'].pcie_version == 0 or target['data'].pcie_version:
+    elif check.pcie_version == 0 or target['data'].pcie_version == 0 or target['data'].pcie_version is None:
         target['compatibility'].append('cpu')
 
     # PCIe 3.0
     elif 4 <= target['data'].pcie_version <= 7:
-        if check.pcie_version << 2 == 0:
+        if check.pcie_version >> 2 == 0:
             target['compatibility'].append('cpu')
 
     # PCIe 4.0
     elif 8 <= target['data'].pcie_version <= 15:
-        if check.pcie_version << 1 == 0:
+        if check.pcie_version >> 1 == 0:
+            target['compatibility'].append('cpu')
+
+    # PCIe 5.0
+    elif 16 <= target['data'].pcie_version:
+        if check.pcie_version == 0:
             target['compatibility'].append('cpu')
 
 
@@ -145,13 +150,17 @@ def mainboard_com_ssd(target, check):
 
     elif ssd_if.startswith('PCI'):
         if ssd_if.startswith('PCIe5'):
-            pass
+            if target['data'].pcie_version & (1 << 4) == 0:
+                target['compatibility'].append('ssd')
         elif ssd_if.startswith('PCIe4'):
-            pass
+            if target['data'].pcie_version & (3 << 3) == 0:
+                target['compatibility'].append('ssd')
         elif ssd_if.startswith('PCIe3'):
-            pass
+            if target['data'].pcie_version & (7 << 2) == 0:
+                target['compatibility'].append('ssd')
         elif ssd_if.startswith('PCIe2'):
-            pass
+            if target['data'].pcie_version & (15 << 1) == 0:
+                target['compatibility'].append('ssd')
 
     else:
         target['compatibility'].append('ssd need check')
