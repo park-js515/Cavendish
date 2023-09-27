@@ -59,6 +59,9 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public void removeArticle(Integer boardId, Integer id) {
         Board board = checkAuthority(boardId, id);
+        
+        // 글 삭제
+        boardRepository.delete(board);
 
         // 이미지 조회
         List<BoardImage> images = boardImageRepository.findByBoardId(boardId).orElseThrow(() -> new NotFoundException(BoardImage.class, boardId));
@@ -70,27 +73,28 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public Integer modifyArticle(BoardModifyRequestDto boardModifyRequestDto, List<MultipartFile> img, Integer id) {
-        Board.BoardBuilder board = Board.builder()
-                .userId(id)
-                .title(boardModifyRequestDto.getTitle())
-                .contents(boardModifyRequestDto.getContents())
-                .quotationId(boardModifyRequestDto.getQuotationId());
-
-        int boardId = boardRepository.save(board.build()).getId();
-
-        List<String> images = localFileUtil.uploadFiles("BoardImage", img);
-
-        // 이미지 테이블 저장
-        for(String image : images) {
-            boardImageRepository.save(
-                    BoardImage.builder()
-                            .boardId(boardId)
-                            .imagePath(image)
-                            .build()
-            );
-        }
-
-        return boardId;
+//        Board board = Board.builder()
+//                .userId(id)
+//                .title(boardModifyRequestDto.getTitle())
+//                .contents(boardModifyRequestDto.getContents())
+//                .quotationId(boardModifyRequestDto.getQuotationId());
+//
+//        int boardId = boardRepository.save(board.build()).getId();
+//
+//        List<String> images = localFileUtil.uploadFiles("BoardImage", img);
+//
+//        // 이미지 테이블 저장
+//        for(String image : images) {
+//            boardImageRepository.save(
+//                    BoardImage.builder()
+//                            .boardId(boardId)
+//                            .imagePath(image)
+//                            .build()
+//            );
+//        }
+//
+//        return boardId;
+        return 0;
     }
 
     private Board checkAuthority(Integer boardId, Integer id) {
