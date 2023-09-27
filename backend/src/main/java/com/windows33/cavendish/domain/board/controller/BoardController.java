@@ -4,6 +4,7 @@ import com.windows33.cavendish.domain.board.dto.request.BoardAddRequestDto;
 import com.windows33.cavendish.domain.board.dto.request.BoardModifyRequestDto;
 import com.windows33.cavendish.domain.board.dto.response.BoardDetailResponseDto;
 import com.windows33.cavendish.domain.board.dto.response.BoardListResponseDto;
+import com.windows33.cavendish.domain.board.dto.response.BoardModifyFormResponseDto;
 import com.windows33.cavendish.domain.board.service.BoardQueryService;
 import com.windows33.cavendish.domain.board.service.BoardService;
 import com.windows33.cavendish.global.jwt.UserPrincipal;
@@ -91,12 +92,11 @@ public class BoardController {
             @Parameter(name = "boardId", description = "게시글 ID")
     })
     @GetMapping("/update/{boardId}")
-    public CommonResponse<Integer> articleModify(
+    public CommonResponse<BoardModifyFormResponseDto> articleModify(
             @PathVariable("boardId") Integer boardId,
             @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
     ) {
-
-        return CommonResponse.OK(null);
+        return CommonResponse.OK( boardQueryService.findBoardUpdateForm(boardId, userPrincipal.getId()));
     }
 
     @Operation(summary = "글 수정", description = "글 수정")
@@ -110,7 +110,7 @@ public class BoardController {
             @RequestPart(value = "files") List<MultipartFile> multipartFiles,
             @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
     ) {
-//        boardService.removeArticle(boardId, userPrincipal.getId());
+
 
         return CommonResponse.OK(null);
     }

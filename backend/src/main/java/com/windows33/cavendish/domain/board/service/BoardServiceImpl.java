@@ -6,12 +6,9 @@ import com.windows33.cavendish.domain.board.entity.Board;
 import com.windows33.cavendish.domain.board.entity.BoardImage;
 import com.windows33.cavendish.domain.board.repository.BoardImageRepository;
 import com.windows33.cavendish.domain.board.repository.BoardRepository;
-import com.windows33.cavendish.domain.member.entity.Member;
-import com.windows33.cavendish.domain.member.repository.MemberRepository;
 import com.windows33.cavendish.global.exception.InvalidException;
 import com.windows33.cavendish.global.exception.NotFoundException;
-import com.windows33.cavendish.global.util.LocalFileUtil;
-import lombok.Builder;
+import com.windows33.cavendish.global.util.FileStoreUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -19,7 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
-import java.util.Optional;
 
 @Slf4j
 @Service
@@ -29,7 +25,7 @@ public class BoardServiceImpl implements BoardService {
 
     private final BoardRepository boardRepository;
     private final BoardImageRepository boardImageRepository;
-    private final LocalFileUtil localFileUtil;
+    private final FileStoreUtil fileStoreUtil;
 
     @Override
     public Integer addArticle(BoardAddRequestDto boardAddRequestDto, List<MultipartFile> img, Integer id) {
@@ -41,7 +37,7 @@ public class BoardServiceImpl implements BoardService {
 
         int boardId = boardRepository.save(board.build()).getId();
 
-        List<String> images = localFileUtil.uploadFiles("BoardImage", img);
+        List<String> images = fileStoreUtil.uploadFiles("BoardImage", img);
 
         // 이미지 테이블 저장
         for(String image : images) {
@@ -67,7 +63,7 @@ public class BoardServiceImpl implements BoardService {
         List<BoardImage> images = boardImageRepository.findByBoardId(boardId).orElseThrow(() -> new NotFoundException(BoardImage.class, boardId));
 
         // 이미지 제거
-        List<Integer> ids = localFileUtil.deleteFiles(images);
+        List<Integer> ids = fileStoreUtil.deleteFiles(images);
         boardImageRepository.deleteByIdIn(ids);
     }
 

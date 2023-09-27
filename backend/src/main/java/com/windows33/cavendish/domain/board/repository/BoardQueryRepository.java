@@ -20,7 +20,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
-import java.io.File;
+import java.io.*;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import static com.windows33.cavendish.domain.board.entity.QBoard.board;
@@ -121,7 +122,7 @@ public class BoardQueryRepository {
                 .leftJoin(board).on(boardImage.boardId.eq(board.id))
                 .fetch();
 
-        boardDetailResponseDto.setBoardData(boardDetailComponentDto);
+        boardDetailResponseDto.setBoardDetailComponent(boardDetailComponentDto);
         boardDetailResponseDto.setImages(images);
 
         return boardDetailResponseDto;
@@ -131,7 +132,6 @@ public class BoardQueryRepository {
      * 글 수정 인터페이스
      */
     public BoardModifyFormResponseDto findBoardUpdateForm(Integer boardId, Integer userId) {
-        BoardModifyFormResponseDto boardModifyFormResponseDto = new BoardModifyFormResponseDto();
         List<BoardModifyFormImageComponentDto> images = new ArrayList();
 
         BoardModifyFormComponentDto boardModifyFormComponentDto = jpaQueryFactory
@@ -155,7 +155,7 @@ public class BoardQueryRepository {
                 .where(boardImage.boardId.eq(boardId))
                 .fetch();
 
-        // image files
+        // image ids + files
         for(Integer id : ids) {
             String imagePath = jpaQueryFactory
                     .select(boardImage.imagePath)
@@ -163,12 +163,25 @@ public class BoardQueryRepository {
                     .where(boardImage.id.eq(id))
                     .fetchOne();
 
-            File file = new File(imagePath);
+            File data = new File(imagePath);
 
-//            images.add();
+            byte[] image = null;
+
+            try {
+                image = Files.readAllBytes(data.toPath());
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+
+            // 예외처리 필요
+            images.add(new BoardModifyFormImageComponentDto(image, id));
         }
 
-        return null;
+        BoardModifyFormResponseDto boardModifyFormResponseDto = new BoardModifyFormResponseDto();
+        boardModifyFormResponseDto.setBoardModifyFormComponent(boardModifyFormComponentDto);
+        boardModifyFormResponseDto.setImages(images);
+
+        return boardModifyFormResponseDto;
     }
 
 }

@@ -24,7 +24,7 @@ public class BoardDetailResponseDto {
     private Boolean isMine;
     private List<Integer> images = new ArrayList<>();
 
-    public void setBoardData(BoardDetailComponentDto boardDetailComponentDto) {
+    public void setBoardDetailComponent(BoardDetailComponentDto boardDetailComponentDto) {
         this.nickname = boardDetailComponentDto.getNickname();
         this.title = boardDetailComponentDto.getTitle();
         this.contents = boardDetailComponentDto.getContents();
