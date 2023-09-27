@@ -12,6 +12,6 @@ public interface BoardService {
 
     void removeArticle(Integer boardId, Integer id);
 
-    Integer modifyArticle(BoardModifyRequestDto boardModifyRequestDto, List<MultipartFile> img, Integer id);
+    Integer modifyArticle(BoardModifyRequestDto boardModifyRequestDto, Integer id);
 
 }

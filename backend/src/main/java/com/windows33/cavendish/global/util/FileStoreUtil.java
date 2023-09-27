@@ -13,7 +13,7 @@ import java.util.List;
 
 @Slf4j
 @Component
-public class LocalFileUtil {
+public class FileStoreUtil {
 
     private final String currentPath = System.getProperty("user.dir");
 

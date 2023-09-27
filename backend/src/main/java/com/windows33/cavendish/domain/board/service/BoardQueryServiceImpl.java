@@ -2,6 +2,7 @@ package com.windows33.cavendish.domain.board.service;
 
 import com.windows33.cavendish.domain.board.dto.response.BoardDetailResponseDto;
 import com.windows33.cavendish.domain.board.dto.response.BoardListResponseDto;
+import com.windows33.cavendish.domain.board.dto.response.BoardModifyFormResponseDto;
 import com.windows33.cavendish.domain.board.repository.BoardQueryRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,6 +27,11 @@ public class BoardQueryServiceImpl implements BoardQueryService {
     @Override
     public BoardDetailResponseDto findBoardDetail(Integer boardId, Integer userId) {
         return boardQueryRepository.findBoardDetail(boardId, userId);
+    }
+
+    @Override
+    public BoardModifyFormResponseDto findBoardUpdateForm(Integer boardId, Integer userId) {
+        return boardQueryRepository.findBoardUpdateForm(boardId, userId);
     }
 
 }
