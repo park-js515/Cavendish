@@ -42,6 +42,7 @@ public class SecurityConfig {
                 .authorizeRequests()
                 .antMatchers(PERMIT_ALL).permitAll()
                 .antMatchers(HttpMethod.GET, "/api/board", "/api/board/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/image", "/api/image/**").permitAll()
 //                .antMatchers(HttpMethod.DELETE, "/api/board", "/api/board/**").hasRole("USER")
                 .anyRequest().authenticated()
                 .and()

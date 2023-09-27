@@ -1,4 +1,9 @@
-import { boardCustomInstance, boardDefaultInstance, boardDetailDefaultInstance } from "./lib/index";
+import {
+  boardCustomInstance,
+  boardDefaultInstance,
+  boardDetailDefaultInstance,
+  imageDefaultInstance,
+} from "./lib/index";
 
 // 1. 게시글 조회
 /**
@@ -40,4 +45,34 @@ const getBoardDetailContent = (id, sucess, fail) => {
   api.get(`/detail/${id}`).then(sucess).catch(fail);
 };
 
-export { getBoardsList, createBoardContent, getBoardDetailContent };
+// 4. 게시글 삭제
+/**
+ * @param {function} sucess [callback]
+ * @param {function} fail [callback]
+ */
+
+const deleteBoardContent = (id, sucess, fail) => {
+  const api = boardCustomInstance();
+  api.delete(`/delete/${id}`).then(sucess).catch(fail);
+};
+
+// 5. 이미지 로드
+/**
+ *
+ * @param {function} sucess [callback]
+ * @param {function} fail [callback]
+ */
+
+const getBoardImage = (id, sucess, fail) => {
+  const api = imageDefaultInstance();
+  api.defaults.headers["Content-Type"] = "multipart/form-data";
+  api.get(`/${id}`).then(sucess).catch(fail);
+};
+
+export {
+  getBoardsList,
+  createBoardContent,
+  getBoardDetailContent,
+  deleteBoardContent,
+  getBoardImage,
+};

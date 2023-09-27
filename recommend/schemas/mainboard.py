@@ -1,6 +1,14 @@
 from pydantic import BaseModel
 from typing import Optional, List
 
+
+class MainboardPCISchema(BaseModel):
+    id: int
+    mainboard_id: int
+    pci_type: str
+    pci_number: int
+
+
 class MainboardSchema(BaseModel):
     id: int
     name: str
@@ -32,16 +40,11 @@ class MainboardSchema(BaseModel):
     feature: Optional[int] = None
     reg_date: Optional[int] = None
     bookmark: Optional[int] = 0
-    mainboard_pci: List[MainboardPCISchema] = []
-
-class MainboardPCISchema(BaseModel):
-    id: int
-    mainboard_id: int
-    pci_type: str
-    pci_number: int
+    mainboard_pci: Optional[List[dict]] = []
+    compatibility: Optional[List[str]] = []
 
 
-def serialize_mainboard(mainboard_object):
+def serialize_mainboard(mainboard_object, mainboard_pci_object, compatibility):
     mainboard_dict = MainboardSchema(
         id=mainboard_object.id,
         name=mainboard_object.name,
@@ -73,10 +76,13 @@ def serialize_mainboard(mainboard_object):
         feature=mainboard_object.feature,
         reg_date=mainboard_object.reg_date,
         bookmark=mainboard_object.bookmark,
-    )
-    if mainboard_object.mainboard_pci:
-        mainboard_dict.mainboard_pci = [serialize_mainboard_pci(pci) for pci in mainboard_object.mainboard_pci]
+        compatibility=compatibility,
+        mainboard_pci=[]
+    ).__dict__
+    if mainboard_pci_object:
+        mainboard_dict['mainboard_pci'] = [serialize_mainboard_pci(x) for x in mainboard_pci_object]
     return mainboard_dict
+
 
 def serialize_mainboard_pci(mainboard_pci_object):
     return MainboardPCISchema(
@@ -84,4 +90,4 @@ def serialize_mainboard_pci(mainboard_pci_object):
         mainboard_id=mainboard_pci_object.mainboard_id,
         pci_type=mainboard_pci_object.pci_type,
         pci_number=mainboard_pci_object.pci_number
-    )
+    ).__dict__

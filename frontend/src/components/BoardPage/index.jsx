@@ -1,12 +1,14 @@
 import { getBoardsList } from "api/boards";
 import { useEffect, useRef, useState } from "react";
 import { Link, Route, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function BoardPageComponent() {
-  const check = useRef(false);
   const [boardData, setBoardData] = useState([]);
   const [page, setpage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
+
+  const isLogin = useSelector((state) => state.user.isLogin);
 
   useEffect(() => {
     getBoardsList(
@@ -55,9 +57,11 @@ export default function BoardPageComponent() {
             <h2>게시판</h2>
           </div>
           <div className="buttons">
-            <Link className="button_link" to="/board/create">
-              생성하기
-            </Link>
+            {isLogin && (
+              <Link className="button_link" to="/board/create">
+                생성하기
+              </Link>
+            )}
           </div>
         </div>
         <ul>
@@ -66,15 +70,25 @@ export default function BoardPageComponent() {
               <Link to={`/board/detail/${item.boardId}`} key={item.boardId}>
                 {/* {console.log(item)} */}
                 <li>
-                  <div className="content-header">
-                    <h2>{item.boardId}</h2>
-                    <h2>{item.nickname}</h2>
+                  <div className="content-container">
+                    <div className="content-header">
+                      <div className="board-id">
+                        {item.boardId}.{" "}
+                        <span className="article-title">
+                          {item.title.substr(0, 20)}
+                        </span>
+                      </div>
+                      <span className="nickname">작성자 : {item.nickname}</span>
+                    </div>
+                    <div className="content-date">{item.createDate} </div>
+                    <div className="content-description">
+                      <div className="article">
+                        <span className="article-content">
+                          {item.contents.substr(0, 20)}
+                        </span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="content-description">
-                    <h2>{item.title}</h2>
-                    <span>{item.contents}</span>
-                  </div>
-                  <div className="content-date">{item.createDate}</div>
                 </li>
               </Link>
             );
