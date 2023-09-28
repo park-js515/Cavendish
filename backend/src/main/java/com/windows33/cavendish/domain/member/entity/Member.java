@@ -1,78 +1,34 @@
 package com.windows33.cavendish.domain.member.entity;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Getter
 @SuperBuilder
 @NoArgsConstructor
+@Table(name = "users")
 @Entity
-public class Member implements UserDetails {
+public class Member {
 
     @Id
-    @Column(updatable = false, unique = true, nullable = false)
-    private String memberId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-    @Column(nullable = false)
+    private String loginId;
+
     private String password;
 
-    @Column(nullable = false)
     private String nickname;
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    @Builder.Default
-    private List<String> roles = new ArrayList<>(Arrays.asList("USER"));
+    @Column(insertable = false)
+    private String roles;
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.roles.stream()
-                .map(SimpleGrantedAuthority::new)
-                .collect(Collectors.toList());
-    }
+    @Column(insertable = false)
+    private Byte state;
 
-    @Override
-    public String getUsername() {
-        return memberId;
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
-
-    // 회원 정보 수정
     public void updateMember(String nickname) {
         this.nickname = nickname;
     }

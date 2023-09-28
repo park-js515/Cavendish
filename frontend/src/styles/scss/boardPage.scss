@@ -7,17 +7,25 @@
     padding: 5px;
     padding-left: 10px;
     padding-right: 10px;
-    width: 80px;
-    height: 30px;
+    width: 100px;
+    height: 35px;
     background: #fff;
     border-radius: 0.2rem;
     border: 1px solid gray;
     justify-content: center;
     align-items: center;
+    font-size: 1rem;
     font-weight: 700;
+    color: black;
+    box-sizing: border-box;
+
     &:hover {
       opacity: 90%;
       background-color: #eee;
+      cursor: pointer;
+    }
+    a {
+      font-size: 1.1rem;
     }
   }
 }
@@ -29,6 +37,11 @@
   justify-content: center;
   align-items: center;
 
+  h2 {
+    font-size: 3rem;
+    margin: 10px;
+  }
+
   a {
     text-decoration: none;
     color: #000;
@@ -38,7 +51,7 @@
     }
   }
 
-  div.board_list {
+  .board_list {
     display: flex;
     flex-direction: column;
     margin-bottom: 30px;
@@ -51,6 +64,7 @@
       width: 800px;
       li {
         display: flex;
+        flex-direction: column;
         padding: 10px;
         margin: 4px;
         height: 120px;
@@ -66,21 +80,65 @@
           width: 100px;
           height: 100px;
         }
+        .content-container {
+          margin: 4px;
+
+          .content-header {
+            display: flex;
+            justify-content: space-between;
+
+            .board-id {
+              font-size: 1rem;
+              font-weight: 700;
+            }
+            .article-title {
+              font-size: 1.4rem;
+            }
+            .nickname {
+              display: flex;
+              font-weight: 700;
+            }
+          }
+          .content-date {
+            display: flex;
+            justify-content: flex-end;
+            font-size: 0.8rem;
+          }
+          .content-description {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .article {
+              display: flex;
+              flex-direction: row;
+              align-items: flex-end;
+              font-weight: 700;
+
+              .article-content {
+                font-size: 1.1rem;
+
+                margin: 6px;
+              }
+            }
+          }
+        }
       }
     }
   }
   .board_number {
     bottom: 10px;
-    button {
+    .page_button {
       margin: 3px;
+      padding: 4px;
       width: 30px;
       height: 30px;
       background: #fff;
-      border-radius: 1rem;
+      border-radius: 50%;
       border: 1px solid gray;
       &:hover {
         opacity: 90%;
         background-color: #eee;
+        cursor: pointer;
       }
     }
   }
@@ -150,13 +208,13 @@
     height: 400px;
   }
 
-  .comment_block{
+  .comment_block {
     margin: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 800px;
-    .comment_area{
+    .comment_area {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -168,13 +226,13 @@
         height: 80px;
         resize: none;
       }
-      .comment_input_button{
+      .comment_input_button {
         width: 100px;
         height: 100px;
         padding: 10px;
       }
     }
-    .comment_list{
+    .comment_list {
       list-style-type: none;
     }
   }

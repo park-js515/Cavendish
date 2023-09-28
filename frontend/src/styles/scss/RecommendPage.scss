@@ -1,45 +1,562 @@
+$shadow: gray;
 $mainColor-weak: rgba(175, 106, 234, 0.5);
 $mainColor-default: rgba(175, 106, 234, 0.75);
 $mainColor-strong: rgba(175, 106, 234, 1);
+$proc1-fs: 2.5rem;
+$proc3-btn: rgba(174, 171, 171, 0.5);
+$proc3-btn-hover: rgba(174, 171, 171, 0.75);
 
 .recommend {
   .top {
+    box-sizing: border-box;
     width: 100vw;
     height: 150px;
-    border: 1px dashed black;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   .bottom {
+    box-sizing: border-box;
     width: 100vw;
     height: 550px;
     display: flex;
 
     .left {
+      box-sizing: border-box;
       width: 80%;
       height: 100%;
-      border: 1px dashed black;
+      padding: 5px;
+
+      .wrapper {
+        box-sizing: border-box;
+        border-radius: 5px;
+        height: 100%;
+        width: 100%;
+        border: 3.5px solid #{$mainColor-default};
+
+        .process {
+          box-sizing: border-box;
+          height: 100%;
+          width: 100%;
+          padding: 5px;
+
+          // proc1_1
+          .proc1_1 {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .text {
+              font-size: #{$proc1-fs};
+              font-weight: 500;
+              display: flex;
+              justify-content: center;
+            }
+
+            .btn-group {
+              display: flex;
+              justify-content: space-evenly;
+              align-items: center;
+
+              .btn-item {
+                width: 120px;
+                font-size: #{$proc1-fs};
+                cursor: pointer;
+                transition: all 200ms ease-in-out;
+                border-radius: 5px;
+                display: flex;
+                justify-content: center;
+
+                &:hover {
+                  background-color: #{$mainColor-weak};
+                  color: white;
+                }
+              }
+            }
+          }
+
+          // proc1_2
+          .proc1_2 {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .card-container {
+              height: 100%;
+              width: 100%;
+              display: flex;
+              justify-content: space-evenly;
+              align-items: center;
+              flex-wrap: wrap;
+
+              .card {
+                width: 200px;
+                height: 200px;
+                perspective: 1000px;
+                position: relative;
+                margin: 10px 5px;
+                cursor: pointer;
+
+                &:hover .card-front {
+                  transform: rotateY(180deg);
+                  opacity: 0;
+                }
+
+                &:hover .card-back {
+                  transform: rotateY(0deg);
+                  opacity: 1;
+                }
+
+                .card-front,
+                .card-back {
+                  width: 100%;
+                  height: 100%;
+                  position: absolute;
+                  font-size: 18px;
+                  transition: all 500ms ease-in-out;
+                  backface-visibility: hidden;
+                  border-radius: 5px;
+                }
+
+                .card-front {
+                  border: 1px solid gray;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  background-size: cover;
+                  background-repeat: no-repeat;
+                  background-position: center;
+                }
+
+                .card-back {
+                  background-color: #{$mainColor-default};
+                  transform: rotateY(180deg);
+                  opacity: 0;
+                }
+              }
+            }
+          }
+
+          // PartSelect
+          .partSelect {
+            height: 100%;
+            width: 100%;
+
+            .search-wrapper {
+              display: flex;
+              justify-content: center;
+              .search {
+                font-size: 40px;
+                border: 2px solid #{shadow};
+                outline: none;
+
+                &:focus {
+                  border: 2px solid #{$mainColor-default};
+                }
+
+                &:hover:not(:focus) {
+                  border: 2px solid #{$mainColor-strong};
+                }
+              }
+
+              .btn {
+                height: 48px;
+                width: 48px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                transition: all 300ms ease-in-out;
+                border-radius: 5px;
+                background-color: #{$proc3-btn};
+
+                &:hover {
+                  background-color: #{$proc3-btn-hover};
+                }
+              }
+            }
+
+            .item-list {
+              width: 100%;
+              height: calc(100% - 70px);
+
+              .item-group {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                flex-wrap: wrap;
+
+                .item {
+                  height: 200px;
+                  width: 200px;
+                  margin: 5px 5px;
+                  cursor: pointer;
+                  transition: all 200ms ease-in-out;
+                  border: 1px solid white;
+                  border-radius: 5px;
+
+                  &:hover {
+                    border: 1px solid black;
+                  }
+
+                  .partImg {
+                    height: 80%;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .inner {
+                      height: 100%;
+                      aspect-ratio: 1/1;
+                      background-size: cover;
+                      background-repeat: no-repeat;
+                      background-position: center;
+                    }
+                  }
+
+                  .text {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  }
+                }
+              }
+
+              .footer {
+                display: flex;
+                justify-content: center;
+
+                @mixin btn($bgc) {
+                  background-color: $bgc;
+                  font-size: 18px;
+                  margin: 0 2px;
+                  cursor: pointer;
+                  height: 24px;
+                  width: 30px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  transition: all 150ms ease-in-out;
+                }
+
+                .btn {
+                  &-default {
+                    @include btn($bgc: white);
+
+                    &:hover {
+                      background-color: rgba(0, 0, 255, 0.5);
+                    }
+                  }
+
+                  &-active {
+                    @include btn($bgc: rgba(255, 255, 0, 0.5));
+
+                    &:hover {
+                      background-color: rgba(0, 0, 255, 0.5);
+                    }
+                  }
+
+                  &-side {
+                    @include btn($bgc: white);
+
+                    &:hover {
+                      background-color: rgba(0, 0, 255, 0.5);
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          .proc2 {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar {
+              display: none;
+            }
+
+            .item {
+              &-top {
+                height: 150px;
+                width: 280px;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                margin: 5px 5px 0 5px;
+                transition: all 200ms ease-in-out;
+                cursor: pointer;
+
+                &:hover {
+                  filter: brightness(80%);
+                  ~ .item-bot {
+                    background-color: #{$mainColor-weak};
+                  }
+                }
+              }
+
+              &-bot {
+                height: 60px;
+                width: 280px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 5px 5px 5px;
+                cursor: pointer;
+                transition: all 200ms ease-in-out;
+
+                &:hover {
+                  background-color: #{$mainColor-weak};
+                }
+              }
+            }
+
+            .item-hidden {
+              height: 210px;
+              width: 280px;
+              display: hidden;
+            }
+          }
+
+          .proc3 {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar {
+              display: none;
+            }
+
+            .item {
+              &-top {
+                height: 150px;
+                width: 280px;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                margin: 5px 5px 0 5px;
+                cursor: pointer;
+                transition: all 200ms ease-in-out;
+
+                &:hover {
+                  filter: brightness(80%);
+                  ~ .item-bot {
+                    background-color: #{$mainColor-weak};
+                  }
+                }
+              }
+
+              &-bot {
+                height: 60px;
+                width: 280px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 5px 5px 5px;
+                cursor: pointer;
+                transition: all 200ms ease-in-out;
+
+                &:hover {
+                  background-color: #{$mainColor-weak};
+                }
+              }
+            }
+
+            .item-hidden {
+              height: 210px;
+              width: 280px;
+              display: hidden;
+            }
+          }
+
+          .proc4 {
+            height: 100%;
+            width: 100%;
+
+            .upper {
+              height: 40%;
+              width: 100%;
+              display: flex;
+              font-size: 2.5rem;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+
+            .lower {
+              height: 40%;
+              width: 100%;
+              display: flex;
+              justify-content: center;
+
+              p {
+                font-size: 2.5rem;
+              }
+
+              .budget-recom {
+                font-size: 1.5rem;
+                color: rgba(128, 128, 128, 0.5);
+                display: flex;
+                justify-content: center;
+              }
+            }
+
+            .submitBtn-wrapper {
+              height: 20%;
+              width: 100%;
+              display: flex;
+              justify-content: flex-end;
+
+              .submitBtn {
+                height: 60px;
+                width: 90px;
+                font-size: 1.75rem;
+                border-radius: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #{$mainColor-default};
+                border: 2px solid white;
+                cursor: pointer;
+                transition: all 200ms ease-in-out;
+                margin-right: 40px;
+
+                &:hover {
+                  background-color: white;
+                  border: 2px solid #{$mainColor-default};
+                }
+              }
+            }
+
+            .budget-wrapper {
+              .budget {
+                font-size: 2.5rem;
+                width: 200px;
+                text-align: right;
+                margin-right: 10px;
+                &::-webkit-inner-spin-button {
+                  appearance: none;
+                  -moz-appearance: none;
+                  -webkit-appearance: none;
+                }
+              }
+            }
+          }
+
+          .proc5 {
+            height: 100%;
+            width: 100%;
+
+            .proc5-top {
+              width: 100%;
+              height: 60%;
+
+              .text {
+                font-size: 2rem;
+                display: flex;
+                justify-content: center;
+              }
+
+              .select-wrapper {
+                width: 60%;
+                margin: 30px auto;
+              }
+            }
+            .proc5-bot {
+              width: 100%;
+              height: 40%;
+
+              .submitBtn-wrapper {
+                height: 20%;
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+
+                .submitBtn {
+                  height: 60px;
+                  width: 90px;
+                  font-size: 1.75rem;
+                  border-radius: 5px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  background-color: #{$mainColor-default};
+                  border: 2px solid white;
+                  cursor: pointer;
+                  transition: all 200ms ease-in-out;
+                  margin-right: 40px;
+
+                  &:hover {
+                    background-color: white;
+                    border: 2px solid #{$mainColor-default};
+                  }
+                }
+              }
+            }
+          }
+
+          .procEnd {
+            .test {
+              color: "red";
+            }
+          }
+        }
+      }
     }
 
     .right {
+      box-sizing: border-box;
       width: 30%;
       height: 100%;
-      border: 1px dashed black;
+      padding: 5px;
 
       .tab-group {
         width: 100%;
         height: 100%;
 
-        .tab-item-before {
-          width: 100%;
-          height: 10%;
-        }
-
         .tab-item {
           width: 100%;
           height: 20%;
+          border-top: 2px dashed #{$mainColor-default};
+          overflow-y: scroll;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+
+          .wrapper {
+            font-weight: bolder;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+          }
+
+          .wrapper2 {
+            font-weight: 400;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+          }
+
+          .cancelBtn {
+            cursor: pointer;
+            display: inline;
+            height: 30px;
+            width: 30px;
+          }
         }
       }
     }
