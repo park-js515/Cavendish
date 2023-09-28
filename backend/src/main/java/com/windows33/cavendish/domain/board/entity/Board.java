@@ -38,6 +38,12 @@ public class Board {
     private Integer view;
 
     @Column(insertable = false)
-    private Integer like;
+    private Integer likeCnt;
+
+    public void updateBoard(Integer quotationId, String title, String contents) {
+        if(quotationId != null) this.quotationId = quotationId;
+        if(title != null) this.title = title;
+        if(contents != null) this.contents = contents;
+    }
 
 }
