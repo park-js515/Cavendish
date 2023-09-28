@@ -92,7 +92,7 @@ CREATE TABLE `boards` (
 	`create_date` date NOT NULL DEFAULT current_timestamp,
 	`status` tinyint NOT NULL DEFAULT 0 COMMENT '0:일반, 1: 삭제',
 	`view` int NULL DEFAULT 0,
-	`like` int NULL DEFAULT 0,
+	`like_cnt` int NULL DEFAULT 0,
 	PRIMARY KEY (`id`),
 	CONSTRAINT `fk_boards_user_id`
 		FOREIGN KEY (`user_id`)

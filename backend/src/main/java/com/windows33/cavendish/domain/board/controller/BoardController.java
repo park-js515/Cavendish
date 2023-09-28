@@ -103,16 +103,13 @@ public class BoardController {
     @Parameters({
             @Parameter(name = "boardId", description = "게시글 ID")
     })
-    @PatchMapping("/update/{boardId}")
+    @PatchMapping
     public CommonResponse<Integer> articleModify(
-            @PathVariable("boardId") Integer boardId,
             @RequestPart(value = "data") BoardModifyRequestDto boardModifyRequestDto,
             @RequestPart(value = "files") List<MultipartFile> multipartFiles,
             @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
     ) {
-
-
-        return CommonResponse.OK(null);
+        return CommonResponse.OK(boardService.modifyArticle(boardModifyRequestDto, multipartFiles, userPrincipal.getId()));
     }
 
 }
