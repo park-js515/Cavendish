@@ -5,7 +5,6 @@ import com.windows33.cavendish.domain.board.dto.component.BoardModifyFormImageCo
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.sql.Timestamp;
 import java.util.List;
