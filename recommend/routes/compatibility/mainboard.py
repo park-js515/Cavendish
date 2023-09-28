@@ -92,5 +92,3 @@ async def mainboard_search(page: int = 1, keyword: str = "", state: ProcessListS
         return JSONResponse(content={"error": "Bad Request", "message": f'{e}'}, status_code=400)
     finally:
         session.close()
-
-    return result
