@@ -5,7 +5,7 @@ app = {
     "name" : "mysql+pymysql",
     "user" : "root",
     "password" : "ssafy",
-    "host" : "mariadb",
+    "host" : "localhost",
     "port" : 3306,
     "database" : "s09p22c105"
 }

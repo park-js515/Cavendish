@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
 
 class SSDSchema(BaseModel):
     id: int
@@ -27,8 +27,9 @@ class SSDSchema(BaseModel):
     reg_date: Optional[int] = None
     bookmark: Optional[int] = 0
     support_option: Optional[int] = None
+    compatibility: Optional[List[str]] = None
 
-def serialize_ssd(ssd_object):
+def serialize_ssd(ssd_object, compatibility):
     ssd_dict = SSDSchema(
         id=ssd_object.id,
         name=ssd_object.name,
@@ -54,6 +55,7 @@ def serialize_ssd(ssd_object):
         as_year=ssd_object.as_year,
         reg_date=ssd_object.reg_date,
         bookmark=ssd_object.bookmark,
-        support_option=ssd_object.support_option
+        support_option=ssd_object.support_option,
+        compatibility=compatibility
     ).__dict__
     return ssd_dict

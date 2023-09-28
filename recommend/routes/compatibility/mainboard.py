@@ -32,8 +32,8 @@ router = APIRouter(
 ) # Route 분리
 
 
-@router.get("/{keyword:str}/{page:int}")
-async def mainboard_search(keyword: str, page: int=1, state: ProcessListStep1 = Depends()):
+@router.get("/{page:int}")
+async def mainboard_search(page: int = 1, keyword: str = "", state: ProcessListStep1 = Depends()):
     mainboard = session.query(Mainboard).filter(Mainboard.name.like(f'%{keyword}%')).all()
     page_size = (len(mainboard) // 10) + 1
     if page > page_size:
@@ -92,6 +92,3 @@ async def mainboard_search(keyword: str, page: int=1, state: ProcessListStep1 = 
         return JSONResponse(content={"error": "Bad Request", "message": f'{e}'}, status_code=400)
     finally:
         session.close()
-
-
-    return result
