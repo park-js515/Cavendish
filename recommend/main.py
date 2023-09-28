@@ -32,6 +32,7 @@ from fastapi.responses import JSONResponse
 from db.connection import engineconn
 
 app = FastAPI()
+
 # app.add_middleware(HTTPSRedirectMiddleware)
 
 
@@ -75,8 +76,12 @@ routers = [
 engine = engineconn()
 session = engine.sessionmaker()
 
-if __name__ == '__main__':
-    uvicorn.run("main:app", port=8888, host='0.0.0.0', reload = True, reload_dirs = ["html_files"], ssl_keyfile="/etc/letsencrypt/live/j9c105.p.ssafy.io/privkey.pem", ssl_certfile="/etc/letsencrypt/live/j9c105.p.ssafy.io/fullchain.pem")
+# uvicorn.run("main:app", port=8888, host='0.0.0.0', reload = True, 
+#     # ssl_keyfile="/etc/letsencrypt/live/j9c105.p.ssafy.io/privkey.pem", ssl_certfile="/etc/letsencrypt/live/j9c105.p.ssafy.io/fullchain.pem"
+#             )
+
+# uvicorn.run("main:app", port=8080, host='j9c105.p.ssafy.io', reload=True)
+
 
 # if __name__ == '__main__':
 #     Popen(['python', '-m', 'https_redirect'])  # Add this

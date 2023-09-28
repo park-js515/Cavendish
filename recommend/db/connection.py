@@ -3,8 +3,8 @@ from sqlalchemy.orm import sessionmaker
 
 app = {
     "name" : "mysql+pymysql",
-    "user" : "root",
-    "password" : "ssafy",
+    "user" : "S09P22C105",
+    "password" : "S09P22C105",
     "host" : "localhost",
     "port" : 3306,
     "database" : "s09p22c105"
