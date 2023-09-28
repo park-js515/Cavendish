@@ -306,7 +306,7 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
           }
 
           .proc2 {
-            height: 100%;
+            height: calc(100% - 20px);
             width: 100%;
             display: flex;
             flex-wrap: wrap;
@@ -363,7 +363,7 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
           }
 
           .proc3 {
-            height: 100%;
+            height: calc(100% - 20px);
             width: 100%;
             display: flex;
             flex-wrap: wrap;
@@ -374,31 +374,39 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
               display: none;
             }
 
-            .item {
-              transition: all 200ms ease-in-out;
-              &:hover {
-                background-color: rgba(128, 128, 128, 0.25);
-              }
-              &-top {
-                height: 150px;
-                width: 280px;
-                background-size: cover;
-                background-repeat: no-repeat;
-                background-position: center;
-                margin: 5px 5px 0 5px;
-                transition: all 200ms ease-in-out;
-                cursor: pointer;
-              }
+            .proc3-1 {
+              height: 100%;
+              width: 100%;
+              display: flex;
+              justify-content: space-evenly;
+              align-items: center;
 
-              &-bot {
-                height: 60px;
-                width: 280px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin: 0 5px 5px 5px;
-                cursor: pointer;
+              .item {
                 transition: all 200ms ease-in-out;
+                &:hover {
+                  background-color: rgba(128, 128, 128, 0.25);
+                }
+                &-top {
+                  height: 150px;
+                  width: 280px;
+                  background-size: cover;
+                  background-repeat: no-repeat;
+                  background-position: center;
+                  margin: 5px 5px 0 5px;
+                  transition: all 200ms ease-in-out;
+                  cursor: pointer;
+                }
+
+                &-bot {
+                  height: 60px;
+                  width: 280px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  margin: 0 5px 5px 5px;
+                  cursor: pointer;
+                  transition: all 200ms ease-in-out;
+                }
               }
             }
           }

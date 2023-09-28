@@ -42,7 +42,6 @@ const Process3 = ({ className }) => {
           />
         ) : null}
       </div>
-      ;
     </div>
   );
 };

@@ -29,29 +29,38 @@ const Item = ({ imgUrl, value, onClick }) => {
 
 // 대분류에 해당하는 것
 // 대분류에 대응되는 컴포넌트
-const Process3_1 = ({ setSubProcess, setSlected }) => {
+const Process3_1 = ({ setSubProcess, setSelected }) => {
   const usage = useSelector((state) => {
     return state.recommend.processList[1];
   });
 
   return (
-    <>
-      {usage.map((item) => {
+    <div className="proc3-1">
+      {usage.map((item, itemIndex) => {
         const index = list.findIndex((elem) => {
           return elem.usage === item;
         });
         const imgUrl = list[index].imgUrl;
         const onClick = () => {
+          setSelected(item);
+
           if (item === "pc 게임") {
             setSubProcess(1);
           } else {
             setSubProcess(2);
           }
-          setSlected(item);
         };
-        return <Item imgUrl={imgUrl} value={item} onClick={onClick} />;
+
+        return (
+          <Item
+            key={itemIndex}
+            imgUrl={imgUrl}
+            value={item}
+            onClick={onClick}
+          />
+        );
       })}
-    </>
+    </div>
   );
 };
 

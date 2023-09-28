@@ -40,7 +40,6 @@ const TabItem = ({ className, title, index }) => {
     return state.recommend;
   });
 
-  // 제거 버튼 추가하기
   const TabContent0 = () => {
     const data = recommend.processList[0];
     const handleRam = (val) => {
@@ -128,14 +127,20 @@ const TabItem = ({ className, title, index }) => {
     const data2 = recommend.processList[2];
     return (
       <div>
-        {data1.map((items, index) => {
+        {data1.map((items, itemsIndex) => {
           return (
-            <>
-              <div className="wrapper2">{items}</div>
-              {data2[index].map((item) => {
-                return <div className="wrapper2">{item}</div>;
+            <div key={itemsIndex}>
+              <div className="wrapper2">
+                {items}
+              </div>
+              {data2[items].map((item, itemIndex) => {
+                return (
+                  <div className="wrapper2" key={itemIndex}>
+                    {item}
+                  </div>
+                );
               })}
-            </>
+            </div>
           );
         })}
       </div>

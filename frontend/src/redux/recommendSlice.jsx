@@ -65,7 +65,6 @@ const recommendSlice = createSlice({
       }
     },
     removeProcessList1: (state, action) => {
-      // 제거하는 코드
       const value = action.payload.value;
       const index = state.processList[1].indexOf(value);
       state.processList[1].splice(index, 1);
@@ -86,6 +85,10 @@ const recommendSlice = createSlice({
     removeProcess: (state) => {
       state.processList[state.processNo] =
         initialState_origin.processList[state.processNo];
+      if (state.processNo < 4) {
+        state.processList[state.processNo + 1] =
+          initialState_origin.processList[state.processNo + 1];
+      }
       state.processNo--;
     },
     setRamNo: (state, action) => {
