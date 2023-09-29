@@ -40,7 +40,7 @@ export default function BoardDetailComponent() {
         setImageData(data.images);
         setLike(data.like);
         setIsMine(data.isMine);
-        console.log(data);
+        // console.log(data);
       },
       () => {},
     );
@@ -73,8 +73,7 @@ export default function BoardDetailComponent() {
             <div>{nickname}</div> |<div>좋아요 : {like}</div>
           </div>
           <div className="flex-row">
-            <div>작성일 : {date.substring(0, 10)}</div>|
-            <div>작성시간 : {date.substring(11, 16)}</div>
+            <div>작성일자 : {date}</div>
           </div>
         </div>
       </div>

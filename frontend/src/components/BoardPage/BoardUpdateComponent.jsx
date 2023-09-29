@@ -9,6 +9,7 @@ export default function BoardUpdateComponent() {
   const [content, setContent] = useState("");
 
   const [imageData, setImageData] = useState([]);
+  const [deleteImage, setDeleteImage] = useState([]);
 
   const navigate = useNavigate();
 
@@ -20,15 +21,12 @@ export default function BoardUpdateComponent() {
         setTitle(data.title);
         setContent(data.contents);
         setImageData(data.images);
-        console.log(data);
+        // console.log(data);
       },
       () => {},
     );
   }, []);
 
-  const handleTitle = (e) => {
-    setTitle(e.target.value);
-  };
   const handleContent = (e) => {
     setContent(e.target.value);
   };
@@ -40,9 +38,9 @@ export default function BoardUpdateComponent() {
     let formData = new FormData();
 
     let data = {
-      quotation_id: null,
-      title: title,
+      id: id,
       contents: content,
+      deleteImage: deleteImage,
     };
 
     formData.append(
@@ -58,7 +56,8 @@ export default function BoardUpdateComponent() {
 
     await updateBoardContent(
       formData,
-      () => {
+      (response) => {
+        // console.log(response);
         navigate(`/board/detail/${id}`);
       },
       () => {
@@ -67,25 +66,50 @@ export default function BoardUpdateComponent() {
     );
   };
 
+  // X 버튼 클릭 이벤트 핸들러 함수
+  function handleRemoveButtonClick(e) {
+    // X 버튼을 클릭한 요소의 부모 요소를 찾아 해당 이미지와 X 버튼을 삭제합니다.
+    const imageWrapper = e.target.closest(".imageWrapper");
+    if (imageWrapper) {
+      imageWrapper.remove();
+      setDeleteImage((deleteImage) => [...deleteImage, e.target.value]);
+    }
+  }
+
+  // 모든 X 버튼에 클릭 이벤트 리스너 추가
+  const removeButtons = document.querySelectorAll(".removeButton");
+  removeButtons.forEach((button) => {
+    button.addEventListener("click", handleRemoveButtonClick);
+  });
+
   return (
-    <div className="create_page">
-      <form className="create_form" onSubmit={(e) => onSubmit(e)}>
-        <input
-          className="create_title"
-          type="text"
-          name="title"
-          value={title}
-          onChange={handleTitle}
-          placeholder="제목을 입력해 주세요."
-        />
+    <div className="update_page">
+      <form className="update_form" onSubmit={(e) => onSubmit(e)}>
+        <div className="title">{title}</div>
         <textarea
-          className="create_body"
+          className="update_body"
           type="text"
           name="content"
           value={content}
           onChange={handleContent}
         />
         <input type="file" name="uploadedFile" multiple="multiple" />
+        <ul className="updated_image">
+          {imageData.map((image, idx) => {
+            return (
+              <div className="imageWrapper" key={`${image.imageId}`}>
+                <img
+                  className="updated_image"
+                  src={`https://localhost:5000/api/image/${image.imageId}`}
+                  alt={`${image.imageId}`}
+                />
+                <button value={image.imageId} className="removeButton">
+                  X
+                </button>
+              </div>
+            );
+          })}
+        </ul>
         <div className="buttons">
           <button type="submit" className="button_link">
             수정
