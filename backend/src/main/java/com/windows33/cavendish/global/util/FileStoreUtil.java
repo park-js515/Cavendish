@@ -57,12 +57,24 @@ public class FileStoreUtil {
     }
 
     /**
+     * 파일 단일 업로드
+     */
+    public List<String> uploadFiles(String fileType, MultipartFile multipartFile) {
+        List<MultipartFile> list = new ArrayList<>();
+        list.add(multipartFile);
+
+        return uploadFiles(fileType, list);
+    }
+
+    /**
      * 파일 삭제
      */
     public List<Integer> deleteFiles(List<BoardImage> images) {
         List<Integer> result = new ArrayList<>();
 
         for(BoardImage image : images) {
+            System.out.println("!!!!!!!!!!!!!!! : " + image.getImagePath());
+
             try {
                 File file = new File(image.getImagePath());
 
@@ -78,6 +90,16 @@ public class FileStoreUtil {
         }
 
         return result;
+    }
+
+    /**
+     * 파일 단일 삭제
+     */
+    public List<Integer> deleteFiles(BoardImage image) {
+        List<BoardImage> list = new ArrayList<>();
+        list.add(image);
+
+        return deleteFiles(list);
     }
 
     // 날짜 문자열 생성(연/월/일)

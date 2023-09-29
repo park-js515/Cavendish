@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
 
 class HDDSchema(BaseModel):
     id: int
@@ -20,9 +20,10 @@ class HDDSchema(BaseModel):
     as_year: Optional[int] = None
     reg_date: Optional[int] = None
     bookmark: Optional[int] = 0
+    compatibility: Optional[List[str]] = []
 
 
-def serialize_hdd(hdd_object):
+def serialize_hdd(hdd_object, compatibility):
     hdd_dict = HDDSchema(
         id=hdd_object.id,
         name=hdd_object.name,
@@ -41,7 +42,8 @@ def serialize_hdd(hdd_object):
         thickness=hdd_object.thickness,
         as_year=hdd_object.as_year,
         reg_date=hdd_object.reg_date,
-        bookmark=hdd_object.bookmark
+        bookmark=hdd_object.bookmark,
+        compatibility=compatibility
     ).__dict__
     return hdd_dict
 

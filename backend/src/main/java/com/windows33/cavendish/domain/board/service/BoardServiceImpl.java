@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -35,8 +36,9 @@ public class BoardServiceImpl implements BoardService {
                 .contents(boardAddRequestDto.getContents())
                 .quotationId(boardAddRequestDto.getQuotationId());
 
-        int boardId = boardRepository.save(board.build()).getId();
+        Integer boardId = boardRepository.save(board.build()).getId();
 
+        // 이미지 파일 저장
         List<String> images = fileStoreUtil.uploadFiles("BoardImage", img);
 
         // 이미지 테이블 저장
@@ -62,36 +64,59 @@ public class BoardServiceImpl implements BoardService {
         // 이미지 조회
         List<BoardImage> images = boardImageRepository.findByBoardId(boardId).orElseThrow(() -> new NotFoundException(BoardImage.class, boardId));
 
-        // 이미지 제거
+        // 이미지 파일 제거
         List<Integer> ids = fileStoreUtil.deleteFiles(images);
+        
+        // 이미지 테이블 제거
         boardImageRepository.deleteByIdIn(ids);
     }
 
     @Override
-    public Integer modifyArticle(BoardModifyRequestDto boardModifyRequestDto, Integer id) {
+    public Integer modifyArticle(BoardModifyRequestDto boardModifyRequestDto, List<MultipartFile> img, Integer id) {
+        List<BoardImage> deleteBoardImages = new ArrayList<>();
 
-//        Board board = Board.builder()
-//                .userId(id)
-//                .title(boardModifyRequestDto.getTitle())
-//                .contents(boardModifyRequestDto.getContents())
-//                .quotationId(boardModifyRequestDto.getQuotationId());
-//
-//        int boardId = boardRepository.save(board.build()).getId();
-//
-//        List<String> images = localFileUtil.uploadFiles("BoardImage", img);
-//
-//        // 이미지 테이블 저장
-//        for(String image : images) {
-//            boardImageRepository.save(
-//                    BoardImage.builder()
-//                            .boardId(boardId)
-//                            .imagePath(image)
-//                            .build()
-//            );
-//        }
-//
-//        return boardId;
-        return 0;
+        Board board = boardRepository.findById(boardModifyRequestDto.getId()).orElseThrow(() -> new NotFoundException(Board.class, boardModifyRequestDto.getId()));
+
+        if (!board.getUserId().equals(id)) {
+            throw new InvalidException(Board.class, id);
+        }
+
+        board.updateBoard(
+                boardModifyRequestDto.getQuotationId(),
+                boardModifyRequestDto.getTitle(),
+                boardModifyRequestDto.getContents()
+        );
+
+        // 글 수정
+        Integer boardId = boardRepository.save(board).getId();
+
+        System.out.println("xxxxxx: " + boardId);
+
+        // 이미지 파일 저장
+        List<String> images = fileStoreUtil.uploadFiles("BoardImage", img);
+
+        // 이미지 테이블 저장
+        for (String image : images) {
+            boardImageRepository.save(
+                    BoardImage.builder()
+                            .boardId(boardId)
+                            .imagePath(image)
+                            .build()
+            );
+        }
+
+        // 삭제할 이미지 리스트 저장
+        for (Integer imageId : boardModifyRequestDto.getDeleteImage()) {
+            deleteBoardImages.add(boardImageRepository.findById(imageId).orElseThrow(() -> new NotFoundException(BoardImage.class, imageId)));
+        }
+
+        // 이미지 파일 제거
+        List<Integer> ids = fileStoreUtil.deleteFiles(deleteBoardImages);
+
+        // 이미지 테이블 제거
+        if(!ids.isEmpty()) boardImageRepository.deleteByIdIn(ids);
+
+        return boardModifyRequestDto.getId();
     }
 
     private Board checkAuthority(Integer boardId, Integer id) {
