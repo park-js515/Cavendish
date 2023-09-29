@@ -1,5 +1,6 @@
 package com.windows33.cavendish.domain.board.entity;
 
+import com.windows33.cavendish.global.converter.DateToStringConverter;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -29,7 +30,8 @@ public class Board {
     private String contents;
 
     @Column(insertable = false)
-    private Timestamp createDate;
+    @Convert(converter= DateToStringConverter.class)
+    private String createDateTime;
 
     @Column(insertable = false)
     private Byte status;

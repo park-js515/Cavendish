@@ -73,7 +73,7 @@ CREATE TABLE `quotation` (
 	`cooler_id` int NULL,
 	`name` varchar(100) NULL COMMENT '견적함',
 	`state` int NULL COMMENT '비트 마스킹, 견적함',
-	`create_date` date NULL COMMENT '견적함',
+	`create_date_time` date NULL COMMENT '견적함',
 	PRIMARY KEY (`id`)
 )
 ENGINE = InnoDB
@@ -89,7 +89,7 @@ CREATE TABLE `boards` (
 	`quotation_id` int NULL,
 	`title` varchar(100) NOT NULL,
 	`contents` varchar(1000) NOT NULL,
-	`create_date` datetime NOT NULL DEFAULT now(),
+	`create_date_time` datetime NOT NULL DEFAULT now(),
 	`status` tinyint NOT NULL DEFAULT 0 COMMENT '0:일반, 1: 삭제',
 	`view` int NULL DEFAULT 0,
 	`like_cnt` int NULL DEFAULT 0,
@@ -146,7 +146,7 @@ CREATE TABLE `comments` (
 	`board_id` int NOT NULL,
 	`user_id` int NOT NULL COMMENT '작성자',
 	`contents` varchar(100) NOT NULL,
-	`create_date` datetime NOT NULL DEFAULT now(),
+	`create_date_time` datetime NOT NULL DEFAULT now(),
 	`status` tinyint NOT NULL DEFAULT 0 COMMENT '0:일반, 1: 삭제',
 	PRIMARY KEY (`id`),
 	CONSTRAINT `fk_comments_board_id`
