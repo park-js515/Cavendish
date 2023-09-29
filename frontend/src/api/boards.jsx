@@ -69,10 +69,26 @@ const getBoardImage = (id, sucess, fail) => {
   api.get(`/${id}`).then(sucess).catch(fail);
 };
 
+// 6. 게시판 수정 인터페이스 로드
+
+const getUpdateBoardContent = (id, sucess, fail) => {
+  const api = boardCustomInstance();
+  api.defaults.headers["Content-Type"] = "multipart/form-data";
+  api.get(`/update/${id}`).then(sucess).catch(fail);
+};
+
+const updateBoardContent = (id, body, sucess, fail) => {
+  const api = boardCustomInstance();
+  api.defaults.headers["Content-Type"] = "multipart/form-data";
+  api.patch(``,body).then(sucess).catch(fail);
+}
+
 export {
   getBoardsList,
   createBoardContent,
   getBoardDetailContent,
   deleteBoardContent,
   getBoardImage,
+  getUpdateBoardContent,
+  updateBoardContent,
 };
