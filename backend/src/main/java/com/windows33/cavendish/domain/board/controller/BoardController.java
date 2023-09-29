@@ -56,7 +56,7 @@ public class BoardController {
     })
     @GetMapping
     public CommonResponse<Page<BoardListResponseDto>> articleList(
-            @PageableDefault(sort="modifyDateTime", direction = Sort.Direction.DESC) Pageable pageable
+            @PageableDefault(sort="createDateTime", direction = Sort.Direction.DESC) Pageable pageable
     ) {
         return CommonResponse.OK(boardQueryService.findBoardList(pageable));
     }
