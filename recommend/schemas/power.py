@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
 
 class PowerSchema(BaseModel):
     id: int
@@ -33,9 +33,9 @@ class PowerSchema(BaseModel):
     sata: Optional[int] = None
     ide_4: Optional[int] = None
     rgb_connector: Optional[int] = None
-    feature: Optional[int] = None
-    inside: Optional[int] = None
-    protection: Optional[int] = None
+    feature: Optional[List[str]] = []
+    inside: Optional[List[str]] = []
+    protection: Optional[List[str]] = []
     as_years: Optional[int] = None
     reg_date: Optional[int] = None
     bookmark: Optional[int] = 0
