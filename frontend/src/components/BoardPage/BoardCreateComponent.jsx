@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { current } from "@reduxjs/toolkit";
 import { createBoardContent } from "api/boards";
 
 export default function BoardCreateComponent() {
@@ -9,10 +8,10 @@ export default function BoardCreateComponent() {
   const navigate = useNavigate();
 
   const handleTitle = (e) => {
-    setTitle((current) => e.target.value);
+    setTitle(e.target.value);
   };
   const handleContent = (e) => {
-    setContent((current) => e.target.value);
+    setContent(e.target.value);
   };
 
   const onSubmit = async (e) => {
@@ -38,15 +37,6 @@ export default function BoardCreateComponent() {
       }
     } else formData.append("files", new Blob([], { type: "application/json" }));
 
-    // console.log(formData.get("data"));
-    // console.log(formData.getAll("files"));
-
-    // for (let key of formData.keys()) {
-    //   console.log(key);
-    // }
-    // for (let value of formData.values()) {
-    //   console.log(value);
-    // }
 
     await createBoardContent(
       formData,

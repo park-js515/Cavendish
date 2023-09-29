@@ -20,8 +20,9 @@ export default function BoardDetailComponent() {
   const [contents, setContents] = useState("");
   const [date, setDate] = useState("");
 
-  const [comment, setComment] = useState("");
   const [commentList, setCommentList] = useState([]);
+  const [like, setLike] = useState(0);
+  const [isMine, setIsMine] = useState(false);
 
   const [imageData, setImageData] = useState([]);
 
@@ -37,6 +38,9 @@ export default function BoardDetailComponent() {
         setContents(data.contents);
         setDate(data.createDateTime);
         setImageData(data.images);
+        setLike(data.like);
+        setIsMine(data.isMine);
+        // console.log(data);
       },
       () => {},
     );
@@ -55,13 +59,22 @@ export default function BoardDetailComponent() {
     );
   };
 
+  const updateHandler = () => {
+    // if(isMine!==true) return
+    navigate(`/board/update/${id}`)
+  };
+
   return (
     <div className="detail_page">
       <div className="detail_header">
         <h2>{title}</h2>
         <div className="header_info">
-          <div>일시 {date}</div>
-          <div>{nickname}</div>
+          <div className="flex-row">
+            <div>{nickname}</div> |<div>좋아요 : {like}</div>
+          </div>
+          <div className="flex-row">
+            <div>작성일자 : {date}</div>
+          </div>
         </div>
       </div>
 
@@ -100,9 +113,24 @@ export default function BoardDetailComponent() {
         <Link className="button_link right" to="/board">
           돌아가기
         </Link>
-        <button className="button_link" onClick={deleteHandler} type="button">
-          삭제하기
-        </button>
+        {!isMine && (
+          <div>
+            <button
+              className="button_link"
+              onClick={updateHandler}
+              type="button"
+            >
+              수정하기
+            </button>
+            <button
+              className="button_link"
+              onClick={deleteHandler}
+              type="button"
+            >
+              삭제하기
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

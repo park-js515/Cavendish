@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import BoardDetailPage from "pages/BoardDetailPage";
 import BoardCreatePage from "pages/BoardCreatePage";
+import BoardUpdatePage from "pages/BoardUpdatePage";
 import BoardPage from "pages/BoardPage";
 import LoginPage from "pages/LoginPage";
 import LogoutPage from "pages/LogoutPage";
@@ -19,6 +20,7 @@ import SignupPage from "pages/SignupPage";
 const RouteComponent = () => {
   return (
     <Routes>
+      <Route path="/board/update/:id" element={<BoardUpdatePage />}></Route>
       <Route path="/board/detail/:id" element={<BoardDetailPage />}></Route>
       <Route path="/board/create" element={<BoardCreatePage />}></Route>
       <Route path="/board/:page" element={<BoardPage />}></Route>
