@@ -15,7 +15,7 @@ public class BoardModifyFormComponentDto {
     private String title;
     private String contents;
     private Integer quotationId;
-    private Timestamp createDateTime;
+    private String createDateTime;
     private Integer view;
     private Integer like;
 
