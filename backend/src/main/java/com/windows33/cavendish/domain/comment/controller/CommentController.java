@@ -62,10 +62,11 @@ public class CommentController {
             @PathVariable("commentId") Integer commentId,
             @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
     ) {
-        
+        commentService.removeComment(commentId, userPrincipal.getId());
 
         return CommonResponse.OK(null);
     }
+
 
 
 }

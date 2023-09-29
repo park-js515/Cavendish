@@ -6,4 +6,6 @@ public interface CommentService {
 
     Integer addComment(CommentAddRequestDto commentAddRequestDto, Integer userId);
 
+    void removeComment(Integer commentId, Integer userId);
+
 }
