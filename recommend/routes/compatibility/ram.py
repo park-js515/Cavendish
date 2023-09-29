@@ -1,20 +1,9 @@
 from fastapi import FastAPI, APIRouter, Depends, Query
 from fastapi.responses import JSONResponse
-from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
 from typing import List, Optional
-from models.users import User
-from models.hdd import HDD
 from models.cpu import CPU
-from models.mainboard import Mainboard, MainboardPCI
+from models.mainboard import Mainboard
 from models.ram import RAM
-from models.gpu import GPU
-from models.case import Case
-from models.cooler import Cooler
-from models.ssd import SSD
-from models.quotation import Quotation
-from models.programs import Program
-from models.power import Power
 
 from schemas.ram import RAMSchema, serialize_ram
 
@@ -32,8 +21,8 @@ router = APIRouter(
     prefix="/search/ram", # url 앞에 고정적으로 붙는 경로추가
 ) # Route 분리
 
-@router.get("/{keyword:str}/{page:int}")
-async def ram_search(keyword: str, page: int, state: ProcessListStep1 = Depends()):
+@router.get("/{page:int}", response_model=List[RAMSchema])
+async def ram_search(page: int = 1, keyword: str = "", state: ProcessListStep1 = Depends()):
     ram = session.query(RAM).filter(RAM.name.like(f'%{keyword}%')).all()
     max_page = len(ram)//10 + 1
     if page > max_page:
@@ -82,9 +71,10 @@ async def ram_search(keyword: str, page: int, state: ProcessListStep1 = Depends(
         response = JSONResponse(content=result[(page-1)*10:page*10], status_code=200, headers=headers)
         # response = JSONResponse(content=result, status_code=200, headers=headers)
 
-        session.close()
         return response
         
 
-    except:
-        return JSONResponse(content={"error" : "Bad Request"}, status_code=400)
+    except Exception as e:
+        return JSONResponse(content={"error" : "Bad Request", "message" : f"{e}"}, status_code=400)
+    finally:
+        session.close()

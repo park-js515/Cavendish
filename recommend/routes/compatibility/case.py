@@ -18,9 +18,12 @@ from models.power import Power
 
 from schemas.search import ProcessListStep1
 
+from core.com_data import case_com
+from core.common import decimal_to_name
+from core.case import case_com_cooler, case_com_mainboard
 from core.gpu import gpu_com_case
 from core.power import power_com_case, power_com_case_support
-from schemas.case import serialize_case
+from schemas.case import CaseSchema, serialize_case
 from db.connection import engineconn
 
 engine = engineconn()
@@ -30,8 +33,8 @@ router = APIRouter(
     prefix="/search/case"
 )
 
-@router.get("/{keyword:str}/{page:int}")
-async def case_search(keyword: str, page: int, state: ProcessListStep1 = Depends()):
+@router.get("/{page:int}", response_model=List[CaseSchema])
+async def case_search(page: int = 1, keyword: str = "", state: ProcessListStep1 = Depends()):
     case = session.query(Case).filter(Case.name.like(f'%{keyword}%')).all()
     max_page = len(case)//10 + 1
     if page > max_page:
@@ -69,9 +72,45 @@ async def case_search(keyword: str, page: int, state: ProcessListStep1 = Depends
 
         if state.mainboard != -1:
             mainboard = session.query(Mainboard).filter(Mainboard.id == state.mainboard).first()
+            for i in range(len(result)):
+                if case_com_mainboard(result[i]['data'].board_support, mainboard.form_factor):
+                    pass
+                else:
+                    result[i]['compatibility'].append('mainboard') 
 
         if state.cooler != -1:
             cooler = session.query(Cooler).filter(Cooler.id == state.cooler).first()
+            for i in range(len(result)):
+                if case_com_cooler(result[i]['data'].cpu_cooler_size, result[i]['data'].liquid_cooler, result[i]['data'].radiator_top, result[i]['data'].radiator_front, result[i]['data'].radiator_rear, result[i]['data'].radiator_side, cooler.category, cooler.height, cooler.cooling_type, cooler.fan_size, cooler.fan_count):
+                    pass
+                else:
+                    result[i]['compatibility'].append('cooler')
+        
+        result = sorted(result, key=lambda x: len(x['compatibility']))
 
-    except:
-        return JSONResponse(content={"error" : "Bad Request"}, status_code=400)
+        for i, item in enumerate(result):
+            if result[i]['data'].board_support == None or result[i]['data'].board_support == 0:
+                result[i]['data'].board_support = []
+            else:
+                result[i]['data'].board_support = decimal_to_name(result[i]['data'].board_support, len(case_com['board_support']), case_com['board_support'])
+            
+            if result[i]['data'].external_port == None or result[i]['data'].external_port == 0:
+                result[i]['data'].external_port = []
+            else:    
+                result[i]['data'].external_port = decimal_to_name(result[i]['data'].external_port, len(case_com['external_port']), case_com['external_port'])
+            
+            if result[i]['data'].feature == None or result[i]['data'].feature == 0:
+                result[i]['data'].feature = []
+            else:    
+                result[i]['data'].feature = decimal_to_name(result[i]['data'].feature, len(case_com['feature']), case_com['feature'])
+            result[i] = serialize_case(result[i]['data'], result[i]['compatibility'])
+
+        headers = {"max_page": str(max_page)}
+
+        return JSONResponse(content=result[(page-1)*10:page*10], status_code=200, headers=headers)
+
+    except Exception as e:
+        return JSONResponse(content={"error" : "Bad Request", "message" : f"{e}"}, status_code=400)
+    
+    finally:
+        session.close()
