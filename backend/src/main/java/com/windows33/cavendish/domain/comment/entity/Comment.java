@@ -1,11 +1,11 @@
 package com.windows33.cavendish.domain.comment.entity;
 
+import com.windows33.cavendish.global.converter.DateToStringConverter;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 
 @Getter
 @SuperBuilder
@@ -28,7 +28,8 @@ public class Comment {
     private String contents;
 
     @Column(insertable = false)
-    private Timestamp createDate;
+    @Convert(converter= DateToStringConverter.class)
+    private String createDateTime;
 
     @Column(insertable = false)
     private Byte status;
