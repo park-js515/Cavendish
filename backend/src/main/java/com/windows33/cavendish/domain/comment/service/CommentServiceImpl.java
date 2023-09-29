@@ -2,6 +2,7 @@ package com.windows33.cavendish.domain.comment.service;
 
 import com.windows33.cavendish.domain.board.entity.Board;
 import com.windows33.cavendish.domain.comment.dto.request.CommentAddRequestDto;
+import com.windows33.cavendish.domain.comment.dto.request.CommentModifyRequestDto;
 import com.windows33.cavendish.domain.comment.entity.Comment;
 import com.windows33.cavendish.domain.comment.repository.CommentRepository;
 import com.windows33.cavendish.global.exception.InvalidException;
@@ -10,8 +11,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @Slf4j
 @Service
@@ -34,16 +33,25 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public void removeComment(Integer boardId, Integer id) {
-        Comment comment = checkAuthority(boardId, id);
+    public void removeComment(Integer commentId, Integer userId) {
+        Comment comment = checkAuthority(commentId, userId);
 
         commentRepository.delete(comment);
     }
 
-    private Comment checkAuthority(Integer commentId, Integer id) {
+    @Override
+    public Integer modifyComment(CommentModifyRequestDto commentModifyRequestDto, Integer userId) {
+        Comment comment = checkAuthority(commentModifyRequestDto.getCommentId(), userId);
+
+        comment.updateComment(commentModifyRequestDto.getContents());
+
+        return commentRepository.save(comment).getId();
+    }
+
+    private Comment checkAuthority(Integer commentId, Integer userId) {
         Comment comment = commentRepository.findById(commentId).orElseThrow(() -> new NotFoundException(Board.class, commentId));
 
-        if(!comment.getUserId().equals(id)) {
+        if(!comment.getUserId().equals(userId)) {
             throw new InvalidException(Board.class, commentId);
         }
 

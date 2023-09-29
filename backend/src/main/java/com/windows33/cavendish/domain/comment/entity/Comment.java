@@ -34,4 +34,8 @@ public class Comment {
     @Column(insertable = false)
     private Byte status;
 
+    public void updateComment(String contents) {
+        if(contents != null) this.contents = contents;
+    }
+
 }

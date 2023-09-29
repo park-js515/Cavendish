@@ -1,6 +1,7 @@
 package com.windows33.cavendish.domain.comment.controller;
 
 import com.windows33.cavendish.domain.comment.dto.request.CommentAddRequestDto;
+import com.windows33.cavendish.domain.comment.dto.request.CommentModifyRequestDto;
 import com.windows33.cavendish.domain.comment.dto.response.CommentListResponseDto;
 import com.windows33.cavendish.domain.comment.service.CommentQueryService;
 import com.windows33.cavendish.domain.comment.service.CommentService;
@@ -67,6 +68,18 @@ public class CommentController {
         return CommonResponse.OK(null);
     }
 
+    @Operation(summary = "댓글 수정", description = "댓글 수정")
+    @Parameters({
+            @Parameter(name = "commentModifyRequestDto", description = "수정 댓글 내용")
+    })
+    @PatchMapping
+    public CommonResponse<Integer> commentModify(
+            @RequestBody CommentModifyRequestDto commentModifyRequestDto,
+            @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
+    ) {
+        System.out.println("!!!");
 
+        return CommonResponse.OK(commentService.modifyComment(commentModifyRequestDto, userPrincipal.getId()));
+    }
 
 }
