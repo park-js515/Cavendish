@@ -77,8 +77,6 @@ public class CommentController {
             @RequestBody CommentModifyRequestDto commentModifyRequestDto,
             @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
     ) {
-        System.out.println("!!!");
-
         return CommonResponse.OK(commentService.modifyComment(commentModifyRequestDto, userPrincipal.getId()));
     }
 
