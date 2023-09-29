@@ -199,6 +199,10 @@
       justify-content: space-between;
       margin-top: 10px;
       font-size: 0.7rem;
+      .flex-row {
+        display: flex;
+        flex-direction: row;
+      }
     }
   }
   .detail_content {
@@ -234,6 +238,49 @@
     }
     .comment_list {
       list-style-type: none;
+    }
+  }
+}
+
+.update_page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .update_form {
+    display: flex;
+    flex-direction: column;
+    .title {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    .update_body {
+      margin: 10px;
+      width: 800px;
+      height: 400px;
+      padding: 10px;
+      resize: none;
+      border-radius: 0.2rem;
+    }
+    .updated_image {
+      display: flex;
+      .imageWrapper {
+        display: flex;
+        img {
+          width: 100px;
+          height: 100px;
+          border: 1px solid gray;
+        }
+        .removeButton {
+          width: 20px;
+          height: 20px;
+          border: none;
+          position: relative;
+          top: 4px;
+          right: 24px;
+          z-index: 10;
+        }
+      }
     }
   }
 }
