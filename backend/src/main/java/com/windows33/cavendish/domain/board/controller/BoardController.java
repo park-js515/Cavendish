@@ -56,7 +56,7 @@ public class BoardController {
     })
     @GetMapping
     public CommonResponse<Page<BoardListResponseDto>> articleList(
-            @PageableDefault(sort="modifyDateTime", direction = Sort.Direction.DESC) Pageable pageable
+            @PageableDefault(sort="createDateTime", direction = Sort.Direction.DESC) Pageable pageable
     ) {
         return CommonResponse.OK(boardQueryService.findBoardList(pageable));
     }
@@ -87,7 +87,7 @@ public class BoardController {
         return CommonResponse.OK(null);
     }
 
-    @Operation(summary = "글 수정 인터페이스", description = "글 수정 인터페이스")
+    @Operation(summary = "글 수정 Interface", description = "글 수정 Interface")
     @Parameters({
             @Parameter(name = "boardId", description = "게시글 ID")
     })
