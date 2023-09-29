@@ -36,7 +36,7 @@ public class BoardServiceImpl implements BoardService {
                 .contents(boardAddRequestDto.getContents())
                 .quotationId(boardAddRequestDto.getQuotationId());
 
-        int boardId = boardRepository.save(board.build()).getId();
+        Integer boardId = boardRepository.save(board.build()).getId();
 
         // 이미지 파일 저장
         List<String> images = fileStoreUtil.uploadFiles("BoardImage", img);
@@ -88,7 +88,7 @@ public class BoardServiceImpl implements BoardService {
         );
 
         // 글 수정
-        int boardId = boardRepository.save(board).getId();
+        Integer boardId = boardRepository.save(board).getId();
 
         System.out.println("xxxxxx: " + boardId);
 

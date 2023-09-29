@@ -47,7 +47,7 @@ public class BoardQueryRepository {
                         board.contents,
                         board.createDate,
                         board.view,
-                        board.like
+                        board.likeCnt
                 ))
                 .from(board)
                 .leftJoin(member).on(board.userId.eq(member.id))
@@ -76,7 +76,7 @@ public class BoardQueryRepository {
                     case "createdDate":
                         return new OrderSpecifier(direction, board.createDate);
                     case "like":
-                        return new OrderSpecifier(direction, board.like);
+                        return new OrderSpecifier(direction, board.likeCnt);
                     case "view":
                         return new OrderSpecifier(direction, board.view);
                 }
@@ -107,7 +107,7 @@ public class BoardQueryRepository {
                         board.quotationId,
                         board.createDate,
                         board.view,
-                        board.like,
+                        board.likeCnt,
                         isMine))
                 .from(board)
                 .leftJoin(member).on(board.userId.eq(member.id))
@@ -142,7 +142,7 @@ public class BoardQueryRepository {
                         board.quotationId,
                         board.createDate,
                         board.view,
-                        board.like))
+                        board.likeCnt))
                 .from(board)
                 .leftJoin(member).on(board.userId.eq(member.id))
                 .where(board.id.eq(boardId))
