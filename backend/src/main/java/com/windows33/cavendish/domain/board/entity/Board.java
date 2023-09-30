@@ -26,8 +26,8 @@ public class Board {
 
     private String contents;
 
-    @Column(insertable = false)
     @Convert(converter= DateToStringConverter.class)
+    @Column(insertable = false)
     private String createDateTime;
 
     @Column(insertable = false)
