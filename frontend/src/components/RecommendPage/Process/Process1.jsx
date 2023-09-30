@@ -16,11 +16,13 @@ const Process1 = ({ className }) => {
   const [subProcess1, setSubProcess1] = useState(0);
   const isChecked = useRef(false);
   const NowComponent = subProcess1 <= 2 ? subProcessList[subProcess1] : null;
+
   useEffect(() => {
     if (!isChecked.current && subProcess1 === 3) {
       dispatch(recom.setProcessNo(0));
       setSubProcess1(0);
     }
+
     return () => {
       if (!isChecked.current && subProcess1 === 3) {
         isChecked.current = true;

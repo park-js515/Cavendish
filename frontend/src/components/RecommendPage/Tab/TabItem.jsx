@@ -5,7 +5,7 @@ import { ImCancelCircle } from "react-icons/im";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 import { BsFillTrash3Fill } from "react-icons/bs";
 
-const CancelBtn = ({ processNo }) => {
+const CancelBtn = () => {
   const dispatch = useDispatch();
   const [toggle, setToggle] = useState(false);
   const col1 = `rgba(255, 0, 0, 0.5)`;
@@ -23,7 +23,7 @@ const CancelBtn = ({ processNo }) => {
         setToggle(false);
       }}
     >
-      <ImCancelCircle color={toggle ? col2 : col1} size="30" />
+      <ImCancelCircle color={toggle ? col2 : col1} size="25" />
     </div>
   );
 };
@@ -32,7 +32,7 @@ const CancelBtn = ({ processNo }) => {
 // pos === -1: 취소 가능하게 할 것
 // pos === 0: 현재 선택 중
 // pos > 0: 미선택
-const TabItem = ({ className, title, resetTab, index }) => {
+const TabItem = ({ className, title, index }) => {
   const dispatch = useDispatch();
   const processNo = useSelector((state) => state.recommend.processNo);
   const pos = processNo - index;
@@ -40,7 +40,6 @@ const TabItem = ({ className, title, resetTab, index }) => {
     return state.recommend;
   });
 
-  // 제거 버튼 추가하기
   const TabContent0 = () => {
     const data = recommend.processList[0];
     const handleRam = (val) => {
@@ -76,9 +75,9 @@ const TabItem = ({ className, title, resetTab, index }) => {
                     dispatch(
                       recom.removeProcessList0({
                         index: index,
-                        data: { value: "-1", id: "" },
                       }),
                     );
+                    dispatch(recom.setRamNo(0));
                   }}
                   style={{ cursor: "pointer" }}
                 />
@@ -94,7 +93,6 @@ const TabItem = ({ className, title, resetTab, index }) => {
                     dispatch(
                       recom.removeProcessList0({
                         index: index,
-                        data: { value: "-1", id: "" },
                       }),
                     );
                   }}
@@ -111,13 +109,40 @@ const TabItem = ({ className, title, resetTab, index }) => {
   const TabContent1 = () => {
     const data = recommend.processList[1];
 
-    return <div className="wrapper2">{data.usage}</div>;
+    return (
+      <div>
+        {data.map((item, index) => {
+          return (
+            <div key={index} className="wrapper2">{`${
+              index + 1
+            }: ${item}`}</div>
+          );
+        })}
+      </div>
+    );
   };
 
   const TabContent2 = () => {
-    const data = recommend.processList[2];
-
-    return <div className="wrapper2">{data.program}</div>;
+    const data1 = recommend.processList[1];
+    const data2 = recommend.processList[2];
+    return (
+      <div>
+        {data1.map((items, itemsIndex) => {
+          return (
+            <div key={itemsIndex}>
+              <div className="wrapper2">{`${itemsIndex + 1}: ${items}`}</div>
+              {data2[items].map((item, itemIndex) => {
+                return (
+                  <div className="wrapper2" key={itemIndex}>
+                    &nbsp;{`- ${item}`}
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
+    );
   };
 
   const TabContent3 = () => {
@@ -156,12 +181,9 @@ const TabItem = ({ className, title, resetTab, index }) => {
   return (
     <div className={className}>
       <div className="wrapper">
-        {title}{" "}
-        {pos === 0 ? (
-          <CancelBtn resetTab={resetTab} processNo={processNo} />
-        ) : null}
+        {title} {pos === 0 ? <CancelBtn /> : null}
       </div>
-      {pos >= 0 ? <Content /> : null}
+      {pos >= -1 ? <Content /> : null}
     </div>
   );
 };

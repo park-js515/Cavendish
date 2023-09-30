@@ -24,7 +24,6 @@ const MultiSelectComponent = ({ selectedOptions, setSelectedOptions }) => {
       value={selectedOptions}
       onChange={handleSelectChange}
       isOptionDisabled={() => selectedOptions.length >= 3}
-      // placeholder="우선순위를 골라주세요."
     />
   );
 };
@@ -46,7 +45,9 @@ const Process5 = ({ className }) => {
     <div className={className}>
       <div className="proc5">
         <div className="proc5-top">
-          <div className="text">우선순위를 골라주세요...</div>
+          <div className="text">우선순위를 골라주세요</div>
+        </div>
+        <div className="proc5-bot">
           <div className="select-wrapper">
             <MultiSelectComponent
               selectedOptions={selectedOptions}
@@ -54,7 +55,7 @@ const Process5 = ({ className }) => {
             />
           </div>
         </div>
-        <div className="proc5-bot">
+        <div className="footer">
           <div className="submitBtn-wrapper">
             <SubmitBtn
               onClick={() => {

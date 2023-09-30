@@ -9,8 +9,8 @@ import TabItem from "./TabItem";
 //
 const tabList_origin = [
   { title: "1. 보유 부품 확인", className: "tab-item" },
-  { title: "2. 용도 선택", className: "tab-item" },
-  { title: "3. 세부 용도 선택", className: "tab-item" },
+  { title: "2. 용도 선택(최대 2개)", className: "tab-item" },
+  { title: "3. 세부 용도 선택(각 최대 3개)", className: "tab-item" },
   { title: "4. 예산 선택", className: "tab-item" },
   { title: "5. 우선 순위 선택", className: "tab-item" },
 ];
