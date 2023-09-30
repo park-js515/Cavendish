@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String, Float, Boolean
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import relationship
 
 Base = declarative_base()
 
@@ -37,3 +38,5 @@ class CPU(Base):
     bench_mark = Column(Integer)
     reg_date = Column(Integer, comment='yyyymm')
     bookmark = Column(Integer, default=0)
+
+    requirments = relationship("Requirements", back_populates="cpu", lazy='dynamic')
