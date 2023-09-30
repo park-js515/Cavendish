@@ -1,13 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "styles/css/comment.css";
 import CommentUpdateComponent from "./CommentUpdateComponent";
+import { deleteComment, getCommentsList } from "api/comments";
 
 export default function CommentComponent({
-  content,
-  commentList,
+  commentId,
+  boardId,
+  createDateTime,
+  nickname,
+  isMine,
+  comment,
   setCommentList,
+  page,
+  size,
 }) {
-  const [comment, setComment] = useState(content);
 
   const [isUpdate, setIsUpdate] = useState(false);
 
@@ -16,35 +22,58 @@ export default function CommentComponent({
     else setIsUpdate(false);
   };
 
+  const reloadCommentList = () => {
+    getCommentsList(
+      { boardId:boardId, page: page, size: size },
+      (response) => {
+        const data = response.data.response;
+        setCommentList(data.content);
+      },
+      () => {},
+    );
+  };
+
+  const commentDeleteHandler = () => {
+    deleteComment(
+      commentId,
+      () => {
+        reloadCommentList();
+      },
+      () => {},
+    );
+  };
+
   return (
     <>
       {!isUpdate && (
         <div className="comment_body">
           <div className="comment_header">
             <div className="comment_user">
-              <div>닉네임</div>
+              <div>{nickname}</div>
             </div>
-            <div className="buttons">
-              <button onClick={updateHandler} type="button">
-                수정
-              </button>{" "}
-              |{/* commentList.splice({id}, 1) */}
-              <button type="button">삭제</button>
-            </div>
+            {!isMine && (
+              <div className="buttons">
+                <button type="button" onClick={updateHandler}>
+                  수정
+                </button>{" "}
+                <button type="button" onClick={commentDeleteHandler}>삭제</button>
+              </div>
+            )}
           </div>
           <div className="comment_content">
-            <div>{content}</div>
-            <div className="date">일시 2023-09-22</div>
+            <div className="comment_content">{comment}</div>
+            <div className="date">작성일시 : {createDateTime}</div>
           </div>
         </div>
       )}
       {isUpdate && (
         <CommentUpdateComponent
-          isUpdate={isUpdate}
+          commentId={commentId}
           setIsUpdate={setIsUpdate}
           comment={comment}
-          commentList={commentList}
           setCommentList={setCommentList}
+          page={page}
+          size={size}
         />
       )}
     </>
