@@ -46,6 +46,18 @@ const searchDefaultInstance = () => {
   return instance;
 };
 
+const commentDefaultInstance = (params) => {
+  const instance = createDefaultAxios(`/comment?page=${params.page}&size=${params.size}`);
+
+  return instance;
+};
+
+const commentCustomInstance = () => {
+  const instance = createCustomAxios(`/comment`);
+
+  return instance;
+};
+
 export {
   memberCustomInstance,
   memberDefaultInstance,
@@ -54,4 +66,6 @@ export {
   boardDetailDefaultInstance,
   searchDefaultInstance,
   imageDefaultInstance,
+  commentDefaultInstance,
+  commentCustomInstance,
 };

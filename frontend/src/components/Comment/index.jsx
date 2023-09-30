@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "styles/css/comment.css";
 import CommentUpdateComponent from "./CommentUpdateComponent";
 
 export default function CommentComponent({
-  content,
+  commentId,
+  createDateTime,
+  nickname,
+  isMine,
   commentList,
   setCommentList,
 }) {
-  const [comment, setComment] = useState(content);
+  const [comment, setComment] = useState("");
 
   const [isUpdate, setIsUpdate] = useState(false);
 
@@ -22,19 +25,21 @@ export default function CommentComponent({
         <div className="comment_body">
           <div className="comment_header">
             <div className="comment_user">
-              <div>닉네임</div>
+              <div>{nickname}</div>
             </div>
-            <div className="buttons">
-              <button onClick={updateHandler} type="button">
-                수정
-              </button>{" "}
-              |{/* commentList.splice({id}, 1) */}
-              <button type="button">삭제</button>
-            </div>
+            {isMine && (
+              <div className="buttons">
+                <button onClick={updateHandler} type="button">
+                  수정
+                </button>{" "}
+                <button type="button">삭제</button>
+              </div>
+            )}
           </div>
           <div className="comment_content">
-            <div>{content}</div>
-            <div className="date">일시 2023-09-22</div>
+            <div className="comment_id">{commentId}.</div>
+            <div className="comment_content">{"댓글 내용"}</div>
+            <div className="date">작성일시 : {createDateTime}</div>
           </div>
         </div>
       )}
