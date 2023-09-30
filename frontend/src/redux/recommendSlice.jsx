@@ -84,11 +84,20 @@ const recommendSlice = createSlice({
       state.processList[2][key].splice(index, 1);
     },
     removeProcess: (state) => {
-      state.processList[state.processNo] =
-        initialState_origin.processList[state.processNo];
-      if (state.processNo < 4) {
+      if (state.processNo === 2) {
+        for (const key in state.processList[2]) {
+          state.processList[2][key].length = 0;
+        }
         state.processList[state.processNo + 1] =
-          initialState_origin.processList[state.processNo + 1];
+        initialState_origin.processList[state.processNo + 1];
+      }
+      else {
+        state.processList[state.processNo] =
+          initialState_origin.processList[state.processNo];
+        if (state.processNo < 4) {
+          state.processList[state.processNo + 1] =
+            initialState_origin.processList[state.processNo + 1];
+        }
       }
       state.processNo--;
     },

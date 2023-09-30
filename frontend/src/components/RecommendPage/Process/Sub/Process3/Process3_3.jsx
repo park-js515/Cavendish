@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import dummyImg from "assets/defaultImgs2/Briar.png";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
 // redux
 import { useDispatch, useSelector } from "react-redux";
@@ -51,6 +52,35 @@ const Item = ({ selected, imgUrl, value }) => {
   );
 };
 
+const TopIcons = ({ onClick }) => {
+  const [leftCol, setLeftCol] = useState("black");
+
+  return (
+    <div
+      style={{
+        height: "20px",
+        display: "flex",
+        justifyContent: "flex-start",
+      }}
+    >
+      <AiOutlineArrowLeft
+        size="20"
+        color={leftCol}
+        onMouseEnter={() => {
+          setLeftCol("red");
+        }}
+        onMouseLeave={() => {
+          setLeftCol("black");
+        }}
+        onClick={onClick}
+        style={{
+          cursor: "pointer",
+        }}
+      />
+    </div>
+  );
+};
+
 // 소분류에 해당하는 것2
 // 컴포넌트만 존재
 // 컴포넌트 재사용 기존에 존재하던 것
@@ -68,17 +98,24 @@ const Process3_3 = ({ setSubProcess, selected }) => {
   }, []);
 
   return (
-    <div className="proc3-3">
-      {data.map((item, index) => {
-        return (
-          <Item
-            key={index}
-            selected={selected}
-            imgUrl={item.imgUrl}
-            value={item.usage}
-          />
-        );
-      })}
+    <div style={{ height: "100%", width: "100%" }}>
+      <TopIcons
+        onClick={() => {
+          setSubProcess(0);
+        }}
+      />
+      <div className="proc3-3">
+        {data.map((item, index) => {
+          return (
+            <Item
+              key={index}
+              selected={selected}
+              imgUrl={item.imgUrl}
+              value={item.usage}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };
