@@ -2,7 +2,7 @@ import { useState } from "react";
 import dummyImg from "assets/defaultImgs2/Briar.png";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 
-//redux
+// redux
 import { useDispatch, useSelector } from "react-redux";
 import * as recom from "redux/recommendSlice";
 
@@ -18,32 +18,16 @@ const list = [
   { imgUrl: dummyImg, usage: "음악 작곡 및 편집" },
 ];
 
-const Item = ({ imgUrl, usage }) => {
-  const dispatch = useDispatch();
-  const data = useSelector((state) => {
-    return state.recommend.processList[1];
-  });
-
-  const onClick = () => {
-    if (data.includes(usage)) {
-      dispatch(recom.removeProcessList1({ value: usage }));
-    } else {
-      dispatch(recom.addProcessList1({ value: usage }));
-    }
-  };
-
-  const className = data.includes(usage) ? "item-active" : "item";
-
+const Item = ({ imgUrl, value, onClick }) => {
   return (
-    <div className={className} onClick={onClick}>
+    <div className="item" onClick={onClick}>
       <div
         className="item-top"
         style={{
           backgroundImage: `url(${imgUrl})`,
-          // visibility: usage ? "visible" : "hidden",
         }}
       ></div>
-      <div className="item-bot">{usage}</div>
+      <div className="item-bot">{value}</div>
     </div>
   );
 };
@@ -76,7 +60,7 @@ const TopIcons = () => {
         }}
         onClick={() => {
           dispatch(recom.removeProcess());
-          dispatch(recom.setProcessNo(-1));
+          dispatch(recom.setProcessNo(0));
         }}
         style={{
           cursor: "pointer",
@@ -93,7 +77,7 @@ const TopIcons = () => {
         }}
         onClick={() => {
           if (!disabled) {
-            dispatch(recom.setProcessNo(1));
+            dispatch(recom.setProcessNo(2));
           }
         }}
         style={{ cursor: disabled ? "not-allowed" : "pointer" }}
@@ -102,21 +86,41 @@ const TopIcons = () => {
   );
 };
 
-// 2. 용도 선택 대분류
-// 용도 선택 컴포넌트
-const Process2 = ({ className }) => {
-  const dispatch = useDispatch();
+// 대분류에 해당하는 것
+// 대분류에 대응되는 컴포넌트
+const Process3_1 = ({ setSubProcess, setSelected }) => {
+  const usage = useSelector((state) => {
+    return state.recommend.processList[1];
+  });
 
   return (
-    <div className={className}>
-      <TopIcons />
-      <div className="proc2">
-        {list.map((item, index) => {
-          return <Item key={index} {...item} />;
-        })}
-      </div>
+    <div className="proc3-1">
+      {usage.map((item, itemIndex) => {
+        const index = list.findIndex((elem) => {
+          return elem.usage === item;
+        });
+        const imgUrl = list[index].imgUrl;
+        const onClick = () => {
+          setSelected(item);
+
+          if (item === "pc 게임") {
+            setSubProcess(1);
+          } else {
+            setSubProcess(2);
+          }
+        };
+
+        return (
+          <Item
+            key={itemIndex}
+            imgUrl={imgUrl}
+            value={item}
+            onClick={onClick}
+          />
+        );
+      })}
     </div>
   );
 };
 
-export default Process2;
+export default Process3_1;

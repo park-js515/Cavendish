@@ -137,6 +137,11 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
                   background-color: #{$mainColor-default};
                   transform: rotateY(180deg);
                   opacity: 0;
+
+                  .detail {
+                    height: 100%;
+                    width: 100%;
+                  }
                 }
               }
             }
@@ -146,6 +151,22 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
           .partSelect {
             height: 100%;
             width: 100%;
+
+            .back-wrapper {
+              height: 25px;
+
+              .back {
+                cursor: pointer;
+                transition: all 200ms ease-in-out;
+                display: inline-block;
+
+                &:hover {
+                  color: red;
+                  font-size: 22.5px;
+                  font-weight: bolder;
+                }
+              }
+            }
 
             .search-wrapper {
               display: flex;
@@ -192,16 +213,17 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
                 flex-wrap: wrap;
 
                 .item {
+                  box-sizing: border-box;
                   height: 200px;
                   width: 200px;
                   margin: 5px 5px;
                   cursor: pointer;
                   transition: all 200ms ease-in-out;
-                  border: 1px solid white;
+                  border: 2px solid white;
                   border-radius: 5px;
 
                   &:hover {
-                    border: 1px solid black;
+                    border: 2px solid gray;
                   }
 
                   .partImg {
@@ -224,6 +246,15 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                  }
+                }
+
+                .item-selected {
+                  @extend .item;
+                  border: 2px solid rgba(0, 128, 0, 0.5);
+
+                  &:hover {
+                    border: 2px solid rgba(255, 0, 0, 0.5);
                   }
                 }
               }
@@ -275,7 +306,7 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
           }
 
           .proc2 {
-            height: 100%;
+            height: calc(100% - 20px);
             width: 100%;
             display: flex;
             flex-wrap: wrap;
@@ -287,6 +318,10 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
             }
 
             .item {
+              transition: all 200ms ease-in-out;
+              &:hover {
+                background-color: rgba(128, 128, 128, 0.25);
+              }
               &-top {
                 height: 150px;
                 width: 280px;
@@ -296,13 +331,6 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
                 margin: 5px 5px 0 5px;
                 transition: all 200ms ease-in-out;
                 cursor: pointer;
-
-                &:hover {
-                  filter: brightness(80%);
-                  ~ .item-bot {
-                    background-color: #{$mainColor-weak};
-                  }
-                }
               }
 
               &-bot {
@@ -314,22 +342,28 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
                 margin: 0 5px 5px 5px;
                 cursor: pointer;
                 transition: all 200ms ease-in-out;
+              }
+            }
 
-                &:hover {
-                  background-color: #{$mainColor-weak};
-                }
+            .item-active {
+              @extend .item;
+              background-color: rgba(0, 255, 0, 0.25);
+
+              &:hover {
+                background-color: rgba(255, 0, 0, 0.25);
               }
             }
 
             .item-hidden {
               height: 210px;
               width: 280px;
+              margin: 5px;
               display: hidden;
             }
           }
 
           .proc3 {
-            height: 100%;
+            height: calc(100% - 20px);
             width: 100%;
             display: flex;
             flex-wrap: wrap;
@@ -340,45 +374,134 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
               display: none;
             }
 
-            .item {
-              &-top {
-                height: 150px;
-                width: 280px;
-                background-size: cover;
-                background-repeat: no-repeat;
-                background-position: center;
-                margin: 5px 5px 0 5px;
-                cursor: pointer;
-                transition: all 200ms ease-in-out;
+            .proc3-1 {
+              height: 100%;
+              width: 100%;
+              display: flex;
+              justify-content: space-evenly;
+              align-items: center;
 
-                &:hover {
-                  filter: brightness(80%);
-                  ~ .item-bot {
-                    background-color: #{$mainColor-weak};
-                  }
-                }
+              &::-webkit-scrollbar {
+                display: none;
               }
 
-              &-bot {
-                height: 60px;
-                width: 280px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin: 0 5px 5px 5px;
-                cursor: pointer;
+              .item {
                 transition: all 200ms ease-in-out;
-
                 &:hover {
-                  background-color: #{$mainColor-weak};
+                  background-color: rgba(128, 128, 128, 0.25);
+                }
+                &-top {
+                  height: 150px;
+                  width: 280px;
+                  background-size: cover;
+                  background-repeat: no-repeat;
+                  background-position: center;
+                  margin: 5px 5px 0 5px;
+                  transition: all 200ms ease-in-out;
+                  cursor: pointer;
+                }
+
+                &-bot {
+                  height: 60px;
+                  width: 280px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  margin: 0 5px 5px 5px;
+                  cursor: pointer;
+                  transition: all 200ms ease-in-out;
                 }
               }
             }
 
-            .item-hidden {
-              height: 210px;
-              width: 280px;
-              display: hidden;
+            .proc3-2 {
+              height: calc(100% - 20px);
+              width: 100%;
+              display: flex;
+              justify-content: space-evenly;
+              align-items: center;
+
+              &::-webkit-scrollbar {
+                display: none;
+              }
+
+              .item {
+                transition: all 200ms ease-in-out;
+                &:hover {
+                  background-color: rgba(128, 128, 128, 0.25);
+                }
+                &-top {
+                  height: 150px;
+                  width: 280px;
+                  background-size: cover;
+                  background-repeat: no-repeat;
+                  background-position: center;
+                  margin: 5px 5px 0 5px;
+                  transition: all 200ms ease-in-out;
+                  cursor: pointer;
+                }
+
+                &-bot {
+                  height: 60px;
+                  width: 280px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  margin: 0 5px 5px 5px;
+                  cursor: pointer;
+                  transition: all 200ms ease-in-out;
+                }
+              }
+            }
+
+            .proc3-3 {
+              height: calc(100% - 20px);
+              width: 100%;
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: space-evenly;
+              overflow-y: scroll;
+
+              &::-webkit-scrollbar {
+                display: none;
+              }
+
+              .item {
+                transition: all 200ms ease-in-out;
+                &:hover {
+                  background-color: rgba(128, 128, 128, 0.25);
+                }
+                &-top {
+                  height: 150px;
+                  width: 280px;
+                  background-size: cover;
+                  background-repeat: no-repeat;
+                  background-position: center;
+                  margin: 5px 5px 0 5px;
+                  transition: all 200ms ease-in-out;
+                  cursor: pointer;
+                }
+
+                &-bot {
+                  height: 60px;
+                  width: 280px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  margin: 0 5px 5px 5px;
+                  cursor: pointer;
+                  transition: all 200ms ease-in-out;
+                }
+              }
+
+              .item-active {
+                @extend .item;
+                background-color: rgba(0, 255, 0, 0.25);
+  
+                &:hover {
+                  background-color: rgba(255, 0, 0, 0.25);
+                }
+              }
             }
           }
 
@@ -462,12 +585,16 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
 
             .proc5-top {
               width: 100%;
-              height: 60%;
+              height: 40%;
+              display: flex;
+              justify-content: center;
+              align-items: flex-end;
 
               .text {
-                font-size: 2rem;
+                font-size: 2.5rem;
                 display: flex;
                 justify-content: center;
+                margin-bottom: 2rem;
               }
 
               .select-wrapper {
@@ -476,8 +603,14 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
               }
             }
             .proc5-bot {
-              width: 100%;
+              width: 60%;
               height: 40%;
+              margin: 0 20%;
+            }
+
+            .footer {
+              width: 100%;
+              height: 20%;
 
               .submitBtn-wrapper {
                 height: 20%;
@@ -554,8 +687,8 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
           .cancelBtn {
             cursor: pointer;
             display: inline;
-            height: 30px;
-            width: 30px;
+            height: 25px;
+            width: 25px;
           }
         }
       }
