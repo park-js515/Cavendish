@@ -1,6 +1,5 @@
 package com.windows33.cavendish.global.jwt;
 
-import com.windows33.cavendish.domain.member.dto.TokenInfo;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;

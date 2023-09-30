@@ -6,7 +6,6 @@ import lombok.ToString;
 
 import java.util.List;
 
-@ToString
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
