@@ -14,7 +14,7 @@ from models.case import Case
 from models.cooler import Cooler
 from models.ssd import SSD
 from models.quotation import Quotation
-from models.programs import Program
+from models.programs import Program, Requirements
 from models.power import Power
 
 from routes.compatibility.cpu import router as cpu_router
@@ -93,6 +93,11 @@ session = engine.sessionmaker()
 
 for router in routers:
     app.include_router(router, prefix=common_prefix)
+
+@app.get("/game")
+async def game():
+    example = session.query(Requirements).first()
+    return example
 
 # @app.get("/")
 # async def root():

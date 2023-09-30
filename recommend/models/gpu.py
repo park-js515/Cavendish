@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Float, SmallInteger, BigInteger
-from sqlalchemy.orm import declarative_base
+from sqlalchemy.orm import declarative_base, relationship
 
 Base = declarative_base()
 
@@ -39,3 +39,5 @@ class GPU(Base):
     bench_mark = Column(Integer)
     reg_date = Column(Integer, comment='yyyymm')
     bookmark = Column(Integer, default=0)
+
+    requirements = relationship("Requirements", back_populates="gpu")
