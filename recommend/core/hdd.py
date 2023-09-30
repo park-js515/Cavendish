@@ -25,7 +25,7 @@ session = engine.sessionmaker()
 
 def hdd_com_mainboard(target, check):
     if target.interface.startswith('SATA3'):
-        if check.sata3_number <= 0:
+        if check.sata3_number <= 0 or check.sata3_number is None:
             target['compatibility'].append('mainboard')
     else:
         # SATA2, E-IDE, PATA100

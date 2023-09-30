@@ -1,0 +1,18 @@
+name,cpu,ram,gpu,dx,os,sto,spec_class
+한컴오피스 2022,"2.4GHz 이상, 2코어",2GB,DirectX 9 이상,DirectX 9,Windows 7 SP1 이상,2GB,1
+Microsoft 365,"1.6GHz 이상, 2코어",4GB,DirectX 9 이상,DirectX 9,"Windows 11, Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016",4GB,1
+Office 2019,"1.6GHz 이상, 2코어",4GB,DirectX 9 이상,DirectX 9,"Windows OS: Windows 11, Windows 10, Windows 10 LTSC 2021, Windows 10 LTSC 2019, Windows Server 2022 또는 Windows Server 2019",4GB,1
+Office 2021,"1.1GHz 이상, 2코어",4GB,DirectX 9 이상,DirectX 9,Windows 10 또는 Windows 11,4GB,1
+4k 영상 시청,인텔 코어 i3-12세대 12100,8GB,,,,any,1
+인터넷 서핑,인텔 코어 i3-12세대 12100,8GB,,,,any,1
+Visual Studio 2022,AMD 라이젠3 PRO 4350G (르누아르),4GB,,,"64bit, Windows 11, Windows10, Windows Server Core 2022, Windows Server Core 2019, Windows Server Core 2016",20GB,0
+Visual Studio 2022,AMD 라이젠3 PRO 4350G (르누아르),16GB,,,"64bit, Windows 11, Windows10, Windows Server Core 2022, Windows Server Core 2019, Windows Server Core 2016",50GB,1
+Visual Studio Code,"1.6GHz 이상, 2코어",4GB,,,Windows10 이상,500MB,0
+PyCharm,Any Moderm CPU,4GB,,,"64bit, Microsoft Windows 10, 8, 7 (SP1)",3.5GB,0
+PyCharm,쿼드코어,8GB,,,"64bit, Microsoft Windows 10, 8, 7 (SP1)",5GB,1
+Eclipse IDE,0.8GHz,0.5GB,,,Windows 7 or later,300MB,0
+Eclipse IDE,1.5GHz,1GB,,,Windows 7 or later,1GB,1
+IntelliJ IDEA,Any Moderm CPU,2GB,,,Windows 10 1809 or later Windows Server 2019 or later,3.5GB,0
+IntelliJ IDEA,쿼드코어,8GB,,,Latest 64-bit version of Windows,5GB,1
+Android Studio,2세대 Intel Core,8GB,,,64비트 Microsoft Windows 8,8GB,0
+Android Studio,최신 Intel Core 프로세서,16GB,,,Windows 64비트 최신 버전,16GB,1
