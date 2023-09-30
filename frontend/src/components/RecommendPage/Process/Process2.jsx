@@ -75,6 +75,7 @@ const TopIcons = () => {
           setLeftCol("black");
         }}
         onClick={() => {
+          dispatch(recom.removeProcess());
           dispatch(recom.setProcessNo(-1));
         }}
         style={{

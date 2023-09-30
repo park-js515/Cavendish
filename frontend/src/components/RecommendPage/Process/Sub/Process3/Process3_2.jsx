@@ -24,7 +24,7 @@ const Item = ({ imgUrl, value }) => {
 // 컴포넌트 재사용 기존에 존재하던 것
 // 게임만 사용할 것 -> selected가 필요하지 않음
 const Process3_2 = ({ setSubProcess }) => {
-  return <></>;
+  return <div className="proc3-2"></div>;
 };
 
 export default Process3_2;

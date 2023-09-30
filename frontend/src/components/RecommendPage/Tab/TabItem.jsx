@@ -23,7 +23,7 @@ const CancelBtn = () => {
         setToggle(false);
       }}
     >
-      <ImCancelCircle color={toggle ? col2 : col1} size="30" />
+      <ImCancelCircle color={toggle ? col2 : col1} size="25" />
     </div>
   );
 };
@@ -130,13 +130,11 @@ const TabItem = ({ className, title, index }) => {
         {data1.map((items, itemsIndex) => {
           return (
             <div key={itemsIndex}>
-              <div className="wrapper2">
-                {items}
-              </div>
+              <div className="wrapper2">{`${itemsIndex + 1}: ${items}`}</div>
               {data2[items].map((item, itemIndex) => {
                 return (
                   <div className="wrapper2" key={itemIndex}>
-                    {item}
+                    &nbsp;{`- ${item}`}
                   </div>
                 );
               })}

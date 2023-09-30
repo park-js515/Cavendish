@@ -79,7 +79,8 @@ const recommendSlice = createSlice({
     },
     removeProcessList2: (state, action) => {
       const key = action.payload.key;
-      const index = action.payload.index;
+      const value = action.payload.value;
+      const index = state.processList[2][key].indexOf(value);
       state.processList[2][key].splice(index, 1);
     },
     removeProcess: (state) => {

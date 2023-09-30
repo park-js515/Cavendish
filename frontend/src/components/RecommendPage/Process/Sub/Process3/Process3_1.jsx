@@ -1,5 +1,10 @@
-import { useSelector } from "react-redux";
+import { useState } from "react";
 import dummyImg from "assets/defaultImgs2/Briar.png";
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+
+// redux
+import { useDispatch, useSelector } from "react-redux";
+import * as recom from "redux/recommendSlice";
 
 const list = [
   { imgUrl: dummyImg, usage: "pc 게임" },
@@ -23,6 +28,60 @@ const Item = ({ imgUrl, value, onClick }) => {
         }}
       ></div>
       <div className="item-bot">{value}</div>
+    </div>
+  );
+};
+
+const TopIcons = () => {
+  const [leftCol, setLeftCol] = useState("black");
+  const [rightCol, setRightCol] = useState("black");
+  const dispatch = useDispatch();
+  const disabled =
+    useSelector((state) => {
+      return state.recommend.processList[1].length;
+    }) < 1;
+
+  return (
+    <div
+      style={{
+        height: "20px",
+        display: "flex",
+        justifyContent: "space-between",
+      }}
+    >
+      <AiOutlineArrowLeft
+        size="20"
+        color={leftCol}
+        onMouseEnter={() => {
+          setLeftCol("red");
+        }}
+        onMouseLeave={() => {
+          setLeftCol("black");
+        }}
+        onClick={() => {
+          dispatch(recom.removeProcess());
+          dispatch(recom.setProcessNo(0));
+        }}
+        style={{
+          cursor: "pointer",
+        }}
+      />
+      <AiOutlineArrowRight
+        size="20"
+        color={disabled ? "gray" : rightCol}
+        onMouseEnter={() => {
+          setRightCol("red");
+        }}
+        onMouseLeave={() => {
+          setRightCol("black");
+        }}
+        onClick={() => {
+          if (!disabled) {
+            dispatch(recom.setProcessNo(2));
+          }
+        }}
+        style={{ cursor: disabled ? "not-allowed" : "pointer" }}
+      />
     </div>
   );
 };
