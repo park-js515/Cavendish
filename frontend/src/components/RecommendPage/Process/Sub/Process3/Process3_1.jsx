@@ -32,14 +32,21 @@ const Item = ({ imgUrl, value, onClick }) => {
   );
 };
 
-const TopIcons = () => {
+const TopIcons = ({ onClick1, onClick2 }) => {
   const [leftCol, setLeftCol] = useState("black");
   const [rightCol, setRightCol] = useState("black");
-  const dispatch = useDispatch();
-  const disabled =
-    useSelector((state) => {
-      return state.recommend.processList[1].length;
-    }) < 1;
+  const data = useSelector((state) => {
+    return state.recommend.processList[2];
+  });
+  const disabled = () => {
+    for (const key in data) {
+      for (let i in data[key]) {
+        return false;
+      }
+    }
+
+    return true;
+  };
 
   return (
     <div
@@ -58,17 +65,14 @@ const TopIcons = () => {
         onMouseLeave={() => {
           setLeftCol("black");
         }}
-        onClick={() => {
-          dispatch(recom.removeProcess());
-          dispatch(recom.setProcessNo(0));
-        }}
+        onClick={onClick1}
         style={{
           cursor: "pointer",
         }}
       />
       <AiOutlineArrowRight
         size="20"
-        color={disabled ? "gray" : rightCol}
+        color={disabled() ? "gray" : rightCol}
         onMouseEnter={() => {
           setRightCol("red");
         }}
@@ -76,11 +80,11 @@ const TopIcons = () => {
           setRightCol("black");
         }}
         onClick={() => {
-          if (!disabled) {
-            dispatch(recom.setProcessNo(2));
+          if (!disabled()) {
+            onClick2();
           }
         }}
-        style={{ cursor: disabled ? "not-allowed" : "pointer" }}
+        style={{ cursor: disabled() ? "not-allowed" : "pointer" }}
       />
     </div>
   );
@@ -89,36 +93,47 @@ const TopIcons = () => {
 // 대분류에 해당하는 것
 // 대분류에 대응되는 컴포넌트
 const Process3_1 = ({ setSubProcess, setSelected }) => {
+  const dispatch = useDispatch();
   const usage = useSelector((state) => {
     return state.recommend.processList[1];
   });
 
   return (
-    <div className="proc3-1">
-      {usage.map((item, itemIndex) => {
-        const index = list.findIndex((elem) => {
-          return elem.usage === item;
-        });
-        const imgUrl = list[index].imgUrl;
-        const onClick = () => {
-          setSelected(item);
+    <div style={{ height: "100%", width: "100%" }}>
+      <TopIcons
+        onClick1={() => {
+          dispatch(recom.setProcessNo(0));
+        }}
+        onClick2={() => {
+          dispatch(recom.setProcessNo(2));
+        }}
+      />
+      <div className="proc3-1">
+        {usage.map((item, itemIndex) => {
+          const index = list.findIndex((elem) => {
+            return elem.usage === item;
+          });
+          const imgUrl = list[index].imgUrl;
+          const onClick = () => {
+            setSelected(item);
 
-          if (item === "pc 게임") {
-            setSubProcess(1);
-          } else {
-            setSubProcess(2);
-          }
-        };
+            if (item === "pc 게임") {
+              setSubProcess(1);
+            } else {
+              setSubProcess(2);
+            }
+          };
 
-        return (
-          <Item
-            key={itemIndex}
-            imgUrl={imgUrl}
-            value={item}
-            onClick={onClick}
-          />
-        );
-      })}
+          return (
+            <Item
+              key={itemIndex}
+              imgUrl={imgUrl}
+              value={item}
+              onClick={onClick}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

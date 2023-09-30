@@ -3,7 +3,7 @@ package com.windows33.cavendish.domain.member.service;
 import com.windows33.cavendish.domain.member.dto.response.MemberDetailResponseDto;
 import com.windows33.cavendish.domain.member.dto.request.MemberModifyRequestDto;
 import com.windows33.cavendish.domain.member.dto.request.MemberSignupRequestDto;
-import com.windows33.cavendish.domain.member.dto.TokenInfo;
+import com.windows33.cavendish.global.jwt.TokenInfo;
 
 public interface MemberService {
 

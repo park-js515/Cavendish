@@ -6,6 +6,6 @@ import org.springframework.data.domain.Pageable;
 
 public interface CommentQueryService {
 
-    Page<CommentListResponseDto> findCommentList(Pageable pageable, Integer userId);
+    Page<CommentListResponseDto> findCommentList(Integer boardId, Pageable pageable, Integer userId);
 
 }

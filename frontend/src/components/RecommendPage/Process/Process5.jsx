@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Select from "react-select";
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 
 //redux
 import { useDispatch } from "react-redux";
@@ -31,7 +32,36 @@ const MultiSelectComponent = ({ selectedOptions, setSelectedOptions }) => {
 const SubmitBtn = ({ onClick }) => {
   return (
     <div className="submitBtn" onClick={onClick}>
-      제출
+      <AiOutlineArrowRight />
+    </div>
+  );
+};
+
+const TopIcons = ({ onClick1 }) => {
+  const [leftCol, setLeftCol] = useState("black");
+
+  return (
+    <div
+      style={{
+        height: "20px",
+        display: "flex",
+        justifyContent: "space-between",
+      }}
+    >
+      <AiOutlineArrowLeft
+        size="20"
+        color={leftCol}
+        onMouseEnter={() => {
+          setLeftCol("red");
+        }}
+        onMouseLeave={() => {
+          setLeftCol("black");
+        }}
+        onClick={onClick1}
+        style={{
+          cursor: "pointer",
+        }}
+      />
     </div>
   );
 };
@@ -41,8 +71,12 @@ const SubmitBtn = ({ onClick }) => {
 const Process5 = ({ className }) => {
   const dispatch = useDispatch();
   const [selectedOptions, setSelectedOptions] = useState([]);
+
   return (
     <div className={className}>
+      <TopIcons onClick1={() => {
+        dispatch(recom.setProcessNo(2));
+      }}/>
       <div className="proc5">
         <div className="proc5-top">
           <div className="text">우선순위를 골라주세요</div>
@@ -63,7 +97,8 @@ const Process5 = ({ className }) => {
                 const priority = {};
                 for (let i = 0; i < selectedOptions.length; i++) {
                   // priority[`${text}${i + 1}`] = selectedOptions[i].label;
-                  priority[`${text}${i + 1}`] = selectedOptions[i].value;
+                  // priority[`${text}${i + 1}`] = selectedOptions[i].value;
+                  priority[`${text}${i + 1}`] = selectedOptions[i].label;
                 }
                 dispatch(recom.setProcess(priority));
                 dispatch(recom.setProcessNo(4));
