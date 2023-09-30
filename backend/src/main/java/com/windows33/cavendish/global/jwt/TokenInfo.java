@@ -1,4 +1,4 @@
-package com.windows33.cavendish.domain.member.dto;
+package com.windows33.cavendish.global.jwt;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

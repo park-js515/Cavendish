@@ -90,8 +90,6 @@ public class BoardServiceImpl implements BoardService {
         // 글 수정
         Integer boardId = boardRepository.save(board).getId();
 
-        System.out.println("xxxxxx: " + boardId);
-
         // 이미지 파일 저장
         List<String> images = fileStoreUtil.uploadFiles("BoardImage", img);
 

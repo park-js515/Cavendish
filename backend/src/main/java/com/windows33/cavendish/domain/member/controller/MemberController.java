@@ -1,11 +1,11 @@
 package com.windows33.cavendish.domain.member.controller;
 
-import com.windows33.cavendish.domain.member.dto.*;
 import com.windows33.cavendish.domain.member.dto.request.MemberLoginRequestDto;
 import com.windows33.cavendish.domain.member.dto.request.MemberModifyRequestDto;
 import com.windows33.cavendish.domain.member.dto.request.MemberSignupRequestDto;
 import com.windows33.cavendish.domain.member.dto.response.MemberDetailResponseDto;
 import com.windows33.cavendish.domain.member.service.MemberService;
+import com.windows33.cavendish.global.jwt.TokenInfo;
 import com.windows33.cavendish.global.jwt.UserPrincipal;
 import com.windows33.cavendish.global.response.CommonResponse;
 import io.swagger.v3.oas.annotations.Operation;
@@ -36,8 +36,6 @@ public class MemberController {
     public CommonResponse<TokenInfo> login(
             @RequestBody MemberLoginRequestDto memberLoginRequestDto
     ) {
-        System.out.println(memberLoginRequestDto.toString());
-
         String memberId = memberLoginRequestDto.getLoginId();
         String password = memberLoginRequestDto.getPassword();
 

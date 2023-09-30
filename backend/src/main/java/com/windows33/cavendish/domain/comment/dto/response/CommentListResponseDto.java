@@ -11,6 +11,7 @@ public class CommentListResponseDto {
 
     private Integer commentId;
     private String nickname;
+    private String contents;
     private String createDateTime;
     private Boolean isMine;
 
