@@ -1,18 +1,40 @@
+import { getCommentsList, updateComment } from "api/comments";
 import { useState } from "react";
 
 export default function CommentUpdateComponent({
-  comment,
+  commentId,
   setIsUpdate,
-  commentList,
+  comment,
   setCommentList,
+  page,
+  size,
 }) {
   const [newComment, setNewComment] = useState(comment);
   const handleCommentChange = (e) => {
     setNewComment(e.target.value);
   };
+
+  const reloadCommentList = () => {
+    getCommentsList(
+      { page: page, size: size },
+      (response) => {
+        const data = response.data.response;
+        setCommentList(data.content);
+      },
+      () => {},
+    );
+  };
+
   const handleCommentSubmit = () => {
-    setCommentList((commentList) => [...commentList, newComment]);
-    setIsUpdate(false);
+    if (newComment === "") return;
+    updateComment(
+      { commentId: commentId, contents: newComment },
+      () => {
+        reloadCommentList();
+        setIsUpdate(false);
+      },
+      () => {},
+    );
   };
 
   return (

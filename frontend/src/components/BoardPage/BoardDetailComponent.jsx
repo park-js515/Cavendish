@@ -41,7 +41,7 @@ export default function BoardDetailComponent() {
       (response) => {
         const data = response.data.response;
         setCommentList(data.content);
-        console.log(data);
+        // console.log(data);
       },
       () => {},
     );
@@ -110,6 +110,9 @@ export default function BoardDetailComponent() {
         <h2>댓글</h2>
         <CommentCreateComponent
           boardId={id}
+          page={page}
+          size={size}
+          setCommentList={setCommentList}
         />
 
         <ul className="comment_list">
@@ -121,6 +124,8 @@ export default function BoardDetailComponent() {
                   createDateTime={comment.createDateTime}
                   nickname={comment.nickname}
                   isMine={comment.isMine}
+                  page={page}
+                  size={size}
                 />
               </li>
             );

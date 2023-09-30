@@ -2,6 +2,9 @@ import { createComment, getCommentsList } from "api/comments";
 import { useState } from "react";
 export default function CommentCreateComponent({
   boardId,
+  page,
+  size,
+  setCommentList,
 }) {
   const [comment, setComment] = useState("");
   const handleCommentChange = (e) => {
@@ -12,10 +15,23 @@ export default function CommentCreateComponent({
 
     createComment(
       { boardId: boardId, contents: comment },
-      () => {},
+      () => {
+        reloadCommentList();
+      },
       () => {},
     );
     setComment("");
+  };
+
+  const reloadCommentList = () => {
+    getCommentsList(
+      { page: page, size: size },
+      (response) => {
+        const data = response.data.response;
+        setCommentList(data.content);
+      },
+      () => {},
+    );
   };
 
   return (

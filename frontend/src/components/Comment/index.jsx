@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "styles/css/comment.css";
 import CommentUpdateComponent from "./CommentUpdateComponent";
+import { deleteComment, getCommentsList } from "api/comments";
 
 export default function CommentComponent({
   commentId,
@@ -9,6 +10,8 @@ export default function CommentComponent({
   isMine,
   commentList,
   setCommentList,
+  page,
+  size,
 }) {
   const [comment, setComment] = useState("");
 
@@ -19,6 +22,27 @@ export default function CommentComponent({
     else setIsUpdate(false);
   };
 
+  const reloadCommentList = () => {
+    getCommentsList(
+      { page: page, size: size },
+      (response) => {
+        const data = response.data.response;
+        setCommentList(data.content);
+      },
+      () => {},
+    );
+  };
+
+  const commentDeleteHandler = () => {
+    deleteComment(
+      commentId,
+      () => {
+        reloadCommentList();
+      },
+      () => {},
+    );
+  };
+
   return (
     <>
       {!isUpdate && (
@@ -27,12 +51,12 @@ export default function CommentComponent({
             <div className="comment_user">
               <div>{nickname}</div>
             </div>
-            {isMine && (
+            {!isMine && (
               <div className="buttons">
-                <button onClick={updateHandler} type="button">
+                <button type="button" onClick={updateHandler}>
                   수정
                 </button>{" "}
-                <button type="button">삭제</button>
+                <button type="button" onClick={commentDeleteHandler}>삭제</button>
               </div>
             )}
           </div>
@@ -45,11 +69,13 @@ export default function CommentComponent({
       )}
       {isUpdate && (
         <CommentUpdateComponent
-          isUpdate={isUpdate}
+          commentId={commentId}
           setIsUpdate={setIsUpdate}
           comment={comment}
           commentList={commentList}
           setCommentList={setCommentList}
+          page={page}
+          size={size}
         />
       )}
     </>
