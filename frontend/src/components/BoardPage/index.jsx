@@ -80,7 +80,7 @@ export default function BoardPageComponent() {
                       </div>
                       <span className="nickname">작성자 : {item.nickname}</span>
                     </div>
-                    <div className="content-date">{item.createDate} </div>
+                    <div className="content-date">작성일자 : {item.createDateTime} </div>
                     <div className="content-description">
                       <div className="article">
                         <span className="article-content">

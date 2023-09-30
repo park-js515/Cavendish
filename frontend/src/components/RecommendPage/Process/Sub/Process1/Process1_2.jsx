@@ -48,7 +48,7 @@ const Card = ({ front, back, imgUrl, onClick, style }) => {
 const BackDetail = ({ name, value }) => {
   const text = value !== "-1" ? value : "선택된 제품이 없습니다";
   return (
-    <div>
+    <div className="detail">
       <div>{name}</div>
       <div>{text}</div>
     </div>
@@ -60,9 +60,6 @@ const Process1_2 = ({ setSubProcess }) => {
   const list = useSelector((state) => {
     return state.recommend.processList[0];
   });
-  const [listMapper, setListMapper] = useState(
-    Array(list.length).fill({ detailName: "", imgUrl: "" }),
-  );
 
   // redux & axios
   const setSelected = (target) => {
@@ -82,8 +79,8 @@ const Process1_2 = ({ setSubProcess }) => {
           style={{ fontSize: "30px" }}
         />
         {list.map((item, index) => {
-          const imgUrl = listMapper[index].imgUrl
-            ? listMapper[index].imgUrl
+          const imgUrl = list[index].imgUrl
+            ? list[index].imgUrl
             : defaultImgs[index];
 
           return (
@@ -94,10 +91,6 @@ const Process1_2 = ({ setSubProcess }) => {
               onClick={() => {
                 setSelected(index);
                 setSubProcess(2);
-
-                if (index === 7) {
-                  dispatch(recom.setRamNo(1));
-                }
               }}
             />
           );

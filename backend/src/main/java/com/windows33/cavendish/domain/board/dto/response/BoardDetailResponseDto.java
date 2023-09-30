@@ -18,7 +18,7 @@ public class BoardDetailResponseDto {
     private String title;
     private String contents;
     private Integer quotationId;
-    private Timestamp createDateTime;
+    private String createDateTime;
     private Integer view;
     private Integer like;
     private Boolean isMine;

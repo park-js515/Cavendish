@@ -45,9 +45,9 @@ public class BoardQueryRepository {
                         member.nickname,
                         board.title,
                         board.contents,
-                        board.createDate,
+                        board.createDateTime,
                         board.view,
-                        board.like
+                        board.likeCnt
                 ))
                 .from(board)
                 .leftJoin(member).on(board.userId.eq(member.id))
@@ -70,13 +70,13 @@ public class BoardQueryRepository {
                 Order direction = order.getDirection().isAscending() ? Order.ASC : Order.DESC;
                 switch (order.getProperty()) {
                     case "title":
-                        return new OrderSpecifier(direction, board.title);
+                    return new OrderSpecifier(direction, board.title);
                     case "contents":
                         return new OrderSpecifier(direction, board.contents);
-                    case "createdDate":
-                        return new OrderSpecifier(direction, board.createDate);
+                    case "createDateTime":
+                        return new OrderSpecifier(direction, board.createDateTime);
                     case "like":
-                        return new OrderSpecifier(direction, board.like);
+                        return new OrderSpecifier(direction, board.likeCnt);
                     case "view":
                         return new OrderSpecifier(direction, board.view);
                 }
@@ -105,9 +105,9 @@ public class BoardQueryRepository {
                         board.title,
                         board.contents,
                         board.quotationId,
-                        board.createDate,
+                        board.createDateTime,
                         board.view,
-                        board.like,
+                        board.likeCnt,
                         isMine))
                 .from(board)
                 .leftJoin(member).on(board.userId.eq(member.id))
@@ -129,7 +129,7 @@ public class BoardQueryRepository {
     }
 
     /**
-     * 글 수정 인터페이스
+     * 글 수정 Interface
      */
     public BoardModifyFormResponseDto findBoardUpdateForm(Integer boardId, Integer userId) {
         List<BoardModifyFormImageComponentDto> images = new ArrayList();
@@ -140,9 +140,9 @@ public class BoardQueryRepository {
                         board.title,
                         board.contents,
                         board.quotationId,
-                        board.createDate,
+                        board.createDateTime,
                         board.view,
-                        board.like))
+                        board.likeCnt))
                 .from(board)
                 .leftJoin(member).on(board.userId.eq(member.id))
                 .where(board.id.eq(boardId))
@@ -173,7 +173,7 @@ public class BoardQueryRepository {
                 e.printStackTrace();
             }
 
-            // 예외처리 필요
+            // 예외 처리 필요
             images.add(new BoardModifyFormImageComponentDto(image, id));
         }
 
