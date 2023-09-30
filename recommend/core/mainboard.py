@@ -56,31 +56,31 @@ def mainboard_com_case(target, check):
     if mb_ff is None:
         target['compatibility'].append('case')
 
-    elif 'E-ATX' == mb_ff:
+    elif 'E-ATX' in mb_ff:
         if case_bs & (1 << 0) == 0:
             target['compatibility'].append('case')
 
-    elif 'ATX' == mb_ff:
+    elif 'ATX' in mb_ff:
         if case_bs & (1 << 1) == 0:
             target['compatibility'].append('case')
 
-    elif 'M-ATX' == mb_ff:
+    elif 'M-ATX' in mb_ff:
         if case_bs & (1 << 2) == 0:
             target['compatibility'].append('case')
 
-    elif 'M-iTX' == mb_ff:
+    elif 'M-iTX' in mb_ff:
         if case_bs & (1 << 5) == 0:
             target['compatibility'].append('case')
 
-    elif 'CEB' == mb_ff:
+    elif 'CEB' in mb_ff:
         if case_bs & (1 << 6) == 0:
             target['compatibility'].append('case')
 
-    elif 'EEB' == mb_ff:
+    elif 'EEB' in mb_ff:
         if case_bs & (1 << 7) == 0:
             target['compatibility'].append('case')
 
-    elif 'M-DTX' == mb_ff:
+    elif 'M-DTX' in mb_ff:
         if case_bs & (1 << 8) == 0:
             target['compatibility'].append('case')
 

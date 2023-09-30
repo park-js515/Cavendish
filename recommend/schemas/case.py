@@ -13,7 +13,7 @@ class CaseSchema(BaseModel):
     size: str
     power_included: Optional[str] = None
     power_support: Optional[str] = None
-    board_support: int
+    board_support: Optional[List[str]] = []
     bay_133: Optional[int] = None
     bay_89: Optional[int] = None
     bay_64: Optional[int] = None
@@ -28,7 +28,7 @@ class CaseSchema(BaseModel):
     front_vent: Optional[str] = None
     top_vent: Optional[str] = None
     bottom_vent: Optional[str] = None
-    external_port: Optional[int] = None
+    external_port: Optional[List[str]] = []
     width: Optional[float] = None
     height: Optional[float] = None
     depth: Optional[float] = None
@@ -40,7 +40,7 @@ class CaseSchema(BaseModel):
     radiator_front: Optional[int] = None
     radiator_rear: Optional[int] = None
     radiator_side: Optional[int] = None
-    feature: Optional[int] = None
+    feature: Optional[List[str]] = []
     led_color: Optional[str] = None
     reg_date: Optional[int] = None
     bookmark: Optional[int] = 0

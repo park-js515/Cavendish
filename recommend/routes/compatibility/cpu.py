@@ -1,19 +1,9 @@
 from fastapi import FastAPI, APIRouter, Depends, Query, Response
-from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
 from typing import List, Optional
-from models.users import User
-from models.hdd import HDD
 from models.cpu import CPU
 from models.mainboard import Mainboard, MainboardPCI
 from models.ram import RAM
-from models.gpu import GPU
-from models.case import Case
-from models.cooler import Cooler
 from models.ssd import SSD
-from models.quotation import Quotation
-from models.programs import Program
-from models.power import Power
 
 from fastapi.responses import JSONResponse
 
@@ -84,9 +74,10 @@ async def cpu_search( page: int = 1, keyword: str = "",state: ProcessListStep1 =
         response = JSONResponse(content=result[(page-1)*10:min(page*10, page_size*10)], status_code=200, headers=headers)
         # response = JSONResponse(content=result, status_code=200, headers=headers)
 
-        session.close()
         return response
     except:
-        session.close()
         return JSONResponse(content={"error": "Bad Request"}, status_code=400)
+    
+    finally:
+        session.close()
     

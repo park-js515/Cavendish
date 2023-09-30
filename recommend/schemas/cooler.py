@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
 
 class CoolerSchema(BaseModel):
     id: int
@@ -13,8 +13,8 @@ class CoolerSchema(BaseModel):
     cooling_type: Optional[int] = None
     aircool_form: Optional[int] = None
     tdp: Optional[int] = None
-    intel_socket: Optional[int] = None
-    amd_socket: Optional[int] = None
+    intel_socket: Optional[List[str]] = []
+    amd_socket: Optional[List[str]] = []
     fan_size: Optional[int] = None
     fan_count: Optional[int] = None
     airflow: Optional[int] = None
@@ -26,12 +26,13 @@ class CoolerSchema(BaseModel):
     radiator_length: Optional[float] = None
     radiator_thickness: Optional[float] = None
     hose_length: Optional[float] = None
-    feature: Optional[int] = None
+    feature: Optional[List[str]] = []
     as_years: Optional[int] = None
     reg_date: Optional[int] = None
     bookmark: Optional[int] = 0
+    compatibility: Optional[List[str]] = []
 
-def serialize_cooler(cooler_object):
+def serialize_cooler(cooler_object, compatibility):
     cooler_dict = CoolerSchema(
         id=cooler_object.id,
         name=cooler_object.name,
@@ -60,6 +61,7 @@ def serialize_cooler(cooler_object):
         feature=cooler_object.feature,
         as_years=cooler_object.as_years,
         reg_date=cooler_object.reg_date,
-        bookmark=cooler_object.bookmark
+        bookmark=cooler_object.bookmark,
+        compatibility=compatibility
     ).__dict__
     return cooler_dict
