@@ -46,12 +46,13 @@ public class CommentController {
     @Parameters({
             @Parameter(name = "pageable", description = "페이지 정보")
     })
-    @GetMapping
+    @GetMapping("/{boardId}")
     public CommonResponse<Page<CommentListResponseDto>> commentList(
             @PageableDefault(sort="createDateTime", direction = Sort.Direction.DESC) Pageable pageable,
+            @PathVariable("boardId") Integer boardId,
             @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
     ) {
-        return CommonResponse.OK(commentQueryService.findCommentList(pageable, userPrincipal!=null?userPrincipal.getId():null));
+        return CommonResponse.OK(commentQueryService.findCommentList(boardId, pageable, userPrincipal!=null?userPrincipal.getId():null));
     }
 
     @Operation(summary = "댓글 삭제", description = "댓글 삭제")
