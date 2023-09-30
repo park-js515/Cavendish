@@ -39,5 +39,3 @@ class GPU(Base):
     bench_mark = Column(Integer)
     reg_date = Column(Integer, comment='yyyymm')
     bookmark = Column(Integer, default=0)
-
-    requirements = relationship("Requirements", back_populates="gpu")
