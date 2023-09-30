@@ -30,7 +30,7 @@ public class CommentQueryRepository {
     /**
      * 댓글 목록 조회
      */
-    public Page<CommentListResponseDto> findCommentList(Pageable pageable, Integer userId) {
+    public Page<CommentListResponseDto> findCommentList(Integer boardId, Pageable pageable, Integer userId) {
         BooleanExpression isMine;
         if(userId != null) {
             isMine = comment.userId.eq(userId);
@@ -42,10 +42,12 @@ public class CommentQueryRepository {
                 .select(Projections.constructor(CommentListResponseDto.class,
                         comment.id,
                         member.nickname,
+                        comment.contents,
                         comment.createDateTime,
                         isMine
                 ))
                 .from(comment)
+                .where(comment.boardId.eq(boardId))
                 .leftJoin(member).on(comment.userId.eq(member.id))
                 .orderBy(commentSort(pageable))
                 .offset(pageable.getOffset())

@@ -47,6 +47,7 @@ CREATE TABLE `part_bookmark` (
 	`user_id` int NOT NULL,
 	`pid` tinyint NOT NULL COMMENT '0:CPU, 1:메인보드, 2:메모리, 3:그래픽카드, 4:SSD, 5:HDD, 6: 케이스, 7: 파워, 8:쿨러',
 	`part_id` int NOT NULL,
+    `create_date_time` datetime NOT NULL DEFAULT now(),
 	PRIMARY KEY (`id`),
 	CONSTRAINT `fk_part_bookmark_user_id`
 		FOREIGN KEY (`user_id`)
@@ -61,7 +62,7 @@ COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE `quotation` (
 	`id` int NOT NULL AUTO_INCREMENT,
-	`user_id` int NULL COMMENT '견적함',
+	`user_id` int NULL,
 	`cpu_id` int NULL,
 	`power_id` int NULL,
 	`mainboard_id` int NULL,
@@ -71,9 +72,9 @@ CREATE TABLE `quotation` (
 	`ssd_id` int NULL,
 	`case_id` int NULL,
 	`cooler_id` int NULL,
-	`name` varchar(100) NULL COMMENT '견적함',
-	`state` int NULL COMMENT '비트 마스킹, 견적함',
-	`create_date_time` date NULL COMMENT '견적함',
+	`name` varchar(100) NOT NULL,
+	`create_date_time` datetime NOT NULL DEFAULT now(),
+	`state` int NOT NULL DEFAULT 0 COMMENT '비트 마스킹',
 	PRIMARY KEY (`id`)
 )
 ENGINE = InnoDB
@@ -144,7 +145,7 @@ COLLATE = utf8mb4_unicode_ci;
 CREATE TABLE `comments` (
 	`id` int NOT NULL AUTO_INCREMENT,
 	`board_id` int NOT NULL,
-	`user_id` int NOT NULL COMMENT '작성자',
+	`user_id` int NOT NULL,
 	`contents` varchar(100) NOT NULL,
 	`create_date_time` datetime NOT NULL DEFAULT now(),
 	`status` tinyint NOT NULL DEFAULT 0 COMMENT '0:일반, 1: 삭제',
