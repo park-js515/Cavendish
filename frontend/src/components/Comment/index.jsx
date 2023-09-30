@@ -5,15 +5,15 @@ import { deleteComment, getCommentsList } from "api/comments";
 
 export default function CommentComponent({
   commentId,
+  boardId,
   createDateTime,
   nickname,
   isMine,
-  commentList,
+  comment,
   setCommentList,
   page,
   size,
 }) {
-  const [comment, setComment] = useState("");
 
   const [isUpdate, setIsUpdate] = useState(false);
 
@@ -24,7 +24,7 @@ export default function CommentComponent({
 
   const reloadCommentList = () => {
     getCommentsList(
-      { page: page, size: size },
+      { boardId:boardId, page: page, size: size },
       (response) => {
         const data = response.data.response;
         setCommentList(data.content);
@@ -61,8 +61,7 @@ export default function CommentComponent({
             )}
           </div>
           <div className="comment_content">
-            <div className="comment_id">{commentId}.</div>
-            <div className="comment_content">{"댓글 내용"}</div>
+            <div className="comment_content">{comment}</div>
             <div className="date">작성일시 : {createDateTime}</div>
           </div>
         </div>
@@ -72,7 +71,6 @@ export default function CommentComponent({
           commentId={commentId}
           setIsUpdate={setIsUpdate}
           comment={comment}
-          commentList={commentList}
           setCommentList={setCommentList}
           page={page}
           size={size}

@@ -37,15 +37,15 @@ export default function BoardDetailComponent() {
   // 댓글 리스트 로드
   useEffect(() => {
     getCommentsList(
-      { page: page, size: size },
+      { boardId: id, page: page, size: size },
       (response) => {
         const data = response.data.response;
         setCommentList(data.content);
-        // console.log(data);
+        console.log(data);
       },
       () => {},
     );
-  },[page, size]);
+  }, [page, size]);
 
   useEffect(() => {
     getBoardDetailContent(
@@ -121,9 +121,12 @@ export default function BoardDetailComponent() {
               <li key={idx}>
                 <CommentComponent
                   commentId={comment.commentId}
+                  boardId={id}
                   createDateTime={comment.createDateTime}
                   nickname={comment.nickname}
                   isMine={comment.isMine}
+                  comment={comment.contents}
+                  setCommentList={setCommentList}
                   page={page}
                   size={size}
                 />

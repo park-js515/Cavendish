@@ -47,7 +47,7 @@ const searchDefaultInstance = () => {
 };
 
 const commentDefaultInstance = (params) => {
-  const instance = createDefaultAxios(`/comment?page=${params.page}&size=${params.size}`);
+  const instance = createDefaultAxios(`/comment/${params.boardId}?page=${params.page}&size=${params.size}`);
 
   return instance;
 };

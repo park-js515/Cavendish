@@ -25,7 +25,7 @@ export default function CommentCreateComponent({
 
   const reloadCommentList = () => {
     getCommentsList(
-      { page: page, size: size },
+      { boardId: boardId, page: page, size: size },
       (response) => {
         const data = response.data.response;
         setCommentList(data.content);
