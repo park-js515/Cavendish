@@ -82,6 +82,9 @@ const TopIcons = () => {
           cursor: "pointer",
         }}
       />
+      {disabled ? (
+        <span style={{ color: "gray" }}>한 개 이상의 입력은 필수입니다.</span>
+      ) : null}
       <AiOutlineArrowRight
         size="20"
         color={disabled ? "gray" : rightCol}
