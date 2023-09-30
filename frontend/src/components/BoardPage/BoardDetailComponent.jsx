@@ -11,22 +11,41 @@ import {
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Carousel from "components/Carousel/index";
+import { getCommentsList } from "api/comments";
 
 export default function BoardDetailComponent() {
   const { id } = useParams();
 
+  // 게시글
   const [nickname, setNickname] = useState("");
   const [title, setTitle] = useState("");
   const [contents, setContents] = useState("");
   const [date, setDate] = useState("");
-
-  const [commentList, setCommentList] = useState([]);
-  const [like, setLike] = useState(0);
+  const [imageData, setImageData] = useState([]);
+  // 본인 게시글인지 확인
   const [isMine, setIsMine] = useState(false);
 
-  const [imageData, setImageData] = useState([]);
+  const [like, setLike] = useState(0);
+
+  // 댓글
+  const [commentList, setCommentList] = useState([]);
+  const [page, setPage] = useState(0);
+  const [size, setSize] = useState(10);
 
   const navigate = useNavigate();
+
+  // 댓글 리스트 로드
+  useEffect(() => {
+    getCommentsList(
+      { boardId: id, page: page, size: size },
+      (response) => {
+        const data = response.data.response;
+        setCommentList(data.content);
+        console.log(data);
+      },
+      () => {},
+    );
+  }, [page, size]);
 
   useEffect(() => {
     getBoardDetailContent(
@@ -61,7 +80,7 @@ export default function BoardDetailComponent() {
 
   const updateHandler = () => {
     // if(isMine!==true) return
-    navigate(`/board/update/${id}`)
+    navigate(`/board/update/${id}`);
   };
 
   return (
@@ -90,7 +109,9 @@ export default function BoardDetailComponent() {
       <div className="comment_block">
         <h2>댓글</h2>
         <CommentCreateComponent
-          commentList={commentList}
+          boardId={id}
+          page={page}
+          size={size}
           setCommentList={setCommentList}
         />
 
@@ -99,9 +120,15 @@ export default function BoardDetailComponent() {
             return (
               <li key={idx}>
                 <CommentComponent
-                  content={comment}
-                  commentList={commentList}
+                  commentId={comment.commentId}
+                  boardId={id}
+                  createDateTime={comment.createDateTime}
+                  nickname={comment.nickname}
+                  isMine={comment.isMine}
+                  comment={comment.contents}
                   setCommentList={setCommentList}
+                  page={page}
+                  size={size}
                 />
               </li>
             );
