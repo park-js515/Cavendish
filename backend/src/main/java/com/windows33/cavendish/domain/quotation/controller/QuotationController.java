@@ -1,6 +1,7 @@
 package com.windows33.cavendish.domain.quotation.controller;
 
 import com.windows33.cavendish.domain.quotation.dto.request.QuotationAddRequestDto;
+import com.windows33.cavendish.domain.quotation.dto.request.QuotationModifyRequestDto;
 import com.windows33.cavendish.domain.quotation.dto.response.QuotationDetailResponseDto;
 import com.windows33.cavendish.domain.quotation.dto.response.QuotationListResponseDto;
 import com.windows33.cavendish.domain.quotation.service.QuotationQueryService;
@@ -77,6 +78,18 @@ public class QuotationController {
         quotationService.removeQuotation(quotationId, userPrincipal.getId());
 
         return CommonResponse.OK(null);
+    }
+    
+    @Operation(summary = "견적 수정", description = "견적 수정")
+    @Parameters({
+        @Parameter(name = "quotationModifyRequestDto", description = "변경된 견적 정보")
+    })
+    @PutMapping
+    public CommonResponse<Integer> quotationModify(
+            @RequestBody QuotationModifyRequestDto quotationModifyRequestDto,
+            @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
+    ) {
+        return CommonResponse.OK(quotationService.modifyQuotation(quotationModifyRequestDto, userPrincipal.getId()));
     }
 
 }

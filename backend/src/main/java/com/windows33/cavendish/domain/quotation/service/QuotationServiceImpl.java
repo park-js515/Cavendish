@@ -1,6 +1,7 @@
 package com.windows33.cavendish.domain.quotation.service;
 
 import com.windows33.cavendish.domain.quotation.dto.request.QuotationAddRequestDto;
+import com.windows33.cavendish.domain.quotation.dto.request.QuotationModifyRequestDto;
 import com.windows33.cavendish.domain.quotation.entity.Quotation;
 import com.windows33.cavendish.domain.quotation.repository.QuotationRepository;
 import com.windows33.cavendish.global.exception.InvalidException;
@@ -46,6 +47,26 @@ public class QuotationServiceImpl implements QuotationService {
         quotation.removeQuotation();
 
         quotationRepository.save(quotation);
+    }
+
+    @Override
+    public Integer modifyQuotation(QuotationModifyRequestDto quotationModifyRequestDto, Integer userId) {
+        Quotation quotation = checkAuthority(quotationModifyRequestDto.getQuotationId(), userId);
+
+        quotation.updateQuotation(
+                quotationModifyRequestDto.getCpuId(),
+                quotationModifyRequestDto.getGraphicId(),
+                quotationModifyRequestDto.getRamId(),
+                quotationModifyRequestDto.getHddId(),
+                quotationModifyRequestDto.getSsdId(),
+                quotationModifyRequestDto.getPowerId(),
+                quotationModifyRequestDto.getMainboardId(),
+                quotationModifyRequestDto.getCoolerId(),
+                quotationModifyRequestDto.getCaseId(),
+                quotationModifyRequestDto.getName()
+        );
+
+        return quotationRepository.save(quotation).getId();
     }
 
     private Quotation checkAuthority(Integer quotationId, Integer userId) {

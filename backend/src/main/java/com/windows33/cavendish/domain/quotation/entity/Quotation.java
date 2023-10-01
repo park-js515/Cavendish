@@ -51,4 +51,28 @@ public class Quotation {
         this.state = 1;
     }
 
+    public void updateQuotation(
+            Integer cpuId,
+            Integer gpuId,
+            Integer ramId,
+            Integer hddId,
+            Integer ssdId,
+            Integer powerId,
+            Integer mainboardId,
+            Integer coolerId,
+            Integer caseId,
+            String name
+    ) {
+        this.cpuId = cpuId;
+        this.gpuId = gpuId;
+        this.ramId = ramId;
+        this.hddId = hddId;
+        this.ssdId = ssdId;
+        this.powerId = powerId;
+        this.mainboardId = mainboardId;
+        this.coolerId = coolerId;
+        this.caseId = caseId;
+        this.name = name;
+    }
+
 }
