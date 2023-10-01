@@ -12,10 +12,11 @@ export default function BoardPageComponent() {
 
   useEffect(() => {
     getBoardsList(
-      { page: page, size: 10, sort: "contents,ASC" },
+      { page: page, size: 10, sort: "createDateTime,DESC" },
       (response) => {
         const data = response.data.response.content;
         setTotalPages(response.data.response.totalPages);
+        // console.log(data)
         setBoardData(data);
       },
       () => {

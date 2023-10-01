@@ -80,7 +80,7 @@ const getUpdateBoardContent = (id, sucess, fail) => {
 const updateBoardContent = (body, sucess, fail) => {
   const api = boardCustomInstance();
   api.defaults.headers["Content-Type"] = "multipart/form-data";
-  api.patch(``, body).then(sucess).catch(fail);
+  api.put(``, body).then(sucess).catch(fail);
 }
 
 export {
