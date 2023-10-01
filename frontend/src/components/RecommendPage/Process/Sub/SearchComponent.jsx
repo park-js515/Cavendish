@@ -11,7 +11,7 @@ const Btn = ({ onClick }) => {
   );
 };
 
-const SearchComponent = ({ value, setValue }) => {
+const SearchComponent = ({ value, setValue, setDoSearch }) => {
   const selectedItem = useSelector((state) => {
     const selected = state.recommend.selected;
     return state.recommend.processList[0][selected].name;
@@ -29,10 +29,15 @@ const SearchComponent = ({ value, setValue }) => {
         onChange={onChange}
         className="search"
         placeholder={`${selectedItem}명을 입력하세요!`}
+        onKeyDown={(event) => {
+          if (event.key === "Enter") {
+            setDoSearch(true);
+          }
+        }}
       />
       <Btn
         onClick={() => {
-          alert(value);
+          setDoSearch(true);
         }}
       />
     </div>

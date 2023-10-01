@@ -1,30 +1,13 @@
-import { useState } from "react";
-import defaultCPU from "assets/defaultImgs/default-cpu.avif";
-
-// axios
+import { useState, useEffect, useRef } from "react";
 
 // redux
 import { useDispatch, useSelector } from "react-redux";
 import * as recom from "redux/recommendSlice";
 
-const dummy = [
-  { imgUrl: defaultCPU, name: "dummy1" },
-  { imgUrl: defaultCPU, name: "dummy2" },
-  { imgUrl: defaultCPU, name: "dummy3" },
-  { imgUrl: defaultCPU, name: "dummy4" },
-  { imgUrl: defaultCPU, name: "dummy5" },
-  { imgUrl: defaultCPU, name: "dummy6" },
-  { imgUrl: defaultCPU, name: "dummy7" },
-  { imgUrl: defaultCPU, name: "dummy8" },
-  { imgUrl: defaultCPU, name: "dummy9" },
-  { imgUrl: defaultCPU, name: "dummy10" },
-];
+// API
+import { searchPart, maxPage } from "api/recommend";
 
-const maxValue = 72; // 추후 axios로 받아올 값
-// const itemsPerPage = 10; // 확정은 아닌 값
-
-// 클릭 시 confirm을 띄운 후 redux 업데이트 여부 결정
-const Item = ({ imgUrl, name, style }) => {
+const Item = ({ imgUrl, name, id, style }) => {
   const dispatch = useDispatch();
   const selected = useSelector((state) => {
     return state.recommend.selected;
@@ -44,7 +27,9 @@ const Item = ({ imgUrl, name, style }) => {
             dispatch(recom.setRamNo(0));
           }
         } else {
-          dispatch(recom.setProcessList0({ value: name }));
+          dispatch(
+            recom.setProcessList0({ value: name, imgUrl: imgUrl, id: id }),
+          );
           if (selected === 7) {
             dispatch(recom.setRamNo(1));
           }
@@ -139,16 +124,124 @@ const Pagenate = ({
   );
 };
 
-// 1 번째 게시물의 위치 -> (1 - 1) * 10 + 0
-// 2 번째 게시물의 위치 -> (1 - 1) * 10 + 1
-// ...
-// 11 번째 게시물의 위치 -> (2 - 1) * 10 + 0
-const ItemList = () => {
+const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
+  const [page, setPage] = useState(1);
+  const [data, setData] = useState([]);
+  const [maxValue, setMaxValue] = useState(1);
+  const [nowSearchValue, setNowSearchValue] = useState("");
+
+  const processList0 = useSelector((state) => {
+    return state.recommend.processList[0];
+  });
   const selectedItem = useSelector((state) => {
     const selected = state.recommend.selected;
+    return state.recommend.processList[0][selected].name;
   });
-  const [page, setPage] = useState(1);
-  const [data, setData] = useState(dummy);
+  const getParams = (val = nowSearchValue) => {
+    const params = { keyword: val };
+    for (let item of processList0) {
+      if (item.value !== "-1") {
+        params[item.name] = item.id;
+      }
+    }
+
+    return params;
+  };
+
+  const check1 = useRef(false);
+  useEffect(() => {
+    const fn1 = () => {
+      const propPartName = selectedItem;
+      const propPage = page;
+      const propParams = getParams();
+      const propSuccess = (response) => {
+        const data = response.data;
+        const arr = [];
+        data.forEach((item) => {
+          const { id, name, image } = item;
+          arr.push({ name: name, imgUrl: image, id: id, disabled: false });
+        });
+
+        setData(() => {
+          return [...arr];
+        });
+      };
+      const propFail = (error) => {
+        console.log(error);
+      };
+
+      const props = [propPartName, propPage, propParams, propSuccess, propFail];
+      searchPart(...props);
+    };
+
+    const fn2 = () => {
+      const propPartName = selectedItem;
+      const propSuccess = (response) => {
+        setMaxValue(() => {
+          return response.data.max_page;
+        });
+      };
+      const propFail = (error) => {
+        console.log(error);
+      };
+
+      const props = [propPartName, propSuccess, propFail];
+      maxPage(...props);
+    };
+
+    if (!check1.current) {
+      fn1();
+      fn2();
+    }
+
+    return () => {
+      check1.current = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    const fn1 = (val, p = page) => {
+      const propPartName = selectedItem;
+      const propPage = p;
+      const propParams = getParams(val);
+      const propSuccess = (response) => {
+        const data = response.data;
+        const arr = [];
+        data.forEach((item) => {
+          const { id, name, image } = item;
+          arr.push({ name: name, imgUrl: image, id: id, disabled: false });
+        });
+
+        setData(() => {
+          return [...arr];
+        });
+        console.log(response);
+      };
+      const propFail = (error) => {
+        console.log(error);
+      };
+
+      const props = [propPartName, propPage, propParams, propSuccess, propFail];
+      searchPart(...props);
+      console.log(props);
+    };
+
+    const fn2 = () => {};
+    const fn3 = () => {
+      setNowSearchValue(searchValue);
+      setPage(1);
+      fn1(searchValue, 1);
+      setDoSearch(false);
+    };
+
+    if (doSearch) {
+      fn2();
+      fn3();
+      return;
+    }
+
+    fn1();
+  }, [page, doSearch]);
 
   const handlePage = (value) => {
     setPage(value);
@@ -179,10 +272,6 @@ const ItemList = () => {
       return Math.max((cur10 - 1) * 10, 1);
     });
   };
-  // 페이지가 달라지면 axios 요청을 통해서 리스트를 갱신해야 한다.
-  // useEffect(() => {
-  //   페이지 갱신 -> 데이터 수정
-  // }, [page])
 
   const footerProps = {
     page,

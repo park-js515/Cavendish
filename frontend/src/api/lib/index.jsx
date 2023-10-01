@@ -1,4 +1,8 @@
-import { createCustomAxios, createDefaultAxios } from "./createCustomAxios";
+import {
+  createCustomAxios,
+  createDefaultAxios,
+  createFapiAxios,
+} from "./createCustomAxios";
 
 const memberCustomInstance = () => {
   const instance = createCustomAxios("/member");
@@ -47,13 +51,39 @@ const searchDefaultInstance = () => {
 };
 
 const commentDefaultInstance = (params) => {
-  const instance = createDefaultAxios(`/comment/${params.boardId}?page=${params.page}&size=${params.size}`);
+  const instance = createDefaultAxios(
+    `/comment/${params.boardId}?page=${params.page}&size=${params.size}`,
+  );
 
   return instance;
 };
 
 const commentCustomInstance = () => {
   const instance = createCustomAxios(`/comment`);
+
+  return instance;
+};
+
+const fapiSearchInstance = () => {
+  const instance = createFapiAxios(`/search`);
+
+  return instance;
+};
+
+const fapiRecommendInstance = () => {
+  const instance = createFapiAxios(`/recommend`);
+
+  return instance;
+};
+
+const fapiPartInstance = () => {
+  const instance = createFapiAxios(`/parts`);
+
+  return instance;
+};
+
+const fapiMaxPageInstance = () => {
+  const instance = createFapiAxios(`/maxpage`);
 
   return instance;
 };
@@ -68,4 +98,8 @@ export {
   imageDefaultInstance,
   commentDefaultInstance,
   commentCustomInstance,
+  fapiSearchInstance,
+  fapiRecommendInstance,
+  fapiPartInstance,
+  fapiMaxPageInstance,
 };
