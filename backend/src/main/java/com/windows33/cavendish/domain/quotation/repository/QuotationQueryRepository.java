@@ -34,7 +34,7 @@ public class QuotationQueryRepository {
                         quotation.createDateTime
                 ))
                 .from(quotation)
-                .where(quotation.userId.eq(userId))
+                .where(quotation.userId.eq(userId).and(quotation.state.eq(0)))
                 .leftJoin(partCase).on(quotation.caseId.eq(partCase.id))
                 .orderBy(quotationSort(pageable))
                 .offset(pageable.getOffset())
