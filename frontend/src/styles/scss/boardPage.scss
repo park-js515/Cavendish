@@ -1,16 +1,31 @@
 .button_container {
-  width: 800px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
   .buttons {
     display: flex;
-    justify-content: space-between; 
-  
+    flex-direction: row;
+    width: 820px;
+
     div {
       display: flex;
       flex-direction: row;
     }
   }
+  .between {
+    justify-content: space-between;
+  }
+  .left {
+    justify-content: flex-start;
+  }
+  .right {
+    justify-content: flex-end;
+  }
+  .center {
+    justify-content: center;
+  }
 }
-
 
 .button_link {
   display: flex;
