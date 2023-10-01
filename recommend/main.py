@@ -29,6 +29,7 @@ from routes.compatibility.power import router as power_router
 from routes.recommend.search_program import router as program_router
 from routes.recommend.recommend import router as recommend_router
 from routes.recommend.parts_detail import router as parts_detail_router
+from routes.compatibility.max_page import router as max_page_router
 
 from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
 from fastapi.responses import JSONResponse
@@ -76,7 +77,8 @@ routers = [
     power_router,
     program_router,
     recommend_router,
-    parts_detail_router
+    parts_detail_router,
+    max_page_router
 ]
 
 engine = engineconn()

@@ -40,128 +40,6 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
 
--- 부품 북마크 테이블
-
-CREATE TABLE `part_bookmark` (
-	`id` int NOT NULL AUTO_INCREMENT,
-	`user_id` int NOT NULL,
-	`pid` tinyint NOT NULL COMMENT '0:CPU, 1:메인보드, 2:메모리, 3:그래픽카드, 4:SSD, 5:HDD, 6: 케이스, 7: 파워, 8:쿨러',
-	`part_id` int NOT NULL,
-    `create_date_time` datetime NOT NULL DEFAULT now(),
-	PRIMARY KEY (`id`),
-	CONSTRAINT `fk_part_bookmark_user_id`
-		FOREIGN KEY (`user_id`)
-		REFERENCES `users` (`id`) ON UPDATE CASCADE
-)
-ENGINE = InnoDB
-AUTO_INCREMENT = 1
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
-
--- 견적 테이블(연결필요)
-
-CREATE TABLE `quotation` (
-	`id` int NOT NULL AUTO_INCREMENT,
-	`user_id` int NULL,
-	`cpu_id` int NULL,
-	`power_id` int NULL,
-	`mainboard_id` int NULL,
-	`ram_id` int NULL,
-	`graphic_id` int NULL,
-	`hdd_id` int NULL,
-	`ssd_id` int NULL,
-	`case_id` int NULL,
-	`cooler_id` int NULL,
-	`name` varchar(100) NOT NULL,
-	`create_date_time` datetime NOT NULL DEFAULT now(),
-	`state` int NOT NULL DEFAULT 0 COMMENT '비트 마스킹',
-	PRIMARY KEY (`id`)
-)
-ENGINE = InnoDB
-AUTO_INCREMENT = 1
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
-
--- 게시판 테이블
-
-CREATE TABLE `boards` (
-	`id` int NOT NULL AUTO_INCREMENT,
-	`user_id` int NOT NULL,
-	`quotation_id` int NULL,
-	`title` varchar(100) NOT NULL,
-	`contents` varchar(1000) NOT NULL,
-	`create_date_time` datetime NOT NULL DEFAULT now(),
-	`status` tinyint NOT NULL DEFAULT 0 COMMENT '0:일반, 1: 삭제',
-	`view` int NULL DEFAULT 0,
-	`like_cnt` int NULL DEFAULT 0,
-	PRIMARY KEY (`id`),
-	CONSTRAINT `fk_boards_user_id`
-		FOREIGN KEY (`user_id`)
-		REFERENCES `users` (`id`) ON UPDATE CASCADE,
-	CONSTRAINT `fk_boards_quotation_id`
-		FOREIGN KEY (`quotation_id`)
-		REFERENCES `quotation` (`id`) ON UPDATE CASCADE
-)
-ENGINE = InnoDB
-AUTO_INCREMENT = 1
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
-
--- 게시판 이미지 테이블
-
-CREATE TABLE `boards_image` (
-    `id` int NOT NULL AUTO_INCREMENT,
-    `board_id` int NOT NULL,
-    `image_path` varchar(1000) NOT NULL,
-    PRIMARY KEY (`id`),
-    CONSTRAINT `fk_boards_image_board_id`
-        FOREIGN KEY (`board_id`)
-        REFERENCES `boards` (`id`) ON UPDATE CASCADE ON DELETE CASCADE
-)
-ENGINE = InnoDB
-AUTO_INCREMENT = 1
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
-
--- 게시글 좋아요 테이블
-
-CREATE TABLE `boards_like` (
-	`user_id` int NOT NULL,
-	`board_id` int NOT NULL,
-	PRIMARY KEY (`user_id`, `board_id`),
-	CONSTRAINT `fk_boards_like_user_id`
-		FOREIGN KEY (`user_id`)
-		REFERENCES `users` (`id`) ON UPDATE CASCADE,
-	CONSTRAINT `fk_boards_like_board_id`
-		FOREIGN KEY (`board_id`)
-		REFERENCES `boards` (`id`) ON UPDATE CASCADE ON DELETE CASCADE
-)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
-
--- 댓글 테이블
-
-CREATE TABLE `comments` (
-	`id` int NOT NULL AUTO_INCREMENT,
-	`board_id` int NOT NULL,
-	`user_id` int NOT NULL,
-	`contents` varchar(100) NOT NULL,
-	`create_date_time` datetime NOT NULL DEFAULT now(),
-	`status` tinyint NOT NULL DEFAULT 0 COMMENT '0:일반, 1: 삭제',
-	PRIMARY KEY (`id`),
-	CONSTRAINT `fk_comments_board_id`
-		FOREIGN KEY (`board_id`)
-		REFERENCES `boards` (`id`) ON UPDATE CASCADE ON DELETE CASCADE,
-	CONSTRAINT `fk_comments_user_id`
-		FOREIGN KEY (`user_id`)
-		REFERENCES `users` (`id`) ON UPDATE CASCADE
-)
-ENGINE = InnoDB
-AUTO_INCREMENT = 1
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
-
 -- CPU 테이블
 
 CREATE TABLE `cpu` (
@@ -281,9 +159,9 @@ CREATE TABLE `requirements` (
 	CONSTRAINT `fk_requirements_cpu_id`
 		FOREIGN KEY (`cpu_id`)
 		REFERENCES `cpu` (`id`) ON UPDATE CASCADE,
-	CONSTRAINT `fk_requirements_gpu_id`
-		FOREIGN KEY (`gpu_id`)
-		REFERENCES `gpu` (`id`) ON UPDATE CASCADE
+    CONSTRAINT `fk_requirements_gpu_id`
+        FOREIGN KEY (`gpu_id`)
+        REFERENCES `gpu` (`id`) ON UPDATE CASCADE
 )
 ENGINE = InnoDB
 AUTO_INCREMENT = 1
@@ -572,6 +450,155 @@ CREATE TABLE `power` (
 	`reg_date` int NULL COMMENT 'yyyymm',
 	`bookmark` int NULL DEFAULT 0,
 	PRIMARY KEY (`id`)
+)
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
+
+-- 견적 테이블
+
+CREATE TABLE `quotation` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `user_id` int NULL,
+    `cpu_id` int NULL,
+    `gpu_id` int NULL,
+    `ram_id` int NULL,
+    `hdd_id` int NULL,
+    `ssd_id` int NULL,
+    `power_id` int NULL,
+    `mainboard_id` int NULL,
+    `cooler_id` int NULL,
+    `case_id` int NULL,
+    `name` varchar(100) NOT NULL,
+    `create_date_time` datetime NOT NULL DEFAULT now(),
+    `state` int NOT NULL DEFAULT 0 COMMENT '비트 마스킹',
+    PRIMARY KEY (`id`),
+    CONSTRAINT `fk_quotation_cpu_id`
+        FOREIGN KEY (`cpu_id`)
+        REFERENCES `cpu` (`id`) ON UPDATE CASCADE,
+    CONSTRAINT `fk_quotation_gpu_id`
+        FOREIGN KEY (`gpu_id`)
+        REFERENCES `gpu` (`id`) ON UPDATE CASCADE,
+    CONSTRAINT `fk_quotation_ram_id`
+        FOREIGN KEY (`ram_id`)
+        REFERENCES `ram` (`id`) ON UPDATE CASCADE,
+    CONSTRAINT `fk_quotation_hdd_id`
+        FOREIGN KEY (`hdd_id`)
+        REFERENCES `hdd` (`id`) ON UPDATE CASCADE,
+    CONSTRAINT `fk_quotation_ssd_id`
+        FOREIGN KEY (`ssd_id`)
+        REFERENCES `ssd` (`id`) ON UPDATE CASCADE,
+    CONSTRAINT `fk_quotation_power_id`
+        FOREIGN KEY (`power_id`)
+        REFERENCES `power` (`id`) ON UPDATE CASCADE,
+    CONSTRAINT `fk_quotation_mainboard_id`
+        FOREIGN KEY (`mainboard_id`)
+        REFERENCES `mainboard` (`id`) ON UPDATE CASCADE,
+    CONSTRAINT `fk_quotation_cooler_id`
+        FOREIGN KEY (`cooler_id`)
+        REFERENCES `cooler` (`id`) ON UPDATE CASCADE,
+    CONSTRAINT `fk_quotation_case_id`
+        FOREIGN KEY (`case_id`)
+        REFERENCES `case` (`id`) ON UPDATE CASCADE
+)
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
+
+-- 부품 북마크 테이블
+
+CREATE TABLE `part_bookmark` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `user_id` int NOT NULL,
+    `pid` tinyint NOT NULL COMMENT '0:CPU, 1:메인보드, 2:메모리, 3:그래픽카드, 4:SSD, 5:HDD, 6: 케이스, 7: 파워, 8:쿨러',
+    `part_id` int NOT NULL,
+    `create_date_time` datetime NOT NULL DEFAULT now(),
+    PRIMARY KEY (`id`),
+    CONSTRAINT `fk_part_bookmark_user_id`
+        FOREIGN KEY (`user_id`)
+        REFERENCES `users` (`id`) ON UPDATE CASCADE
+)
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
+
+-- 게시판 테이블
+
+CREATE TABLE `boards` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `user_id` int NOT NULL,
+    `quotation_id` int NULL,
+    `title` varchar(100) NOT NULL,
+    `contents` varchar(1000) NOT NULL,
+    `create_date_time` datetime NOT NULL DEFAULT now(),
+    `status` tinyint NOT NULL DEFAULT 0 COMMENT '0:일반, 1: 삭제',
+    `view` int NULL DEFAULT 0,
+    `like_cnt` int NULL DEFAULT 0,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `fk_boards_user_id`
+        FOREIGN KEY (`user_id`)
+        REFERENCES `users` (`id`) ON UPDATE CASCADE,
+    CONSTRAINT `fk_boards_quotation_id`
+        FOREIGN KEY (`quotation_id`)
+        REFERENCES `quotation` (`id`) ON UPDATE CASCADE
+)
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
+
+-- 게시판 이미지 테이블
+
+CREATE TABLE `boards_image` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `board_id` int NOT NULL,
+    `image_path` varchar(1000) NOT NULL,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `fk_boards_image_board_id`
+        FOREIGN KEY (`board_id`)
+        REFERENCES `boards` (`id`) ON UPDATE CASCADE ON DELETE CASCADE
+)
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
+
+-- 게시글 좋아요 테이블
+
+CREATE TABLE `boards_like` (
+    `user_id` int NOT NULL,
+    `board_id` int NOT NULL,
+    PRIMARY KEY (`user_id`, `board_id`),
+    CONSTRAINT `fk_boards_like_user_id`
+        FOREIGN KEY (`user_id`)
+        REFERENCES `users` (`id`) ON UPDATE CASCADE,
+    CONSTRAINT `fk_boards_like_board_id`
+        FOREIGN KEY (`board_id`)
+        REFERENCES `boards` (`id`) ON UPDATE CASCADE ON DELETE CASCADE
+)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
+
+-- 댓글 테이블
+
+CREATE TABLE `comments` (
+`id` int NOT NULL AUTO_INCREMENT,
+`board_id` int NOT NULL,
+`user_id` int NOT NULL,
+`contents` varchar(100) NOT NULL,
+`create_date_time` datetime NOT NULL DEFAULT now(),
+`status` tinyint NOT NULL DEFAULT 0 COMMENT '0:일반, 1: 삭제',
+PRIMARY KEY (`id`),
+CONSTRAINT `fk_comments_board_id`
+    FOREIGN KEY (`board_id`)
+    REFERENCES `boards` (`id`) ON UPDATE CASCADE ON DELETE CASCADE,
+CONSTRAINT `fk_comments_user_id`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `users` (`id`) ON UPDATE CASCADE
 )
 ENGINE = InnoDB
 AUTO_INCREMENT = 1
