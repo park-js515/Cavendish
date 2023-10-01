@@ -1,8 +1,6 @@
-import { Link, Route, Routes } from "react-router-dom";
 import { memberInfo, memberRemove } from "api/member";
 import { useEffect, useRef, useState } from "react";
 import MyPageUpdateComponent from "./MyPageUpdateComponent";
-import { current } from "@reduxjs/toolkit";
 
 export default function MyPageComponent() {
   const check = useRef(false);
@@ -16,7 +14,7 @@ export default function MyPageComponent() {
   const [toggle, setToggle] = useState(0);
 
   const toggleHandelr = (e) => {
-    setToggle((current) => e.target.value);
+    setToggle(e.target.value);
   };
 
   useEffect(() => {

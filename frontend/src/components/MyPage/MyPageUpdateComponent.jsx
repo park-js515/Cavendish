@@ -5,10 +5,10 @@ export default function MyPageUpdateComponent({ data, setIsUpdate }) {
   const [newNick, setNewNick] = useState(data.nickname);
   const [password, setPassword] = useState("");
   const handleNickChange = (e) => {
-    setNewNick((current) => e.target.value);
+    setNewNick(e.target.value);
   };
   const handlePassword = (e) => {
-    setPassword((current) => e.target.value);
+    setPassword(e.target.value);
   };
   const updateCompleteHandler = () => {
     memberUpdate(
