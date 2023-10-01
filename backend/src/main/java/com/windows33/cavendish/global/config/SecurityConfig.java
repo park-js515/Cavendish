@@ -44,7 +44,6 @@ public class SecurityConfig {
                 .antMatchers(HttpMethod.GET, "/api/board", "/api/board/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/image", "/api/image/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/comment", "/api/comment/**").permitAll()
-//                .antMatchers(HttpMethod.DELETE, "/api/board", "/api/board/**").hasRole("USER")
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider, customUserDetailsService), UsernamePasswordAuthenticationFilter.class);

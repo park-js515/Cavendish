@@ -24,6 +24,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
+
 import static com.windows33.cavendish.domain.board.entity.QBoard.board;
 import static com.windows33.cavendish.domain.board.entity.QBoardImage.boardImage;
 import static com.windows33.cavendish.domain.member.entity.QMember.member;
@@ -64,9 +65,9 @@ public class BoardQueryRepository {
         return new PageImpl<>(boardList, pageable, count);
     }
 
-    private OrderSpecifier<?> boardSort(Pageable page) {
-        if (!page.getSort().isEmpty()) {
-            for (Sort.Order order : page.getSort()) {
+    private OrderSpecifier<?> boardSort(Pageable pageable) {
+        if (!pageable.getSort().isEmpty()) {
+            for (Sort.Order order : pageable.getSort()) {
                 Order direction = order.getDirection().isAscending() ? Order.ASC : Order.DESC;
                 switch (order.getProperty()) {
                     case "title":

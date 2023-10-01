@@ -72,13 +72,13 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public Integer modifyArticle(BoardModifyRequestDto boardModifyRequestDto, List<MultipartFile> img, Integer id) {
+    public Integer modifyArticle(BoardModifyRequestDto boardModifyRequestDto, List<MultipartFile> img, Integer userId) {
         List<BoardImage> deleteBoardImages = new ArrayList<>();
 
-        Board board = boardRepository.findById(boardModifyRequestDto.getId()).orElseThrow(() -> new NotFoundException(Board.class, boardModifyRequestDto.getId()));
+        Board board = checkAuthority(boardModifyRequestDto.getId(), userId);
 
-        if (!board.getUserId().equals(id)) {
-            throw new InvalidException(Board.class, id);
+        if (!board.getUserId().equals(userId)) {
+            throw new InvalidException(Board.class, userId);
         }
 
         board.updateBoard(

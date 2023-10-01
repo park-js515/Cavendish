@@ -35,7 +35,7 @@ public class Comment {
     private Byte status;
 
     public void updateComment(String contents) {
-        if(contents != null) this.contents = contents;
+        this.contents = contents;
     }
 
 }
