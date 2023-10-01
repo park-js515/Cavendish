@@ -26,6 +26,9 @@ from routes.compatibility.gpu import router as gpu_router
 from routes.compatibility.case import router as case_router
 from routes.compatibility.ssd import router as ssd_router
 from routes.compatibility.power import router as power_router
+from routes.recommend.search_program import router as program_router
+from routes.recommend.recommend import router as recommend_router
+from routes.recommend.parts_detail import router as parts_detail_router
 
 from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
 from fastapi.responses import JSONResponse
@@ -70,7 +73,10 @@ routers = [
     gpu_router,
     case_router,
     ssd_router,
-    power_router
+    power_router,
+    program_router,
+    recommend_router,
+    parts_detail_router
 ]
 
 engine = engineconn()
@@ -93,11 +99,7 @@ session = engine.sessionmaker()
 
 for router in routers:
     app.include_router(router, prefix=common_prefix)
-
-@app.get("/game")
-async def game():
-    example = session.query(Requirements).first()
-    return example
+    
 
 # @app.get("/")
 # async def root():
