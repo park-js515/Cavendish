@@ -11,7 +11,7 @@ const Btn = ({ onClick }) => {
   );
 };
 
-const SearchComponent = ({ value, setValue }) => {
+const SearchComponent = ({ value, setValue, setDoSearch }) => {
   const selectedItem = useSelector((state) => {
     const selected = state.recommend.selected;
     return state.recommend.processList[0][selected].name;
@@ -32,7 +32,7 @@ const SearchComponent = ({ value, setValue }) => {
       />
       <Btn
         onClick={() => {
-          alert(value);
+          setDoSearch(true);
         }}
       />
     </div>

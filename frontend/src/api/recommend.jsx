@@ -13,9 +13,7 @@ import { fapiSearchInstance, fapiRecommendInstance } from "./lib/index";
 const searchPart = (partName, page, params, success, fail) => {
   const api = fapiSearchInstance();
   api
-    .get(`/${partName}/${page}`, {
-      params: JSON.stringify(params),
-    })
+    .get(`/${partName}/${page}`, params)
     .then(success)
     .catch(fail);
 };

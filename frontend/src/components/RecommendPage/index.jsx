@@ -37,7 +37,7 @@ const RecommendPageComponent = () => {
 
   const check = useRef(false);
   useEffect(() => {
-    if (!check.current && processNo >= 0) {
+    if (!check.current && processNo >= 1) {
       const isValid = window.confirm(
         "이미 진행 중인 작업이 있습니다.\n계속하시겠습니까? ",
       );
