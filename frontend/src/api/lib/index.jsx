@@ -47,7 +47,9 @@ const searchDefaultInstance = () => {
 };
 
 const commentDefaultInstance = (params) => {
-  const instance = createDefaultAxios(`/comment/${params.boardId}?page=${params.page}&size=${params.size}`);
+  const instance = createDefaultAxios(
+    `/comment/${params.boardId}?page=${params.page}&size=${params.size}`,
+  );
 
   return instance;
 };
@@ -57,6 +59,28 @@ const commentCustomInstance = () => {
 
   return instance;
 };
+
+const quotationCustomInstance = () => {
+  const instance = createCustomAxios(`/quotation`);
+
+  return instance;
+};
+
+const quotationDefaultInstance = (params) => {
+  const instance = createDefaultAxios(
+    `/quotation?page=${params.page ? params.page : 0}&size=${
+      params.size ? params.size : 10
+    }`,
+  );
+  return instance;
+};
+
+const quotationDetailDefaultInstance = () => {
+  const instance = createDefaultAxios(`/quotation`);
+
+  return instance;
+};
+
 
 export {
   memberCustomInstance,
@@ -68,4 +92,7 @@ export {
   imageDefaultInstance,
   commentDefaultInstance,
   commentCustomInstance,
+  quotationCustomInstance,
+  quotationDefaultInstance,
+  quotationDetailDefaultInstance,
 };
