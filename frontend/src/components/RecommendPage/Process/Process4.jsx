@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 
 //redux
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as recom from "redux/recommendSlice";
 
 const dummyBudget = 120;
@@ -26,10 +27,39 @@ const BudgetComponent = ({ value, setValue }) => {
   );
 };
 
+const TopIcons = ({ onClick1 }) => {
+  const [leftCol, setLeftCol] = useState("black");
+
+  return (
+    <div
+      style={{
+        height: "20px",
+        display: "flex",
+        justifyContent: "space-between",
+      }}
+    >
+      <AiOutlineArrowLeft
+        size="20"
+        color={leftCol}
+        onMouseEnter={() => {
+          setLeftCol("red");
+        }}
+        onMouseLeave={() => {
+          setLeftCol("black");
+        }}
+        onClick={onClick1}
+        style={{
+          cursor: "pointer",
+        }}
+      />
+    </div>
+  );
+};
+
 const SubmitBtn = ({ onClick }) => {
   return (
     <div className="submitBtn" onClick={onClick}>
-      제출
+      <AiOutlineArrowRight />
     </div>
   );
 };
@@ -43,6 +73,11 @@ const Process4 = ({ className }) => {
   return (
     <div className={className}>
       <div className="proc4">
+        <TopIcons
+          onClick1={() => {
+            dispatch(recom.setProcessNo(1));
+          }}
+        />
         <div className="upper">예산을 입력해주세요.</div>
         <div className="lower">
           <div>

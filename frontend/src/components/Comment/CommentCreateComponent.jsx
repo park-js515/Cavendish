@@ -1,16 +1,37 @@
+import { createComment, getCommentsList } from "api/comments";
 import { useState } from "react";
 export default function CommentCreateComponent({
-  commentList,
+  boardId,
+  page,
+  size,
   setCommentList,
 }) {
   const [comment, setComment] = useState("");
   const handleCommentChange = (e) => {
-    setComment((current) => e.target.value);
+    setComment(e.target.value);
   };
   const handleCommentSubmit = () => {
     if (comment === "") return;
-    setCommentList((commentList) => [comment, ...commentList]);
+
+    createComment(
+      { boardId: boardId, contents: comment },
+      () => {
+        reloadCommentList();
+      },
+      () => {},
+    );
     setComment("");
+  };
+
+  const reloadCommentList = () => {
+    getCommentsList(
+      { boardId: boardId, page: page, size: size },
+      (response) => {
+        const data = response.data.response;
+        setCommentList(data.content);
+      },
+      () => {},
+    );
   };
 
   return (

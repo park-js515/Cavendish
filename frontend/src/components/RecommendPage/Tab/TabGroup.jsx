@@ -30,13 +30,7 @@ const TabGroup = () => {
   return (
     <div className="tab-group">
       {tabList.map((item, index) => {
-        return (
-          <TabItem
-            key={index}
-            {...item}
-            index={index}
-          />
-        );
+        return <TabItem key={index} {...item} index={index} />;
       })}
     </div>
   );

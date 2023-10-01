@@ -125,6 +125,7 @@ const TabItem = ({ className, title, index }) => {
   const TabContent2 = () => {
     const data1 = recommend.processList[1];
     const data2 = recommend.processList[2];
+
     return (
       <div>
         {data1.map((items, itemsIndex) => {
@@ -157,12 +158,9 @@ const TabItem = ({ className, title, index }) => {
     return (
       <div>
         {Object.keys(data).map((key) => {
-          if (data[key]) {
-            return (
-              <div key={key} className="wrapper2">{`${key}: ${data[key]}`}</div>
-            );
-          }
-          return null;
+          return (
+            <div key={key} className="wrapper2">{`${key}: ${data[key]}`}</div>
+          );
         })}
       </div>
     );
@@ -177,10 +175,11 @@ const TabItem = ({ className, title, index }) => {
   ];
 
   const Content = TabContent[index];
+  const style = { color: "red" };
 
   return (
     <div className={className}>
-      <div className="wrapper">
+      <div className="wrapper" style={pos === -1 ? style : null}>
         {title} {pos === 0 ? <CancelBtn /> : null}
       </div>
       {pos >= -1 ? <Content /> : null}
