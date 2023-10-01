@@ -55,7 +55,7 @@ export default function CommentComponent({
               <div className="buttons">
                 <button type="button" onClick={updateHandler}>
                   수정
-                </button>{" "}
+                </button><span>{" "}|{" "}</span>
                 <button type="button" onClick={commentDeleteHandler}>삭제</button>
               </div>
             )}
@@ -69,6 +69,7 @@ export default function CommentComponent({
       {isUpdate && (
         <CommentUpdateComponent
           commentId={commentId}
+          boardId={boardId}
           setIsUpdate={setIsUpdate}
           comment={comment}
           setCommentList={setCommentList}

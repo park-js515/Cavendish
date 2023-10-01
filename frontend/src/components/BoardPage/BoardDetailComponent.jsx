@@ -135,29 +135,30 @@ export default function BoardDetailComponent() {
           })}
         </ul>
       </div>
-
-      <div className="buttons">
-        <Link className="button_link right" to="/board">
-          돌아가기
-        </Link>
-        {!isMine && (
-          <div>
-            <button
-              className="button_link"
-              onClick={updateHandler}
-              type="button"
-            >
-              수정하기
-            </button>
-            <button
-              className="button_link"
-              onClick={deleteHandler}
-              type="button"
-            >
-              삭제하기
-            </button>
-          </div>
-        )}
+      <div className="button_container">
+        <div className="buttons">
+          <Link className="button_link" to="/board">
+            돌아가기
+          </Link>
+          {!isMine && (
+            <div>
+              <button
+                className="button_link"
+                onClick={updateHandler}
+                type="button"
+              >
+                수정하기
+              </button>
+              <button
+                className="button_link delete"
+                onClick={deleteHandler}
+                type="button"
+              >
+                삭제하기
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
