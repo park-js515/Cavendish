@@ -1,5 +1,6 @@
 package com.windows33.cavendish.domain.quotation.service;
 
+import com.windows33.cavendish.domain.quotation.dto.response.QuotationDetailResponseDto;
 import com.windows33.cavendish.domain.quotation.dto.response.QuotationListResponseDto;
 import com.windows33.cavendish.domain.quotation.repository.QuotationQueryRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +21,11 @@ public class QuotationQueryServiceImpl implements QuotationQueryService{
     @Override
     public Page<QuotationListResponseDto> findQuotationList(Pageable pageable, Integer userId) {
         return quotationQueryRepository.findQuotationList(pageable, userId);
+    }
+
+    @Override
+    public QuotationDetailResponseDto findQuotationDetail(Integer quotationId) {
+        return quotationQueryRepository.findQuotationDetail(quotationId);
     }
 
 }

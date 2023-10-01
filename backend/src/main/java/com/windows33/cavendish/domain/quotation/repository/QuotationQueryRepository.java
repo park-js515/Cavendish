@@ -4,6 +4,7 @@ import com.querydsl.core.types.Order;
 import com.querydsl.core.types.OrderSpecifier;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import com.windows33.cavendish.domain.quotation.dto.response.QuotationDetailResponseDto;
 import com.windows33.cavendish.domain.quotation.dto.response.QuotationListResponseDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -62,6 +63,28 @@ public class QuotationQueryRepository {
             }
         }
         return null;
+    }
+
+    public QuotationDetailResponseDto findQuotationDetail(Integer quotationId) {
+        QuotationDetailResponseDto quotationDetailResponseDto = jpaQueryFactory
+                .select(Projections.constructor(QuotationDetailResponseDto.class,
+                        quotation.name,
+                        quotation.cpuId,
+                        quotation.gpuId,
+                        quotation.ramId,
+                        quotation.hddId,
+                        quotation.ssdId,
+                        quotation.powerId,
+                        quotation.mainboardId,
+                        quotation.coolerId,
+                        quotation.caseId,
+                        quotation.createDateTime
+                ))
+                .from(quotation)
+                .where(quotation.id.eq(quotationId))
+                .fetchOne();
+
+        return quotationDetailResponseDto;
     }
 
 }

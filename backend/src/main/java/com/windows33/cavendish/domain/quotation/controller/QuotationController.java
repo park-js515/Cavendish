@@ -1,6 +1,7 @@
 package com.windows33.cavendish.domain.quotation.controller;
 
 import com.windows33.cavendish.domain.quotation.dto.request.QuotationAddRequestDto;
+import com.windows33.cavendish.domain.quotation.dto.response.QuotationDetailResponseDto;
 import com.windows33.cavendish.domain.quotation.dto.response.QuotationListResponseDto;
 import com.windows33.cavendish.domain.quotation.service.QuotationQueryService;
 import com.windows33.cavendish.domain.quotation.service.QuotationService;
@@ -43,7 +44,7 @@ public class QuotationController {
     
     @Operation(summary = "견적 목록 조회", description = "견적 목록 조회")
     @Parameters({
-            @Parameter()
+            @Parameter(name = "pageable", description = "페이지 정보")
     })
     @GetMapping
     public CommonResponse<Page<QuotationListResponseDto>> quotationList(
@@ -51,6 +52,17 @@ public class QuotationController {
             @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
     ) {
         return CommonResponse.OK(quotationQueryService.findQuotationList(pageable, userPrincipal.getId()));
+    }
+
+    @Operation(summary = "견적 상세 조회", description = "견적 상세 조회")
+    @Parameters({
+            @Parameter()
+    })
+    @GetMapping("/detail/{quotationId}")
+    public CommonResponse<QuotationDetailResponseDto> quotationDetail(
+            @PathVariable("quotationId") Integer quotationId
+    ) {
+        return CommonResponse.OK(quotationQueryService.findQuotationDetail(quotationId));
     }
 
 }
