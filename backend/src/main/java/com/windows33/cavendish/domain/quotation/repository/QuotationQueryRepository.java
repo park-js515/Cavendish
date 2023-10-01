@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-import static com.windows33.cavendish.domain.parts.entity.QComputerCase.computerCase;
+import static com.windows33.cavendish.domain.part.entity.QComputerCase.computerCase;
 import static com.windows33.cavendish.domain.quotation.entity.QQuotation.quotation;
 
 @Slf4j

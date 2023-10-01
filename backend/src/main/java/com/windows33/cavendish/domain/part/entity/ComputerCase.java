@@ -1,4 +1,4 @@
-package com.windows33.cavendish.domain.parts.entity;
+package com.windows33.cavendish.domain.part.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
