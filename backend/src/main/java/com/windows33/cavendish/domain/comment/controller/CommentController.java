@@ -42,7 +42,7 @@ public class CommentController {
         return CommonResponse.OK(commentService.addComment(commentAddRequestDto, userPrincipal.getId()));
     }
 
-    @Operation(summary = "댓글 조회", description = "댓글 조회")
+    @Operation(summary = "댓글 목록 조회", description = "댓글 목록 조회")
     @Parameters({
             @Parameter(name = "pageable", description = "페이지 정보")
     })

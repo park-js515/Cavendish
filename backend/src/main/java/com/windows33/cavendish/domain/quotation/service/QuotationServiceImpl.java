@@ -26,7 +26,7 @@ public class QuotationServiceImpl implements QuotationService {
                 .powerId(quotationAddRequestDto.getPowerId())
                 .mainboardId(quotationAddRequestDto.getMainboardId())
                 .ramId(quotationAddRequestDto.getRamId())
-                .graphicId(quotationAddRequestDto.getGraphicId())
+                .gpuId(quotationAddRequestDto.getGraphicId())
                 .hddId(quotationAddRequestDto.getHddId())
                 .ssdId(quotationAddRequestDto.getHddId())
                 .caseId(quotationAddRequestDto.getCaseId())

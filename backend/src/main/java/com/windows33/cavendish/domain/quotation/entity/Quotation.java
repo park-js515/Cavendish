@@ -22,21 +22,21 @@ public class Quotation {
 
     private Integer cpuId;
 
-    private Integer powerId;
-
-    private Integer mainboardId;
+    private Integer gpuId;
 
     private Integer ramId;
-
-    private Integer graphicId;
 
     private Integer hddId;
 
     private Integer ssdId;
 
-    private Integer caseId;
+    private Integer powerId;
+
+    private Integer mainboardId;
 
     private Integer coolerId;
+
+    private Integer caseId;
 
     private String name;
 
