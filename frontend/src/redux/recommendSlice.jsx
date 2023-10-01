@@ -7,15 +7,15 @@ const initialState_origin = {
   processList: [
     // process1: 부품 사전 선택
     [
-      { name: "case", value: "-1", id: "" },
-      { name: "cooler", value: "-1", id: "" },
-      { name: "cpu", value: "-1", id: "" },
-      { name: "gpu", value: "-1", id: "" },
-      { name: "hdd", value: "-1", id: "" },
-      { name: "mainboard", value: "-1", id: "" },
-      { name: "power", value: "-1", id: "" },
-      { name: "ram", value: "-1", id: "" },
-      { name: "ssd", value: "-1", id: "" },
+      { name: "case", value: "-1", id: "", imgUrl: "" },
+      { name: "cooler", value: "-1", id: "", imgUrl: "" },
+      { name: "cpu", value: "-1", id: "", imgUrl: "" },
+      { name: "gpu", value: "-1", id: "", imgUrl: "" },
+      { name: "hdd", value: "-1", id: "", imgUrl: "" },
+      { name: "mainboard", value: "-1", id: "", imgUrl: "" },
+      { name: "power", value: "-1", id: "", imgUrl: "" },
+      { name: "ram", value: "-1", id: "", imgUrl: "" },
+      { name: "ssd", value: "-1", id: "", imgUrl: "" },
     ],
     // process2: 용도 선택
     [],
@@ -89,9 +89,8 @@ const recommendSlice = createSlice({
           state.processList[2][key].length = 0;
         }
         state.processList[state.processNo + 1] =
-        initialState_origin.processList[state.processNo + 1];
-      }
-      else {
+          initialState_origin.processList[state.processNo + 1];
+      } else {
         state.processList[state.processNo] =
           initialState_origin.processList[state.processNo];
         if (state.processNo < 4) {
