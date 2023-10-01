@@ -41,7 +41,7 @@ export default function BoardDetailComponent() {
       (response) => {
         const data = response.data.response;
         setCommentList(data.content);
-        console.log(data);
+        // console.log(data);
       },
       () => {},
     );
@@ -59,7 +59,7 @@ export default function BoardDetailComponent() {
         setImageData(data.images);
         setLike(data.like);
         setIsMine(data.isMine);
-        // console.log(data);
+        console.log(data);
       },
       () => {},
     );
