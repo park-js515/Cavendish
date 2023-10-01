@@ -1,4 +1,4 @@
-package com.windows33.cavendish.domain.part_case.entity;
+package com.windows33.cavendish.domain.parts.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Table(name = "`case`")
 @Entity
-public class PartCase {
+public class ComputerCase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

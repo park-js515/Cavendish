@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-import static com.windows33.cavendish.domain.part_case.entity.QPartCase.partCase;
+import static com.windows33.cavendish.domain.parts.entity.QComputerCase.computerCase;
 import static com.windows33.cavendish.domain.quotation.entity.QQuotation.quotation;
 
 @Slf4j
@@ -27,16 +27,28 @@ public class QuotationQueryRepository {
     private final JPAQueryFactory jpaQueryFactory;
 
     public Page<QuotationListResponseDto> findQuotationList(Pageable pageable, Integer userId) {
+        Integer cpuPrice = 0;
+        Integer gpuPrice = 0;
+        Integer ramPrice = 0;
+        Integer hddPrice = 0;
+        Integer ssdPrice = 0;
+        Integer powerPrice = 0;
+        Integer mainboardPrice = 0;
+        Integer coolerPrice = 0;
+        Integer casePrice = 0;
+
+        // totalPrice 연산 필요
+
         List<QuotationListResponseDto> quotationList = jpaQueryFactory
                 .select(Projections.constructor(QuotationListResponseDto.class,
                         quotation.id,
                         quotation.name,
-                        partCase.image,
+                        computerCase.image,
                         quotation.createDateTime
                 ))
                 .from(quotation)
                 .where(quotation.userId.eq(userId).and(quotation.state.eq(0)))
-                .leftJoin(partCase).on(quotation.caseId.eq(partCase.id))
+                .leftJoin(computerCase).on(quotation.caseId.eq(computerCase.id))
                 .orderBy(quotationSort(pageable))
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize())
