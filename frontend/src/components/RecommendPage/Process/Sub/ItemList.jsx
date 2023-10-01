@@ -139,9 +139,9 @@ const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
   });
   const getParams = () => {
     const params = { keyword: nowSearchValue };
-    for (const key in processList0) {
-      if (processList0[key].value !== "-1") {
-        params[key] = processList0[key].id;
+    for (let item of processList0) {
+      if (item.value !== "-1") {
+        params[item.name] = item.id;
       }
     }
 
@@ -215,6 +215,7 @@ const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
         setData(() => {
           return [...arr];
         });
+        console.log(response);
       };
       const propFail = (error) => {
         console.log(error);

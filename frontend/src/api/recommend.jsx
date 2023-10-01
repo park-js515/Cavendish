@@ -16,7 +16,7 @@ import {
  */
 const searchPart = (partName, page, params, success, fail) => {
   const api = fapiSearchInstance();
-  api.get(`/${partName}/${page}`, params).then(success).catch(fail);
+  api.get(`/${partName}/${page}`, { params: params }).then(success).catch(fail);
 };
 
 /**
