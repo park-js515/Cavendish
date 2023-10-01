@@ -17,7 +17,7 @@ export default function CommentUpdateComponent({
 
   const reloadCommentList = () => {
     getCommentsList(
-      { boardId:boardId, page: page, size: size },
+      { boardId: boardId, page: page, size: size },
       (response) => {
         const data = response.data.response;
         setCommentList(data.content);
