@@ -37,7 +37,6 @@ export default function BoardCreateComponent() {
       }
     } else formData.append("files", new Blob([], { type: "application/json" }));
 
-
     await createBoardContent(
       formData,
       () => {
@@ -68,13 +67,15 @@ export default function BoardCreateComponent() {
           onChange={handleContent}
         />
         <input type="file" name="uploadedFile" multiple="multiple" />
-        <div className="buttons">
-          <button type="submit" className="button_link">
-            생성
-          </button>
-          <Link className="button_link" to="/board">
-            취소
-          </Link>
+        <div className="button_container">
+          <div className="buttons right">
+            <button type="submit" className="button_link">
+              생성
+            </button>
+            <Link className="button_link" to="/board">
+              취소
+            </Link>
+          </div>
         </div>
       </form>
     </div>
