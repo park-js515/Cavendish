@@ -31,6 +31,10 @@ export default function BoardUpdateComponent() {
     setContent(e.target.value);
   };
 
+  const handleTitle = (e) => {
+    setTitle(e.target.value);
+  }
+
   const onSubmit = async (e) => {
     e.preventDefault();
 
@@ -39,6 +43,7 @@ export default function BoardUpdateComponent() {
 
     let data = {
       id: id,
+      title:title,
       contents: content,
       deleteImage: deleteImage,
     };
@@ -85,7 +90,7 @@ export default function BoardUpdateComponent() {
   return (
     <div className="update_page">
       <form className="update_form" onSubmit={(e) => onSubmit(e)}>
-        <div className="title">{title}</div>
+        <input type="text" className="title" value={title} onChange={handleTitle}/>
         <textarea
           className="update_body"
           type="text"
