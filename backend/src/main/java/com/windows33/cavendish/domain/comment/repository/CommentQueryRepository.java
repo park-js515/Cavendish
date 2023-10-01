@@ -62,9 +62,9 @@ public class CommentQueryRepository {
         return new PageImpl<>(commentList, pageable, count);
     }
 
-    private OrderSpecifier<?> commentSort(Pageable page) {
-        if (!page.getSort().isEmpty()) {
-            for (Sort.Order order : page.getSort()) {
+    private OrderSpecifier<?> commentSort(Pageable pageable) {
+        if (!pageable.getSort().isEmpty()) {
+            for (Sort.Order order : pageable.getSort()) {
                 Order direction = order.getDirection().isAscending() ? Order.ASC : Order.DESC;
                 switch (order.getProperty()) {
                     case "contents":
