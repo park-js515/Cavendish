@@ -78,6 +78,14 @@ const fapiRecommendInstance = () => {
 
 const fapiPartInstance = () => {
   const instance = createFapiAxios(`/parts`);
+
+  return instance;
+};
+
+const fapiMaxPageInstance = () => {
+  const instance = createFapiAxios(`/maxpage`);
+
+  return instance;
 };
 
 export {
@@ -93,4 +101,5 @@ export {
   fapiSearchInstance,
   fapiRecommendInstance,
   fapiPartInstance,
+  fapiMaxPageInstance,
 };

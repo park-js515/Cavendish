@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import * as recom from "redux/recommendSlice";
 
 // API
-import { searchPart } from "api/recommend";
+import { searchPart, maxPage } from "api/recommend";
 
 const Item = ({ imgUrl, name, id, style }) => {
   const dispatch = useDispatch();
@@ -27,7 +27,9 @@ const Item = ({ imgUrl, name, id, style }) => {
             dispatch(recom.setRamNo(0));
           }
         } else {
-          dispatch(recom.setProcessList0({ value: name }));
+          dispatch(
+            recom.setProcessList0({ value: name, imgUrl: imgUrl, id: id }),
+          );
           if (selected === 7) {
             dispatch(recom.setRamNo(1));
           }
@@ -122,7 +124,12 @@ const Pagenate = ({
   );
 };
 
-const ItemList = ({ searchValue, doSearch }) => {
+const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
+  const [page, setPage] = useState(1);
+  const [data, setData] = useState([]);
+  const [maxValue, setMaxValue] = useState(1);
+  const [nowSearchValue, setNowSearchValue] = useState("");
+
   const processList0 = useSelector((state) => {
     return state.recommend.processList[0];
   });
@@ -131,7 +138,7 @@ const ItemList = ({ searchValue, doSearch }) => {
     return state.recommend.processList[0][selected].name;
   });
   const getParams = () => {
-    const params = {};
+    const params = { keyword: nowSearchValue };
     for (const key in processList0) {
       if (processList0[key].value !== "-1") {
         params[key] = processList0[key].id;
@@ -141,25 +148,21 @@ const ItemList = ({ searchValue, doSearch }) => {
     return params;
   };
 
-  const [page, setPage] = useState(1);
-  const [data, setData] = useState([]);
-  const [maxValue, setMaxValue] = useState(1);
-
   const check1 = useRef(false);
   useEffect(() => {
-    if (!check1.current) {
+    const fn1 = () => {
       const propPartName = selectedItem;
-      const propPage = 2;
+      const propPage = page;
       const propParams = getParams();
       const propSuccess = (response) => {
         const data = response.data;
         const arr = [];
         data.forEach((item) => {
           const { id, name, image } = item;
-          arr.push({ name: name, imgUrl: image, id: id });
+          arr.push({ name: name, imgUrl: image, id: id, disabled: false });
         });
 
-        setData((current) => {
+        setData(() => {
           return [...arr];
         });
       };
@@ -168,14 +171,116 @@ const ItemList = ({ searchValue, doSearch }) => {
       };
 
       const props = [propPartName, propPage, propParams, propSuccess, propFail];
-      console.log(props);
       searchPart(...props);
+    };
+
+    const fn2 = () => {
+      const propPartName = selectedItem;
+      const propSuccess = (response) => {
+        setMaxValue(() => {
+          return response.data.max_page;
+        });
+      };
+      const propFail = (error) => {
+        console.log(error);
+      };
+
+      const props = [propPartName, propSuccess, propFail];
+      maxPage(...props);
+    };
+
+    if (!check1.current) {
+      fn1();
+      fn2();
     }
 
     return () => {
       check1.current = true;
     };
   }, []);
+
+  useEffect(() => {
+    const fn1 = () => {
+      const propPartName = selectedItem;
+      const propPage = page;
+      const propParams = getParams();
+      const propSuccess = (response) => {
+        const data = response.data;
+        const arr = [];
+        data.forEach((item) => {
+          const { id, name, image } = item;
+          arr.push({ name: name, imgUrl: image, id: id, disabled: false });
+        });
+
+        setData(() => {
+          return [...arr];
+        });
+      };
+      const propFail = (error) => {
+        console.log(error);
+      };
+
+      const props = [propPartName, propPage, propParams, propSuccess, propFail];
+      searchPart(...props);
+      console.log(props);
+    };
+
+    fn1();
+  }, [page]);
+
+  useEffect(() => {
+    const fn1 = () => {
+      const propPartName = selectedItem;
+      const propPage = page;
+      const propParams = getParams();
+      const propSuccess = (response) => {
+        const data = response.data;
+        const arr = [];
+        data.forEach((item) => {
+          const { id, name, image } = item;
+          arr.push({ name: name, imgUrl: image, id: id, disabled: false });
+        });
+
+        setData(() => {
+          return [...arr];
+        });
+      };
+      const propFail = (error) => {
+        console.log(error);
+      };
+
+      const props = [propPartName, propPage, propParams, propSuccess, propFail];
+      searchPart(...props);
+    };
+
+    const fn2 = () => {
+      const propPartName = selectedItem;
+      const propSuccess = (response) => {
+        setMaxValue(() => {
+          return response.data.max_page;
+        });
+      };
+      const propFail = (error) => {
+        console.log(error);
+      };
+
+      const props = [propPartName, propSuccess, propFail];
+      maxPage(...props);
+    };
+
+    const fn3 = () => {
+      if (doSearch) {
+        setNowSearchValue(searchValue);
+        if (page === 1) {
+          fn1();
+        }
+        setPage(1);
+        setDoSearch(false);
+      }
+    };
+
+    fn3();
+  }, [doSearch]);
 
   const handlePage = (value) => {
     setPage(value);

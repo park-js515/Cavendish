@@ -41,7 +41,7 @@ const PartSelect = ({ setSubProcess }) => {
     return state.recommend.selected;
   });
   const [value, setValue] = useState("");
-  const [doSearch, SetDoSearch] = useState(false);
+  const [doSearch, setDoSearch] = useState(false);
 
   return (
     <div className="partSelect">
@@ -53,9 +53,9 @@ const PartSelect = ({ setSubProcess }) => {
       <SearchComponent
         value={value}
         setValue={setValue}
-        SetDoSearch={SetDoSearch}
+        setDoSearch={setDoSearch}
       />
-      <ItemList searchValue={value} doSearch={doSearch} />
+      <ItemList searchValue={value} doSearch={doSearch} setDoSearch={setDoSearch}/>
     </div>
   );
 };
