@@ -103,7 +103,7 @@ public class BoardController {
     @Parameters({
             @Parameter(name = "boardId", description = "게시글 ID")
     })
-    @PatchMapping
+    @PutMapping
     public CommonResponse<Integer> articleModify(
             @RequestPart(value = "data") BoardModifyRequestDto boardModifyRequestDto,
             @RequestPart(value = "files") List<MultipartFile> multipartFiles,
