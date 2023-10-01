@@ -1,6 +1,6 @@
 import {
   quotationCustomInstance,
-  quotationDefaultInstance,
+  quotationCustomListInstance,
   quotationDetailDefaultInstance,
 } from "./lib/index";
 
@@ -13,11 +13,11 @@ import {
  *
  */
 const createQuotation = (body, sucess, fail) => {
-  const api = quotationCustomInstance(params);
+  const api = quotationCustomInstance();
   api.post(``, body).then(sucess).catch(fail);
 };
 
-// 2. 견적서 조회
+// 2. 견적서 리스트 조회
 /**
  *
  * @param {params} params [{ page : int, size : int }]
@@ -25,7 +25,7 @@ const createQuotation = (body, sucess, fail) => {
  * @param {function} fail [callback]
  */
 const getQuotationList = (params, sucess, fail) => {
-  const api = quotationDefaultInstance(params);
+  const api = quotationCustomListInstance(params);
   api.get(``).then(sucess).catch(fail);
 };
 

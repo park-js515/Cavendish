@@ -66,8 +66,8 @@ const quotationCustomInstance = () => {
   return instance;
 };
 
-const quotationDefaultInstance = (params) => {
-  const instance = createDefaultAxios(
+const quotationCustomListInstance = (params) => {
+  const instance = createCustomAxios(
     `/quotation?page=${params.page ? params.page : 0}&size=${
       params.size ? params.size : 10
     }`,
@@ -81,7 +81,6 @@ const quotationDetailDefaultInstance = () => {
   return instance;
 };
 
-
 export {
   memberCustomInstance,
   memberDefaultInstance,
@@ -93,6 +92,6 @@ export {
   commentDefaultInstance,
   commentCustomInstance,
   quotationCustomInstance,
-  quotationDefaultInstance,
+  quotationCustomListInstance,
   quotationDetailDefaultInstance,
 };
