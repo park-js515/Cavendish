@@ -1,7 +1,6 @@
 from sqlalchemy import Column, Integer, String, Float, Boolean, ForeignKey, SmallInteger
 from sqlalchemy.orm import declarative_base, relationship
 
-
 Base = declarative_base()
 
 class Program(Base):
@@ -24,8 +23,5 @@ class Requirements(Base):
     storage = Column(Float, default=None)
     os = Column(String(200), default=None)
     spec_class = Column(SmallInteger, nullable=False)
-    from .gpu import GPU
-    from .cpu import CPU    
+
     program = relationship("Program", back_populates="requirements")
-    gpu = relationship("GPU", back_populates="requirements")
-    cpu = relationship("CPU", back_populates="requirements")
