@@ -110,13 +110,15 @@ export default function BoardUpdateComponent() {
             );
           })}
         </ul>
-        <div className="buttons">
-          <button type="submit" className="button_link">
-            수정
-          </button>
-          <Link className="button_link" to="/board">
-            취소
-          </Link>
+        <div className="button_container">
+          <div className="buttons right">
+            <button type="submit" className="button_link">
+              수정
+            </button>
+            <Link className="button_link" to="/board">
+              취소
+            </Link>
+          </div>
         </div>
       </form>
     </div>

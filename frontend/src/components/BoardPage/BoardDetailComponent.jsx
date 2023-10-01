@@ -136,7 +136,7 @@ export default function BoardDetailComponent() {
         </ul>
       </div>
       <div className="button_container">
-        <div className="buttons">
+        <div className="buttons between">
           <Link className="button_link" to="/board">
             돌아가기
           </Link>
