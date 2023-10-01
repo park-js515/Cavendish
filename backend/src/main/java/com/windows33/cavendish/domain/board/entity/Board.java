@@ -40,9 +40,9 @@ public class Board {
     private Integer likeCnt;
 
     public void updateBoard(Integer quotationId, String title, String contents) {
-        if(quotationId != null) this.quotationId = quotationId;
-        if(title != null) this.title = title;
-        if(contents != null) this.contents = contents;
+        this.quotationId = quotationId;
+        this.title = title;
+        this.contents = contents;
     }
 
 }

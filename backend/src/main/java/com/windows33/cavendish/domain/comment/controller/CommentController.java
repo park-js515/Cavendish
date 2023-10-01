@@ -73,7 +73,7 @@ public class CommentController {
     @Parameters({
             @Parameter(name = "commentModifyRequestDto", description = "수정 댓글 내용")
     })
-    @PatchMapping
+    @PutMapping
     public CommonResponse<Integer> commentModify(
             @RequestBody CommentModifyRequestDto commentModifyRequestDto,
             @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
