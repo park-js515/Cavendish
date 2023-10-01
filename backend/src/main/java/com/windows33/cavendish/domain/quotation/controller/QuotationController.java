@@ -56,13 +56,27 @@ public class QuotationController {
 
     @Operation(summary = "견적 상세 조회", description = "견적 상세 조회")
     @Parameters({
-            @Parameter()
+            @Parameter(name = "quotationId", description = "견적 ID")
     })
     @GetMapping("/detail/{quotationId}")
     public CommonResponse<QuotationDetailResponseDto> quotationDetail(
             @PathVariable("quotationId") Integer quotationId
     ) {
         return CommonResponse.OK(quotationQueryService.findQuotationDetail(quotationId));
+    }
+    
+    @Operation(summary = "견적 삭제", description = "견적 삭제")
+    @Parameters({
+            @Parameter(name = "quotationId", description = "견적 ID")
+    })
+    @DeleteMapping("/delete/{quotationId}")
+    public CommonResponse<Void> quotationRemove(
+            @PathVariable("quotationId") Integer quotationId,
+            @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
+    ) {
+        quotationService.removeQuotation(quotationId, userPrincipal.getId());
+
+        return CommonResponse.OK(null);
     }
 
 }

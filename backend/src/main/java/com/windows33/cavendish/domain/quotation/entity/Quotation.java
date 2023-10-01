@@ -47,4 +47,8 @@ public class Quotation {
     @Column(insertable = false)
     private String createDateTime;
 
+    public void removeQuotation() {
+        this.state = 1;
+    }
+
 }

@@ -6,4 +6,6 @@ public interface QuotationService {
 
     Integer addQuotation(QuotationAddRequestDto quotationAddRequestDto, Integer userId);
 
+    void removeQuotation(Integer quotationId, Integer userId);
+
 }

@@ -39,6 +39,15 @@ public class QuotationServiceImpl implements QuotationService {
         return quotationId;
     }
 
+    @Override
+    public void removeQuotation(Integer quotationId, Integer userId) {
+        Quotation quotation = checkAuthority(quotationId, userId);
+
+        quotation.removeQuotation();
+
+        quotationRepository.save(quotation);
+    }
+
     private Quotation checkAuthority(Integer quotationId, Integer userId) {
         Quotation quotation = quotationRepository.findById(quotationId).orElseThrow(() -> new NotFoundException(Quotation.class, quotationId));
 

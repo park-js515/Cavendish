@@ -25,8 +25,8 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.windows33.cavendish.domain.comment.dto.request.entity.QBoard.board;
-import static com.windows33.cavendish.domain.comment.dto.request.entity.QBoardImage.boardImage;
+import static com.windows33.cavendish.domain.board.entity.QBoard.board;
+import static com.windows33.cavendish.domain.board.entity.QBoardImage.boardImage;
 import static com.windows33.cavendish.domain.member.entity.QMember.member;
 
 @Slf4j
