@@ -38,5 +38,3 @@ class CPU(Base):
     bench_mark = Column(Integer)
     reg_date = Column(Integer, comment='yyyymm')
     bookmark = Column(Integer, default=0)
-
-    requirments = relationship("Requirements", back_populates="cpu", lazy='dynamic')
