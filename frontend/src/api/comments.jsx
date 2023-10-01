@@ -45,7 +45,7 @@ const deleteComment = (commentId, sucess, fail) => {
  */
 const updateComment = (body, sucess, fail) => {
   const api = commentCustomInstance();
-  api.patch(``, body).then(sucess).catch(fail);
+  api.put(``, body).then(sucess).catch(fail);
 };
 
 export { getCommentsList, createComment, deleteComment, updateComment };
