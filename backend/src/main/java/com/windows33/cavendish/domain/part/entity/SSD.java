@@ -14,4 +14,36 @@ import javax.persistence.*;
 @Entity
 public class SSD extends PartCommonEntity {
 
+    private String formFactor;
+
+    private String ssdInterface;
+
+    private String protocol;
+
+    private Integer volume;
+
+    private String memoryType;
+
+    private String nand;
+
+    private Integer ramMounted;
+
+    private String ramType;
+
+    private Integer sequentialRead;
+
+    private Integer sequentialWrite;
+
+    private Integer readIops;
+
+    private Integer writeIops;
+
+    private Integer heatsink;
+
+    private Integer rgbled;
+
+    private Integer asYear;
+
+    private Integer supportOption;
+
 }

@@ -14,4 +14,25 @@ import javax.persistence.*;
 @Entity
 public class HDD extends PartCommonEntity {
 
+    private Double size;
+
+    private Integer capacity;
+
+    @Column(name = "interface")
+    private String hddInterface;
+
+    private Integer rpm;
+
+    private Integer transferRate;
+
+    private Integer bufferCapacity;
+
+    private Integer recordingMethod;
+
+    private Float thickness;
+
+    private Integer asYear;
+
+    private String asYears;
+
 }

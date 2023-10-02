@@ -14,4 +14,28 @@ import javax.persistence.*;
 @Entity
 public class RAM extends PartCommonEntity {
 
+    private String generation;
+
+    private Float capacity;
+
+    private Integer clock;
+
+    private String timing;
+
+    private Integer number;
+
+    private Integer ecc;
+
+    private Integer xmp;
+
+    private Integer expo;
+
+    private Integer heatsink;
+
+    private String heatsinkColor;
+
+    private Integer led;
+
+    private String ledColor;
+
 }

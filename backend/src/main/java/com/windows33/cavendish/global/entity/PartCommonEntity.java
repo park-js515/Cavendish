@@ -31,4 +31,8 @@ public class PartCommonEntity {
 
     private String image;
 
+    private Integer bookMark;
+
+    private Integer regDate;
+
 }

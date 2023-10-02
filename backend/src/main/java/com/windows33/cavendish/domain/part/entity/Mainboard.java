@@ -14,4 +14,46 @@ import javax.persistence.*;
 @Entity
 public class Mainboard extends PartCommonEntity {
 
+    private String cpuSocket;
+
+    private String chipset;
+
+    private String formFactor;
+
+    private String memoryType;
+
+    private Integer memoryNumber;
+
+    private Float memoryCapacity;
+
+    private Integer xmp;
+
+    private Integer expo;
+
+    private Integer stat3Number;
+
+    private Integer m2Number;
+
+    private Integer m2Interface;
+
+    private Integer m2Formfactor;
+
+    private Integer pcieVersion;
+
+    private String vgaConnection;
+
+    private Integer wirelessLan;
+
+    private Integer wiredLanSpeed;
+
+    private Integer phase;
+
+    private Integer graphicOutput;
+
+    private String backPanel;
+
+    private Integer ioHeader;
+
+    private Integer feature;
+
 }
