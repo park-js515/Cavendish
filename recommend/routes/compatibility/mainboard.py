@@ -34,7 +34,7 @@ async def mainboard_search(page: int = 1, keyword: str = "", state: ProcessListS
     try:
         result = []
         if page > page_size:
-            return JSONResponse(content={"error": "Bad Request page"}, status_code=400)
+            return JSONResponse(content=result, status_code=400)
 
         for i in range(len(mainboard)):
             mainboard_pci = session.query(MainboardPCI).filter(MainboardPCI.mainboard_id == mainboard[i].id).all()
