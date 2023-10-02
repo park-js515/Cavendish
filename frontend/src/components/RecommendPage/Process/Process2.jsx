@@ -6,16 +6,27 @@ import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import * as recom from "redux/recommendSlice";
 
+// defaultImgs2
+import gameImg from "assets/defaultImgs2/default_game.png";
+import officeImg from "assets/defaultImgs2/default_office.png";
+import developImg from "assets/defaultImgs2/default_develop.png";
+import videoEditImg from "assets/defaultImgs2/default_videoEdit.png";
+import broadcastImg from "assets/defaultImgs2/default_broadcast.png";
+import imgEditImg from "assets/defaultImgs2/default_imgEdit.png";
+import modelingImg from "assets/defaultImgs2/default_modeling.png";
+import encodingImg from "assets/defaultImgs2/default_encoding.png";
+import musicImg from "assets/defaultImgs2/default_music.png";
+
 const list = [
-  { imgUrl: dummyImg, usage: "게임" },
-  { imgUrl: dummyImg, usage: "사무" },
-  { imgUrl: dummyImg, usage: "개발" },
-  { imgUrl: dummyImg, usage: "영상 편집" },
-  { imgUrl: dummyImg, usage: "방송" },
-  { imgUrl: dummyImg, usage: "이미지 편집" },
-  { imgUrl: dummyImg, usage: "모델링" },
-  { imgUrl: dummyImg, usage: "인코딩" },
-  { imgUrl: dummyImg, usage: "음악 작업" },
+  { imgUrl: gameImg, usage: "게임" },
+  { imgUrl: officeImg, usage: "사무" },
+  { imgUrl: developImg, usage: "개발" },
+  { imgUrl: videoEditImg, usage: "영상 편집" },
+  { imgUrl: broadcastImg, usage: "방송" },
+  { imgUrl: imgEditImg, usage: "이미지 편집" },
+  { imgUrl: modelingImg, usage: "모델링" },
+  { imgUrl: encodingImg, usage: "인코딩" },
+  { imgUrl: musicImg, usage: "음악 작업" },
 ];
 
 const Item = ({ imgUrl, usage }) => {

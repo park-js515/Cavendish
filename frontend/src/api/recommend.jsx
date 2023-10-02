@@ -1,4 +1,8 @@
-import { fapiSearchInstance, fapiRecommendInstance } from "./lib/index";
+import {
+  fapiSearchInstance,
+  fapiSearchCategoryInstance,
+  fapiRecommendInstance,
+} from "./lib/index";
 
 /**
  *
@@ -15,4 +19,17 @@ const searchPart = (partName, page, params, success, fail) => {
   api.get(`/${partName}/${page}`, { params: params }).then(success).catch(fail);
 };
 
-export { searchPart };
+/**
+ * 2. 대분류에 속하는 목록 조회
+ * @param {string} category 
+ * @param {number} page 
+ * @param {object} params [{keyword: string}]
+ * @param {function} success [callback]
+ * @param {function} fail [callback]
+ */
+const serachProgram = (category, page, params, success, fail) => {
+  const api = fapiSearchCategoryInstance();
+  api.get(`/${category}/${page}`, { params: params }).then(success).catch(fail);
+};
+
+export { searchPart, serachProgram };

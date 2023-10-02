@@ -85,6 +85,12 @@ const fapiSearchInstance = () => {
   return instance;
 };
 
+const fapiSearchCategoryInstance = () => {
+  const instance = createFapiAxios(`/search/program`);
+
+  return instance;
+};
+
 const fapiRecommendInstance = () => {
   const instance = createFapiAxios(`/recommend`);
 
@@ -110,6 +116,7 @@ export {
   quotationCustomInstance,
   quotationCustomListInstance,
   fapiSearchInstance,
+  fapiSearchCategoryInstance,
   fapiRecommendInstance,
   fapiPartInstance,
 };
