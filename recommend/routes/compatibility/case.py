@@ -41,7 +41,7 @@ async def case_search(page: int = 1, keyword: str = "", state: ProcessListStep1 
     try:
         result = []
         if page > max_page:
-            return JSONResponse(content={"error" : "Bad Request"}, status_code=400)
+            return JSONResponse(content=result, status_code=400)
         for i in range(len(case)):
             item = {
                 'data' : case[i],

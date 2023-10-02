@@ -29,7 +29,7 @@ async def ssd_search(page: int = 1, keyword: str = "", state: ProcessListStep1 =
     try:
         result = []
         if page > page_size:
-            return JSONResponse(content={"error": "Bad Request page"}, status_code=400)
+            return JSONResponse(content=result, status_code=400)
 
         for i in range(len(ssd)):
             item = {
