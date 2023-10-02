@@ -25,11 +25,11 @@ router = APIRouter(
 async def ssd_search(page: int = 1, keyword: str = "", state: ProcessListStep1 = Depends()):
     ssd = session.query(SSD).filter(SSD.name.like(f'%{keyword}%')).all()
     page_size = (len(ssd) // 10) + 1
-    if page > page_size:
-        return JSONResponse(content={"error": "Bad Request page"}, status_code=400)
 
     try:
         result = []
+        if page > page_size:
+            return JSONResponse(content=result, status_code=400)
 
         for i in range(len(ssd)):
             item = {
@@ -55,7 +55,7 @@ async def ssd_search(page: int = 1, keyword: str = "", state: ProcessListStep1 =
 
         result = sorted(result, key=lambda x: len(x['compatibility']))
         for i, item in enumerate(result):
-            result[i] = serialize_ssd(result[i]['data'], result[i]['compatibility'])
+            result[i] = serialize_ssd(result[i]['data'], result[i]['compatibility'], page_size)
         headers = {"max_page": str(page_size)}
 
         response = JSONResponse(content=result[(page-1)*10:page*10], status_code=200, headers=headers)

@@ -25,12 +25,12 @@ router = APIRouter(
 async def ram_search(page: int = 1, keyword: str = "", state: ProcessListStep1 = Depends()):
     ram = session.query(RAM).filter(RAM.name.like(f'%{keyword}%')).all()
     max_page = len(ram)//10 + 1
-    if page > max_page:
-        return JSONResponse(content={"error" : "Bad Request"}, status_code=400)
     
     
     try:
         result = []
+        if page > max_page:
+            return JSONResponse(content=result, status_code=400)
 
         for i in range(len(ram)):
             item = {
@@ -64,7 +64,7 @@ async def ram_search(page: int = 1, keyword: str = "", state: ProcessListStep1 =
         result = sorted(result, key=lambda x: len(x["compatibility"]))
     # 비트마스킹 변환
         for i, item in enumerate(result):
-            result[i] = serialize_ram(result[i]['data'], result[i]['compatibility'])
+            result[i] = serialize_ram(result[i]['data'], result[i]['compatibility'], max_page)
 
         headers = {"max_page": str(max_page)}
     # 데이터를 리스트에 넣을 필요가 있는 경우만 리스트로 만듦

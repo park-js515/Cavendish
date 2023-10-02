@@ -26,10 +26,10 @@ router = APIRouter(
 async def gpu_search( page: int = 1, keyword: str = "", state: ProcessListStep1 = Depends()):
     gpu = session.query(GPU).filter(GPU.name.like(f'%{keyword}%')).all()
     max_page = len(gpu) // 10 + 1
-    if page > max_page:
-        return JSONResponse(content={"error" : "Bad Request"}, status_code=400)
     try:
         result = []
+        if page > max_page:
+            return JSONResponse(content=result, status_code=400)
 
         for i in range(len(gpu)):
             item = {
@@ -96,7 +96,7 @@ async def gpu_search( page: int = 1, keyword: str = "", state: ProcessListStep1 
             else:    
                 result[i]['data'].cooling_type = decimal_to_name(result[i]['data'].cooling_type, len(gpu_com['cooling_type']), gpu_com['cooling_type'])
 
-            result[i] = serialize_gpu(result[i]['data'], result[i]['compatibility'])
+            result[i] = serialize_gpu(result[i]['data'], result[i]['compatibility'], max_page)
 
         headers = {"max_page": str(max_page)}
     # 데이터를 리스트에 넣을 필요가 있는 경우만 리스트로 만듦

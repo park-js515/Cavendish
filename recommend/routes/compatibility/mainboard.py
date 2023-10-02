@@ -31,10 +31,10 @@ router = APIRouter(
 async def mainboard_search(page: int = 1, keyword: str = "", state: ProcessListStep1 = Depends()):
     mainboard = session.query(Mainboard).filter(Mainboard.name.like(f'%{keyword}%')).all()
     page_size = (len(mainboard) // 10) + 1
-    if page > page_size:
-        return JSONResponse(content={"error": "Bad Request page"}, status_code=400)
     try:
         result = []
+        if page > page_size:
+            return JSONResponse(content=result, status_code=400)
 
         for i in range(len(mainboard)):
             mainboard_pci = session.query(MainboardPCI).filter(MainboardPCI.mainboard_id == mainboard[i].id).all()
@@ -109,7 +109,7 @@ async def mainboard_search(page: int = 1, keyword: str = "", state: ProcessListS
                 result[i]['data'].io_header = []
             else:
                 result[i]['data'].io_header = decimal_to_name(result[i]['data'].io_header, len(mainboard_com['io_header']), mainboard_com['io_header'])
-            result[i] = serialize_mainboard(result[i]['data'], result[i]['pci'], result[i]['compatibility'])
+            result[i] = serialize_mainboard(result[i]['data'], result[i]['pci'], result[i]['compatibility'], page_size)
             
         headers = {"max_page": str(page_size)}
 

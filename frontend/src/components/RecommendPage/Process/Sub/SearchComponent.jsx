@@ -29,6 +29,7 @@ const SearchComponent = ({ value, setValue, setDoSearch }) => {
         onChange={onChange}
         className="search"
         placeholder={`${selectedItem}명을 입력하세요!`}
+        autoComplete="off"
         onKeyDown={(event) => {
           if (event.key === "Enter") {
             setDoSearch(true);

@@ -37,11 +37,11 @@ router = APIRouter(
 async def case_search(page: int = 1, keyword: str = "", state: ProcessListStep1 = Depends()):
     case = session.query(Case).filter(Case.name.like(f'%{keyword}%')).all()
     max_page = len(case)//10 + 1
-    if page > max_page:
-        return JSONResponse(content={"error" : "Bad Request"}, status_code=400)
+
     try:
         result = []
-        
+        if page > max_page:
+            return JSONResponse(content=result, status_code=400)
         for i in range(len(case)):
             item = {
                 'data' : case[i],
@@ -103,11 +103,10 @@ async def case_search(page: int = 1, keyword: str = "", state: ProcessListStep1 
                 result[i]['data'].feature = []
             else:    
                 result[i]['data'].feature = decimal_to_name(result[i]['data'].feature, len(case_com['feature']), case_com['feature'])
-            result[i] = serialize_case(result[i]['data'], result[i]['compatibility'])
+            result[i] = serialize_case(result[i]['data'], result[i]['compatibility'], max_page)
 
-        headers = {"max_page": str(max_page)}
 
-        return JSONResponse(content=result[(page-1)*10:page*10], status_code=200, headers=headers)
+        return JSONResponse(content=result[(page-1)*10:page*10], status_code=200)
 
     except Exception as e:
         return JSONResponse(content={"error" : "Bad Request", "message" : f"{e}"}, status_code=400)
