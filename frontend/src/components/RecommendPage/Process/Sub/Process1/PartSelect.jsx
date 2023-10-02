@@ -29,6 +29,7 @@ const TopIcons = ({ onClick1 }) => {
         onClick={onClick1}
         style={{
           cursor: "pointer",
+          transition: "all 200ms ease-in-out",
         }}
       />
     </div>
@@ -55,7 +56,11 @@ const PartSelect = ({ setSubProcess }) => {
         setValue={setValue}
         setDoSearch={setDoSearch}
       />
-      <ItemList searchValue={value} doSearch={doSearch} setDoSearch={setDoSearch}/>
+      <ItemList
+        searchValue={value}
+        doSearch={doSearch}
+        setDoSearch={setDoSearch}
+      />
     </div>
   );
 };

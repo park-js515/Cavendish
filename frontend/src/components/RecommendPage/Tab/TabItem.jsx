@@ -23,7 +23,11 @@ const CancelBtn = () => {
         setToggle(false);
       }}
     >
-      <ImCancelCircle color={toggle ? col2 : col1} size="25" />
+      <ImCancelCircle
+        color={toggle ? col2 : col1}
+        size="25"
+        style={{ transition: "all 200ms ease-in-out" }}
+      />
     </div>
   );
 };
@@ -48,29 +52,58 @@ const TabItem = ({ className, title, index }) => {
       dispatch(recom.setRamNo(ret));
     };
 
+    const [col1, setCol1] = useState("black");
+    const [col2, setCol2] = useState("black");
+    const [col3, setCol3] = useState("black");
+    const [col4, setCol4] = useState("black");
+
     return (
       <div>
         {data.map((item, index) => {
           return item.value === "-1" ? null : item.name === "ram" ? (
             <div key={index} className="wrapper2">
-              {`${item.name}: ${item.value}(${recommend.ramNo})`}
+              <span>{`${item.name}: ${item.value}`}</span>
+              <span
+                style={{ fontWeight: "bolder" }}
+              >{`(${recommend.ramNo})`}</span>
               <div className="wrapper2">
                 <AiFillMinusCircle
-                  size="25"
+                  size="20"
+                  color={col1}
                   onClick={() => {
                     handleRam(-1);
                   }}
-                  style={{ cursor: "pointer" }}
+                  onMouseEnter={() => {
+                    setCol1("red");
+                  }}
+                  onMouseLeave={() => {
+                    setCol1("black");
+                  }}
+                  style={{
+                    cursor: "pointer",
+                    transition: "all 200ms ease-in-out",
+                  }}
                 />
                 <AiFillPlusCircle
-                  size="25"
+                  size="20"
+                  color={col2}
                   onClick={() => {
                     handleRam(1);
                   }}
-                  style={{ cursor: "pointer" }}
+                  onMouseEnter={() => {
+                    setCol2("red");
+                  }}
+                  onMouseLeave={() => {
+                    setCol2("black");
+                  }}
+                  style={{
+                    cursor: "pointer",
+                    transition: "all 200ms ease-in-out",
+                  }}
                 />
                 <BsFillTrash3Fill
-                  size="20"
+                  size="15"
+                  color={col3}
                   onClick={() => {
                     dispatch(
                       recom.removeProcessList0({
@@ -79,7 +112,16 @@ const TabItem = ({ className, title, index }) => {
                     );
                     dispatch(recom.setRamNo(0));
                   }}
-                  style={{ cursor: "pointer" }}
+                  onMouseEnter={() => {
+                    setCol3("red");
+                  }}
+                  onMouseLeave={() => {
+                    setCol3("black");
+                  }}
+                  style={{
+                    cursor: "pointer",
+                    transition: "all 200ms ease-in-out",
+                  }}
                 />
               </div>
             </div>
@@ -88,13 +130,20 @@ const TabItem = ({ className, title, index }) => {
               {`${item.name}: ${item.value}`}
               <div className="wrapper2">
                 <BsFillTrash3Fill
-                  size="20"
+                  size="15"
+                  color={col4}
                   onClick={() => {
                     dispatch(
                       recom.removeProcessList0({
                         index: index,
                       }),
                     );
+                  }}
+                  onMouseEnter={() => {
+                    setCol4("red");
+                  }}
+                  onMouseLeave={() => {
+                    setCol4("black");
                   }}
                   style={{ cursor: "pointer" }}
                 />
@@ -175,11 +224,14 @@ const TabItem = ({ className, title, index }) => {
   ];
 
   const Content = TabContent[index];
-  const style = { color: "red" };
+  const style = { color: "red", transition: "all 200ms ease-in-out" };
 
   return (
     <div className={className}>
-      <div className="wrapper" style={pos === -1 ? style : null}>
+      <div
+        className="wrapper"
+        style={pos === -1 ? style : { transition: "all 200ms ease-in-out" }}
+      >
         {title} {pos === 0 ? <CancelBtn /> : null}
       </div>
       {pos >= -1 ? <Content /> : null}

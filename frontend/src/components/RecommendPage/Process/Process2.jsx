@@ -80,6 +80,7 @@ const TopIcons = () => {
         }}
         style={{
           cursor: "pointer",
+          transition: "all 200ms ease-in-out",
         }}
       />
       {disabled ? (
@@ -99,7 +100,10 @@ const TopIcons = () => {
             dispatch(recom.setProcessNo(1));
           }
         }}
-        style={{ cursor: disabled ? "not-allowed" : "pointer" }}
+        style={{
+          cursor: disabled ? "not-allowed" : "pointer",
+          transition: "all 200ms ease-in-out",
+        }}
       />
     </div>
   );
