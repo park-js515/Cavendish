@@ -16,3 +16,32 @@ def serialize_program(program_object):
     ).__dict__
 
     return program_dict
+
+
+class RequirementsSchema(BaseModel):
+    id: int
+    program_id: int
+    cpu_id: int
+    gpu_id: Optional[int] = None
+    ram: Optional[float] = None
+    dx: Optional[str] = None
+    storage: Optional[float] = None
+    os: Optional[str] = None
+    spec_class: int
+
+    class Config:
+        orm_mode = True
+
+
+def serialize_requirement(requirements):
+    return RequirementsSchema(
+        id=requirements.id,
+        program_id=requirements.program_id,
+        cpu_id=requirements.cpu_id,
+        gpu_id=requirements.gpu_id,
+        ram=requirements.ram,
+        dx=requirements.dx,
+        storage=requirements.storage,
+        os=requirements.os,
+        spec_class=requirements.spec_class
+    ).__dict__

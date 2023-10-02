@@ -64,6 +64,21 @@ const commentCustomInstance = () => {
   return instance;
 };
 
+const quotationCustomInstance = () => {
+  const instance = createCustomAxios(`/quotation`);
+
+  return instance;
+};
+
+const quotationCustomListInstance = (params) => {
+  const instance = createCustomAxios(
+    `/quotation?page=${params.page ? params.page : 0}&size=${
+      params.size ? params.size : 10
+    }`,
+  );
+  return instance;
+};
+
 const fapiSearchInstance = () => {
   const instance = createFapiAxios(`/search`);
 
@@ -92,6 +107,8 @@ export {
   imageDefaultInstance,
   commentDefaultInstance,
   commentCustomInstance,
+  quotationCustomInstance,
+  quotationCustomListInstance,
   fapiSearchInstance,
   fapiRecommendInstance,
   fapiPartInstance,
