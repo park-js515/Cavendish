@@ -140,7 +140,7 @@ export default function BoardDetailComponent() {
           <Link className="button_link" to="/board">
             돌아가기
           </Link>
-          {!isMine && (
+          {isMine && (
             <div>
               <button
                 className="button_link"
