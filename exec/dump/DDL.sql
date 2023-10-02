@@ -514,8 +514,9 @@ COLLATE = utf8mb4_unicode_ci;
 
 CREATE TABLE `part_bookmark` (
     `id` int NOT NULL AUTO_INCREMENT,
+    `name` varchar(100) NOT NULL,
     `user_id` int NOT NULL,
-    `pid` tinyint NOT NULL COMMENT '0:CPU, 1:메인보드, 2:메모리, 3:그래픽카드, 4:SSD, 5:HDD, 6: 케이스, 7: 파워, 8:쿨러',
+    `part_category` tinyint NOT NULL COMMENT '0:CPU, 1:메인보드, 2:메모리, 3:그래픽카드, 4:SSD, 5:HDD, 6: 케이스, 7: 파워, 8:쿨러',
     `part_id` int NOT NULL,
     `create_date_time` datetime NOT NULL DEFAULT now(),
     PRIMARY KEY (`id`),
