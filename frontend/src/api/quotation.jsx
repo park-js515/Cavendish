@@ -1,7 +1,6 @@
 import {
   quotationCustomInstance,
   quotationCustomListInstance,
-  quotationDetailDefaultInstance,
 } from "./lib/index";
 
 // 1. 견적서 작성
@@ -37,7 +36,7 @@ const getQuotationList = (params, sucess, fail) => {
  * @param {function} fail [callback]
  */
 const getQuotationDetail = (id, sucess, fail) => {
-  const api = quotationDetailDefaultInstance();
+  const api = quotationCustomInstance();
   api.get(`/detail/${id}`).then(sucess).catch(fail);
 };
 
@@ -48,7 +47,7 @@ const getQuotationDetail = (id, sucess, fail) => {
  * @param {function} sucess [callback]
  * @param {function} fail [callback]
  */
-const deleteQuotationList = (id, sucess, fail) => {
+const deleteQuotation = (id, sucess, fail) => {
   const api = quotationCustomInstance();
   api.delete(`/delete/${id}`).then(sucess).catch(fail);
 };
@@ -60,7 +59,7 @@ const deleteQuotationList = (id, sucess, fail) => {
  * @param {function} sucess [callback]
  * @param {function} fail [callback]
  */
-const updateQuotationList = (body, sucess, fail) => {
+const updateQuotation = (body, sucess, fail) => {
   const api = quotationCustomInstance();
   api.put(``, body).then(sucess).catch(fail);
 };
@@ -69,6 +68,6 @@ export {
   createQuotation,
   getQuotationList,
   getQuotationDetail,
-  deleteQuotationList,
-  updateQuotationList,
+  deleteQuotation,
+  updateQuotation,
 };

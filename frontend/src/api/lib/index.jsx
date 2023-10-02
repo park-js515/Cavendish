@@ -64,18 +64,12 @@ const commentCustomInstance = () => {
   return instance;
 };
 
-<<<<<<< HEAD
 const quotationCustomInstance = () => {
   const instance = createCustomAxios(`/quotation`);
-=======
-const fapiSearchInstance = () => {
-  const instance = createFapiAxios(`/search`);
->>>>>>> 560f3b42d192b3f7197cdf2ae4842f1320eae7b2
 
   return instance;
 };
 
-<<<<<<< HEAD
 const quotationCustomListInstance = (params) => {
   const instance = createCustomAxios(
     `/quotation?page=${params.page ? params.page : 0}&size=${
@@ -85,9 +79,12 @@ const quotationCustomListInstance = (params) => {
   return instance;
 };
 
-const quotationDetailDefaultInstance = () => {
-  const instance = createDefaultAxios(`/quotation`);
-=======
+const fapiSearchInstance = () => {
+  const instance = createFapiAxios(`/search`);
+
+  return instance;
+};
+
 const fapiRecommendInstance = () => {
   const instance = createFapiAxios(`/recommend`);
 
@@ -102,7 +99,6 @@ const fapiPartInstance = () => {
 
 const fapiMaxPageInstance = () => {
   const instance = createFapiAxios(`/maxpage`);
->>>>>>> 560f3b42d192b3f7197cdf2ae4842f1320eae7b2
 
   return instance;
 };
@@ -117,14 +113,10 @@ export {
   imageDefaultInstance,
   commentDefaultInstance,
   commentCustomInstance,
-<<<<<<< HEAD
   quotationCustomInstance,
   quotationCustomListInstance,
-  quotationDetailDefaultInstance,
-=======
   fapiSearchInstance,
   fapiRecommendInstance,
   fapiPartInstance,
   fapiMaxPageInstance,
->>>>>>> 560f3b42d192b3f7197cdf2ae4842f1320eae7b2
 };
