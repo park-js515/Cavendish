@@ -1,6 +1,7 @@
 from fastapi import FastAPI, APIRouter, Depends, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from sqlalchemy import select, func
 from pydantic import BaseModel
 from typing import List, Optional
 from models.users import User
@@ -44,40 +45,58 @@ router = APIRouter(
 async def recommend(state : Recommend_input):
     budget = state.budget
 
+    quotation = [0 for i in range(9)]
+
+    part_num = {
+        "cpu" : 0,
+        "mainboard" : 1,
+        "ram" : 2,
+        "gpu" : 3,
+        "ssd" : 4,
+        "hdd" : 5,
+        "case" : 6,
+        "power" : 7,
+        "cooler" : 8
+    }
+
     if state.case["id"] != -1:
-        if state.case["is_have"] == True:
-            pass
+        if state.case["is_have"] == False:
+            selected_case = session.query(Case).filter(Case.id == state.case["id"]).first()
+            if selected_case.price == None or selected_case.price == 0:
+                pass
+            else:
+                budget -= selected_case.price
 
     if state.cooler["id"] != -1:
-        if state.cooler["is_have"] == True:
+        if state.cooler["is_have"] == False:
             pass
 
     if state.cpu["id"] != -1:
-        if state.cpu["is_have"] == True:
+        if state.cpu["is_have"] == False:
             pass
 
     if state.gpu["id"] != -1:
-        if state.gpu["is_have"] == True:
+        if state.gpu["is_have"] == False:
             pass
 
     if state.hdd["id"] != -1:
-        if state.hdd["is_have"] == True:
+        if state.hdd["is_have"] == False:
             pass
 
     if state.mainboard["id"] != -1:
-        if state.case["is_have"] == True:
+        if state.case["is_have"] == False:
             pass
 
     if state.power["id"] != -1:
-        if state.power["is_have"] == True:
+        if state.power["is_have"] == False:
             pass
 
     if state.ram["id"] != -1:
-        if state.ram["is_have"] == True:
+        if state.ram["is_have"] == False:
             pass
 
     if state.ssd["id"] != -1:
-        if state.ssd["is_have"] == True:
+        if state.ssd["is_have"] == False:
             pass
 
     if "성능" in state.priority and "가성비" in state.priority:
