@@ -27,7 +27,6 @@ const defaultImgs = [
   defaultSSD,
 ];
 
-// code pen에서 card 찾아서 대체하기
 const Card = ({ front, back, imgUrl, onClick, style }) => {
   return (
     <div className="card" onClick={onClick}>
