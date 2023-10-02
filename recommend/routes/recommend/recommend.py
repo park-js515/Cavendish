@@ -20,6 +20,7 @@ from models.programs import Program, Requirements
 from schemas.search import ProcessListStep1
 from schemas.recommend_input import Recommend_input
 
+from core.recommend.priority import *
 from core.recommend.cpu_filter import cpu_filter
 from core.recommend.gpu_filter import gpu_filter
 from core.recommend.ram_filter import ram_filter
@@ -41,6 +42,43 @@ router = APIRouter(
 
 @router.post("/quotation")
 async def recommend(state : Recommend_input):
+    budget = state.budget
+
+    if state.case["id"] != -1:
+        if state.case["is_have"] == True:
+            pass
+
+    if state.cooler["id"] != -1:
+        if state.cooler["is_have"] == True:
+            pass
+
+    if state.cpu["id"] != -1:
+        if state.cpu["is_have"] == True:
+            pass
+
+    if state.gpu["id"] != -1:
+        if state.gpu["is_have"] == True:
+            pass
+
+    if state.hdd["id"] != -1:
+        if state.hdd["is_have"] == True:
+            pass
+
+    if state.mainboard["id"] != -1:
+        if state.case["is_have"] == True:
+            pass
+
+    if state.power["id"] != -1:
+        if state.power["is_have"] == True:
+            pass
+
+    if state.ram["id"] != -1:
+        if state.ram["is_have"] == True:
+            pass
+
+    if state.ssd["id"] != -1:
+        if state.ssd["is_have"] == True:
+            pass
 
     if "성능" in state.priority and "가성비" in state.priority:
         pass
@@ -101,6 +139,20 @@ async def recommend(state : Recommend_input):
     gpu_filter(min_gpu_bench, rec_gpu_bench, max_gpu_bench)
 
     ram_filter(min_ram_capa, rec_ram_capa, max_ram_capa)
+
+    for idx, name in enumerate(state.priority):
+        if name == "성능":
+            perform_pri(idx)
+        elif name == "가성비":
+            ce_pri(idx)
+        elif name == "A/S":
+            as_pri(idx)
+        elif name == "감성":
+            sense_pri(idx)
+        elif name == "소음":
+            noise_pri(idx)
+        elif name == "저장공간":
+            storage_pri(idx)
 
 
 
