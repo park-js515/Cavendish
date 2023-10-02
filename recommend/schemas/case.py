@@ -45,8 +45,9 @@ class CaseSchema(BaseModel):
     reg_date: Optional[int] = None
     bookmark: Optional[int] = 0
     compatibility: Optional[List[str]] = []
+    max_page: int
 
-def serialize_case(case_object, compatibility):
+def serialize_case(case_object, compatibility, max_page):
     case_dict = CaseSchema(
         id=case_object.id,
         name=case_object.name,
@@ -90,6 +91,7 @@ def serialize_case(case_object, compatibility):
         led_color=case_object.led_color,
         reg_date=case_object.reg_date,
         bookmark=case_object.bookmark,
-        compatibility=compatibility
+        compatibility=compatibility,
+        max_page=max_page
     ).__dict__
     return case_dict

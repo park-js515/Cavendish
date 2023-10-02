@@ -27,10 +27,10 @@ router = APIRouter(
 async def power_search( page: int = 1, keyword: str = "", state: ProcessListStep1 = Depends()):
     power = session.query(Power).filter(Power.name.like(f'%{keyword}%')).all()
     max_page = len(power)//10 + 1
-    if page > max_page:
-        return JSONResponse(content={"error" : "Bad Request"}, status_code=400)
     try:
         result = []
+        if page > max_page:
+            return JSONResponse(content={"error" : "Bad Request"}, status_code=400)
         for i in range(len(power)):
             item = {
                 'data' : power[i],
@@ -92,7 +92,7 @@ async def power_search( page: int = 1, keyword: str = "", state: ProcessListStep
                 result[i]['data'].feature = []
             else:    
                 result[i]['data'].feature = decimal_to_name(result[i]['data'].feature, len(power_com['feature']), power_com['feature'])
-            result[i] = serialize_power(result[i]['data'], result[i]['compatibility'])
+            result[i] = serialize_power(result[i]['data'], result[i]['compatibility'], max_page)
 
         headers = {"max_page": str(max_page)}
         # 데이터를 리스트에 넣을 필요가 있는 경우만 리스트로 만듦

@@ -36,8 +36,9 @@ class CPUSchema(BaseModel):
     reg_date: Optional[int] = None
     bookmark: Optional[int] = 0
     compatibility: Optional[List[str]] = []
+    max_page: int
 
-def serialize_cpu(cpu_object, compatibility):
+def serialize_cpu(cpu_object, compatibility, max_page):
     cpu_dict = CPUSchema(
         id=cpu_object.id,
         name=cpu_object.name,
@@ -71,6 +72,7 @@ def serialize_cpu(cpu_object, compatibility):
         bench_mark=cpu_object.bench_mark,
         reg_date=cpu_object.reg_date,
         bookmark=cpu_object.bookmark,
-        compatibility=compatibility
+        compatibility=compatibility,
+        max_page=max_page
     ).__dict__
     return cpu_dict

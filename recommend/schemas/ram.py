@@ -24,9 +24,10 @@ class RAMSchema(BaseModel):
     reg_date: Optional[int] = None
     bookmark: Optional[int] = 0
     compatibility: Optional[List[str]] = None
+    max_page: int
 
 
-def serialize_ram(ram_object, compatibility):
+def serialize_ram(ram_object, compatibility, max_page):
     ram_dict = RAMSchema(
         id=ram_object.id,
         name=ram_object.name,
@@ -49,6 +50,7 @@ def serialize_ram(ram_object, compatibility):
         led_color=ram_object.led_color,
         reg_date=ram_object.reg_date,
         bookmark=ram_object.bookmark,
-        compatibility=compatibility
+        compatibility=compatibility,
+        max_page=max_page
     ).__dict__
     return ram_dict
