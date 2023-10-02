@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import * as recom from "redux/recommendSlice";
 
 // API
-import { searchPart, maxPage } from "api/recommend";
+import { searchPart } from "api/recommend";
 
 const Item = ({ imgUrl, name, id, compatibility, style }) => {
   const dispatch = useDispatch();
@@ -204,17 +204,23 @@ const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
 
     const fn2 = () => {
       const propPartName = selectedItem;
+      const propPage = 1;
+      const propParams = getParams();
       const propSuccess = (response) => {
-        setMaxValue(() => {
-          return response.data.max_page;
-        });
+        const data = response.data;
+        if (data.length === 0) {
+          setMaxValue(1);
+        } else {
+          const { max_page } = data[0];
+          setMaxValue(max_page);
+        }
       };
       const propFail = (error) => {
         console.log(error);
       };
 
-      const props = [propPartName, propSuccess, propFail];
-      maxPage(...props);
+      const props = [propPartName, propPage, propParams, propSuccess, propFail];
+      searchPart(...props);
     };
 
     if (!check1.current) {
@@ -238,7 +244,6 @@ const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
         const arr = [];
         data.forEach((item) => {
           const { id, name, image, compatibility } = item;
-          const disabled = compatibility.length > 0;
           arr.push({
             name: name,
             imgUrl: image,
@@ -261,18 +266,25 @@ const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
 
     const fn2 = () => {
       const propPartName = selectedItem;
+      const propPage = 1;
+      const propParams = getParams();
       const propSuccess = (response) => {
-        setMaxValue(() => {
-          return response.data.max_page;
-        });
+        const data = response.data;
+        if (data.length === 0) {
+          setMaxValue(1);
+        } else {
+          const { max_page } = data[0];
+          setMaxValue(max_page);
+        }
       };
       const propFail = (error) => {
         console.log(error);
       };
 
-      const props = [propPartName, propSuccess, propFail];
-      maxPage(...props);
+      const props = [propPartName, propPage, propParams, propSuccess, propFail];
+      searchPart(...props);
     };
+
     const fn3 = () => {
       setNowSearchValue(searchValue);
       setPage(1);
