@@ -13,6 +13,7 @@ import { FaSearch } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import * as recom from "redux/recommendSlice";
 
+// 이거를 제거하고, 서버에서 데이터를 요청해야 한다.
 const dummy = [
   { imgUrl: dummyImg, value: "pc 게임" },
   { imgUrl: dummyImg, value: "인터넷 서핑, 사무, 영상 시청 등" },
@@ -26,7 +27,7 @@ const dummy = [
   { imgUrl: dummyImg, value: "아무거나" },
 ];
 
-const selected = "pc 게임";
+const selected = "게임";
 
 const Item = ({ imgUrl, value }) => {
   const dispatch = useDispatch();
@@ -94,7 +95,7 @@ const Btn = ({ onClick }) => {
   );
 };
 
-const SearchComponent = ({ value, setValue }) => {
+const SearchComponent = ({ value, setValue, setDoSearch }) => {
   const onChange = (event) => {
     setValue(event.target.value);
   };
@@ -107,10 +108,15 @@ const SearchComponent = ({ value, setValue }) => {
         onChange={onChange}
         className="search"
         placeholder={`${selected}명을 입력하세요!`}
+        onKeyDown={(event) => {
+          if (event.key === "Enter") {
+            setDoSearch(true);
+          }
+        }}
       />
       <Btn
         onClick={() => {
-          alert(value);
+          setDoSearch(true);
         }}
       />
     </div>
@@ -201,8 +207,9 @@ const Pagenate = ({
 const Process3_2 = ({ setSubProcess }) => {
   const [data, setData] = useState(dummy);
   const [text, setText] = useState("");
+  const [doSearch, setDoSearch] = useState(false);
   const [page, setPage] = useState(1);
-  const [maxValue, setMaxValue] = useState(42);
+  const [maxValue, setMaxValue] = useState(1);
 
   const handlePage = (value) => {
     setPage(value);
@@ -252,7 +259,11 @@ const Process3_2 = ({ setSubProcess }) => {
         }}
       />
       <div className="proc3-2">
-        <SearchComponent value={text} setValue={setText} />
+        <SearchComponent
+          value={text}
+          setValue={setText}
+          setDoSearch={setDoSearch}
+        />
         <div className="item-wrapper">
           {data.map((item, index) => {
             return <Item key={index} imgUrl={item.imgUrl} value={item.value} />;

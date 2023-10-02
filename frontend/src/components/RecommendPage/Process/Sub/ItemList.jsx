@@ -13,7 +13,7 @@ import * as recom from "redux/recommendSlice";
 // API
 import { searchPart, maxPage } from "api/recommend";
 
-const Item = ({ imgUrl, name, id, disabled, style }) => {
+const Item = ({ imgUrl, name, id, compatibility, style }) => {
   const dispatch = useDispatch();
   const selected = useSelector((state) => {
     return state.recommend.selected;
@@ -21,6 +21,8 @@ const Item = ({ imgUrl, name, id, disabled, style }) => {
   const selectedValue = useSelector((state) => {
     return state.recommend.processList[0][selected].value;
   });
+
+  const disabled = compatibility.length > 0;
   const className = disabled
     ? "item-disabled"
     : selectedValue === name
@@ -53,6 +55,14 @@ const Item = ({ imgUrl, name, id, disabled, style }) => {
           className="inner"
           style={{ backgroundImage: `url(${imgUrl})`, ...style }}
         ></div>
+        {disabled ? (
+          <div className="disabledList">
+            <div>호환되지 않은 부품</div>
+            {compatibility.map((item, index) => {
+              return <div key={index}>{item}</div>;
+            })}
+          </div>
+        ) : null}
       </div>
       <div className="text">{name}</div>
     </div>
@@ -172,8 +182,12 @@ const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
         const arr = [];
         data.forEach((item) => {
           const { id, name, image, compatibility } = item;
-          const disabled = compatibility.length > 0;
-          arr.push({ name: name, imgUrl: image, id: id, disabled: disabled });
+          arr.push({
+            name: name,
+            imgUrl: image,
+            id: id,
+            compatibility: compatibility,
+          });
         });
 
         setData(() => {
@@ -225,7 +239,12 @@ const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
         data.forEach((item) => {
           const { id, name, image, compatibility } = item;
           const disabled = compatibility.length > 0;
-          arr.push({ name: name, imgUrl: image, id: id, disabled: disabled });
+          arr.push({
+            name: name,
+            imgUrl: image,
+            id: id,
+            compatibility: compatibility,
+          });
         });
 
         setData(() => {

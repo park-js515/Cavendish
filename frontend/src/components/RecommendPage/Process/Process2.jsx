@@ -7,15 +7,15 @@ import { useDispatch, useSelector } from "react-redux";
 import * as recom from "redux/recommendSlice";
 
 const list = [
-  { imgUrl: dummyImg, usage: "pc 게임" },
-  { imgUrl: dummyImg, usage: "인터넷 서핑, 사무, 영상 시청 등" },
+  { imgUrl: dummyImg, usage: "게임" },
+  { imgUrl: dummyImg, usage: "사무" },
   { imgUrl: dummyImg, usage: "개발" },
-  { imgUrl: dummyImg, usage: "영상 편집 및 특수효과" },
-  { imgUrl: dummyImg, usage: "방송, 스트리밍" },
-  { imgUrl: dummyImg, usage: "포토샵 및 일러스트레이터" },
-  { imgUrl: dummyImg, usage: "2D 및 3D 모델링" },
-  { imgUrl: dummyImg, usage: "비디오 인코딩" },
-  { imgUrl: dummyImg, usage: "음악 작곡 및 편집" },
+  { imgUrl: dummyImg, usage: "영상 편집" },
+  { imgUrl: dummyImg, usage: "방송" },
+  { imgUrl: dummyImg, usage: "이미지 편집" },
+  { imgUrl: dummyImg, usage: "모델링" },
+  { imgUrl: dummyImg, usage: "인코딩" },
+  { imgUrl: dummyImg, usage: "음악 작업" },
 ];
 
 const Item = ({ imgUrl, usage }) => {
@@ -40,7 +40,6 @@ const Item = ({ imgUrl, usage }) => {
         className="item-top"
         style={{
           backgroundImage: `url(${imgUrl})`,
-          // visibility: usage ? "visible" : "hidden",
         }}
       ></div>
       <div className="item-bot">{usage}</div>
@@ -112,13 +111,13 @@ const TopIcons = () => {
 // 2. 용도 선택 대분류
 // 용도 선택 컴포넌트
 const Process2 = ({ className }) => {
-  const dispatch = useDispatch();
+  const [data, setData] = useState(list);
 
   return (
     <div className={className}>
       <TopIcons />
       <div className="proc2">
-        {list.map((item, index) => {
+        {data.map((item, index) => {
           return <Item key={index} {...item} />;
         })}
       </div>

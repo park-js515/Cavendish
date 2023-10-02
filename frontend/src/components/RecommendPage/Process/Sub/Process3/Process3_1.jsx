@@ -6,16 +6,17 @@ import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import * as recom from "redux/recommendSlice";
 
+// 이러한 방식으로 할지, 아니면 서버에서 요청을 받을지 결정지어야 한다.
 const list = [
-  { imgUrl: dummyImg, usage: "pc 게임" },
-  { imgUrl: dummyImg, usage: "인터넷 서핑, 사무, 영상 시청 등" },
+  { imgUrl: dummyImg, usage: "게임" },
+  { imgUrl: dummyImg, usage: "사무" },
   { imgUrl: dummyImg, usage: "개발" },
-  { imgUrl: dummyImg, usage: "영상 편집 및 특수효과" },
-  { imgUrl: dummyImg, usage: "방송, 스트리밍" },
-  { imgUrl: dummyImg, usage: "포토샵 및 일러스트레이터" },
-  { imgUrl: dummyImg, usage: "2D 및 3D 모델링" },
-  { imgUrl: dummyImg, usage: "비디오 인코딩" },
-  { imgUrl: dummyImg, usage: "음악 작곡 및 편집" },
+  { imgUrl: dummyImg, usage: "영상 편집" },
+  { imgUrl: dummyImg, usage: "방송" },
+  { imgUrl: dummyImg, usage: "이미지 편집" },
+  { imgUrl: dummyImg, usage: "모델링" },
+  { imgUrl: dummyImg, usage: "인코딩" },
+  { imgUrl: dummyImg, usage: "음악 작업" },
 ];
 
 const Item = ({ imgUrl, value, onClick }) => {
@@ -104,6 +105,7 @@ const Process3_1 = ({ setSubProcess, setSelected }) => {
   const usage = useSelector((state) => {
     return state.recommend.processList[1];
   });
+  const [data, setData] = useState(list);
 
   return (
     <div style={{ height: "100%", width: "100%" }}>
@@ -117,14 +119,14 @@ const Process3_1 = ({ setSubProcess, setSelected }) => {
       />
       <div className="proc3-1">
         {usage.map((item, itemIndex) => {
-          const index = list.findIndex((elem) => {
+          const index = data.findIndex((elem) => {
             return elem.usage === item;
           });
-          const imgUrl = list[index].imgUrl;
+          const imgUrl = data[index].imgUrl;
           const onClick = () => {
             setSelected(item);
 
-            if (item === "pc 게임") {
+            if (item === "게임") {
               setSubProcess(1);
             } else {
               setSubProcess(2);

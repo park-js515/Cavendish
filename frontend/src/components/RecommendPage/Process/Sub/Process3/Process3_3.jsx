@@ -6,6 +6,7 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import * as recom from "redux/recommendSlice";
 
+// 이거를 지우고 서버에서 데이터를 요청해야 한다.
 const dummy = [
   { imgUrl: dummyImg, usage: "pc 게임" },
   { imgUrl: dummyImg, usage: "인터넷 서핑, 사무, 영상 시청 등" },
