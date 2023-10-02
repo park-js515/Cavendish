@@ -1,0 +1,106 @@
+name,cpu,ram,gpu,dx,os,sto,spec_class
+한컴오피스 2022,"2.4GHz 이상, 2코어",2GB,DirectX 9 이상,DirectX 9,Windows 7 SP1 이상,2GB,1
+Microsoft 365,"1.6GHz 이상, 2코어",4GB,DirectX 9 이상,DirectX 9,"Windows 11, Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016",4GB,1
+Office 2019,"1.6GHz 이상, 2코어",4GB,DirectX 9 이상,DirectX 9,"Windows OS: Windows 11, Windows 10, Windows 10 LTSC 2021, Windows 10 LTSC 2019, Windows Server 2022 또는 Windows Server 2019",4GB,1
+Office 2021,"1.1GHz 이상, 2코어",4GB,DirectX 9 이상,DirectX 9,Windows 10 또는 Windows 11,4GB,1
+4k 영상 시청,인텔 코어 i3-12세대 12100,8GB,,,,0MB,1
+인터넷 서핑,인텔 코어 i3-12세대 12100,8GB,,,,0MB,1
+Visual Studio 2022,AMD 라이젠3 PRO 4350G (르누아르),4GB,,,"64bit, Windows 11, Windows10, Windows Server Core 2022, Windows Server Core 2019, Windows Server Core 2016",20GB,0
+Visual Studio 2022,AMD 라이젠3 PRO 4350G (르누아르),16GB,,,"64bit, Windows 11, Windows10, Windows Server Core 2022, Windows Server Core 2019, Windows Server Core 2016",50GB,1
+Visual Studio Code,"1.6GHz 이상, 2코어",4GB,,,Windows10 이상,500MB,0
+PyCharm,Any Modern CPU,4GB,,,"64bit, Microsoft Windows 10, 8, 7 (SP1)",3.5GB,0
+PyCharm,쿼드코어,8GB,,,"64bit, Microsoft Windows 10, 8, 7 (SP1)",5GB,1
+Eclipse IDE,0.8GHz,0.5GB,,,Windows 7 or later,300MB,0
+Eclipse IDE,1.5GHz,1GB,,,Windows 7 or later,1GB,1
+IntelliJ IDEA,Any Modern CPU,2GB,,,Windows 10 1809 or later Windows Server 2019 or later,3.5GB,0
+IntelliJ IDEA,쿼드코어,8GB,,,Latest 64-bit version of Windows,5GB,1
+Android Studio,2세대 Intel Core,8GB,,,64비트 Microsoft Windows 8,8GB,0
+Android Studio,최신 Intel Core 프로세서,16GB,,,Windows 64비트 최신 버전,16GB,1
+Rstudio,Any Modern CPU with 2 or more cores,4GB,,,"Windows 11, 10 /8.1/8 /7 /Vista /XP /2000 Windows Server 2022, 2019 /2016 /2012 /2008 /2003",2GB,1
+Arduino IDE,Pentium 4,4GB,,,Windows 10,150MB,0
+VMware,A compatible 64-bit x86/AMD64 CPU launched in 2011 or later,2GB,,,"Windows 10, 8, Windows Server 2019/2016/2012",1.2GB,0
+VMware,A compatible 64-bit x86/AMD64 CPU launched in 2011 or later,4GB,,,"Windows 10, 8, Windows Server 2019/2016/2012",1.2GB,1
+MySQL Workbench,Intel Core or Xeon 3GHz (or Dual Core 2GHz) or equal AMD CPU,4GB,nVidia or ATI with support of OpenGL 1.5 or higher,,"Windows 7, 8, 10",1GB,0
+Final Cut Pro,"Intel or AMD or compatible processors, 2 GHz or above",4GB,Intel HD Graphics 5000 or later; NVIDIA GeForce GTX 700 or later; AMD Radeon R5 or later,,"Microsoft Windows 10, Windows 8 and Windows 7 (64-bit only)",10GB,0
+Final Cut Pro,"Intel or AMD or compatible processors, 2 GHz or above",8GB,Intel HD Graphics 5000 or later; NVIDIA GeForce GTX 700 or later; AMD Radeon R5 or later,,"Microsoft Windows 10, Windows 8 and Windows 7 (64-bit only)",20GB,1
+After Effects,Intel or AMD Quad-Core Processor,16GB,2GB of GPU VRAM,,Microsoft Windows 10 (64 Bit)?,15GB,0
+Premiere Pro,An Intel 6thGen or newer CPU - or an AMD Ryzen 1000 series or newer CPU,8GB,2 GB of GPU memory,,Microsoft Windows 10 (64-bit) version 1909 or later,8GB,0
+Premiere Pro,An Intel 7thGen or newer CPU with Quick Sync - or an AMD Ryzen 3000 series / Threadripper 2000 or newer CPU,8GB,4 GB of GPU for HD workflows and 6 GB of unified memory for 4k and higher resolution workflows,,Microsoft Windows 10 (64-bit) version 1909 or later,8GB,1
+Vegas Pro,6th Generation Intel Core i5 (or AMD equivalent) or better with 2.5 Ghz and 4 Cores,16GB,NVIDIA® GeForce RTX or GTX 960 series or higher with 4GB,,Microsoft® Windows 10 | 11,1.5GB,0
+Vegas Pro,7th Generation Intel Core i7 (or AMD equivalent) or better with 3.0 Ghz and 8 Cores,32GB,2060?GeForce RTX series NVIDIA or 5300 Radeon RX AMD or newer,,Microsoft® Windows 10 | 11,1.5GB,1
+Davinci Resolve,intel core i7 or AMD Ryzen 7 CPU.,16GB,Integrated or discrete GPU with at least 2GB of VRAM and supports OpenCL 1.2 or CUDA 11 and the Latest driver Blackmagic Design Desktop Video 10.4,,Windows 10 or later.,,0
+Davinci Resolve,intel core i7 or AMD Ryzen 7 CPU.,32GB,Integrated or discrete GPU with at least 2GB of VRAM and supports OpenCL 1.2 or CUDA 11 and the Latest driver Blackmagic Design Desktop Video 10.4,,Windows 10 or later.,,1
+Avid Media Composer,Intel?i5,16GB,,,,,0
+Avid Media Composer,Intel?i5,32GB,,,,,1
+Edius,Any Intel Core 2 or Core iX CPU. Intel or AMD single core CPU with a 3 GHz processor speed or faster (multiple CPUs and/or multicore CPUs are recommended). SSSE3 (Supplementary SSE3) instruction set support required,4GB,2GB of GPU VRAM,,,6GB,1
+라이브 방송,AMD 라이젠5-4세대 5600X,16GB,GTX 1650,,,500GB,0
+라이브 방송,AMD 라이젠7-5세대 7700 (라파엘),16GB,RTX 3050,,,500GB,1
+게임 방송,AMD 라이젠5-4세대 5600,16GB,GTX 1660,,,500GB,0
+게임 방송,인텔 코어i7-12세대 12700F (엘더레이크),16GB,RTX 3060 Ti 8GB,,,500GB,1
+고사양 게임 방송,AMD 라이젠7-4세대 5700X (버미어),16GB,RTX 3070 8GB,,,500GB,0
+고사양 게임 방송,인텔 코어i7-13세대 13700K,32GB,RTX 3070 Ti 8GB,,,500GB,1
+Adobe Photoshop,"Intel or AMD processor with 64-bit support, 2 GHz or faster processor",8GB,DirectX 12 support and 2 GB of memory,DirectX 12,Windows 10 (64-bit) version 1809 or later,4GB,0
+Adobe Photoshop,Intel Core i5-8400,16GB,NVIDIA GeForce GTX 1070,,Windows 10 64-bit,16GB,1
+Adobe Illustrator,Multicore Intel processor (with 64-bit support) or AMD Athlon 64 processor,8GB,Optional GPU Performance: 1 GB of VRAM (4 GB recommended),,"Windows 10 (64-bit) versions: V1809, V1903, V1909, and V2004. Windows Server versions V1607 (2017) and V1809 (2019).",3GB,0
+Adobe Illustrator,Intel Core i5-8400H,16GB,NVIDIA GeForce GTX 1070,,Windows 10 64-bit,3GB,1
+CorelDRAW,"Intel Core i3/5/7/9 or AMD Ryzen 3/5/7/9/Threadripper, EPYC",8GB,,,"Windows 11 or Windows 10*, 64-bit, with latest Updates",2.5GB,1
+GIMP,any,1GB,any,,Windows 10,200MB,1
+Inkscape,1GHz Processor,2GB,any,,Windows,500MB,1
+Paint.NET,64-bit CPU (Intel/AMD x64 or ARM64),0.5GB,"NVIDIA GeForce, AMD Radeon, Intel Arc, Intel Iris (Plus or Xe), or Intel HD/UHD",,Windows 11 or?Windows 10 (version 1809 or newer) or?Windows Server 2019 or?Windows Server 2022,500MB,1
+Krita,Intel Core 2 Duo T5200,2GB,Intel 82945G Express,,Windows 7,300MB,0
+Krita,Intel Core 2 Quad Q9000,4GB,NVIDIA GeForce 8200M G,,"Windows 7 SP1, Windows 8.1, Windows 10",300MB,1
+Clip Studio Paint,Intel and AMD CPUs with SSE2 support,8GB,,,Windows 10 Windows 11,3GB,1
+PaintTool SAI,Core 2 Duo 1.6GHz,1GB,,,Windows XP/Vista/7/8/8.1/10/11,20GB,0
+Affinity Designer,any,4GB,,,Windows 10 / 8.1 / 7 (64-bit),953MB,0
+PaintShop Pro,Intel®?Celeron G series or AMD®?Phenom II and above?,4GB,,DirectX 11,"Windows 11, Windows 10?(64-bit edition only)??",3GB,0
+Autodesk Maya,64-bit Intel or AMD CPU,8GB,,,Windows 10,7GB,0
+Autodesk Maya,64-bit Intel or AMD CPU,16GB,,,Windows 10,7GB,1
+Blender,64-bit quad-core CPU with SSE2 Support,8GB,2GB of GPU VRAM,,Windows 8.1+,300MB,0
+Blender,64-bit eight-core CPU,32GB,8GB of GPU VRAM,,Windows 10,1GB,1
+Autodesk 3ds Max,64-bit Intel® or AMD® multi-core processor with SSE4.2 instruction set,4GB,1GB of GPU VRAM,DirectX 11,64-bit Microsoft® Windows® 11 and Windows 10.,9GB,0
+Autodesk 3ds Max,64-bit Intel® or AMD® multi-core processor with SSE4.2 instruction set,16GB,4GB of GPU VRAM,DirectX 11,64-bit Microsoft® Windows® 11 and Windows 10.,9GB,1
+AutoCAD,2.5GHz,8GB,2GB of GPU VRAM,DirectX 11,64-bit Windows 11 or 10 version 1809 or above,10GB,0
+AutoCAD,3GHz,32GB,8GB of GPU VRAM,DirectX 12,64-bit Windows 11 or 10 version 1809 or above,10GB,1
+Cinema 4D,Intel 64-bit CPU or AMD 64-bit CPU with SSE3 support (2GHz),8GB,OpenGL 4.1 호환,,Windows 10 64-bit Version 1809 or higher,6GB,0
+Cinema 4D,Intel 64-bit CPU or AMD 64-bit CPU with SSE3 support (3GHz),16GB,4GB of GPU VRAM,,Windows 10 64-bit Version 1809 or higher,6GB,1
+Adobe Animate,"Intel Pentium 4 or Intel Centrino, Intel Xeon, or Intel Core Duo (or compatible) processor (2GHz or faster processor)",8GB,OpenGL version 3.3 or higher,DirectX 12,"Windows 10 version V2004, V20H2, and V21H1",4GB,0
+Adobe Animate,"Intel Pentium 4 or Intel Centrino, Intel Xeon, or Intel Core Duo (or compatible) processor (2GHz or faster processor)",16GB,OpenGL version 3.3 or higher,DirectX 12,"Windows 10 version V2004, V20H2, and V21H1",4GB,1
+SolidWorks,i5,8GB,NVIDIA T600 or higher,,"Windows 11, 10  (64-bit)",2GB,0
+SolidWorks,i7,16GB,RTX A4000 or higher,,"Windows 11, 10  (64-bit)",16GB,1
+Autodesk Inventor,2.5 GHz or greater,16GB,1GB of GPU VRAM,DirectX 11,64-bit Microsoft® Windows® 11 and Windows 10.,40GB,0
+Autodesk Inventor,"3.0 GHz or greater, 4 or more cores",32GB,4GB of GPU VRAM,DirectX 11,64-bit Microsoft® Windows® 11 and Windows 10.,40GB,1
+PTC Creo,"Single-core, 1-GHz x86",2GB,,,Windows 10,1GB,0
+PTC Creo,"Dual-core or greater, 2-GHz x86",8GB,,,Windows 10 64-bit,2GB,1
+CATIA,64-bit Intel i5 or better,4GB,,,Windows 7 or 10 64-bit,10GB,0
+CATIA,64-bit Intel i5 or better,8GB,,,Windows 7 or 10 64-bit,10GB,1
+Rhinoceros 3D,Processor 64 bit Intel or AMD,8GB,4GB of GPU VRAM,,"Windows 11, 10, 8.1",600MB,0
+Zbrush,Intel i7/i9 technology and newer or AMD Ryzen and newer,6GB,Must support OpenGL 3.3 or higher and Vulkan 1.1 or higher.,,64-bit editions of Windows 10 or 11,20GB,0
+Zbrush,Intel i7/i9/Xeon technology and newer or AMD Ryzen/Threadripper and newer,32GB,Must support OpenGL 3.3 or higher and Vulkan 1.1 or higher.,,64-bit editions of Windows 10 or 11,100GB,1
+Autodesk Mudbox,64-bit Intel® or AMD® multi-core processor,4GB,,DirectX 11,Microsoft® Windows® 10.,1GB,0
+Autodesk Mudbox,64-bit Intel® or AMD® multi-core processor,8GB,4GB of GPU VRAM,DirectX 11,Microsoft® Windows® 10.,1GB,1
+Autodesk Fusion 360,64-bit Intel® 또는 AMD® 프로세서 (2 GHz 이상),8GB,1GB of GPU VRAM,DirectX 11,"Windows 7, 8, 8.1, 10 (64-bit)",3GB,0
+Autodesk Fusion 360,"Intel Core i7, 3.0 GHz 이상 (또는 동등한 AMD 프로세서)",16GB,4GB of GPU VRAM,DirectX 12,Windows 10 (64-bit),3GB,1
+HandBrake,Intel Core i3 or better,1.5GB,,,"Windows 7, Windows 8.1, Windows 10 (64-bit)",200MB,0
+HandBrake,Intel Core i5 or better,4GB,,,Windows 10 (64-bit),2GB,1
+Adobe Media Encoder,Intel 6th Gen or newer CPU,8GB,,,Windows 10 (64-bit) Version 20H2 or later,,0
+Adobe Media Encoder,Intel 7th Gen or newer CPU,16GB,4GB of GPU VRAM,,Windows 10 (64-bit) Version 20H2 or later,8GB,1
+곰인코더,Intel Dual-Core 2.4GHz 이상,4GB,,,Windows 7 이상 (64-bit),2GB,0
+샤나인코더,Intel Dual-Core 2.0GHz 이상,2GB,,,Windows 7 이상 (64-bit),200MB,0
+MediaCoder,Intel Dual-Core,2GB,,,Windows 7 이상 (64-bit),500MB,0
+Ableton Live 11,Intel® Core™ i5 processor or an AMD multi-core processor,8GB,,,"Windows 10 (Build 1909 and later), Windows 11",8GB,0
+FL Studio,Intel and AMD CPUs.,4GB,,,"Windows 8.1, 10, 11 or Later",4GB,0
+Cubase,Intel Core i Series or AMD Ryzen multi-core,4GB,,DirectX 10,Windows 10 (64-bit),35GB,0
+Cubase,Intel Core i5 or faster,8GB,,,Windows 10 (64-bit),100GB,1
+Pro Tools,64-bit?Intel Core?Processor (i3 2GHz?or faster recommended),16GB,NVIDIA Quadro GPUs supported on specified versions,,"Windows 10, 11 (22H2)",15GB,0
+Pro Tools,Intel Core i5 processors or higher,32GB,NVIDIA Quadro GPUs supported on specified versions,,"Windows 10, 11 (22H2)",15GB,1
+Studio One 6,Intel Core i3/AMD A10 processor or better,4GB,,,Windows 10 (64-bit only) or Windows 11 (64-bit only v5.4 and later),32.6Gb,0
+Studio One 6,Intel Core i7 (3.0GHz or higher),16GB,,,Windows 10 (64-bit only) or Windows 11 (64-bit only v5.4 and later),32.6GB,1
+Bitwig Studio,Dual-core AMD or Intel CPU or faster with SSE4.1 support,4GB,,,Windows 7 / 8 / 10 (64-bit) / 11,12GB,0
+Reason,Intel or AMD multi-core processor,4GB,,,Windows 10/11 (64-bit) or later,5.5GB,0
+Reason,Intel or AMD multi-core processor,8GB,,,Windows 10/11 (64-bit) or later,45.5GB,1
+Avid Sibelius,Any modern CPU,1GB,,,"Windows 10, 11",1GB,0
+Avid Sibelius,Any modern CPU,4GB,,,"Windows 10, 11",36GB,1
+LMMS (Linux MultiMedia Studio),"1.5 GHz x86, x86_64, or ARM-based CPU with 2 cores",1GB,,,Windows 7,100MB,0
+LMMS (Linux MultiMedia Studio),"2 GHz x86, x86_64, or ARM-based CPU with 4 cores",4GB,,,Windows 10,512MB,1
+Cakewalk,Intel Core 2 Duo E8400,4GB,NVIDIA GeForce 510,,Windows,200MB,0
+Cakewalk,Intel Core 2 Duo E8400,4GB,NVIDIA GeForce 510,,Windows,20GB,1

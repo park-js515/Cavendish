@@ -1,0 +1,106 @@
+program_id,cpu_id,gpu_id,ram,dx,storage,os,spec_class
+7714,344,1153.0,2,DirectX 9,2.0,Windows 7 SP1 이상,1
+7715,364,1153.0,4,DirectX 9,4.0,"Windows 11, Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016",1
+7716,364,1153.0,4,DirectX 9,4.0,"Windows OS: Windows 11, Windows 10, Windows 10 LTSC 2021, Windows 10 LTSC 2019, Windows Server 2022 또는 Windows Server 2019",1
+7717,243,1153.0,4,DirectX 9,4.0,Windows 10 또는 Windows 11,1
+7718,24,,8,,0.0,,1
+7719,24,,8,,0.0,,1
+7720,30,,4,,20.0,"64bit, Windows 11, Windows10, Windows Server Core 2022, Windows Server Core 2019, Windows Server Core 2016",0
+7720,30,,16,,50.0,"64bit, Windows 11, Windows10, Windows Server Core 2022, Windows Server Core 2019, Windows Server Core 2016",1
+7721,364,,4,,0.5,Windows10 이상,0
+7722,65,,4,,3.5,"64bit, Microsoft Windows 10, 8, 7 (SP1)",0
+7722,237,,8,,5.0,"64bit, Microsoft Windows 10, 8, 7 (SP1)",1
+7723,374,,0.5,,0.3,Windows 7 or later,0
+7723,364,,1,,1.0,Windows 7 or later,1
+7724,65,,2,,3.5,Windows 10 1809 or later Windows Server 2019 or later,0
+7724,237,,8,,5.0,Latest 64-bit version of Windows,1
+7725,292,,8,,8.0,64비트 Microsoft Windows 8,0
+7725,292,,16,,16.0,Windows 64비트 최신 버전,1
+7726,63,,4,,2.0,"Windows 11, 10 /8.1/8 /7 /Vista /XP /2000 Windows Server 2022, 2019 /2016 /2012 /2008 /2003",1
+7727,185,,4,,0.15,Windows 10,0
+7728,400,,2,,1.2,"Windows 10, 8, Windows Server 2019/2016/2012",0
+7728,400,,4,,1.2,"Windows 10, 8, Windows Server 2019/2016/2012",1
+7729,50,1106.0,4,,1.0,"Windows 7, 8, 10",0
+7730,299,1106.0,4,,10.0,"Microsoft Windows 10, Windows 8 and Windows 7 (64-bit only)",0
+7730,299,1106.0,8,,20.0,"Microsoft Windows 10, Windows 8 and Windows 7 (64-bit only)",1
+7731,237,1153.0,16,,15.0,Microsoft Windows 10 (64 Bit)?,0
+7732,239,1153.0,8,,8.0,Microsoft Windows 10 (64-bit) version 1909 or later,0
+7732,201,400.0,8,,8.0,Microsoft Windows 10 (64-bit) version 1909 or later,1
+7733,239,1004.0,16,,1.5,Microsoft® Windows 10 | 11,0
+7733,155,1173.0,32,,1.5,Microsoft® Windows 10 | 11,1
+7734,201,1103.0,16,,,Windows 10 or later.,0
+7734,201,1103.0,32,,,Windows 10 or later.,1
+7735,214,,16,,,,0
+7735,214,,32,,,,1
+7736,50,1153.0,4,,6.0,,1
+7737,11,94.0,16,,500.0,,0
+7737,38,75.0,16,,500.0,,1
+7738,12,674.0,16,,500.0,,0
+7738,21,10.0,16,,500.0,,1
+7739,19,39.0,16,,500.0,,0
+7739,10,114.0,32,,500.0,,1
+7740,299,1173.0,8,DirectX 12,4.0,Windows 10 (64-bit) version 1809 or later,0
+7740,40,990.0,16,,16.0,Windows 10 64-bit,1
+7741,63,400.0,8,,3.0,"Windows 10 (64-bit) versions: V1809, V1903, V1909, and V2004. Windows Server versions V1607 (2017) and V1809 (2019).",0
+7741,158,990.0,16,,3.0,Windows 10 64-bit,1
+7742,387,,8,,2.5,"Windows 11 or Windows 10*, 64-bit, with latest Updates",1
+7743,65,,1,,0.2,Windows 10,1
+7744,243,,2,,0.5,Windows,1
+7745,400,421.0,0.5,,0.5,Windows 11 or?Windows 10 (version 1809 or newer) or?Windows Server 2019 or?Windows Server 2022,1
+7746,400,1173.0,2,,0.3,Windows 7,0
+7746,227,1127.0,4,,0.3,"Windows 7 SP1, Windows 8.1, Windows 10",1
+7747,400,,8,,3.0,Windows 10 Windows 11,1
+7748,364,,1,,20.0,Windows XP/Vista/7/8/8.1/10/11,0
+7749,65,,4,,0.953,Windows 10 / 8.1 / 7 (64-bit),0
+7750,400,,4,DirectX 11,3.0,"Windows 11, Windows 10?(64-bit edition only)??",0
+7751,400,,8,,7.0,Windows 10,0
+7751,400,,16,,7.0,Windows 10,1
+7752,237,1153.0,8,,0.3,Windows 8.1+,0
+7752,73,1112.0,32,,1.0,Windows 10,1
+7753,63,1153.0,4,DirectX 11,9.0,64-bit Microsoft® Windows® 11 and Windows 10.,0
+7753,63,400.0,16,DirectX 11,9.0,64-bit Microsoft® Windows® 11 and Windows 10.,1
+7754,344,1153.0,8,DirectX 11,10.0,64-bit Windows 11 or 10 version 1809 or above,0
+7754,50,1112.0,32,DirectX 12,10.0,64-bit Windows 11 or 10 version 1809 or above,1
+7755,344,,8,,6.0,Windows 10 64-bit Version 1809 or higher,0
+7755,50,400.0,16,,6.0,Windows 10 64-bit Version 1809 or higher,1
+7756,299,,8,DirectX 12,4.0,"Windows 10 version V2004, V20H2, and V21H1",0
+7756,299,,16,DirectX 12,4.0,"Windows 10 version V2004, V20H2, and V21H1",1
+7757,214,961.0,8,,2.0,"Windows 11, 10  (64-bit)",0
+7757,199,890.0,16,,16.0,"Windows 11, 10  (64-bit)",1
+7758,344,1153.0,16,DirectX 11,40.0,64-bit Microsoft® Windows® 11 and Windows 10.,0
+7758,50,400.0,32,DirectX 11,40.0,64-bit Microsoft® Windows® 11 and Windows 10.,1
+7759,243,,2,,1.0,Windows 10,0
+7759,63,,8,,2.0,Windows 10 64-bit,1
+7760,214,,4,,10.0,Windows 7 or 10 64-bit,0
+7760,214,,8,,10.0,Windows 7 or 10 64-bit,1
+7761,400,400.0,8,,0.6,"Windows 11, 10, 8.1",0
+7762,199,1106.0,6,,20.0,64-bit editions of Windows 10 or 11,0
+7762,142,1106.0,32,,100.0,64-bit editions of Windows 10 or 11,1
+7763,63,,4,DirectX 11,1.0,Microsoft® Windows® 10.,0
+7763,63,400.0,8,DirectX 11,1.0,Microsoft® Windows® 10.,1
+7764,299,1153.0,8,DirectX 11,3.0,"Windows 7, 8, 8.1, 10 (64-bit)",0
+7764,50,400.0,16,DirectX 12,3.0,Windows 10 (64-bit),1
+7765,209,,1.5,,0.2,"Windows 7, Windows 8.1, Windows 10 (64-bit)",0
+7765,214,,4,,2.0,Windows 10 (64-bit),1
+7766,239,,8,,,Windows 10 (64-bit) Version 20H2 or later,0
+7766,201,400.0,16,,8.0,Windows 10 (64-bit) Version 20H2 or later,1
+7767,344,,4,,2.0,Windows 7 이상 (64-bit),0
+7768,299,,2,,0.2,Windows 7 이상 (64-bit),0
+7769,63,,2,,0.5,Windows 7 이상 (64-bit),0
+7770,214,,8,,8.0,"Windows 10 (Build 1909 and later), Windows 11",0
+7771,65,,4,,4.0,"Windows 8.1, 10, 11 or Later",0
+7772,63,,4,DirectX 10,35.0,Windows 10 (64-bit),0
+7772,214,,8,,100.0,Windows 10 (64-bit),1
+7773,299,1153.0,16,,15.0,"Windows 10, 11 (22H2)",0
+7773,214,1153.0,32,,15.0,"Windows 10, 11 (22H2)",1
+7774,239,,4,,32.6,Windows 10 (64-bit only) or Windows 11 (64-bit only v5.4 and later),0
+7774,199,,16,,32.6,Windows 10 (64-bit only) or Windows 11 (64-bit only v5.4 and later),1
+7775,63,,4,,12.0,Windows 7 / 8 / 10 (64-bit) / 11,0
+7776,63,,4,,5.5,Windows 10/11 (64-bit) or later,0
+7776,63,,8,,45.5,Windows 10/11 (64-bit) or later,1
+7777,65,,1,,1.0,"Windows 10, 11",0
+7777,65,,4,,36.0,"Windows 10, 11",1
+7778,364,,1,,0.1,Windows 7,0
+7778,237,,4,,0.512,Windows 10,1
+7779,236,200.0,4,,0.2,Windows,0
+7779,236,200.0,4,,20.0,Windows,1
