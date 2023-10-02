@@ -43,13 +43,14 @@ const Card = ({ front, back, imgUrl, onClick, style }) => {
   );
 };
 
-// 수정 예정
 const BackDetail = ({ name, value }) => {
   const text = value !== "-1" ? value : "선택된 제품이 없습니다";
   return (
     <div className="detail">
-      <div>{name}</div>
-      <div>{text}</div>
+      <div className="part">{name}</div>
+      <div className="script">
+        <div>{text}</div>
+      </div>
     </div>
   );
 };
@@ -60,7 +61,6 @@ const Process1_2 = ({ setSubProcess }) => {
     return state.recommend.processList[0];
   });
 
-  // redux & axios
   const setSelected = (target) => {
     dispatch(recom.setSelected(target));
   };
