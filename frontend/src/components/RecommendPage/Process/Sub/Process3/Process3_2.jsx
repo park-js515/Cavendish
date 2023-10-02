@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import dummyImg from "assets/defaultImgs2/Briar.png";
 import {
   AiOutlineArrowLeft,
   AiOutlineBackward,
@@ -13,19 +12,8 @@ import { FaSearch } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import * as recom from "redux/recommendSlice";
 
-// 이거를 제거하고, 서버에서 데이터를 요청해야 한다.
-const dummy = [
-  { imgUrl: dummyImg, value: "pc 게임" },
-  { imgUrl: dummyImg, value: "인터넷 서핑, 사무, 영상 시청 등" },
-  { imgUrl: dummyImg, value: "개발" },
-  { imgUrl: dummyImg, value: "영상 편집 및 특수효과" },
-  { imgUrl: dummyImg, value: "방송, 스트리밍" },
-  { imgUrl: dummyImg, value: "포토샵 및 일러스트레이터" },
-  { imgUrl: dummyImg, value: "2D 및 3D 모델링" },
-  { imgUrl: dummyImg, value: "비디오 인코딩" },
-  { imgUrl: dummyImg, value: "음악 작곡 및 편집" },
-  { imgUrl: dummyImg, value: "아무거나" },
-];
+// API
+import { searchProgram } from "api/recommend";
 
 const Item = ({ imgUrl, value, selected }) => {
   const dispatch = useDispatch();
@@ -203,11 +191,60 @@ const Pagenate = ({
 // 컴포넌트 재사용 기존에 존재하던 것
 // 게임만 사용할 것 -> selected가 필요하지 않음
 const Process3_2 = ({ setSubProcess, selected }) => {
-  const [data, setData] = useState(dummy);
-  const [text, setText] = useState("");
-  const [doSearch, setDoSearch] = useState(false);
   const [page, setPage] = useState(1);
+  const [data, setData] = useState([]);
+  const [text, setText] = useState("");
+  const [nowSearchText, setNowSearchText] = useState("");
+  const [doSearch, setDoSearch] = useState(false);
   const [maxValue, setMaxValue] = useState(1);
+
+  const maxPage = {
+    게임: 772,
+    "이미지 편집": 2,
+    모델링: 2,
+  };
+
+  // 초기 렌더링 시 데이터 호출
+  const check1 = useRef(false);
+  useEffect(() => {
+    const fn1 = () => {
+      const propCategory = selected;
+      const propPage = 1;
+      const propParams = { keyword: "" };
+      const propSuccess = (response) => {
+        const { data } = response;
+        const arr = [];
+        data.forEach((item) => {
+          const { id, name, image } = item;
+          arr.push({ id: id, value: name, imgUrl: image });
+        });
+
+        setData([...arr]);
+      };
+      const propFail = (error) => {
+        console.error(error);
+      };
+
+      const props = [propCategory, propPage, propParams, propSuccess, propFail];
+      searchProgram(...props);
+    };
+
+    if (!check1.current) {
+      setMaxValue(maxPage[selected]);
+      fn1();
+    }
+
+    return () => {
+      if (!check1.current) {
+        check1.current = true;
+      }
+    };
+  }, []);
+
+  // 페이지가 바뀌거나 검색어가 바뀌었을 때의 호출
+  // useEffect(() => {
+  //   if (check1.current) {}
+  // }, [page, doSearch]);
 
   const handlePage = (value) => {
     setPage(value);

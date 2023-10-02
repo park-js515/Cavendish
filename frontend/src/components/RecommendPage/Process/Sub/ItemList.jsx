@@ -234,6 +234,7 @@ const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
   }, []);
 
   // 페이지가 바뀌거나 검색어가 바뀌었을 때의 호출
+  // 추가: 부품이 바뀌었을 때도 고려
   useEffect(() => {
     const fn1 = (val, p = page) => {
       const propPartName = selectedItem;

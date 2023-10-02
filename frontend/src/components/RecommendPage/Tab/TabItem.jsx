@@ -184,7 +184,7 @@ const TabItem = ({ className, title, index }) => {
               {data2[items].map((item, itemIndex) => {
                 return (
                   <div className="wrapper2" key={itemIndex}>
-                    &nbsp;{`- ${item}`}
+                    &nbsp;{`- ${item.value}`}
                   </div>
                 );
               })}

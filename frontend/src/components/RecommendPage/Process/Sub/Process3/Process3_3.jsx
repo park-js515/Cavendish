@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import dummyImg from "assets/defaultImgs2/Briar.png";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
 // redux
@@ -15,15 +14,19 @@ const Item = ({ selected, id, imgUrl, value }) => {
     return state.recommend.processList[2][selected];
   });
 
-  const className = list.includes(value) ? "item-active" : "item";
+  const isIncludes = list.some((item) => {
+    return item.id === id;
+  });
+  const className = isIncludes ? "item-active" : "item";
 
   const onClick = () => {
-    if (list.includes(value)) {
-      dispatch(recom.removeProcessList2({ key: selected, value: value }));
+    if (isIncludes) {
+      dispatch(recom.removeProcessList2({ key: selected, id: id }));
     } else {
       dispatch(
         recom.addProcessList2({
           key: selected,
+          id: id,
           value: value,
         }),
       );

@@ -72,15 +72,18 @@ const recommendSlice = createSlice({
     },
     addProcessList2: (state, action) => {
       const key = action.payload.key;
+      const id = action.payload.id;
       const value = action.payload.value;
       if (state.processList[2][key].length < 3) {
-        state.processList[2][key].push(value);
+        state.processList[2][key].push({ id: id, value: value });
       }
     },
     removeProcessList2: (state, action) => {
       const key = action.payload.key;
-      const value = action.payload.value;
-      const index = state.processList[2][key].indexOf(value);
+      const id = action.payload.id;
+      const index = state.processList[2][key].findIndex((item) => {
+        return item.id === id;
+      })
       state.processList[2][key].splice(index, 1);
     },
     removeProcess: (state) => {

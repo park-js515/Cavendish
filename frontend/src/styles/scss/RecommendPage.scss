@@ -333,6 +333,7 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
             display: flex;
             flex-wrap: wrap;
             justify-content: space-evenly;
+            align-items: flex-start;
             overflow-y: scroll;
 
             &::-webkit-scrollbar {
@@ -487,7 +488,7 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
                 width: 100%;
                 flex-wrap: wrap;
                 justify-content: space-evenly;
-                align-items: flex-start;
+                align-items: center;
 
                 .item {
                   transition: all 200ms ease-in-out;
@@ -579,6 +580,7 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
               display: flex;
               flex-wrap: wrap;
               justify-content: space-evenly;
+              align-items: center;
               overflow-y: scroll;
 
               &::-webkit-scrollbar {
