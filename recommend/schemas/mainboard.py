@@ -42,9 +42,10 @@ class MainboardSchema(BaseModel):
     bookmark: Optional[int] = 0
     mainboard_pci: Optional[List[dict]] = []
     compatibility: Optional[List[str]] = []
+    max_page: int
 
 
-def serialize_mainboard(mainboard_object, mainboard_pci_object, compatibility):
+def serialize_mainboard(mainboard_object, mainboard_pci_object, compatibility, max_page):
     mainboard_dict = MainboardSchema(
         id=mainboard_object.id,
         name=mainboard_object.name,
@@ -77,7 +78,8 @@ def serialize_mainboard(mainboard_object, mainboard_pci_object, compatibility):
         reg_date=mainboard_object.reg_date,
         bookmark=mainboard_object.bookmark,
         compatibility=compatibility,
-        mainboard_pci=[]
+        mainboard_pci=[],
+        max_page=max_page
     ).__dict__
     if mainboard_pci_object:
         mainboard_dict['mainboard_pci'] = [serialize_mainboard_pci(x) for x in mainboard_pci_object]

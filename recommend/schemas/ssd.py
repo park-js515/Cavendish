@@ -28,8 +28,9 @@ class SSDSchema(BaseModel):
     bookmark: Optional[int] = 0
     support_option: Optional[int] = None
     compatibility: Optional[List[str]] = None
+    max_page: int
 
-def serialize_ssd(ssd_object, compatibility):
+def serialize_ssd(ssd_object, compatibility, max_page):
     ssd_dict = SSDSchema(
         id=ssd_object.id,
         name=ssd_object.name,
@@ -56,6 +57,7 @@ def serialize_ssd(ssd_object, compatibility):
         reg_date=ssd_object.reg_date,
         bookmark=ssd_object.bookmark,
         support_option=ssd_object.support_option,
-        compatibility=compatibility
+        compatibility=compatibility,
+        max_page=max_page
     ).__dict__
     return ssd_dict
