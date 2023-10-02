@@ -1,6 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import dummyImg from "assets/defaultImgs2/Briar.png";
-import { AiOutlineArrowLeft } from "react-icons/ai";
+import {
+  AiOutlineArrowLeft,
+  AiOutlineBackward,
+  AiOutlineCaretLeft,
+  AiOutlineForward,
+  AiOutlineCaretRight,
+} from "react-icons/ai";
 import { FaSearch } from "react-icons/fa";
 
 // redux
@@ -141,7 +147,7 @@ const Pagenate = ({
   return (
     <div className="footer">
       <Btn
-        value="<<"
+        value={<AiOutlineBackward />}
         type={1}
         onClick={() => {
           handlePageSub2();
@@ -149,7 +155,7 @@ const Pagenate = ({
         key={-1}
       />
       <Btn
-        value="<"
+        value={<AiOutlineCaretLeft />}
         type={1}
         onClick={() => {
           handlePageSub();
@@ -169,7 +175,7 @@ const Pagenate = ({
         );
       })}
       <Btn
-        value=">"
+        value={<AiOutlineCaretRight />}
         type={1}
         onClick={() => {
           handlePageAdd();
@@ -177,7 +183,7 @@ const Pagenate = ({
         key={-3}
       />
       <Btn
-        value=">>"
+        value={<AiOutlineForward />}
         type={1}
         onClick={() => {
           handlePageAdd2();
@@ -248,8 +254,8 @@ const Process3_2 = ({ setSubProcess }) => {
       <div className="proc3-2">
         <SearchComponent value={text} setValue={setText} />
         <div className="item-wrapper">
-          {data.map((item) => {
-            return <Item imgUrl={item.imgUrl} value={item.value} />;
+          {data.map((item, index) => {
+            return <Item key={index} imgUrl={item.imgUrl} value={item.value} />;
           })}
         </div>
         <Pagenate {...footerProps} />

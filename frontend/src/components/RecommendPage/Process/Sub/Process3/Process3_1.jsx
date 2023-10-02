@@ -68,6 +68,7 @@ const TopIcons = ({ onClick1, onClick2 }) => {
         onClick={onClick1}
         style={{
           cursor: "pointer",
+          transition: "all 200ms ease-in-out",
         }}
       />
       {disabled() ? (
@@ -87,7 +88,10 @@ const TopIcons = ({ onClick1, onClick2 }) => {
             onClick2();
           }
         }}
-        style={{ cursor: disabled() ? "not-allowed" : "pointer" }}
+        style={{
+          cursor: disabled() ? "not-allowed" : "pointer",
+          transition: "all 200ms ease-in-out",
+        }}
       />
     </div>
   );

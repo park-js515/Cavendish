@@ -50,6 +50,7 @@ const TopIcons = ({ onClick1 }) => {
         onClick={onClick1}
         style={{
           cursor: "pointer",
+          transition: "all 200ms ease-in-out"
         }}
       />
     </div>
@@ -57,7 +58,7 @@ const TopIcons = ({ onClick1 }) => {
 };
 
 const SubmitBtn = ({ onClick }) => {
-  return (
+  return ( 
     <div className="submitBtn" onClick={onClick}>
       <AiOutlineArrowRight />
     </div>

@@ -1,4 +1,10 @@
 import { useState, useEffect, useRef } from "react";
+import {
+  AiOutlineBackward,
+  AiOutlineCaretLeft,
+  AiOutlineForward,
+  AiOutlineCaretRight,
+} from "react-icons/ai";
 
 // redux
 import { useDispatch, useSelector } from "react-redux";
@@ -7,7 +13,7 @@ import * as recom from "redux/recommendSlice";
 // API
 import { searchPart, maxPage } from "api/recommend";
 
-const Item = ({ imgUrl, name, id, style }) => {
+const Item = ({ imgUrl, name, id, disabled, style }) => {
   const dispatch = useDispatch();
   const selected = useSelector((state) => {
     return state.recommend.selected;
@@ -15,23 +21,29 @@ const Item = ({ imgUrl, name, id, style }) => {
   const selectedValue = useSelector((state) => {
     return state.recommend.processList[0][selected].value;
   });
-  const className = selectedValue === name ? "item-selected" : "item";
+  const className = disabled
+    ? "item-disabled"
+    : selectedValue === name
+    ? "item-selected"
+    : "item";
 
   return (
     <div
       className={className}
       onClick={() => {
-        if (className === "item-selected") {
-          dispatch(recom.removeProcessList0({ index: selected }));
-          if (selected === 7) {
-            dispatch(recom.setRamNo(0));
-          }
-        } else {
-          dispatch(
-            recom.setProcessList0({ value: name, imgUrl: imgUrl, id: id }),
-          );
-          if (selected === 7) {
-            dispatch(recom.setRamNo(1));
+        if (className !== "item-disabled") {
+          if (className === "item-selected") {
+            dispatch(recom.removeProcessList0({ index: selected }));
+            if (selected === 7) {
+              dispatch(recom.setRamNo(0));
+            }
+          } else {
+            dispatch(
+              recom.setProcessList0({ value: name, imgUrl: imgUrl, id: id }),
+            );
+            if (selected === 7) {
+              dispatch(recom.setRamNo(1));
+            }
           }
         }
       }}
@@ -77,7 +89,7 @@ const Pagenate = ({
   return (
     <div className="footer">
       <Btn
-        value="<<"
+        value={<AiOutlineBackward />}
         type={1}
         onClick={() => {
           handlePageSub2();
@@ -85,7 +97,7 @@ const Pagenate = ({
         key={-1}
       />
       <Btn
-        value="<"
+        value={<AiOutlineCaretLeft />}
         type={1}
         onClick={() => {
           handlePageSub();
@@ -105,7 +117,7 @@ const Pagenate = ({
         );
       })}
       <Btn
-        value=">"
+        value={<AiOutlineCaretRight />}
         type={1}
         onClick={() => {
           handlePageAdd();
@@ -113,7 +125,7 @@ const Pagenate = ({
         key={-3}
       />
       <Btn
-        value=">>"
+        value={<AiOutlineForward />}
         type={1}
         onClick={() => {
           handlePageAdd2();
@@ -148,6 +160,7 @@ const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
     return params;
   };
 
+  // 초기 렌더링 시 데이터 호출
   const check1 = useRef(false);
   useEffect(() => {
     const fn1 = () => {
@@ -158,8 +171,9 @@ const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
         const data = response.data;
         const arr = [];
         data.forEach((item) => {
-          const { id, name, image } = item;
-          arr.push({ name: name, imgUrl: image, id: id, disabled: false });
+          const { id, name, image, compatibility } = item;
+          const disabled = compatibility.length > 0;
+          arr.push({ name: name, imgUrl: image, id: id, disabled: disabled });
         });
 
         setData(() => {
@@ -199,6 +213,7 @@ const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
     };
   }, []);
 
+  // 페이지가 바뀌거나 검색어가 바뀌었을 때의 호출
   useEffect(() => {
     const fn1 = (val, p = page) => {
       const propPartName = selectedItem;
@@ -208,14 +223,14 @@ const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
         const data = response.data;
         const arr = [];
         data.forEach((item) => {
-          const { id, name, image } = item;
-          arr.push({ name: name, imgUrl: image, id: id, disabled: false });
+          const { id, name, image, compatibility } = item;
+          const disabled = compatibility.length > 0;
+          arr.push({ name: name, imgUrl: image, id: id, disabled: disabled });
         });
 
         setData(() => {
           return [...arr];
         });
-        console.log(response);
       };
       const propFail = (error) => {
         console.log(error);
@@ -223,10 +238,22 @@ const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
 
       const props = [propPartName, propPage, propParams, propSuccess, propFail];
       searchPart(...props);
-      console.log(props);
     };
 
-    const fn2 = () => {};
+    const fn2 = () => {
+      const propPartName = selectedItem;
+      const propSuccess = (response) => {
+        setMaxValue(() => {
+          return response.data.max_page;
+        });
+      };
+      const propFail = (error) => {
+        console.log(error);
+      };
+
+      const props = [propPartName, propSuccess, propFail];
+      maxPage(...props);
+    };
     const fn3 = () => {
       setNowSearchValue(searchValue);
       setPage(1);
@@ -234,14 +261,17 @@ const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
       setDoSearch(false);
     };
 
-    if (doSearch) {
-      fn2();
-      fn3();
-      return;
-    }
+    if (check1.current) {
+      if (doSearch) {
+        fn3();
+        fn2();
+        return;
+      }
 
-    fn1();
-  }, [page, doSearch]);
+      fn1();
+      fn2();
+    }
+  }, [page, doSearch, processList0]);
 
   const handlePage = (value) => {
     setPage(value);
