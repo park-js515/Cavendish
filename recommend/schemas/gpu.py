@@ -37,9 +37,10 @@ class GPUSchema(BaseModel):
     reg_date: Optional[int] = None
     bookmark: Optional[int] = 0
     compatibility: Optional[List[str]] = []
+    max_page: int
 
 
-def serialize_gpu(gpu_object, compatibility):
+def serialize_gpu(gpu_object, compatibility, max_page):
     gpu_dict = GPUSchema(
         id=gpu_object.id,
         name=gpu_object.name,
@@ -75,6 +76,7 @@ def serialize_gpu(gpu_object, compatibility):
         bench_mark=gpu_object.bench_mark,
         reg_date=gpu_object.reg_date,
         bookmark=gpu_object.bookmark,
-        compatibility=compatibility
+        compatibility=compatibility,
+        max_page=max_page
     ).__dict__
     return gpu_dict

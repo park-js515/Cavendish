@@ -21,9 +21,10 @@ class HDDSchema(BaseModel):
     reg_date: Optional[int] = None
     bookmark: Optional[int] = 0
     compatibility: Optional[List[str]] = []
+    max_page: int
 
 
-def serialize_hdd(hdd_object, compatibility):
+def serialize_hdd(hdd_object, compatibility, max_page):
     hdd_dict = HDDSchema(
         id=hdd_object.id,
         name=hdd_object.name,
@@ -43,7 +44,8 @@ def serialize_hdd(hdd_object, compatibility):
         as_year=hdd_object.as_year,
         reg_date=hdd_object.reg_date,
         bookmark=hdd_object.bookmark,
-        compatibility=compatibility
+        compatibility=compatibility,
+        max_page=max_page
     ).__dict__
     return hdd_dict
 

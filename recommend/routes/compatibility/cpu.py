@@ -30,10 +30,10 @@ router = APIRouter(
 async def cpu_search( page: int = 1, keyword: str = "",state: ProcessListStep1 = Depends()):
     cpu = session.query(CPU).filter(CPU.name.like(f'%{keyword}%')).all()
     page_size = (len(cpu) // 10) + 1
-    if page > page_size:
-        return JSONResponse(content={"error": "Bad Request"}, status_code=400)
     try:
         result = []
+        if page > page_size:
+            return JSONResponse(content={"error": "Bad Request"}, status_code=400)
 
         for i in range(len(cpu)):
             item = {
@@ -67,7 +67,7 @@ async def cpu_search( page: int = 1, keyword: str = "",state: ProcessListStep1 =
                 result[i]['data'].memory_type = []
             else:    
                 result[i]['data'].memory_type = decimal_to_name(result[i]['data'].memory_type, len(cpu_com['memory_type']), cpu_com['memory_type'])
-            result[i] = serialize_cpu(result[i]['data'], result[i]['compatibility'])
+            result[i] = serialize_cpu(result[i]['data'], result[i]['compatibility'], page_size)
             
         headers = {"max_page": str(page_size)}
     # 데이터를 리스트에 넣을 필요가 있는 경우만 리스트로 만듦
