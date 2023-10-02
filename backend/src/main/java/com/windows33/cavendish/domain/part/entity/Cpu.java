@@ -12,7 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Table(name = "cpu")
 @Entity
-public class CPU extends PartCommonEntity {
+public class Cpu extends PartCommonEntity {
 
     private String code;
 

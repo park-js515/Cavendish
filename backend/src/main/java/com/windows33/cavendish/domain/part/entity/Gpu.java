@@ -12,7 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Table(name = "gpu")
 @Entity
-public class GPU extends PartCommonEntity {
+public class Gpu extends PartCommonEntity {
 
     private String chipsetCompany;
 

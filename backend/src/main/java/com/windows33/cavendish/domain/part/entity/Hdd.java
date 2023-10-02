@@ -12,7 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Table(name = "hdd")
 @Entity
-public class HDD extends PartCommonEntity {
+public class Hdd extends PartCommonEntity {
 
     private Double size;
 

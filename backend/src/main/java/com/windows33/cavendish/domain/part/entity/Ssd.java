@@ -12,7 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Table(name = "ssd")
 @Entity
-public class SSD extends PartCommonEntity {
+public class Ssd extends PartCommonEntity {
 
     private String formFactor;
 

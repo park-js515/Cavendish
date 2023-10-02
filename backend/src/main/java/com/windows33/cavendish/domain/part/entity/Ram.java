@@ -12,7 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Table(name = "ram")
 @Entity
-public class RAM extends PartCommonEntity {
+public class Ram extends PartCommonEntity {
 
     private String generation;
 
