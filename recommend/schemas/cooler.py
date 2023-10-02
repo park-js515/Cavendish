@@ -31,8 +31,9 @@ class CoolerSchema(BaseModel):
     reg_date: Optional[int] = None
     bookmark: Optional[int] = 0
     compatibility: Optional[List[str]] = []
+    max_page: int
 
-def serialize_cooler(cooler_object, compatibility):
+def serialize_cooler(cooler_object, compatibility, max_page):
     cooler_dict = CoolerSchema(
         id=cooler_object.id,
         name=cooler_object.name,
@@ -62,6 +63,7 @@ def serialize_cooler(cooler_object, compatibility):
         as_years=cooler_object.as_years,
         reg_date=cooler_object.reg_date,
         bookmark=cooler_object.bookmark,
-        compatibility=compatibility
+        compatibility=compatibility,
+        max_page=max_page
     ).__dict__
     return cooler_dict
