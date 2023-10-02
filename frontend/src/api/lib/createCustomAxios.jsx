@@ -56,6 +56,7 @@ const createDefaultAxios = (URL) => {
     baseURL: `${process.env.REACT_APP_API}${URL}`,
     headers: {
       "Content-Type": "application/json;charset=utf-8",
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}`?`Bearer ${localStorage.getItem("accessToken")}`:null ,
     },
   });
 

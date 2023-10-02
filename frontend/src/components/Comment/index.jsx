@@ -51,7 +51,7 @@ export default function CommentComponent({
             <div className="comment_user">
               <div>{nickname}</div>
             </div>
-            {!isMine && (
+            {isMine && (
               <div className="buttons">
                 <button type="button" onClick={updateHandler}>
                   수정
