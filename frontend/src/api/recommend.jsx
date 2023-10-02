@@ -27,9 +27,9 @@ const searchPart = (partName, page, params, success, fail) => {
  * @param {function} success [callback]
  * @param {function} fail [callback]
  */
-const serachProgram = (category, page, params, success, fail) => {
+const searchProgram = (category, page, params, success, fail) => {
   const api = fapiSearchCategoryInstance();
   api.get(`/${category}/${page}`, { params: params }).then(success).catch(fail);
 };
 
-export { searchPart, serachProgram };
+export { searchPart, searchProgram };

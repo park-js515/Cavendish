@@ -1,5 +1,4 @@
 import { useState } from "react";
-import dummyImg from "assets/defaultImgs2/Briar.png";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 
 //redux

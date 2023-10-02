@@ -27,9 +27,7 @@ const dummy = [
   { imgUrl: dummyImg, value: "아무거나" },
 ];
 
-const selected = "게임";
-
-const Item = ({ imgUrl, value }) => {
+const Item = ({ imgUrl, value, selected }) => {
   const dispatch = useDispatch();
   const list = useSelector((state) => {
     return state.recommend.processList[2][selected];
@@ -95,7 +93,7 @@ const Btn = ({ onClick }) => {
   );
 };
 
-const SearchComponent = ({ value, setValue, setDoSearch }) => {
+const SearchComponent = ({ selected, value, setValue, setDoSearch }) => {
   const onChange = (event) => {
     setValue(event.target.value);
   };
@@ -204,7 +202,7 @@ const Pagenate = ({
 // 검색 및 페이지네이션
 // 컴포넌트 재사용 기존에 존재하던 것
 // 게임만 사용할 것 -> selected가 필요하지 않음
-const Process3_2 = ({ setSubProcess }) => {
+const Process3_2 = ({ setSubProcess, selected }) => {
   const [data, setData] = useState(dummy);
   const [text, setText] = useState("");
   const [doSearch, setDoSearch] = useState(false);
@@ -260,13 +258,21 @@ const Process3_2 = ({ setSubProcess }) => {
       />
       <div className="proc3-2">
         <SearchComponent
+          selected={selected}
           value={text}
           setValue={setText}
           setDoSearch={setDoSearch}
         />
         <div className="item-wrapper">
           {data.map((item, index) => {
-            return <Item key={index} imgUrl={item.imgUrl} value={item.value} />;
+            return (
+              <Item
+                key={index}
+                selected={selected}
+                imgUrl={item.imgUrl}
+                value={item.value}
+              />
+            );
           })}
         </div>
         <Pagenate {...footerProps} />
