@@ -11,7 +11,7 @@ public class QuotationListResponseDto {
 
     private Integer quotationId;
     private String name;
-    private String imagePath;
+    private String image;
     private Integer totalPrice;
     private String createDateTime;
 
