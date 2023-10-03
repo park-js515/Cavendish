@@ -36,6 +36,7 @@ engine = engineconn()
 session = engine.sessionmaker()
 
 def perform_pri(pri_rank):
+
     if pri_rank == 0:
         pass
     elif pri_rank == 1:
