@@ -7,24 +7,117 @@ export default function QuotationDetailComponent() {
 
   const [quotation, setQuotation] = useState("");
 
+  const [cpuData, setCpuData] = useState({});
+  const [gpuData, setGpuData] = useState({});
+  const [ssdData, setSsdData] = useState({});
+  const [ramData, setRamData] = useState({});
+  const [hddData, setHddData] = useState({});
+  const [mainboardData, setMainboardData] = useState({});
+  const [powerData, setPowerData] = useState({});
+  const [coolerData, setCoolerData] = useState({});
+  const [caseData, setCaseData] = useState({});
+
+  const partsData = [
+    cpuData,
+    gpuData,
+    ramData,
+    ssdData,
+    hddData,
+    mainboardData,
+    powerData,
+    coolerData,
+    caseData,
+  ];
+
   const navigate = useNavigate();
+
+  const setData = () => {
+    setCpuData({
+      cate:'cpu',
+      id: quotation.cpuId,
+      image: quotation.cpuImage,
+      name: quotation.cpuName,
+      price: quotation.cpuPrice,
+    });
+    setGpuData({
+      cate:'gpu',
+      id: quotation.gpuId,
+      image: quotation.gpuImage,
+      name: quotation.gpuName,
+      price: quotation.gpuPrice,
+    });
+    setSsdData({
+      cate:'ssd',
+      id: quotation.ssdId,
+      image: quotation.ssdImage,
+      name: quotation.ssdName,
+      price: quotation.ssdPrice,
+    });
+    setRamData({
+      cate:'ram',
+      id: quotation.ramId,
+      image: quotation.ramImage,
+      name: quotation.ramName,
+      price: quotation.ramPrice,
+    });
+    setHddData({
+      cate:'hdd',
+      id: quotation.hddId,
+      image: quotation.hddImage,
+      name: quotation.hddName,
+      price: quotation.hddPrice,
+    });
+    setMainboardData({
+      cate:'mainboard',
+      id: quotation.mainboardId,
+      image: quotation.mainboardImage,
+      name: quotation.mainboardName,
+      price: quotation.mainboardPrice,
+    });
+    setPowerData({
+      cate:'power',
+      id: quotation.powerId,
+      image: quotation.powerImage,
+      name: quotation.powerName,
+      price: quotation.powerPrice,
+    });
+    setCoolerData({
+      cate:'cooler',
+      id: quotation.coolerId,
+      image: quotation.coolerImage,
+      name: quotation.coolerName,
+      price: quotation.coolerPrice,
+    });
+    setCaseData({
+      cate:'case',
+      id: quotation.caseId,
+      image: quotation.caseImage,
+      name: quotation.caseName,
+      price: quotation.casePrice,
+    });
+  };
 
   useEffect(() => {
     getQuotationDetail(
       id,
       (response) => {
         const data = response.data.response;
-        console.log(data);
+        // console.log(data);
         setQuotation(data);
       },
       () => {},
     );
-  }, []);
+  }, [id]);
+
+  useEffect(()=>{
+    if(quotation){
+      setData();
+    }
+  },[quotation])
 
   const quotationUpdatebutton = () => {
-    navigate(`/quotation/update/${id}`)
-  }
-
+    navigate(`/quotation/update/${id}`);
+  };
 
   const quotationDeleteHandler = () => {
     deleteQuotation(
@@ -41,106 +134,22 @@ export default function QuotationDetailComponent() {
       <div className="quotation_detail_content">
         <div className="title">{quotation.name}</div>
         <div className="quotation_info_form">
-          <div className="left">
-            <div className="quotation_info_container">
-              <div className="quotation_img">
-                <img src={quotation.caseImage} alt="case_image" />
-              </div>
-              <div className="quotation_info">
-                <div className="parts_name">{quotation.caseName}</div>
-                <div className="parts_price">가격 : {quotation.casePrice} 원</div>
-              </div>
-            </div>
-
-            <div className="quotation_info_container">
-              <div className="quotation_img">
-                <img src={quotation.cpuImage} alt="cpu_image" />
-              </div>
-              <div className="quotation_info">
-                <div className="parts_name">{quotation.cpuName}</div>
-                <div className="parts_price">가격 : {quotation.cpuPrice} 원</div>
-              </div>
-            </div>
-            <div className="quotation_info_container">
-              <div className="quotation_img">
-                <img src={quotation.gpuImage} alt="gpu_image" />
-              </div>
-              <div className="quotation_info">
-                <div className="parts_name">{quotation.gpuName}</div>
-                <div className="parts_price">가격 : {quotation.gpuPrice} 원</div>
-              </div>
-            </div>
-
-            <div className="quotation_info_container">
-              <div className="quotation_img">
-                <img
-                  src={quotation.mainboardImage}
-                  alt="mainboard_image"
-                />
-              </div>
-              <div className="quotation_info">
-                <div className="parts_name">{quotation.mainboardName}</div>
-                <div className="parts_price">
-                  가격 : {quotation.mainboardPrice} 원
+          {partsData.map((data,idx) => {
+            return (
+              <div className="quotation_info_container" key={idx}>
+                <div className="quotation_img">
+                  <img src={data.image} alt={data.name} />
+                </div>
+                <div className="quotation_info">
+                  <div className="parts_name">{data.name}</div>
+                  <div className="parts_price">가격 : {data.price} 원</div>
                 </div>
               </div>
-            </div>
-
-            <div className="quotation_info_container">
-              <div className="quotation_img">
-                <img src={quotation.ramImage} alt="ram_image" />
-              </div>
-              <div className="quotation_info">
-                <div className="parts_name">{quotation.ramName}</div>
-                <div className="parts_price">가격 : {quotation.ramPrice} 원</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="right">
-            <div className="quotation_info_container">
-              <div className="quotation_img">
-                <img src={quotation.ssdImage} alt="ssd_image" />
-              </div>
-              <div className="quotation_info">
-                <div className="parts_name">{quotation.ssdName}</div>
-                <div className="parts_price">가격 : {quotation.ssdPrice} 원</div>
-              </div>
-            </div>
-
-            <div className="quotation_info_container">
-              <div className="quotation_img">
-                <img src={quotation.hddImage} alt="hdd_image" />
-              </div>
-              <div className="quotation_info">
-                <div className="parts_name">{quotation.hddName}</div>
-                <div className="parts_price">가격 : {quotation.hddPrice} 원</div>
-              </div>
-            </div>
-            <div className="quotation_info_container">
-              <div className="quotation_img">
-                <img src={quotation.coolerImage} alt="cooler_image" />
-              </div>
-              <div className="quotation_info">
-                <div className="parts_name">{quotation.coolerName}</div>
-                <div className="parts_price">
-                  가격 : {quotation.coolerPrice} 원
-                </div>
-              </div>
-            </div>
-            <div className="quotation_info_container">
-              <div className="quotation_img">
-                <img src={quotation.powerImage} alt="power_image" />
-              </div>
-              <div className="quotation_info">
-                <div className="parts_name">{quotation.powerName}</div>
-                <div className="parts_price">가격 : {quotation.powerPrice} 원</div>
-              </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </div>
-      
+
       <div className="footer">
         <div className="total_price">Total: {quotation.totalPrice} 원</div>
         <div className="buttons">
