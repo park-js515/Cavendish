@@ -54,5 +54,19 @@ public class PartBookmarkController {
     ) {
         return CommonResponse.OK(partBookmarkQueryService.findPartBookmarkList(pageable, partCategory, userPrincipal.getId()));
     }
+    
+    @Operation(summary = "부품 북마크 삭제", description = "부품 북마크 삭제")
+    @Parameters({
+            @Parameter(name = "partBookmarkId", description = "삭제할 부품 북마크 아이디")
+    })
+    @DeleteMapping("/delete/{partBookmarkId}")
+    public CommonResponse<Void> partBookmarkRemove(
+            @PathVariable("partBookmarkId") Integer partBookmarkId,
+            @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
+    ) {
+        partBookmarkService.removePartBookmark(partBookmarkId, userPrincipal.getId());
+
+        return CommonResponse.OK(null);
+    }
 
 }
