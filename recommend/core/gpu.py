@@ -26,7 +26,9 @@ from db.connection import engineconn
 engine = engineconn()
 session = engine.sessionmaker()
 
-def gpu_com_cpu(gpu_interface, cpu_pcie_version):
+def gpu_com_cpu(gpu, cpu):
+    gpu_interface = gpu.interface
+    cpu_pcie_version = cpu.pcie_version
     if gpu_interface == None or gpu_interface == "" or cpu_pcie_version == None or cpu_pcie_version == 0:
         return False
     else:
@@ -47,7 +49,9 @@ def gpu_com_cpu(gpu_interface, cpu_pcie_version):
                 return True    
         return False 
 
-def gpu_com_mainboard(gpu_interface, mainboard_vga_connection):
+def gpu_com_mainboard(gpu, mainboard):
+    gpu_interface = gpu.interface
+    mainboard_vga_connection = mainboard.vga_connection
     if mainboard_vga_connection == None or mainboard_vga_connection == "" or gpu_interface == None or gpu_interface == "":
         return False
     else:
@@ -67,7 +71,9 @@ def gpu_com_mainboard(gpu_interface, mainboard_vga_connection):
             return True
         return False    
 
-def gpu_com_case(gpu_length, case_gpu_size):
+def gpu_com_case(gpu, case):
+    gpu_length = gpu.length
+    case_gpu_size = case.gpu_size
     if gpu_length == None or gpu_length == 0 or case_gpu_size == None or case_gpu_size == 0:
         return False
     if gpu_length <= case_gpu_size:
@@ -75,15 +81,18 @@ def gpu_com_case(gpu_length, case_gpu_size):
     else:
         return False
 
-def gpu_com_power(gpu_recommend_power, power_rated_power):
+def gpu_com_power(gpu, power):
+    gpu_recommend_power = gpu.recommend_power
+    power_rated_power = power.rated_power
     if gpu_recommend_power == None or gpu_recommend_power == 0 or power_rated_power == None or power_rated_power == 0:
         return False
     if gpu_recommend_power <= power_rated_power:
         return True
-    else:
-        return False
-    
-def gpu_com_power_port(gpu_pin, pcie_16pin, pcie_8pin, pcie_6pin):
+    gpu_pin = gpu.pin
+    pcie_16pin = power.pcie_16pin
+    pcie_8pin = power.pcie_8pin
+    pcie_6pin = power.pcie_6pin
+
     if gpu_pin == None or gpu_pin == 0:
         return False
     if pcie_16pin == None or pcie_16pin == 0:

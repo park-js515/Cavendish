@@ -41,19 +41,29 @@ async def cpu_search( page: int = 1, keyword: str = "",state: ProcessListStep1 =
                 'compatibility' : [],
             }
             result.append(item)
-
         if state.mainboard != -1:
             mainboard = session.query(Mainboard).filter(Mainboard.id == state.mainboard).first()
-            result = cpu_com_mainboard(result, mainboard)
-        
+            for i in range(len(result)):
+                if cpu_com_mainboard(result[i]['data'], mainboard):
+                    pass
+                else:
+                    result[i]['compatibility'].append('mainboard')
         if state.ram != -1:
             ram = session.query(RAM).filter(RAM.id == state.ram).first()
-            # result = [cpu for cpu in result if cpu.memory_type == ram.memory_type]
-            result = cpu_com_ram(result, ram)
+            for i in range(len(result)):
+
+                if cpu_com_ram(result[i]['data'], ram):
+                    pass
+                else:
+                    result[i]['compatibility'].append('ram')
         
         if state.ssd != -1:
             ssd = session.query(SSD).filter(SSD.id == state.ssd).first()
-            result = cpu_com_ssd(result, ssd)
+            for i in range(len(result)):
+                if cpu_com_ssd(result[i]['data'], ssd):
+                    pass
+                else:
+                    result[i]['compatibility'].append('ssd')
 
         # 전체 개수 반환해줘야함
         result = sorted(result, key=lambda x: len(x["compatibility"]))

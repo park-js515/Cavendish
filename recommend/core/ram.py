@@ -15,7 +15,7 @@ from models.quotation import Quotation
 from models.programs import Program
 from models.power import Power
 
-from .com_data import ram_com
+from .com_data import cpu_com
 from .common import decimal_to_name
 
 from schemas.search import ProcessListStep1
@@ -35,27 +35,29 @@ def decimal_to_name(target, length, check_list):
     
     return result
 
-def ram_com_cpu(ram_generation, cpu_memory_type):
-    if ram_generation in decimal_to_name(cpu_memory_type, len(ram_com['memory_type']), ram_com['memory_type']):
+def ram_com_cpu(ram, cpu):
+    ram_generation = ram.generation
+    cpu_memory_type = cpu.memory_type
+    if ram_generation == None or cpu_memory_type == None:
+        return False
+    if ram_generation in decimal_to_name(cpu_memory_type, len(cpu_com['memory_type']), cpu_com['memory_type']):
         return True
     else:
         return False
 
-def ram_com_mainboard(ram_generation, mainboard_memory_type):
+def ram_com_mainboard(ram, mainboard):
+    ram_generation = ram.generation
+    mainboard_memory_type = mainboard.memory_type
     if ram_generation == mainboard_memory_type:
         return True
-    else:
-        return False
-
-def ram_com_mainboard_xmp(ram_xmp, mainboard_xmp):
+    ram_xmp = ram.xmp
+    mainboard_xmp = mainboard.xmp
     if ram_xmp == 0 or ram_xmp == None:
         return True
     if ram_xmp == mainboard_xmp:
         return True
-    else:
-        return False
-    
-def ram_com_mainboard_expo(ram_expo, mainboard_expo):
+    ram_expo = ram.expo
+    mainboard_expo = mainboard.expo
     if ram_expo == 0 or ram_expo == None:
         return True
     if ram_expo == mainboard_expo:
@@ -63,7 +65,10 @@ def ram_com_mainboard_expo(ram_expo, mainboard_expo):
     else:
         return False
 
-def ram_com_num(ram_capacity, ram_num, mainboard_number, mainboard_memory_capacity):
+def ram_com_num(ram, mainboard, ram_num):
+    ram_capacity = ram.capacity
+    mainboard_number = mainboard.memory_number
+    mainboard_memory_capacity = mainboard.memory_capacity
     if mainboard_number == None or ram_num == None:
         return False
     if mainboard_number >= ram_num:

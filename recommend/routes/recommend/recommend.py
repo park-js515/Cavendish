@@ -29,7 +29,7 @@ from core.com_data import case_com
 from core.common import decimal_to_name
 from core.case import case_com_cooler, case_com_mainboard
 from core.gpu import gpu_com_case
-from core.power import power_com_case, power_com_case_support
+from core.power import power_com_case
 from schemas.case import CaseSchema, serialize_case
 from schemas.cpu import CPUSchema
 from db.connection import engineconn
@@ -81,14 +81,14 @@ async def recommend(state : Recommend_input):
 
     part_num = {
         "cpu" : 0,
-        "mainboard" : 1,
-        "ram" : 2,
-        "gpu" : 3,
-        "ssd" : 4,
+        "mainboard" : 2,
+        "ram" : 3,
+        "gpu" : 4,
+        "ssd" : 6,
         "hdd" : 5,
-        "case" : 6,
-        "power" : 7,
-        "cooler" : 8
+        "case" : 7,
+        "power" : 8,
+        "cooler" : 1
     }
     
     selected_case = None
