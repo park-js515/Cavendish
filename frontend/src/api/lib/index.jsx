@@ -85,6 +85,12 @@ const fapiSearchInstance = () => {
   return instance;
 };
 
+const fapiSearchCategoryInstance = () => {
+  const instance = createFapiAxios(`/search/program`);
+
+  return instance;
+};
+
 const fapiRecommendInstance = () => {
   const instance = createFapiAxios(`/recommend`);
 
@@ -93,12 +99,6 @@ const fapiRecommendInstance = () => {
 
 const fapiPartInstance = () => {
   const instance = createFapiAxios(`/parts`);
-
-  return instance;
-};
-
-const fapiMaxPageInstance = () => {
-  const instance = createFapiAxios(`/maxpage`);
 
   return instance;
 };
@@ -116,7 +116,7 @@ export {
   quotationCustomInstance,
   quotationCustomListInstance,
   fapiSearchInstance,
+  fapiSearchCategoryInstance,
   fapiRecommendInstance,
   fapiPartInstance,
-  fapiMaxPageInstance,
 };

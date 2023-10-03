@@ -1,38 +1,32 @@
 import { useState, useEffect, useRef } from "react";
-import dummyImg from "assets/defaultImgs2/Briar.png";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
 // redux
 import { useDispatch, useSelector } from "react-redux";
 import * as recom from "redux/recommendSlice";
 
-const dummy = [
-  { imgUrl: dummyImg, usage: "pc 게임" },
-  { imgUrl: dummyImg, usage: "인터넷 서핑, 사무, 영상 시청 등" },
-  { imgUrl: dummyImg, usage: "개발" },
-  { imgUrl: dummyImg, usage: "영상 편집 및 특수효과" },
-  { imgUrl: dummyImg, usage: "방송, 스트리밍" },
-  { imgUrl: dummyImg, usage: "포토샵 및 일러스트레이터" },
-  { imgUrl: dummyImg, usage: "2D 및 3D 모델링" },
-  { imgUrl: dummyImg, usage: "비디오 인코딩" },
-  { imgUrl: dummyImg, usage: "음악 작곡 및 편집" },
-];
+// API
+import { searchProgram } from "api/recommend";
 
-const Item = ({ selected, imgUrl, value }) => {
+const Item = ({ selected, id, imgUrl, value }) => {
   const dispatch = useDispatch();
   const list = useSelector((state) => {
     return state.recommend.processList[2][selected];
   });
 
-  const className = list.includes(value) ? "item-active" : "item";
+  const isIncludes = list.some((item) => {
+    return item.id === id;
+  });
+  const className = isIncludes ? "item-active" : "item";
 
   const onClick = () => {
-    if (list.includes(value)) {
-      dispatch(recom.removeProcessList2({ key: selected, value: value }));
+    if (isIncludes) {
+      dispatch(recom.removeProcessList2({ key: selected, id: id }));
     } else {
       dispatch(
         recom.addProcessList2({
           key: selected,
+          id: id,
           value: value,
         }),
       );
@@ -85,11 +79,34 @@ const TopIcons = ({ onClick }) => {
 // 컴포넌트만 존재
 // 컴포넌트 재사용 기존에 존재하던 것
 const Process3_3 = ({ setSubProcess, selected }) => {
-  const [data, setData] = useState(dummy);
+  const [data, setData] = useState([]);
+
   const check = useRef(false);
   useEffect(() => {
     if (check.current) {
+      const propCategory = selected;
+      const propPage = 1;
+      const propParams = {
+        keyword: "",
+      };
+      const propSuccess = (response) => {
+        const { data } = response;
+        const arr = [];
+        data.forEach((item) => {
+          const { id, name, image } = item;
+          arr.push({ id: id, value: name, imgUrl: image });
+        });
+
+        setData([...arr]);
+      };
+      const propFail = (error) => {
+        console.error(error);
+      };
+
+      const props = [propCategory, propPage, propParams, propSuccess, propFail];
+      searchProgram(...props);
     }
+
     return () => {
       if (!check.current) {
         check.current = true;
@@ -106,14 +123,7 @@ const Process3_3 = ({ setSubProcess, selected }) => {
       />
       <div className="proc3-3">
         {data.map((item, index) => {
-          return (
-            <Item
-              key={index}
-              selected={selected}
-              imgUrl={item.imgUrl}
-              value={item.usage}
-            />
-          );
+          return <Item key={index} selected={selected} {...item} />;
         })}
       </div>
     </div>
