@@ -29,18 +29,23 @@ session = engine.sessionmaker()
 def gpu_com_cpu(gpu_interface, cpu_pcie_version):
     if gpu_interface == None or gpu_interface == "" or cpu_pcie_version == None or cpu_pcie_version == 0:
         return False
-    elif gpu_interface[4] == " ":
-        return False
-    elif cpu_pcie_version % 2 == 1:
-        if gpu_interface[4] == "5" or gpu_interface[4] == "4" or gpu_interface[4] == "3":
-            return True
-    elif (cpu_pcie_version / 2) % 2 == 1:
-        if gpu_interface[4] == "4" or gpu_interface[4] == "3":
-            return True
-    elif (cpu_pcie_version / 4) % 2 == 1:
-        if gpu_interface[4] == "3":
-            return True    
-    return False 
+    else:
+        if len(gpu_interface) < 5:
+            return False
+        gpu_i = re.search(r'(\d+\.\d+)', gpu_interface)
+        if gpu_i == None or gpu_i == "":
+            return False
+        gpu_i = int(gpu_i.group(0)[0])
+        if cpu_pcie_version % 2 == 1:
+            if gpu_i >= 3:
+                return True
+        elif (cpu_pcie_version / 2) % 2 == 1:
+            if 3 <= gpu_i <= 4:
+                return True
+        elif (cpu_pcie_version / 4) % 2 == 1:
+            if gpu_i == 3:
+                return True    
+        return False 
 
 def gpu_com_mainboard(gpu_interface, mainboard_vga_connection):
     if mainboard_vga_connection == None or mainboard_vga_connection == "" or gpu_interface == None or gpu_interface == "":
