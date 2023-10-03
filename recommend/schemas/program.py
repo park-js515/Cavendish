@@ -2,17 +2,19 @@ from pydantic import BaseModel
 from typing import Optional, List
 
 class ProgramSchema(BaseModel):
-    id : int
-    name : str
-    usage : str
-    image : str
+    id: int
+    name: str
+    usage: str
+    image: str
+    max_page: int
 
-def serialize_program(program_object):
+def serialize_program(program_object, max_page):
     program_dict = ProgramSchema(
         id=program_object.id,
         name=program_object.name,
         usage=program_object.usage,
-        image=program_object.image
+        image=program_object.image,
+        max_page=max_page
     ).__dict__
 
     return program_dict
