@@ -28,9 +28,22 @@ export default function QuotationPageComponent() {
       </div>
       {quotationList.map((quotation) => {
         return (
-          <div className="quotation_container" key={quotation.quotationId}>
-            <div className="quotation_name">{quotation.name}</div>
-          </div>
+          <Link
+            className="quotation_container"
+            key={quotation.quotationId}
+            to={`/quotation/detail/${quotation.quotationId}`}
+          >
+            <div className="quotation_img">
+              <img src={`${quotation.image}`} alt="" />
+            </div>
+            <div className="quotation_info">
+              <div className="quotation_id">ID : {quotation.quotationId}</div>
+              <div className="quotation_name">{quotation.name}</div>
+              <div className="quotation_price">
+                가격 : {quotation.totalPrice} 원
+              </div>
+            </div>
+          </Link>
         );
       })}
     </div>
