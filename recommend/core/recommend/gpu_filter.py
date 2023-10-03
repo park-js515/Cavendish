@@ -15,7 +15,7 @@ engine = engineconn()
 session = engine.sessionmaker()
 
 def gpu_filter(min_bench, rec_bench, max_bench):
-    whole_gpu = session.query(GPU).filter(GPU.bench_mark != None, GPU.bench_mark != 0).all()
+    whole_gpu = session.query(GPU).filter(GPU.bench_mark != 0, GPU.bench_mark >= min_bench).all()
 
     gpu_count = len(whole_gpu)
     
@@ -48,4 +48,3 @@ def gpu_filter(min_bench, rec_bench, max_bench):
     if max_bench != 0:
         max_percent = max_count / gpu_count * 100
 
-    print(min_percent, rec_percent, max_percent)

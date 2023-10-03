@@ -14,7 +14,7 @@ engine = engineconn()
 session = engine.sessionmaker()
 
 def cpu_filter(min_bench, rec_bench, max_bench):
-    whole_cpu = session.query(CPU).filter(CPU.bench_mark != None, CPU.bench_mark != 0).all()
+    whole_cpu = session.query(CPU).filter(CPU.bench_mark != 0, CPU.bench_mark >= min_bench).all()
     
     cpu_count = len(whole_cpu)
     
@@ -47,4 +47,3 @@ def cpu_filter(min_bench, rec_bench, max_bench):
 
     if max_bench != 0:
         max_percent = max_count / cpu_count * 100
-    print(min_percent, rec_percent, max_percent)
