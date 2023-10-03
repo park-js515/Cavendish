@@ -1,8 +1,9 @@
 from fastapi import FastAPI, APIRouter, Depends, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from sqlalchemy import select, func
 from pydantic import BaseModel
-from typing import List, Optional
+from typing import List, Optional, Dict
 from models.users import User
 from models.hdd import HDD
 from models.cpu import CPU
@@ -20,6 +21,7 @@ from models.programs import Program, Requirements
 from schemas.search import ProcessListStep1
 from schemas.recommend_input import Recommend_input
 
+from core.recommend.priority import *
 from core.recommend.cpu_filter import cpu_filter
 from core.recommend.gpu_filter import gpu_filter
 from core.recommend.ram_filter import ram_filter
@@ -29,6 +31,7 @@ from core.case import case_com_cooler, case_com_mainboard
 from core.gpu import gpu_com_case
 from core.power import power_com_case, power_com_case_support
 from schemas.case import CaseSchema, serialize_case
+from schemas.cpu import CPUSchema
 from db.connection import engineconn
 from schemas.program import ProgramSchema, serialize_program, RequirementsSchema, serialize_requirement
 
@@ -41,6 +44,109 @@ router = APIRouter(
 
 @router.post("/quotation")
 async def recommend(state : Recommend_input):
+    budget = state.budget
+
+    quotation = [0 for i in range(9)]
+
+    case_list = session.query(Case).filter(Case.price != None, Case.price != 0).all()
+
+    case_price = 0
+
+    for item in case_list:
+        case_price += item.price
+
+    gpu_list = session.query(GPU).filter(GPU.price != None, GPU.price != 0).all()
+
+    gpu_price = 0
+
+    for item in gpu_list:
+        gpu_price += item.price
+
+    print(gpu_price/len(gpu_list))
+    print(case_price/len(case_list))
+    part_num = {
+        "cpu" : 0,
+        "mainboard" : 1,
+        "ram" : 2,
+        "gpu" : 3,
+        "ssd" : 4,
+        "hdd" : 5,
+        "case" : 6,
+        "power" : 7,
+        "cooler" : 8
+    }
+
+    if state.case["id"] != -1:
+        if state.case["is_have"] == False:
+            selected_case = session.query(Case).filter(Case.id == state.case["id"]).first()
+            if selected_case.price == None or selected_case.price == 0:
+                pass
+            else:
+                budget -= selected_case.price
+
+    if state.cooler["id"] != -1:
+        if state.cooler["is_have"] == False:
+            selected_cooler = session.query(Cooler).filter(Cooler.id == state.cooler["id"]).first()
+            if selected_cooler.price == None or selected_cooler.price == 0:
+                pass
+            else:
+                budget -= selected_cooler.price
+
+    if state.cpu["id"] != -1:
+        if state.cpu["is_have"] == False:
+            selected_cpu = session.query(CPU).filter(CPU.id == state.cpu["id"]).first()
+            if selected_cpu.price == None or selected_cpu.price == 0:
+                pass
+            else:
+                budget -= selected_cpu.price
+
+    if state.gpu["id"] != -1:
+        if state.gpu["is_have"] == False:
+            selected_gpu = session.query(GPU).filter(GPU.id == state.gpu["id"]).first()
+            if selected_gpu.price == None or selected_gpu.price == 0:
+                pass
+            else:
+                budget -= selected_gpu.price
+
+    if state.hdd["id"] != -1:
+        if state.hdd["is_have"] == False:
+            selected_hdd = session.query(HDD).filter(HDD.id == state.hdd["id"]).first()
+            if selected_hdd.price == None or selected_hdd.price == 0:
+                pass
+            else:
+                budget -= selected_hdd.price
+
+    if state.mainboard["id"] != -1:
+        if state.case["is_have"] == False:
+            selected_mainboard = session.query(Mainboard).filter(Mainboard.id == state.mainboard["id"]).first()
+            if selected_mainboard.price == None or selected_mainboard.price == 0:
+                pass
+            else:
+                budget -= selected_mainboard.price
+
+    if state.power["id"] != -1:
+        if state.power["is_have"] == False:
+            selected_power = session.query(Power).filter(Power.id == state.power["id"]).first()
+            if selected_power.price == None or selected_power.price == 0:
+                pass
+            else:
+                budget -= selected_power.price
+
+    if state.ram["id"] != -1:
+        if state.ram["is_have"] == False:
+            selected_ram = session.query(RAM).filter(RAM.id == state.ram["id"]).first()
+            if selected_ram.price == None or selected_ram.price == 0:
+                pass
+            else:
+                budget -= selected_ram.price
+
+    if state.ssd["id"] != -1:
+        if state.ssd["is_have"] == False:
+            selected_ssd = session.query(SSD).filter(SSD.id == state.ssd["id"]).first()
+            if selected_ssd.price == None or selected_ssd.price == 0:
+                pass
+            else:
+                budget -= selected_ssd.price
 
     if "성능" in state.priority and "가성비" in state.priority:
         pass
@@ -102,8 +208,30 @@ async def recommend(state : Recommend_input):
 
     ram_filter(min_ram_capa, rec_ram_capa, max_ram_capa)
 
+    for idx, name in enumerate(state.priority):
+        if name == "성능":
+            perform_pri(idx)
+        elif name == "가성비":
+            ce_pri(idx)
+        elif name == "A/S":
+            as_pri(idx)
+        elif name == "감성":
+            sense_pri(idx)
+        elif name == "소음":
+            noise_pri(idx)
+        elif name == "저장공간":
+            storage_pri(idx)
 
 
+
+
+
+    try:
+        return JSONResponse(content=[], status_code=200)
+    except Exception as e:
+        return JSONResponse(content={"error" : "bad request", "message" : f"{e}"}, status_code=400)
+    finally:
+        session.close()
     # if state.cpu != -1:
     #     cpu = session.query(CPU).filter(cpu.id == state.cpu).first()
 
@@ -130,11 +258,3 @@ async def recommend(state : Recommend_input):
     
     # if state.ssd != -1:
     #     ssd = session.query(SSD).filter(ssd.id == state.ssd).first()
-
-
-    try:
-        return JSONResponse(content=[], status_code=200)
-    except Exception as e:
-        return JSONResponse(content={"error" : "bad request", "message" : f"{e}"}, status_code=400)
-    finally:
-        session.close()
