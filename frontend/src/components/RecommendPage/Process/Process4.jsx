@@ -5,8 +5,6 @@ import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import * as recom from "redux/recommendSlice";
 
-const dummyBudget = 120;
-
 const BudgetComponent = ({ value, setValue }) => {
   const onChange = (event) => {
     const inputValue = event.target.value;
@@ -57,6 +55,14 @@ const TopIcons = ({ onClick1 }) => {
   );
 };
 
+const PartCheck = ({ index, name, value, id, imgUrl, is_have }) => {
+  const Btn = () => {
+    return <></>;
+  };
+
+  return <></>;
+};
+
 const SubmitBtn = ({ onClick }) => {
   return (
     <div className="submitBtn" onClick={onClick}>
@@ -69,6 +75,9 @@ const SubmitBtn = ({ onClick }) => {
 // 최소 예산
 const Process4 = ({ className }) => {
   const dispatch = useDispatch();
+  const processList0 = useSelector((state) => {
+    return state.recommend.processList[0];
+  });
   const [budget, setBudget] = useState(0);
 
   return (
@@ -83,16 +92,25 @@ const Process4 = ({ className }) => {
           <div className="proc4-wrapper-left">
             <div className="upper">예산을 입력해주세요.</div>
             <div className="lower">
-              <div>
-                <div style={{ display: "flex", justifyContent: "center" }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <div style={{ display: "flex" }}>
                   <BudgetComponent value={budget} setValue={setBudget} />
                   <p>만원</p>
                 </div>
-                <div className="budget-recom">{`권장되는 최소 예산은 ${dummyBudget}만원 이상입니다.`}</div>
               </div>
             </div>
           </div>
-          <div className="proc4-wrapper-right"></div>
+          <div className="proc4-wrapper-right">
+            {processList0.map((item, index) => {
+              return <div key={index}>{item.value}</div>;
+            })}
+          </div>
         </div>
         <div className="submitBtn-wrapper">
           <SubmitBtn

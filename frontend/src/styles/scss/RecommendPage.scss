@@ -661,6 +661,8 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
               flex-direction: row;
 
               &-left {
+                height: 100%;
+                width: 50%;
                 .upper {
                   height: 50%;
                   width: 100%;
@@ -691,8 +693,10 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
               }
 
               &-right {
-                height: calc(80% - 20px);
-                width: 100%;
+                box-sizing: border-box;
+                height: 100%;
+                width: 50%;
+                border-left: 1.5px dashed black;
               }
             }
 
