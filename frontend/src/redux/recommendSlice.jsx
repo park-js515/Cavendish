@@ -24,7 +24,7 @@ const initialState_origin = {
     // process4: 예산 선택 (단위: 만원)
     { budget: 0 },
     // process5: 우선순위 선택
-    { priority1: "", priority2: "", priority3: "" },
+    {},
   ],
 };
 

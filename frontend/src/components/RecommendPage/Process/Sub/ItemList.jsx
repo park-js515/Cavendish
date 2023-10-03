@@ -13,6 +13,9 @@ import * as recom from "redux/recommendSlice";
 // API
 import { searchPart } from "api/recommend";
 
+// defaultImg3
+import noDataImg from "assets/defaultImgs3/no-search-data.png";
+
 const Item = ({ imgUrl, name, id, compatibility, style }) => {
   const dispatch = useDispatch();
   const selected = useSelector((state) => {
@@ -364,6 +367,12 @@ const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
         {data.map((item, index) => {
           return <Item key={index} {...item} />;
         })}
+        {data.length === 0 ? (
+          <div
+            className="no-data"
+            style={{ backgroundImage: `url(${noDataImg})` }}
+          ></div>
+        ) : null}
       </div>
       <Pagenate {...footerProps} />
     </div>

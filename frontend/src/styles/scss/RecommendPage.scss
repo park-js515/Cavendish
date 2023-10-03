@@ -213,6 +213,8 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
                 justify-content: space-evenly;
                 align-items: center;
                 flex-wrap: wrap;
+                height: calc(100% - 20px);
+                width: 100%;
 
                 .item {
                   box-sizing: border-box;
@@ -283,6 +285,14 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
                   &:hover {
                     border: 2px solid white;
                   }
+                }
+
+                .no-data {
+                  height: 100%;
+                  width: 100%;
+                  background-size: auto;
+                  background-repeat: no-repeat;
+                  background-position: center;
                 }
               }
 

@@ -97,14 +97,12 @@ const Process5 = ({ className }) => {
           <div className="submitBtn-wrapper">
             <SubmitBtn
               onClick={() => {
-                const text = `priority`;
-                const priority = {};
-                for (let i = 0; i < selectedOptions.length; i++) {
-                  // priority[`${text}${i + 1}`] = selectedOptions[i].label;
-                  // priority[`${text}${i + 1}`] = selectedOptions[i].value;
-                  priority[`${text}${i + 1}`] = selectedOptions[i].label;
-                }
-                dispatch(recom.setProcess(priority));
+                const arr = [];
+                selectedOptions.forEach((item) => {
+                  arr.push(item.value);
+                });
+
+                dispatch(recom.setProcess(arr));
                 dispatch(recom.setProcessNo(4));
               }}
             />

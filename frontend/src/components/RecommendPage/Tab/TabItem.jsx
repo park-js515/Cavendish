@@ -244,7 +244,9 @@ const TabItem = ({ className, title, index }) => {
       <div>
         {Object.keys(data).map((key) => {
           return (
-            <div key={key} className="wrapper2">{`${key}: ${data[key]}`}</div>
+            <div key={key} className="wrapper2">{`우선순위${key + 1}: ${
+              data[key]
+            }`}</div>
           );
         })}
       </div>

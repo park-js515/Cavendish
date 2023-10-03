@@ -148,7 +148,7 @@ const Process4 = ({ className }) => {
             <div className="title">보유 여부 확인</div>
             <div className="part-check-wrapper">
               {processList0.map((item, index) => {
-                return <PartCheck index={index} {...item} />;
+                return <PartCheck key={index} index={index} {...item} />;
               })}
             </div>
           </div>
