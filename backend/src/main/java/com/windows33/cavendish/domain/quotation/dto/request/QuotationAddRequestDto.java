@@ -9,15 +9,42 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class QuotationAddRequestDto {
 
-    private Integer cpuId;
-    private Integer powerId;
-    private Integer mainboardId;
-    private Integer ramId;
-    private Integer graphicId;
-    private Integer hddId;
-    private Integer ssdId;
-    private Integer caseId;
-    private Integer coolerId;
     private String name;
+
+    // cpu
+    private Integer cpuId;
+    private Boolean hasCpu;
+
+    // power
+    private Integer powerId;
+    private Boolean hasPower;
+
+    // mainboard
+    private Integer mainboardId;
+    private Boolean hasMainboard;
+
+    // ram
+    private Integer ramId;
+    private Boolean hasRam;
+
+    // gpu
+    private Integer gpuId;
+    private Boolean hasGpu;
+
+    // hdd
+    private Integer hddId;
+    private Boolean hasHdd;
+
+    // ssd
+    private Integer ssdId;
+    private Boolean hasSsd;
+
+    // case
+    private Integer caseId;
+    private Boolean hasCase;
+
+    // cooler
+    private Integer coolerId;
+    private Boolean hasCooler;
 
 }

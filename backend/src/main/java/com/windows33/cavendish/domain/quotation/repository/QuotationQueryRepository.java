@@ -81,8 +81,15 @@ public class QuotationQueryRepository {
     }
 
     public QuotationDetailResponseDto findQuotationDetail(Integer quotationId) {
+        Integer state = jpaQueryFactory
+                .select(quotation.state)
+                .from(quotation)
+                .where(quotation.id.eq(quotationId))
+                .fetchOne();
+
         QuotationDetailResponseDto quotationDetailResponseDto = jpaQueryFactory
                 .select(Projections.constructor(QuotationDetailResponseDto.class,
+                        quotation.id,
                         quotation.name,
 
                         // cpu
@@ -90,54 +97,63 @@ public class QuotationQueryRepository {
                         cpu.name,
                         cpu.price,
                         cpu.image,
+                        Expressions.asBoolean(calBitToHasPart(0, state)),
 
                         // gpu
                         quotation.gpuId,
                         gpu.name,
                         gpu.price,
                         gpu.image,
+                        Expressions.asBoolean(calBitToHasPart(1, state)),
 
                         // ram
                         quotation.ramId,
                         ram.name,
                         ram.price,
                         ram.image,
+                        Expressions.asBoolean(calBitToHasPart(2, state)),
 
                         // hdd
                         quotation.hddId,
                         hdd.name,
                         hdd.price,
                         hdd.image,
+                        Expressions.asBoolean(calBitToHasPart(3, state)),
 
                         // ssd
                         quotation.ssdId,
                         ssd.name,
                         ssd.price,
                         ssd.image,
+                        Expressions.asBoolean(calBitToHasPart(4, state)),
 
                         // power
                         quotation.powerId,
                         power.name,
                         power.price,
                         power.image,
+                        Expressions.asBoolean(calBitToHasPart(5, state)),
 
                         // mainboard
                         quotation.mainboardId,
                         mainboard.name,
                         mainboard.price,
                         mainboard.image,
+                        Expressions.asBoolean(calBitToHasPart(6, state)),
 
                         // cooler
                         quotation.coolerId,
                         cooler.name,
                         cooler.price,
                         cooler.image,
+                        Expressions.asBoolean(calBitToHasPart(7, state)),
 
                         // case
                         quotation.caseId,
                         computerCase.name,
                         computerCase.price,
                         computerCase.image,
+                        Expressions.asBoolean(calBitToHasPart(8, state)),
 
                         Expressions.asNumber(0),
                         quotation.createDateTime
@@ -235,6 +251,14 @@ public class QuotationQueryRepository {
                 .fetchOne();
 
         return (cpuPrice == null ? 0 : cpuPrice) + (gpuPrice == null ? 0 : gpuPrice) + (ramPrice == null ? 0 : ramPrice) + (hddPrice == null ? 0 : hddPrice) + (ssdPrice == null ? 0 : ssdPrice) + (powerPrice == null ? 0 : powerPrice) + (mainboardPrice == null ? 0 : mainboardPrice) + (coolerPrice == null ? 0 : coolerPrice) + (computerCasePrice == null ? 0 : computerCasePrice);
+    }
+
+    private Boolean calBitToHasPart(Integer partCategory, Integer state) {
+        if ((state & (1 << partCategory)) == 1 << partCategory) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
