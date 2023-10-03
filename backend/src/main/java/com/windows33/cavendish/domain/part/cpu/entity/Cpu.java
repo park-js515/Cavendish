@@ -1,4 +1,4 @@
-package com.windows33.cavendish.domain.part.entity;
+package com.windows33.cavendish.domain.part.cpu.entity;
 
 import com.windows33.cavendish.global.entity.PartCommonEntity;
 import lombok.Getter;
