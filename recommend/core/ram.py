@@ -64,6 +64,8 @@ def ram_com_mainboard_expo(ram_expo, mainboard_expo):
         return False
 
 def ram_com_num(ram_capacity, ram_num, mainboard_number, mainboard_memory_capacity):
+    if mainboard_number == None or ram_num == None:
+        return False
     if mainboard_number >= ram_num:
         if mainboard_memory_capacity >= ram_capacity * ram_num:
             return True
