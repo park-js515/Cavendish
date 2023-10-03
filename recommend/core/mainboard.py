@@ -89,13 +89,17 @@ def mainboard_com_case(target, check):
 
 
 def mainboard_com_ram(target, check, ram_num):
+    if check.number == None or target['data'].memory_number == None or check.capacity == None or target['data'].memory_capacity == None:
+        target['compatibility'].append('ram')
+        return
+
     if check.generation != target['data'].memory_type:
         target['compatibility'].append('ram')
 
     elif check.number * ram_num > target['data'].memory_number:
         target['compatibility'].append('ram')
 
-    elif check.capacity * check.number * ram_num > target['data'].memory_capacity:
+    elif check.capacity * check.number * ram_num > float(target['data'].memory_capacity):
         target['compatibility'].append('ram')
 
 
