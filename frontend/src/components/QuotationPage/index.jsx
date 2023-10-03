@@ -21,10 +21,10 @@ export default function QuotationPageComponent() {
     <div className="quotation_page">
       <div className="quotation_header">
         <div className="title">견적서</div>
-        <Link type="button" className="create_button" to="/quotation/create">
+        {/* <Link type="button" className="create_button" to="/quotation/create">
           {" "}
           생성하기
-        </Link>
+        </Link> */}
       </div>
       {quotationList.map((quotation) => {
         return (

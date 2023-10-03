@@ -21,6 +21,11 @@ export default function QuotationDetailComponent() {
     );
   }, []);
 
+  const quotationUpdatebutton = () => {
+    navigate(`/quotation/update/${id}`)
+  }
+
+
   const quotationDeleteHandler = () => {
     deleteQuotation(
       id,
@@ -39,7 +44,7 @@ export default function QuotationDetailComponent() {
           <div className="left">
             <div className="quotation_info_container">
               <div className="quotation_img">
-                <img src={`${quotation.caseImage}`} alt="case_image" />
+                <img src={quotation.caseImage} alt="case_image" />
               </div>
               <div className="quotation_info">
                 <div className="parts_name">{quotation.caseName}</div>
@@ -49,7 +54,7 @@ export default function QuotationDetailComponent() {
 
             <div className="quotation_info_container">
               <div className="quotation_img">
-                <img src={`${quotation.cpuImage}`} alt="cpu_image" />
+                <img src={quotation.cpuImage} alt="cpu_image" />
               </div>
               <div className="quotation_info">
                 <div className="parts_name">{quotation.cpuName}</div>
@@ -58,7 +63,7 @@ export default function QuotationDetailComponent() {
             </div>
             <div className="quotation_info_container">
               <div className="quotation_img">
-                <img src={`${quotation.gpuImage}`} alt="gpu_image" />
+                <img src={quotation.gpuImage} alt="gpu_image" />
               </div>
               <div className="quotation_info">
                 <div className="parts_name">{quotation.gpuName}</div>
@@ -69,7 +74,7 @@ export default function QuotationDetailComponent() {
             <div className="quotation_info_container">
               <div className="quotation_img">
                 <img
-                  src={`${quotation.mainboardImage}`}
+                  src={quotation.mainboardImage}
                   alt="mainboard_image"
                 />
               </div>
@@ -83,7 +88,7 @@ export default function QuotationDetailComponent() {
 
             <div className="quotation_info_container">
               <div className="quotation_img">
-                <img src={`${quotation.ramImage}`} alt="ram_image" />
+                <img src={quotation.ramImage} alt="ram_image" />
               </div>
               <div className="quotation_info">
                 <div className="parts_name">{quotation.ramName}</div>
@@ -95,7 +100,7 @@ export default function QuotationDetailComponent() {
           <div className="right">
             <div className="quotation_info_container">
               <div className="quotation_img">
-                <img src={`${quotation.ssdImage}`} alt="ssd_image" />
+                <img src={quotation.ssdImage} alt="ssd_image" />
               </div>
               <div className="quotation_info">
                 <div className="parts_name">{quotation.ssdName}</div>
@@ -105,7 +110,7 @@ export default function QuotationDetailComponent() {
 
             <div className="quotation_info_container">
               <div className="quotation_img">
-                <img src={`${quotation.hddImage}`} alt="hdd_image" />
+                <img src={quotation.hddImage} alt="hdd_image" />
               </div>
               <div className="quotation_info">
                 <div className="parts_name">{quotation.hddName}</div>
@@ -114,7 +119,7 @@ export default function QuotationDetailComponent() {
             </div>
             <div className="quotation_info_container">
               <div className="quotation_img">
-                <img src={`${quotation.coolerImage}`} alt="cooler_image" />
+                <img src={quotation.coolerImage} alt="cooler_image" />
               </div>
               <div className="quotation_info">
                 <div className="parts_name">{quotation.coolerName}</div>
@@ -125,7 +130,7 @@ export default function QuotationDetailComponent() {
             </div>
             <div className="quotation_info_container">
               <div className="quotation_img">
-                <img src={`${quotation.powerImage}`} alt="power_image" />
+                <img src={quotation.powerImage} alt="power_image" />
               </div>
               <div className="quotation_info">
                 <div className="parts_name">{quotation.powerName}</div>
@@ -135,11 +140,13 @@ export default function QuotationDetailComponent() {
           </div>
         </div>
       </div>
+      
       <div className="footer">
         <div className="total_price">Total: {quotation.totalPrice} 원</div>
         <div className="buttons">
+          <button onClick={quotationUpdatebutton}>수정하기</button>
           <button onClick={() => navigate(-1)}>돌아가기</button>
-          <button onClick={quotationDeleteHandler}>삭제</button>
+          <button onClick={quotationDeleteHandler}>삭제하기</button>
         </div>
       </div>
     </div>
