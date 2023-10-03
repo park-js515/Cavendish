@@ -32,6 +32,60 @@ const CancelBtn = () => {
   );
 };
 
+const CustomAiFillPlusCircle = ({ style, ...props }) => {
+  const [col, setCol] = useState("black");
+
+  return (
+    <AiFillMinusCircle
+      {...props}
+      color={col}
+      onMouseEnter={() => {
+        setCol("red");
+      }}
+      onMouseLeave={() => {
+        setCol("black");
+      }}
+      style={{ ...style }}
+    />
+  );
+};
+
+const CustomAiFillMinusCircle = ({ style, ...props }) => {
+  const [col, setCol] = useState("black");
+
+  return (
+    <AiFillMinusCircle
+      {...props}
+      color={col}
+      onMouseEnter={() => {
+        setCol("red");
+      }}
+      onMouseLeave={() => {
+        setCol("black");
+      }}
+      style={{ ...style }}
+    />
+  );
+};
+
+const CustomBsFillTrash3Fill = ({ style, ...props }) => {
+  const [col, setCol] = useState("black");
+
+  return (
+    <BsFillTrash3Fill
+      {...props}
+      color={col}
+      onMouseEnter={() => {
+        setCol("red");
+      }}
+      onMouseLeave={() => {
+        setCol("black");
+      }}
+      style={{ ...style }}
+    />
+  );
+};
+
 // pos < 0: 이미 선택된 것
 // pos === -1: 취소 가능하게 할 것
 // pos === 0: 현재 선택 중
@@ -52,11 +106,6 @@ const TabItem = ({ className, title, index }) => {
       dispatch(recom.setRamNo(ret));
     };
 
-    const [col1, setCol1] = useState("black");
-    const [col2, setCol2] = useState("black");
-    const [col3, setCol3] = useState("black");
-    const [col4, setCol4] = useState("black");
-
     return (
       <div>
         {data.map((item, index) => {
@@ -67,43 +116,28 @@ const TabItem = ({ className, title, index }) => {
                 style={{ fontWeight: "bolder" }}
               >{`(${recommend.ramNo})`}</span>
               <div className="wrapper2">
-                <AiFillMinusCircle
+                <CustomAiFillMinusCircle
                   size="20"
-                  color={col1}
                   onClick={() => {
                     handleRam(-1);
                   }}
-                  onMouseEnter={() => {
-                    setCol1("red");
-                  }}
-                  onMouseLeave={() => {
-                    setCol1("black");
-                  }}
                   style={{
                     cursor: "pointer",
                     transition: "all 200ms ease-in-out",
                   }}
                 />
-                <AiFillPlusCircle
+                <CustomAiFillPlusCircle
                   size="20"
-                  color={col2}
                   onClick={() => {
                     handleRam(1);
                   }}
-                  onMouseEnter={() => {
-                    setCol2("red");
-                  }}
-                  onMouseLeave={() => {
-                    setCol2("black");
-                  }}
                   style={{
                     cursor: "pointer",
                     transition: "all 200ms ease-in-out",
                   }}
                 />
-                <BsFillTrash3Fill
+                <CustomBsFillTrash3Fill
                   size="15"
-                  color={col3}
                   onClick={() => {
                     dispatch(
                       recom.removeProcessList0({
@@ -111,12 +145,6 @@ const TabItem = ({ className, title, index }) => {
                       }),
                     );
                     dispatch(recom.setRamNo(0));
-                  }}
-                  onMouseEnter={() => {
-                    setCol3("red");
-                  }}
-                  onMouseLeave={() => {
-                    setCol3("black");
                   }}
                   style={{
                     cursor: "pointer",
@@ -129,21 +157,14 @@ const TabItem = ({ className, title, index }) => {
             <div className="wrapper2" key={index}>
               {`${item.name}: ${item.value}`}
               <div className="wrapper2">
-                <BsFillTrash3Fill
+                <CustomBsFillTrash3Fill
                   size="15"
-                  color={col4}
                   onClick={() => {
                     dispatch(
                       recom.removeProcessList0({
                         index: index,
                       }),
                     );
-                  }}
-                  onMouseEnter={() => {
-                    setCol4("red");
-                  }}
-                  onMouseLeave={() => {
-                    setCol4("black");
                   }}
                   style={{ cursor: "pointer" }}
                 />

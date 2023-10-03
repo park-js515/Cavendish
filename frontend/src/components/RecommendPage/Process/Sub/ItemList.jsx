@@ -57,9 +57,20 @@ const Item = ({ imgUrl, name, id, compatibility, style }) => {
         ></div>
         {disabled ? (
           <div className="disabledList">
-            <div>호환되지 않은 부품</div>
+            <div style={{ fontWeight: "bolder" }}>호환되지 않은 부품</div>
             {compatibility.map((item, index) => {
-              return <div key={index}>{item}</div>;
+              return (
+                <div
+                  key={index}
+                  style={{
+                    color: "red",
+                    fontSize: "15px",
+                    fontWeight: "bolder",
+                  }}
+                >
+                  {item}
+                </div>
+              );
             })}
           </div>
         ) : null}
