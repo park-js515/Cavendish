@@ -299,8 +299,6 @@ public class PartBookmarkQueryRepository {
             for (Sort.Order order : pageable.getSort()) {
                 Order direction = order.getDirection().isAscending() ? Order.ASC : Order.DESC;
                 switch (order.getProperty()) {
-                    case "name":
-                        return new OrderSpecifier(direction, partBookmark.name);
                     case "createDateTime":
                         return new OrderSpecifier(direction, partBookmark.createDateTime);
                     case "price":
