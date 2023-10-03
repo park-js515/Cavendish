@@ -31,6 +31,8 @@ def power_com_ssd(power_sata, ssd_interface):
     return True
 
 def power_com_case(power_depth, case_power_size):
+    if power_depth == None or case_power_size == None:
+        return False
     if power_depth + 20 <= case_power_size:
         return True
     return False
