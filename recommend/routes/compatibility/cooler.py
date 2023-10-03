@@ -48,13 +48,10 @@ async def cooler_search(page: int = 1, keyword: str = "", state: ProcessListStep
             }
             result.append(item)
 
-        if state.cpu != -1:
-            cpu = session.query(CPU).filter(CPU.id == state.cpu).first()
-
         if state.case != -1:
             case = session.query(Case).filter(Case.id == state.case).first()
             for i in range(len(result)):
-                if case_com_cooler(case.cpu_cooler_size, case.liquid_cooler, case.radiator_top, case.radiator_front, case.radiator_rear, case.radiator_side, result[i]['data'].category, result[i]['data'].height, result[i]['data'].cooling_type, result[i]['data'].fan_size, result[i]['data'].fan_count):
+                if case_com_cooler(case, result[i]['data']):
                     pass
                 else:
                     result[i]['compatibility'].append('case')

@@ -41,17 +41,27 @@ async def ssd_search(page: int = 1, keyword: str = "", state: ProcessListStep1 =
         if state.mainboard != -1:
             mainboard = session.query(Mainboard).filter(Mainboard.id == state.mainboard).first()
             for target in result:
-                ssd_com_mainboard(target, mainboard)
+                if ssd_com_mainboard(target['data'], mainboard):
+                    pass
+                else:
+                    target['compatibility'].append('mainboard')
 
         if state.power != -1:
             power = session.query(Power).filter(Power.id == state.power).first()
             for target in result:
-                ssd_com_power(target, power)
+                if ssd_com_power(target['data'], power):
+                    pass
+                else:
+                    target['compatibility'].append('power')
 
         if state.cpu != -1:
             cpu = session.query(CPU).filter(CPU.id == state.cpu).first()
             for target in result:
-                ssd_com_cpu(target, cpu)
+                if ssd_com_cpu(target['data'], cpu):
+                    pass
+                else:
+                    target['compatibility'].append('cpu')
+            
 
         result = sorted(result, key=lambda x: len(x['compatibility']))
         for i, item in enumerate(result):

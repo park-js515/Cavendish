@@ -27,7 +27,12 @@ engine = engineconn()
 session = engine.sessionmaker()
 
 
-def mainboard_com_cpu(mainboard_cpu_socket, mainboard_pcie_version, cpu_socket, cpu_pcie_version):
+def mainboard_com_cpu(mainboard, cpu):
+    mainboard_cpu_socket = mainboard.cpu_socket
+    mainboard_pcie_version = mainboard.pcie_version
+    cpu_socket = cpu.socket
+    cpu_pcie_version = cpu.pcie_version
+
     if cpu_socket != mainboard_cpu_socket:
         return False
 
