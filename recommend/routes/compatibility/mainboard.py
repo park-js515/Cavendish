@@ -50,32 +50,46 @@ async def mainboard_search(page: int = 1, keyword: str = "", state: ProcessListS
             # cpu 소켓
             cpu = session.query(CPU).filter(CPU.id == state.cpu).first()
             for target in result:
-                mainboard_com_cpu(target, cpu)
+                if mainboard_com_cpu(target['data'], cpu):
+                    pass
+                else:
+                    target['compatibility'].append('cpu')
 
         if state.case != -1:
             # 폼팩터 크기
             case = session.query(Case).filter(Case.id == state.case).first()
             for target in result:
-                mainboard_com_case(target, case)
+                if mainboard_com_case(target['data'], case):
+                    pass
+                else:
+                    target['compatibility'].append('case')
 
         if state.ram != -1:
             # 램 타입, 램 개수, xmp, expo
             ram = session.query(RAM).filter(RAM.id == state.ram).first()
             for target in result:
-                mainboard_com_ram(target, ram, state.ram_num)
+                if mainboard_com_ram(target['data'], ram, state.ram_num):
+                    pass
+                else:
+                    target['compatibility'].append('ram')
 
         if state.ssd != -1:
             # ssd 타입, ssd 개수,
             ssd = session.query(SSD).filter(SSD.id == state.ssd).first()
             for target in result:
-                mainboard_com_ssd(target, ssd)
+                if mainboard_com_ssd(target['data'], ssd):
+                    pass
+                else:
+                    target['compatibility'].append('ssd')
 
         if state.gpu != -1:
             # 그래픽카드 인터페이스
             gpu = session.query(GPU).filter(GPU.id == state.gpu).first()
             for target in result:
-                mainboard_com_gpu(target, gpu)
-
+                if mainboard_com_gpu(target['data'], gpu):
+                    pass
+                else:
+                    target['compatibility'].append('gpu')
         result = sorted(result, key=lambda x: len(x['compatibility']))
 
         for i, item in enumerate(result):

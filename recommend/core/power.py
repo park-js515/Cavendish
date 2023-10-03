@@ -22,7 +22,9 @@ from schemas.search import ProcessListStep1
 
 from db.connection import engineconn
 
-def power_com_ssd(power_sata, ssd_interface):
+def power_com_ssd(power, ssd):
+    power_sata = power.sata
+    ssd_interface = ssd.interface
     if ssd_interface == None or ssd_interface == "":
         return False
     if ssd_interface[0] == "S":
@@ -30,14 +32,16 @@ def power_com_ssd(power_sata, ssd_interface):
             return False
     return True
 
-def power_com_case(power_depth, case_power_size):
+def power_com_case(power, case):
+    power_depth = power.depth
+    case_power_size = case.power_size
     if power_depth == None or case_power_size == None:
         return False
     if power_depth + 20 <= case_power_size:
         return True
-    return False
 
-def power_com_case_support(power_category, case_power_support):
+    power_category = power.category
+    case_power_support = case.power_support
     if case_power_support == None or case_power_support == "" or power_category == None or power_category == "":
         return False
     if power_category == "ATX 파워":

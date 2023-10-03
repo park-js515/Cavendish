@@ -7,7 +7,7 @@ from models.gpu import GPU
 from models.case import Case
 from models.power import Power
 
-from core.gpu import gpu_com_case, gpu_com_cpu, gpu_com_mainboard, gpu_com_power, gpu_com_power_port
+from core.gpu import gpu_com_case, gpu_com_cpu, gpu_com_mainboard, gpu_com_power
 from core.common import decimal_to_name
 from core.com_data import gpu_com
 from schemas.search import ProcessListStep1
@@ -41,14 +41,14 @@ async def gpu_search( page: int = 1, keyword: str = "", state: ProcessListStep1 
         if state.cpu != -1:
             cpu = session.query(CPU).filter(CPU.id == state.cpu).first()
             for i in range(len(result)):
-                if gpu_com_cpu(result[i]['data'].interface, cpu.pcie_version):
+                if gpu_com_cpu(result[i]['data'], cpu):
                     continue
                 else:
                     result[i]['compatibility'].append('cpu')
         if state.mainboard != -1:
             mainboard = session.query(Mainboard).filter(Mainboard.id == state.mainboard).first()
             for i in range(len(result)):
-                if gpu_com_mainboard(result[i]['data'].interface, mainboard.vga_connection):
+                if gpu_com_mainboard(result[i]['data'], mainboard):
                     continue
                 else:
                     result[i]['compatibility'].append('mainboard')
@@ -56,20 +56,15 @@ async def gpu_search( page: int = 1, keyword: str = "", state: ProcessListStep1 
             
             power = session.query(Power).filter(Power.id == state.power).first()
             for i in range(len(result)):
-                if gpu_com_power(result[i]['data'].recommend_power, power.rated_power):
+                if gpu_com_power(result[i]['data'], power):
                     pass
                 else:
                     result[i]['compatibility'].append('power')
-                    continue
-                if gpu_com_power_port(result[i]['data'].pin, power.pcie_16pin, power.pcie_8pin, power.pcie_6pin):
-                    pass
-                else:
-                    result[i]['compatibility'].append('power')
-                    
+
         if state.case != -1:
             for i in range(len(result)):
                 case = session.query(Case).filter(Case.id == state.case).first()
-                if gpu_com_case(result[i]['data'].length, case.gpu_size):
+                if gpu_com_case(result[i]['data'], case):
                     continue
                 else:
                     result[i]['compatibility'].append('case')

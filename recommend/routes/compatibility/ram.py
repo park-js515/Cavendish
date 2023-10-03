@@ -8,7 +8,7 @@ from models.ram import RAM
 from schemas.ram import RAMSchema, serialize_ram
 
 from schemas.search import ProcessListStep1
-from core.ram import ram_com_cpu, ram_com_mainboard, ram_com_mainboard_expo, ram_com_mainboard_xmp, ram_com_num
+from core.ram import ram_com_cpu, ram_com_mainboard, ram_com_num
 from core.com_data import ram_com
 from core.common import decimal_to_name
 
@@ -41,8 +41,8 @@ async def ram_search(page: int = 1, keyword: str = "", state: ProcessListStep1 =
 
         if state.cpu != -1:
             cpu = session.query(CPU).filter(CPU.id == state.cpu).first()
-            for i in range(len(ram)):
-                if ram_com_cpu(ram[i].generation, cpu.memory_type):
+            for i in range(len(result)):
+                if ram_com_cpu(result[i]['data'], cpu):
                     continue
                 else:
                     result[i]['compatibility'].append('cpu')
@@ -50,12 +50,12 @@ async def ram_search(page: int = 1, keyword: str = "", state: ProcessListStep1 =
         if state.mainboard != -1:
             mainboard = session.query(Mainboard).filter(Mainboard.id == state.mainboard).first()
             for i in range(len(result)):
-                if ram_com_mainboard(result[i]['data'].generation, mainboard.memory_type):
+                if ram_com_mainboard(result[i]['data'], mainboard):
                     pass
                 else:
                     result[i]['compatibility'].append('mainboard')
                     continue
-                if ram_com_num(ram[i].capacity, state.ram_num, mainboard.memory_number, mainboard.memory_capacity):
+                if ram_com_num(ram[i], mainboard, state.ram_num):
                     pass
                 else:
                     result[i]['compatibility'].append('mainboard')

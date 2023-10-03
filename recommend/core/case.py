@@ -23,9 +23,21 @@ from schemas.search import ProcessListStep1
 from db.connection import engineconn
 
 engine = engineconn()
-session = engine.sessionmaker()\
+session = engine.sessionmaker()
 
-def case_com_cooler(case_cpu_cooler_size, case_liquid_cooler, case_radiator_top, case_radiator_front, case_radiator_rear, case_radiator_side, cooler_category, cooler_height, cooler_cooling_type, cooler_fan_size, cooler_fan_count):
+def case_com_cooler(case, cooler):
+    case_cpu_cooler_size = case.cpu_cooler_size
+    case_liquid_cooler = case.liquid_cooler
+    case_radiator_top = case.radiator_top
+    case_radiator_front = case.radiator_front
+    case_radiator_rear = case.radiator_rear
+    case_radiator_side = case.radiator_side
+    cooler_category = cooler.category
+    cooler_height = cooler.height
+    cooler_cooling_type = cooler.cooling_type
+    cooler_fan_size = cooler.fan_size
+    cooler_fan_count = cooler.fan_count
+
     if cooler_category != 'CPU 쿨러':
         return False
     if cooler_height == None or cooler_height == 0:
@@ -64,7 +76,9 @@ def case_com_cooler(case_cpu_cooler_size, case_liquid_cooler, case_radiator_top,
 
     return False
 
-def case_com_mainboard(case_board_support, mainboard_form_factor):
+def case_com_mainboard(case, mainboard):
+    case_board_support = case.board_support
+    mainboard_form_factor = mainboard.form_factor
     if case_board_support == None or case_board_support == 0:
         return False
 
