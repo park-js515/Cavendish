@@ -23,7 +23,7 @@ from core.com_data import case_com
 from core.common import decimal_to_name
 from core.case import case_com_cooler, case_com_mainboard
 from core.gpu import gpu_com_case
-from core.power import power_com_case, power_com_case_support
+from core.power import power_com_case
 from schemas.case import CaseSchema, serialize_case
 from db.connection import engineconn
 from schemas.program import ProgramSchema, serialize_program

@@ -22,7 +22,7 @@ from core.com_data import case_com
 from core.common import decimal_to_name
 from core.case import case_com_cooler, case_com_mainboard
 from core.gpu import gpu_com_case
-from core.power import power_com_case, power_com_case_support
+from core.power import power_com_case
 from schemas.case import CaseSchema, serialize_case
 from db.connection import engineconn
 
@@ -52,7 +52,7 @@ async def case_search(page: int = 1, keyword: str = "", state: ProcessListStep1 
         if state.gpu != -1:
             gpu = session.query(GPU).filter(GPU.id == state.gpu).first()
             for i in range(len(result)):
-                if gpu_com_case(gpu.length, result[i]['data'].gpu_size):
+                if gpu_com_case(gpu, result[i]['data']):
                     pass
                 else:
                     result[i]['compatibility'].append('gpu')
@@ -60,12 +60,7 @@ async def case_search(page: int = 1, keyword: str = "", state: ProcessListStep1 
         if state.power != -1:
             power = session.query(Power).filter(Power.id == state.power).first()
             for i in range(len(result)):
-                if power_com_case(power.depth, result[i]['data'].power_size):
-                    pass
-                else:
-                    result[i]['compatibility'].append('power')
-                    continue
-                if power_com_case_support(power.category, result[i]['data'].power_support):
+                if power_com_case(power, result[i]['data']):
                     pass
                 else:
                     result[i]['compatibility'].append('power')
@@ -73,7 +68,7 @@ async def case_search(page: int = 1, keyword: str = "", state: ProcessListStep1 
         if state.mainboard != -1:
             mainboard = session.query(Mainboard).filter(Mainboard.id == state.mainboard).first()
             for i in range(len(result)):
-                if case_com_mainboard(result[i]['data'].board_support, mainboard.form_factor):
+                if case_com_mainboard(result[i]['data'], mainboard):
                     pass
                 else:
                     result[i]['compatibility'].append('mainboard') 
@@ -81,7 +76,7 @@ async def case_search(page: int = 1, keyword: str = "", state: ProcessListStep1 
         if state.cooler != -1:
             cooler = session.query(Cooler).filter(Cooler.id == state.cooler).first()
             for i in range(len(result)):
-                if case_com_cooler(result[i]['data'].cpu_cooler_size, result[i]['data'].liquid_cooler, result[i]['data'].radiator_top, result[i]['data'].radiator_front, result[i]['data'].radiator_rear, result[i]['data'].radiator_side, cooler.category, cooler.height, cooler.cooling_type, cooler.fan_size, cooler.fan_count):
+                if case_com_cooler(result[i]['data'], cooler):
                     pass
                 else:
                     result[i]['compatibility'].append('cooler')

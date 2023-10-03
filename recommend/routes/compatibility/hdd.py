@@ -39,12 +39,18 @@ async def hdd_search(page: int=1, keyword: str="", state: ProcessListStep1 = Dep
         if state.mainboard != -1:
             mainboard = session.query(Mainboard).filter(Mainboard.id == state.mainboard).first()
             for target in result:
-                hdd_com_mainboard(target, mainboard)
+                if hdd_com_mainboard(target['data'], mainboard):
+                    pass
+                else:
+                    target['compatibility'].append('mainboard')
 
         if state.case != -1:
             case = session.query(Case).filter(Case.id == state.case).first()
             for target in result:
-                hdd_com_case(target, case)
+                if hdd_com_case(target['data'], case):
+                    pass
+                else:
+                    target['compatibility'].append('case')
 
         result = sorted(result, key=lambda x: len(x['compatibility']))
         for i, item in enumerate(result):

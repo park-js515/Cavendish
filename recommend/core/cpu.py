@@ -25,98 +25,74 @@ from db.connection import engineconn
 engine = engineconn()
 session = engine.sessionmaker()
 
-def cpu_com_mainboard(target, check):
+def cpu_com_mainboard(cpu, mainboard):
     check_len = len(cpu_com['pcie_version'])
     result = []
-    for item in target:
-        if check.cpu_socket != item['data'].socket:
-            item['compatibility'].append('mainboard')
+    
+    if mainboard.cpu_socket != cpu.socket:
+        return False
 
-        elif check.pcie_version == 0 or item['data'].pcie_version == 0 or item['data'].pcie_version == None:
-            item['compatibility'].append('mainboard')
-        # 메인보드 pcie 버전 3.0
-        elif 4 <= check.pcie_version and check.pcie_version <=7:
-            if (item['data'].pcie_version / 4) % 2 == 1:
-                pass
-            else:
-                item['compatibility'].append('mainboard')
-            # item['data'].pcie_version = decimal_to_name(item['data'].pcie_version, check_len, cpu_com['pcie_version'])
+    elif mainboard.pcie_version == 0 or cpu.pcie_version == 0 or cpu.pcie_version == None:
+        return False
+    # 메인보드 pcie 버전 3.0
+    elif 4 <= mainboard.pcie_version and mainboard.pcie_version <=7:
+        if (cpu.pcie_version / 4) % 2 == 1:
+            return True
+        else:
+            return False
+        # cpu.pcie_version = decimal_to_name(cpu.pcie_version, mainboard_len, cpu_com['pcie_version'])
 
-        # 메인보드 pcie 버전 4.0
-        elif 8 <= check.pcie_version and check.pcie_version <= 15:
-            if  (item['data'].pcie_version / 2) % 2 == 1 or (item['data'].pcie_version / 4) % 2 == 1:
-                pass
-            else:
-                item['compatibility'].append('mainboard')
-            # item['data'].pcie_version = decimal_to_name(item['data'].pcie_version, check_len, cpu_com['pcie_version'])
+    # 메인보드 pcie 버전 4.0
+    elif 8 <= mainboard.pcie_version and mainboard.pcie_version <= 15:
+        if  (cpu.pcie_version / 2) % 2 == 1 or (cpu.pcie_version / 4) % 2 == 1:
+            return True
+        else:
+            return False
+        # cpu.pcie_version = decimal_to_name(cpu.pcie_version, mainboard_len, cpu_com['pcie_version'])
 
-        # 메인보드 pcie 버전 5.0    
-        elif 16 <= check.pcie_version:
-            if item['data'].pcie_version % 2 == 1 or (item['data'].pcie_version / 2) % 2 == 1 or (item['data'].pcie_version / 4) % 2 == 1:
-                pass
-            else:
-                item['compatibility'].append('mainboard')
-            # item['data'].pcie_version = decimal_to_name(item['data'].pcie_version, check_len, cpu_com['pcie_version'])
-        result.append(item)
+    # 메인보드 pcie 버전 5.0    
+    elif 16 <= mainboard.pcie_version:
+        if cpu.pcie_version % 2 == 1 or (cpu.pcie_version / 2) % 2 == 1 or (cpu.pcie_version / 4) % 2 == 1:
+            return True
+        else:
+            return False
+        # item['data'].pcie_version = decimal_to_name(item['data'].pcie_version, mainboard_len, cpu_com['pcie_version'])
+    
 
-    return result
+    return True
 
-def cpu_com_ram(target, check):
+def cpu_com_ram(cpu, ram):
     check_len = len(cpu_com['memory_type'])
     result = []
-    for item in target:
-        if item['data'].memory_type == None or item['data'].memory_type == 0:
-            item['compatibility'].append('ram')
-            result.append(item)
-            continue
-        # item['data'].memory_type = decimal_to_name(item['data'].memory_type, check_len, cpu_com['memory_type'])
-        if check.generation in decimal_to_name(item['data'].memory_type, check_len, cpu_com['memory_type']):
-            pass
+    if cpu.memory_type == None or cpu.memory_type == 0:
+        return False
+    # cpu.memory_type = decimal_to_name(cpu.memory_type, check_len, cpu_com['memory_type'])
+    if ram.generation in decimal_to_name(cpu.memory_type, check_len, cpu_com['memory_type']):
+        return True
+    else:
+        return False
+
+def cpu_com_ssd(cpu, ssd):
+
+    if cpu.pcie_version == None or cpu.pcie_version == 0:
+        return False
+    # ssd pcie 버전 3.0
+    if ssd.interface[5] == '3':
+        if cpu.pcie_version % 2 == 1 or (cpu.pcie_version / 2) % 2 == 1 or (cpu.pcie_version / 4) % 2 == 1:
+            return True
         else:
-            item['compatibility'].append('ram')
-        result.append(item)
-    return result
-
-def cpu_com_ssd(target, check):
-    check_len = len(cpu_com['pcie_version'])
-    result = []
-
-    for item in target:
-        if item['data'].pcie_version == None or item['data'].pcie_version == 0:
-            item['compatibility'].append('ssd')
-            result.append(item)
-            continue
-        # ssd pcie 버전 3.0
-        if check.interface[5] == '3':
-            if item['data'].pcie_version % 2 == 1 or (item['data'].pcie_version / 2) % 2 == 1 or (item['data'].pcie_version / 4) % 2 == 1:
-                pass
-            else:
-                item['compatibility'].append('ssd')
-        # ssd pcie 버전 4.0
-        elif check.interface[5] == '4':
-            if  item['data'].pcie_version % 2 == 1 or (item['data'].pcie_version / 2) % 2 == 1:
-                pass
-            else:
-                item['compatibility'].append('ssd')
-        # ssd pcie 버전 5.0
-        elif check.interface[5] == '5':
-            if  item['data'].pcie_version % 2 == 1:
-                pass
-            else:
-                item['compatibility'].append('ssd')
-        result.append(item)
+            return False
+    # ssd pcie 버전 4.0
+    elif ssd.interface[5] == '4':
+        if  cpu.pcie_version % 2 == 1 or (cpu.pcie_version / 2) % 2 == 1:
+            return True
+        else:
+            return False
+    # ssd pcie 버전 5.0
+    elif ssd.interface[5] == '5':
+        if  cpu.pcie_version % 2 == 1:
+            return True
+        else:
+            return False
     
-    return result
-            
-        
-
-    
-# def cpu_com_hdd(target, check):
-#     check_len = len(cpu_com['pcie_version'])
-#     result = []
-
-#     for item in target:
-#         if item['item'].pcie_version == None or item['data'].pcie_version == 0:
-#             item['compatibility'] = False
-#             result.append(item)
-#             continue
+    return True

@@ -9,8 +9,8 @@ from models.power import Power
 
 from schemas.search import ProcessListStep1
 from schemas.power import PowerSchema, serialize_power
-from core.gpu import gpu_com_power, gpu_com_power_port
-from core.power import power_com_ssd, power_com_case, power_com_case_support
+from core.gpu import gpu_com_power
+from core.power import power_com_ssd, power_com_case
 from core.com_data import power_com
 from core.common import decimal_to_name
 
@@ -41,15 +41,11 @@ async def power_search( page: int = 1, keyword: str = "", state: ProcessListStep
         if state.gpu != -1:
             gpu = session.query(GPU).filter(GPU.id == state.gpu).first()
             for i in range(len(result)):
-                if gpu_com_power(gpu.recommend_power, result[i]['data'].rated_power):
+                if gpu_com_power(gpu, result[i]['data']):
                     pass
                 else:
                     result[i]['compatibility'].append('gpu')
-                    continue
-                if gpu_com_power_port(gpu.pin, result[i]['data'].pcie_16pin, result[i]['data'].pcie_8pin, result[i]['data'].pcie_6pin):
-                    pass
-                else:
-                    result[i]['compatibility'].append('gpu')
+
 
         if state.case != -1:
             case = session.query(Case).filter(Case.id == state.case).first()
@@ -57,12 +53,7 @@ async def power_search( page: int = 1, keyword: str = "", state: ProcessListStep
                 if case.power_included != '파워미포함' and case.power_included != None and case.power_included != '':
                     result[i]['compatibility'].append('case')
                     continue                   
-                if power_com_case(result[i]['data'].depth, case.power_size):
-                    pass
-                else:
-                    result[i]['compatibility'].append('case')
-                    continue
-                if power_com_case_support(result[i]['data'].category, case.power_support):
+                if power_com_case(result[i]['data'], case):
                     pass
                 else:
                     result[i]['compatibility'].append('case')
@@ -70,7 +61,7 @@ async def power_search( page: int = 1, keyword: str = "", state: ProcessListStep
         if state.ssd != -1:
             ssd = session.query(SSD).filter(SSD.id == state.ssd).first()    
             for i in range(len(result)):
-                if power_com_ssd(result[i]['data'].sata, ssd.interface):
+                if power_com_ssd(result[i]['data'], ssd):
                     pass
                 else:
                     result[i]['compatibility'].append('ssd')
