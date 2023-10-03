@@ -42,9 +42,10 @@ async def search_program(category : str, page : int = 1, keyword : str = ""):
     try:
         if page > max_page:
             return JSONResponse(content={"error" : "bad request", "message" : "page is too big"}, status_code=400)
-        program = program[(page - 1) * 10 : page * 10]
+        if max_page > 2:
+            program = program[(page - 1) * 10 : page * 10]
         for i in range(len(program)):
-            program[i] = serialize_program(program[i])
+            program[i] = serialize_program(program[i], max_page)
 
         return JSONResponse(content=program, status_code=200)
     except Exception as e:
