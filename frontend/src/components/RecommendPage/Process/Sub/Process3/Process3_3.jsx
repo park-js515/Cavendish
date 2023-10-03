@@ -100,7 +100,7 @@ const Process3_3 = ({ setSubProcess, selected }) => {
         setData([...arr]);
       };
       const propFail = (error) => {
-        console.log(error);
+        console.error(error);
       };
 
       const props = [propCategory, propPage, propParams, propSuccess, propFail];

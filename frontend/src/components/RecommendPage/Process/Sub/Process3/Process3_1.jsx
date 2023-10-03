@@ -135,7 +135,7 @@ const Process3_1 = ({ setSubProcess, setSelected }) => {
           const onClick = () => {
             setSelected(item);
 
-            if (item === "게임") {
+            if (["게임", "이미지 편집", "모델링"].includes(item)) {
               setSubProcess(1);
             } else {
               setSubProcess(2);

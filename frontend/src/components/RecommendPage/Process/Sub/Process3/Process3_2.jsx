@@ -15,19 +15,52 @@ import * as recom from "redux/recommendSlice";
 // API
 import { searchProgram } from "api/recommend";
 
-const Item = ({ imgUrl, value, selected }) => {
+// defaultImgs2
+import gameImg from "assets/defaultImgs2/default_game.png";
+import officeImg from "assets/defaultImgs2/default_office.png";
+import developImg from "assets/defaultImgs2/default_develop.png";
+import videoEditImg from "assets/defaultImgs2/default_videoEdit.png";
+import broadcastImg from "assets/defaultImgs2/default_broadcast.png";
+import imgEditImg from "assets/defaultImgs2/default_imgEdit.png";
+import modelingImg from "assets/defaultImgs2/default_modeling.png";
+import encodingImg from "assets/defaultImgs2/default_encoding.png";
+import musicImg from "assets/defaultImgs2/default_music.png";
+
+const defaultImgList = [
+  { imgUrl: gameImg, usage: "게임" },
+  { imgUrl: officeImg, usage: "사무" },
+  { imgUrl: developImg, usage: "개발" },
+  { imgUrl: videoEditImg, usage: "영상 편집" },
+  { imgUrl: broadcastImg, usage: "방송" },
+  { imgUrl: imgEditImg, usage: "이미지 편집" },
+  { imgUrl: modelingImg, usage: "모델링" },
+  { imgUrl: encodingImg, usage: "인코딩" },
+  { imgUrl: musicImg, usage: "음악 작업" },
+];
+
+const Item = ({ selected, id, imgUrl, value }) => {
   const dispatch = useDispatch();
   const list = useSelector((state) => {
     return state.recommend.processList[2][selected];
   });
 
-  const className = list.includes(value) ? "item-active" : "item";
+  const defaultImg = () => {
+    const index = defaultImgList.findIndex((item) => {
+      return item.usage === selected;
+    });
+
+    return defaultImgList[index].imgUrl;
+  };
+  const isIncludes = list.some((item) => {
+    return item.id === id;
+  });
+  const className = isIncludes ? "item-active" : "item";
 
   const onClick = () => {
-    if (list.includes(value)) {
-      dispatch(recom.removeProcessList2({ key: selected, value: value }));
+    if (isIncludes) {
+      dispatch(recom.removeProcessList2({ key: selected, id: id }));
     } else {
-      dispatch(recom.addProcessList2({ key: selected, value: value }));
+      dispatch(recom.addProcessList2({ key: selected, id: id, value: value }));
     }
   };
 
@@ -36,7 +69,7 @@ const Item = ({ imgUrl, value, selected }) => {
       <div
         className="item-top"
         style={{
-          backgroundImage: `url(${imgUrl})`,
+          backgroundImage: `url(${imgUrl ? imgUrl : defaultImg()})`,
         }}
       ></div>
       <div className="item-bot">{value}</div>
@@ -94,6 +127,7 @@ const SearchComponent = ({ selected, value, setValue, setDoSearch }) => {
         onChange={onChange}
         className="search"
         placeholder={`${selected}명을 입력하세요!`}
+        autoComplete="off"
         onKeyDown={(event) => {
           if (event.key === "Enter") {
             setDoSearch(true);
@@ -242,9 +276,67 @@ const Process3_2 = ({ setSubProcess, selected }) => {
   }, []);
 
   // 페이지가 바뀌거나 검색어가 바뀌었을 때의 호출
-  // useEffect(() => {
-  //   if (check1.current) {}
-  // }, [page, doSearch]);
+  useEffect(() => {
+    const fn1 = () => {
+      const propCategory = selected;
+      const propPage = page;
+      const propParams = { keyword: nowSearchText };
+      const propSuccess = (response) => {
+        const { data } = response;
+        const arr = [];
+        data.forEach((item) => {
+          const { id, name, image } = item;
+          arr.push({ id: id, value: name, imgUrl: image });
+        });
+
+        setData([...arr]);
+      };
+      const propFail = (error) => {
+        console.error(error);
+      };
+
+      const props = [propCategory, propPage, propParams, propSuccess, propFail];
+      searchProgram(...props);
+    };
+
+    const fn2 = () => {
+      const propCategory = selected;
+      const propPage = 1;
+      const propParams = { keyword: text };
+      const propSuccess = (response) => {
+        const { data } = response;
+        const arr = [];
+        data.forEach((item) => {
+          const { id, name, image } = item;
+          arr.push({ id: id, value: name, imgUrl: image });
+        });
+
+        setData([...arr]);
+      };
+      const propFail = (error) => {
+        console.error(error);
+      };
+
+      const props = [propCategory, propPage, propParams, propSuccess, propFail];
+      searchProgram(...props);
+
+      setDoSearch(false);
+      setPage(1);
+      setNowSearchText(text);
+
+      // 검색 결과에 따른 최대 페이지 수 지정이 필요함.
+      // API가 필요함
+    };
+
+    if (check1.current) {
+      if (doSearch) {
+        fn2();
+        return;
+      }
+
+      fn1();
+    }
+  }, [page, doSearch]);
 
   const handlePage = (value) => {
     setPage(value);
@@ -302,14 +394,7 @@ const Process3_2 = ({ setSubProcess, selected }) => {
         />
         <div className="item-wrapper">
           {data.map((item, index) => {
-            return (
-              <Item
-                key={index}
-                selected={selected}
-                imgUrl={item.imgUrl}
-                value={item.value}
-              />
-            );
+            return <Item key={index} selected={selected} {...item} />;
           })}
         </div>
         <Pagenate {...footerProps} />
