@@ -40,7 +40,6 @@ public class Quotation {
 
     private String name;
 
-    @Column(insertable = false)
     private Integer state;
 
     @Convert(converter = DateToStringConverter.class)
@@ -61,7 +60,8 @@ public class Quotation {
             Integer mainboardId,
             Integer coolerId,
             Integer caseId,
-            String name
+            String name,
+            Integer state
     ) {
         this.cpuId = cpuId;
         this.gpuId = gpuId;
@@ -73,6 +73,7 @@ public class Quotation {
         this.coolerId = coolerId;
         this.caseId = caseId;
         this.name = name;
+        this.state = state;
     }
 
 }
