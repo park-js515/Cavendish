@@ -18,8 +18,6 @@ public class PartBookmark {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String name;
-
     private Integer userId;
 
     private Integer partCategory;

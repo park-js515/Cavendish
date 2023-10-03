@@ -6,4 +6,6 @@ public interface PartBookmarkService {
 
     Integer addPartBookmark(PartBookmarkAddRequestDto partBookmarkAddRequestDto, Integer userId);
 
+    void removePartBookmark(Integer partBookmarkId, Integer userId);
+
 }
