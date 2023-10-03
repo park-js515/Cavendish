@@ -14,6 +14,7 @@ from models.ssd import SSD
 from models.quotation import Quotation
 from models.programs import Program
 from models.power import Power
+import re
 
 from .com_data import ram_com
 from .common import decimal_to_name
@@ -44,13 +45,22 @@ def gpu_com_cpu(gpu_interface, cpu_pcie_version):
 def gpu_com_mainboard(gpu_interface, mainboard_vga_connection):
     if mainboard_vga_connection == None or mainboard_vga_connection == "" or gpu_interface == None or gpu_interface == "":
         return False
-    elif mainboard_vga_connection[4] == " ":
-        if gpu_interface[4] == " ":
-            return True 
-    elif int(mainboard_vga_connection[4]) >= int(gpu_interface[4]):
-        return True
-    
-    return False
+    else:
+        if len(gpu_interface) < 5 or len(mainboard_vga_connection) < 5:
+            return False
+        gpu_i = re.search(r'(\d+\.\d+)', gpu_interface)
+        mb_vc = re.search(r'(\d+\.\d+)', mainboard_vga_connection)
+        if gpu_i == None or gpu_i == "":
+            if mb_vc == None or mb_vc == "":
+                return True
+            return False
+        
+        gpu_i = int(gpu_i.group(0)[0])
+        mb_vc = int(mb_vc.group(0)[0])
+
+        if mb_vc >= gpu_i:
+            return True
+        return False    
 
 def gpu_com_case(gpu_length, case_gpu_size):
     if gpu_length == None or gpu_length == 0 or case_gpu_size == None or case_gpu_size == 0:
