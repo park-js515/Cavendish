@@ -28,6 +28,7 @@ from routes.compatibility.ssd import router as ssd_router
 from routes.compatibility.power import router as power_router
 from routes.recommend.search_program import router as program_router
 from routes.recommend.recommend import router as recommend_router
+from routes.recommend.recommendation import router as recommendation_router
 from routes.recommend.parts_detail import router as parts_detail_router
 
 from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
@@ -76,7 +77,8 @@ routers = [
     power_router,
     program_router,
     recommend_router,
-    parts_detail_router
+    parts_detail_router,
+    recommendation_router
 ]
 
 engine = engineconn()

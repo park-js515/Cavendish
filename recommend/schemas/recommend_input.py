@@ -22,3 +22,15 @@ class Recommend_input(BaseModel):
     # priority3: str = ""
     # processNo: Optional[Dict] = {'id' : -1, 'is_have' : False}
     # processList: List[ProcessListStep1, ProcessListStep2, ProcessListStep3, ProcessListStep4, ProcessListStep5]
+
+class recommend_quotations(BaseModel):
+    case: int = -1
+    cooler: int = -1
+    cpu: int = -1
+    gpu: int = -1
+    hdd: int = -1
+    mainboard: int = -1
+    power: int = -1
+    ram: int = -1
+    ssd: int = -1
+    ram_num: int = -1
