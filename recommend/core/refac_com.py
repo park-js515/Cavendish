@@ -50,104 +50,50 @@ def mainboard_com_cpu(mainboard_cpu_socket, mainboard_pcie_version, cpu_socket, 
             return False
 
 
-def mainboard_com_case(target , cpu):
-    mb_ff = target['data'].form_factor
-    case_bs = check.board_support
-    if mb_ff is None:
-        target['compatibility'].append('case')
-
-    elif 'E-ATX' in mb_ff:
-        if case_bs & (1 << 0) == 0:
-            target['compatibility'].append('case')
-
-    elif 'ATX' in mb_ff:
-        if case_bs & (1 << 1) == 0:
-            target['compatibility'].append('case')
-
-    elif 'M-ATX' in mb_ff:
-        if case_bs & (1 << 2) == 0:
-            target['compatibility'].append('case')
-
-    elif 'M-iTX' in mb_ff:
-        if case_bs & (1 << 5) == 0:
-            target['compatibility'].append('case')
-
-    elif 'CEB' in mb_ff:
-        if case_bs & (1 << 6) == 0:
-            target['compatibility'].append('case')
-
-    elif 'EEB' in mb_ff:
-        if case_bs & (1 << 7) == 0:
-            target['compatibility'].append('case')
-
-    elif 'M-DTX' in mb_ff:
-        if case_bs & (1 << 8) == 0:
-            target['compatibility'].append('case')
-
-    else:
-        target['compatibility'].append('case need check')
 
 
-def mainboard_com_ram(target, check, ram_num):
-    if check.generation != target['data'].memory_type:
-        target['compatibility'].append('ram')
-
-    elif check.number * ram_num > target['data'].memory_number:
-        target['compatibility'].append('ram')
-
-    elif check.capacity * check.number * ram_num > target['data'].memory_capacity:
-        target['compatibility'].append('ram')
-
-
-def mainboard_com_ssd(target, check):
-    ssd_ff = check.form_factor
-    ssd_if = check.interface
-    mb_m2i = target['data'].m2_interface
+def mainboard_com_ssd(mainboard_sata3_number, mainboard_m2_formfactor, mainboard_m2_number, mainboard_m2_interface, ssd_form_factor, ssd_interface, ssd_protocol):
+    ssd_ff = ssd_form_factor
+    ssd_if = ssd_interface
+    mb_m2i = mainboard_m2_interface
 
     if ssd_ff is None:
-        target['compatibility'].append('ssd')
-
+        return False
+    
     elif ssd_ff.startswith('M.2'):
-        if target['data'].m2_number is None:
-            target['compatibility'].append('ssd')
-            return
+        if mainboard_m2_number is None:
+            return False
 
-        ssd_protocol = check.protocol
         if ssd_protocol is None and mb_m2i & (1 << 1) == 0:
-            target['compatibility'].append('ssd')
-            return
+            return False
 
         ssd_m2 = ssd_ff[ssd_ff.index('22'):-1]
-        mb_m2 = target['data'].m2_formfactor
+        mb_m2 = mainboard_m2_formfactor
         if ssd_m2 == '2280':
             if mb_m2 & (1 << 3) == 0:
-                target['compatibility'].append('ssd')
+                return False
         elif ssd_m2 == '2230':
             if mb_m2 & (1 << 0) == 0:
-                target['compatibility'].append('ssd')
+                return False
         elif ssd_m2 == '2242':
             if mb_m2 & (1 << 1) == 0:
-                target['compatibility'].append('ssd')
+                return False
         elif ssd_m2 == '22110':
             if mb_m2 & (1 << 5) == 0:
-                target['compatibility'].append('ssd')
+                return False
 
     elif ssd_ff.startswith('6.4') or ssd_ff.startswith('4.6'):
-        if target['data'].sata3_number is None:
-            target['compatibility'].append('ssd')
-            return
+        if mainboard_sata3_number is None:
+            return False
 
     else:
-        target['compatibility'].append('ssd need check')
-        return
+        return False
 
     if ssd_if is None:
-        target['compatibility'].append('ssd')
-
+        return False
     elif ssd_if.startswith('SATA'):
         if mb_m2i & (1 << 0) == 0:
-            target['compatibility'].append('ssd')
-
+            return False
     elif ssd_if.startswith('PCI'):
         if ssd_if.startswith('PCIe5'):
             if target['data'].pcie_version & (1 << 4) == 0:
@@ -164,10 +110,3 @@ def mainboard_com_ssd(target, check):
 
     else:
         target['compatibility'].append('ssd need check')
-
-
-def mainboard_com_gpu(target, check):
-    vga_connection = target['data'].vga_connection.replace(' ', '')
-    interface = check.interface.replace(' ', '')
-    if vga_connection not in interface:
-        target['compatibility'].append('gpu')

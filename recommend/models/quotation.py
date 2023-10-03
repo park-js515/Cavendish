@@ -7,7 +7,7 @@ Base = declarative_base()
 class Quotation(Base):
     __tablename__ = 'quotation'
     id = Column(Integer, primary_key=True)
-    user_id = Column(UUID(as_uuid=True), comment='견적함')
+    user_id = Column(Integer, comment='견적함')
     cpu_id = Column(Integer)
     power_id = Column(Integer)
     mainboard_id = Column(Integer)
@@ -19,4 +19,4 @@ class Quotation(Base):
     cooler_id = Column(Integer)
     name = Column(String(100), comment='견적함')
     state = Column(Integer, comment='비트 마스킹, 견적함')
-    create_date = Column(Date, comment='견적함')
+    create_date_time = Column(Date, comment='견적함')
