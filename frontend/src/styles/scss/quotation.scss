@@ -92,30 +92,29 @@
     }
     .quotation_info_form {
       display: flex;
-      flex-direction: row;
-      .left , .right {
-        .quotation_info_container {
-          display: flex;
-          width: 400px;
-          border: 1px solid gray;
-          border-radius: 1rem;
-          margin: 6px;
-          .quotation_img {
-            img {
-              margin: 10px;
-              width: 80px;
-              border-radius: 1rem;
-            }
-          }
-          .quotation_info {
+      flex-wrap: wrap;
+      gap: 10px;
+
+      .quotation_info_container {
+        flex-basis: calc(50% - 10px);
+        display: flex;
+        border: 1px solid gray;
+        border-radius: 1rem;
+        .quotation_img {
+          img {
             margin: 10px;
-            .parts_name {
-              font-size: 1.1rem;
-              font-weight: 700;
-            }
-            .parts_price {
-              font-weight: 700;
-            }
+            width: 80px;
+            border-radius: 1rem;
+          }
+        }
+        .quotation_info {
+          margin: 10px;
+          .parts_name {
+            font-size: 1.1rem;
+            font-weight: 700;
+          }
+          .parts_price {
+            font-weight: 700;
           }
         }
       }
@@ -129,13 +128,13 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    .total_price{
+    .total_price {
       font-size: 1.2rem;
       font-weight: 700;
     }
-    .buttons{
+    .buttons {
       display: flex;
-      button{
+      button {
         margin: 6px;
         margin-top: 20px;
         padding: 5px 10px;
@@ -145,10 +144,10 @@
 
         font-size: 1.2rem;
         font-weight: 700;
-        &:hover{
+        &:hover {
           opacity: 90%;
           cursor: pointer;
-          background-color: #CCC;
+          background-color: #ccc;
         }
       }
     }

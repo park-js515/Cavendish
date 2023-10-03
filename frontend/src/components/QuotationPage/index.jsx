@@ -11,7 +11,7 @@ export default function QuotationPageComponent() {
       (response) => {
         const data = response.data.response;
         setQuotationList(data.content);
-        console.log(data);
+        // console.log(data);
       },
       () => {},
     );
