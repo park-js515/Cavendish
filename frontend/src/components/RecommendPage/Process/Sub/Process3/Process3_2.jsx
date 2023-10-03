@@ -72,7 +72,9 @@ const Item = ({ selected, id, imgUrl, value }) => {
           backgroundImage: `url(${imgUrl ? imgUrl : defaultImg()})`,
         }}
       ></div>
-      <div className="item-bot">{value}</div>
+      <div className="item-bot">
+        <div className="text">{value}</div>
+      </div>
     </div>
   );
 };

@@ -36,7 +36,7 @@ const CustomAiFillPlusCircle = ({ style, ...props }) => {
   const [col, setCol] = useState("black");
 
   return (
-    <AiFillMinusCircle
+    <AiFillPlusCircle
       {...props}
       color={col}
       onMouseEnter={() => {
@@ -218,8 +218,14 @@ const TabItem = ({ className, title, index }) => {
 
   const TabContent3 = () => {
     const data = recommend.processList[3];
+    const processList0 = recommend.processList[0];
 
-    return <div className="wrapper2">{`${data.budget} 만원`}</div>;
+    return (
+      <div
+        className="wrapper2"
+        style={{ fontWeight: "bolder" }}
+      >{`예산: ${data.budget} 만원`}</div>
+    );
   };
 
   const TabContent4 = () => {

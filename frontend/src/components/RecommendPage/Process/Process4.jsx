@@ -50,7 +50,7 @@ const TopIcons = ({ onClick1 }) => {
         onClick={onClick1}
         style={{
           cursor: "pointer",
-          transition: "all 200ms ease-in-out"
+          transition: "all 200ms ease-in-out",
         }}
       />
     </div>
@@ -58,7 +58,7 @@ const TopIcons = ({ onClick1 }) => {
 };
 
 const SubmitBtn = ({ onClick }) => {
-  return ( 
+  return (
     <div className="submitBtn" onClick={onClick}>
       <AiOutlineArrowRight />
     </div>
@@ -79,15 +79,20 @@ const Process4 = ({ className }) => {
             dispatch(recom.setProcessNo(1));
           }}
         />
-        <div className="upper">예산을 입력해주세요.</div>
-        <div className="lower">
-          <div>
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <BudgetComponent value={budget} setValue={setBudget} />
-              <p>만원</p>
+        <div className="proc4-wrapper">
+          <div className="proc4-wrapper-left">
+            <div className="upper">예산을 입력해주세요.</div>
+            <div className="lower">
+              <div>
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  <BudgetComponent value={budget} setValue={setBudget} />
+                  <p>만원</p>
+                </div>
+                <div className="budget-recom">{`권장되는 최소 예산은 ${dummyBudget}만원 이상입니다.`}</div>
+              </div>
             </div>
-            <div className="budget-recom">{`권장되는 최소 예산은 ${dummyBudget}만원 이상입니다.`}</div>
           </div>
+          <div className="proc4-wrapper-right"></div>
         </div>
         <div className="submitBtn-wrapper">
           <SubmitBtn

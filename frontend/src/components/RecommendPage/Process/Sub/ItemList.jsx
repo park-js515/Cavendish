@@ -75,7 +75,9 @@ const Item = ({ imgUrl, name, id, compatibility, style }) => {
           </div>
         ) : null}
       </div>
-      <div className="text">{name}</div>
+      <div className="text">
+        <div>{name}</div>
+      </div>
     </div>
   );
 };
