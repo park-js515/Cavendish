@@ -14,6 +14,7 @@ class Recommend_input(BaseModel):
     ssd: Optional[Dict] = {'id' : -1, 'is_have' : False}
     ram_num: int = 1
     budget: int = 0
+    usage: List[str] = []
     programs : List[int] = []
     priority: List[str] = []
     # priority1: str = ""

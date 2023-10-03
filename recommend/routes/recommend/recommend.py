@@ -34,6 +34,9 @@ from schemas.case import CaseSchema, serialize_case
 from schemas.cpu import CPUSchema
 from db.connection import engineconn
 from schemas.program import ProgramSchema, serialize_program, RequirementsSchema, serialize_requirement
+from schemas.quotation import QuotationSchema
+
+import math
 
 engine = engineconn()
 session = engine.sessionmaker()
@@ -42,28 +45,40 @@ router = APIRouter(
     prefix="/recommend"
 )
 
-@router.post("/quotation")
+@router.post("/quotation", response_model=QuotationSchema)
 async def recommend(state : Recommend_input):
     budget = state.budget
 
+    # cpu_factor = 0
+    # gpu_factor = 0
+
+    # if "모델링" in state.usage:
+    #     if state.cpu["id"] == -1:
+    #         cpu_factor = 700000 / math.log(budget)
+    #     if state.gpu["id"] == -1:
+    #         gpu_factor = 1000000 / budget
+    # elif "인코딩" in state.usage:
+    #     if state.cpu["id"] == -1:
+    #         cpu_factor = 600000 / budget
+    #     if state.gpu["id"] == -1:
+    #         gpu_factor = 800000 / budget
+    # elif "게임" in state.usage:
+    #     if state.cpu["id"] == -1:
+    #         cpu_factor = 500000 / budget
+    #     if state.gpu["id"] == -1:
+    #         gpu_factor = 700000 / budget
+    # elif "사무" in state.usage:
+    #     if state.cpu["id"] == -1:
+    #         cpu_factor = 400000 / budget
+    #     if state.gpu["id"] == -1:
+    #         gpu_factor = 200000 / budget
+
+    # print(cpu_factor, gpu_factor)
+
     quotation = [0 for i in range(9)]
 
-    case_list = session.query(Case).filter(Case.price != None, Case.price != 0).all()
 
-    case_price = 0
 
-    for item in case_list:
-        case_price += item.price
-
-    gpu_list = session.query(GPU).filter(GPU.price != None, GPU.price != 0).all()
-
-    gpu_price = 0
-
-    for item in gpu_list:
-        gpu_price += item.price
-
-    print(gpu_price/len(gpu_list))
-    print(case_price/len(case_list))
     part_num = {
         "cpu" : 0,
         "mainboard" : 1,
@@ -75,7 +90,28 @@ async def recommend(state : Recommend_input):
         "power" : 7,
         "cooler" : 8
     }
+    
+    selected_case = None
+    selected_cooler = None
+    selected_cpu = None
+    selected_gpu = None
+    selected_hdd = None
+    selected_power = None
+    selected_mainboard = None
+    selected_ram = None
+    selected_ssd = None
 
+    case_list = []
+    cooler_list = []
+    cpu_list = []
+    gpu_list = []
+    hdd_list = []
+    mainboard_list = []
+    power_list = []
+    ram_list = []
+    ssd_list = []
+
+    # 선택한 부품 있을 경우, 선택한 부품을 소지하고 있을 경우
     if state.case["id"] != -1:
         if state.case["is_have"] == False:
             selected_case = session.query(Case).filter(Case.id == state.case["id"]).first()
@@ -147,6 +183,20 @@ async def recommend(state : Recommend_input):
                 pass
             else:
                 budget -= selected_ssd.price
+
+    case_list = session.query(Case).filter(Case.price != None, Case.price != 0).all()
+
+    case_price = 0
+
+    for item in case_list:
+        case_price += item.price
+
+    gpu_list = session.query(GPU).filter(GPU.price != None, GPU.price != 0).all()
+
+    gpu_price = 0
+
+    for item in gpu_list:
+        gpu_price += item.price
 
     if "성능" in state.priority and "가성비" in state.priority:
         pass
@@ -222,16 +272,15 @@ async def recommend(state : Recommend_input):
         elif name == "저장공간":
             storage_pri(idx)
 
-
-
-
-
     try:
         return JSONResponse(content=[], status_code=200)
     except Exception as e:
         return JSONResponse(content={"error" : "bad request", "message" : f"{e}"}, status_code=400)
     finally:
         session.close()
+
+
+
     # if state.cpu != -1:
     #     cpu = session.query(CPU).filter(cpu.id == state.cpu).first()
 
