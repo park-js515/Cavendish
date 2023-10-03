@@ -219,12 +219,21 @@ const TabItem = ({ className, title, index }) => {
   const TabContent3 = () => {
     const data = recommend.processList[3];
     const processList0 = recommend.processList[0];
+    const cnt = processList0.reduce((tot, cur) => {
+      if (cur.is_have) {
+        return tot + 1;
+      }
+      return tot;
+    }, 0);
 
     return (
-      <div
-        className="wrapper2"
-        style={{ fontWeight: "bolder" }}
-      >{`예산: ${data.budget} 만원`}</div>
+      <div>
+        <div
+          className="wrapper2"
+          style={{ fontWeight: "bolder" }}
+        >{`예산: ${data.budget} 만원`}</div>
+        <div className="wrapper2">{`보유 중인 부품 수: ${cnt}`}</div>
+      </div>
     );
   };
 

@@ -5,6 +5,9 @@ import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import * as recom from "redux/recommendSlice";
 
+// defaultImgs3
+import crossImg from "assets/defaultImgs3/cross.png";
+
 const BudgetComponent = ({ value, setValue }) => {
   const onChange = (event) => {
     const inputValue = event.target.value;
@@ -56,11 +59,46 @@ const TopIcons = ({ onClick1 }) => {
 };
 
 const PartCheck = ({ index, name, value, id, imgUrl, is_have }) => {
-  const Btn = () => {
-    return <></>;
+  const dispatch = useDispatch();
+
+  const Btn = ({ disabled }) => {
+    const onClick = () => {
+      if (!disabled) {
+        dispatch(recom.setSelected(index));
+        dispatch(recom.setProcessList0({ is_have: !is_have }));
+      }
+    };
+
+    const btnText = disabled ? "N/A" : is_have ? "보유" : "미보유";
+    const className = disabled
+      ? "btn-disabled"
+      : is_have
+      ? "btn-yes"
+      : "btn-no";
+
+    return (
+      <div className={className} onClick={onClick}>
+        {btnText}
+      </div>
+    );
   };
 
-  return <></>;
+  const disabled = value === "-1" ? true : false;
+  const partName = disabled ? "N/A" : value;
+
+  return (
+    <div className="part-check">
+      <div
+        className="partImg"
+        style={{ backgroundImage: `url(${imgUrl ? imgUrl : crossImg})` }}
+      ></div>
+      <div className="text1">{name}</div>
+      <div className="text2">
+        <div className="inner">{partName}</div>
+      </div>
+      <Btn disabled={disabled} />
+    </div>
+  );
 };
 
 const SubmitBtn = ({ onClick }) => {
@@ -107,9 +145,12 @@ const Process4 = ({ className }) => {
             </div>
           </div>
           <div className="proc4-wrapper-right">
-            {processList0.map((item, index) => {
-              return <div key={index}>{item.value}</div>;
-            })}
+            <div className="title">보유 여부 확인</div>
+            <div className="part-check-wrapper">
+              {processList0.map((item, index) => {
+                return <PartCheck index={index} {...item} />;
+              })}
+            </div>
           </div>
         </div>
         <div className="submitBtn-wrapper">

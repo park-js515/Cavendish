@@ -26,6 +26,9 @@ import modelingImg from "assets/defaultImgs2/default_modeling.png";
 import encodingImg from "assets/defaultImgs2/default_encoding.png";
 import musicImg from "assets/defaultImgs2/default_music.png";
 
+// defaultImg3
+import noDataImg from "assets/defaultImgs3/no-search-data.png";
+
 const defaultImgList = [
   { imgUrl: gameImg, usage: "게임" },
   { imgUrl: officeImg, usage: "사무" },
@@ -228,17 +231,11 @@ const Pagenate = ({
 // 게임만 사용할 것 -> selected가 필요하지 않음
 const Process3_2 = ({ setSubProcess, selected }) => {
   const [page, setPage] = useState(1);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([{}]);
   const [text, setText] = useState("");
   const [nowSearchText, setNowSearchText] = useState("");
   const [doSearch, setDoSearch] = useState(false);
   const [maxValue, setMaxValue] = useState(1);
-
-  const maxPage = {
-    게임: 772,
-    "이미지 편집": 2,
-    모델링: 2,
-  };
 
   // 초기 렌더링 시 데이터 호출
   const check1 = useRef(false);
@@ -255,6 +252,11 @@ const Process3_2 = ({ setSubProcess, selected }) => {
           arr.push({ id: id, value: name, imgUrl: image });
         });
 
+        if (data.length > 0) {
+          setMaxValue(data[0].max_page);
+        } else {
+          setMaxValue(setMaxValue(1));
+        }
         setData([...arr]);
       };
       const propFail = (error) => {
@@ -266,7 +268,6 @@ const Process3_2 = ({ setSubProcess, selected }) => {
     };
 
     if (!check1.current) {
-      setMaxValue(maxPage[selected]);
       fn1();
     }
 
@@ -312,6 +313,12 @@ const Process3_2 = ({ setSubProcess, selected }) => {
           const { id, name, image } = item;
           arr.push({ id: id, value: name, imgUrl: image });
         });
+
+        if (data.length > 0) {
+          setMaxValue(data[0].max_page);
+        } else {
+          setMaxValue(setMaxValue(1));
+        }
 
         setData([...arr]);
       };
@@ -398,6 +405,14 @@ const Process3_2 = ({ setSubProcess, selected }) => {
           {data.map((item, index) => {
             return <Item key={index} selected={selected} {...item} />;
           })}
+          {data.length === 0 ? (
+            <div
+              className="no-data"
+              style={{
+                backgroundImage: `url(${noDataImg})`,
+              }}
+            ></div>
+          ) : null}
         </div>
         <Pagenate {...footerProps} />
       </div>
