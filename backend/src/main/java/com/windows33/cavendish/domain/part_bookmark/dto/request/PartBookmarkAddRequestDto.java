@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PartBookmarkAddRequestDto {
 
-    private String name;
     private Integer partCategory;
     private Integer partId;
 

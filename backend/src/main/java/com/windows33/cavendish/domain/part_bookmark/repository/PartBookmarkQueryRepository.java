@@ -39,7 +39,7 @@ public class PartBookmarkQueryRepository {
     public Page<PartBookmarkListDto> findPartBookmarkCpuList(Pageable pageable, Integer userId) {
         List<PartBookmarkListDto> partBookmarkList = jpaQueryFactory
                 .select(Projections.constructor(PartBookmarkListDto.class,
-                        partBookmark.name,
+                        cpu.name,
                         partBookmark.partCategory,
                         partBookmark.partId,
                         cpu.image,
@@ -68,7 +68,7 @@ public class PartBookmarkQueryRepository {
     public Page<PartBookmarkListDto> findPartBookmarkGpuList(Pageable pageable, Integer userId) {
         List<PartBookmarkListDto> partBookmarkList = jpaQueryFactory
                 .select(Projections.constructor(PartBookmarkListDto.class,
-                        partBookmark.name,
+                        gpu.name,
                         partBookmark.partCategory,
                         partBookmark.partId,
                         gpu.image,
@@ -97,7 +97,7 @@ public class PartBookmarkQueryRepository {
     public Page<PartBookmarkListDto> findPartBookmarkRamList(Pageable pageable, Integer userId) {
         List<PartBookmarkListDto> partBookmarkList = jpaQueryFactory
                 .select(Projections.constructor(PartBookmarkListDto.class,
-                        partBookmark.name,
+                        ram.name,
                         partBookmark.partCategory,
                         partBookmark.partId,
                         ram.image,
@@ -126,7 +126,7 @@ public class PartBookmarkQueryRepository {
     public Page<PartBookmarkListDto> findPartBookmarkHddList(Pageable pageable, Integer userId) {
         List<PartBookmarkListDto> partBookmarkList = jpaQueryFactory
                 .select(Projections.constructor(PartBookmarkListDto.class,
-                        partBookmark.name,
+                        hdd.name,
                         partBookmark.partCategory,
                         partBookmark.partId,
                         hdd.image,
@@ -155,7 +155,7 @@ public class PartBookmarkQueryRepository {
     public Page<PartBookmarkListDto> findPartBookmarkSsdList(Pageable pageable, Integer userId) {
         List<PartBookmarkListDto> partBookmarkList = jpaQueryFactory
                 .select(Projections.constructor(PartBookmarkListDto.class,
-                        partBookmark.name,
+                        ssd.name,
                         partBookmark.partCategory,
                         partBookmark.partId,
                         ssd.image,
@@ -184,7 +184,7 @@ public class PartBookmarkQueryRepository {
     public Page<PartBookmarkListDto> findPartBookmarkPowerList(Pageable pageable, Integer userId) {
         List<PartBookmarkListDto> partBookmarkList = jpaQueryFactory
                 .select(Projections.constructor(PartBookmarkListDto.class,
-                        partBookmark.name,
+                        power.name,
                         partBookmark.partCategory,
                         partBookmark.partId,
                         power.image,
@@ -213,7 +213,7 @@ public class PartBookmarkQueryRepository {
     public Page<PartBookmarkListDto> findPartBookmarkMainboardList(Pageable pageable, Integer userId) {
         List<PartBookmarkListDto> partBookmarkList = jpaQueryFactory
                 .select(Projections.constructor(PartBookmarkListDto.class,
-                        partBookmark.name,
+                        mainboard.name,
                         partBookmark.partCategory,
                         partBookmark.partId,
                         mainboard.image,
@@ -242,7 +242,7 @@ public class PartBookmarkQueryRepository {
     public Page<PartBookmarkListDto> findPartBookmarkCoolerList(Pageable pageable, Integer userId) {
         List<PartBookmarkListDto> partBookmarkList = jpaQueryFactory
                 .select(Projections.constructor(PartBookmarkListDto.class,
-                        partBookmark.name,
+                        cooler.name,
                         partBookmark.partCategory,
                         partBookmark.partId,
                         cooler.image,
@@ -271,7 +271,7 @@ public class PartBookmarkQueryRepository {
     public Page<PartBookmarkListDto> findPartBookmarkCaseList(Pageable pageable, Integer userId) {
         List<PartBookmarkListDto> partBookmarkList = jpaQueryFactory
                 .select(Projections.constructor(PartBookmarkListDto.class,
-                        partBookmark.name,
+                        computerCase.name,
                         partBookmark.partCategory,
                         partBookmark.partId,
                         computerCase.image,

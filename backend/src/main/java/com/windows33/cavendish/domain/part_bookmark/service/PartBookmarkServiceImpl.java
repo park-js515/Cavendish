@@ -19,7 +19,6 @@ public class PartBookmarkServiceImpl implements PartBookmarkService{
     @Override
     public Integer addPartBookmark(PartBookmarkAddRequestDto partBookmarkAddRequestDto, Integer userId) {
         PartBookmark.PartBookmarkBuilder partBookmark = PartBookmark.builder()
-                .name(partBookmarkAddRequestDto.getName())
                 .userId(userId)
                 .partCategory(partBookmarkAddRequestDto.getPartCategory())
                 .partId(partBookmarkAddRequestDto.getPartId());
