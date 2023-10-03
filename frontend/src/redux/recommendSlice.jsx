@@ -7,15 +7,15 @@ const initialState_origin = {
   processList: [
     // process1: 부품 사전 선택
     [
-      { name: "case", value: "-1", id: "", imgUrl: "" },
-      { name: "cooler", value: "-1", id: "", imgUrl: "" },
-      { name: "cpu", value: "-1", id: "", imgUrl: "" },
-      { name: "gpu", value: "-1", id: "", imgUrl: "" },
-      { name: "hdd", value: "-1", id: "", imgUrl: "" },
-      { name: "mainboard", value: "-1", id: "", imgUrl: "" },
-      { name: "power", value: "-1", id: "", imgUrl: "" },
-      { name: "ram", value: "-1", id: "", imgUrl: "" },
-      { name: "ssd", value: "-1", id: "", imgUrl: "" },
+      { name: "case", value: "-1", id: "", imgUrl: "", is_have: false },
+      { name: "cooler", value: "-1", id: "", imgUrl: "", is_have: false },
+      { name: "cpu", value: "-1", id: "", imgUrl: "", is_have: false },
+      { name: "gpu", value: "-1", id: "", imgUrl: "", is_have: false },
+      { name: "hdd", value: "-1", id: "", imgUrl: "", is_have: false },
+      { name: "mainboard", value: "-1", id: "", imgUrl: "", is_have: false },
+      { name: "power", value: "-1", id: "", imgUrl: "", is_have: false },
+      { name: "ram", value: "-1", id: "", imgUrl: "", is_have: false },
+      { name: "ssd", value: "-1", id: "", imgUrl: "", is_have: false },
     ],
     // process2: 용도 선택
     [],
@@ -24,7 +24,7 @@ const initialState_origin = {
     // process4: 예산 선택 (단위: 만원)
     { budget: 0 },
     // process5: 우선순위 선택
-    { priority1: "", priority2: "", priority3: "" },
+    {},
   ],
 };
 
@@ -83,7 +83,7 @@ const recommendSlice = createSlice({
       const id = action.payload.id;
       const index = state.processList[2][key].findIndex((item) => {
         return item.id === id;
-      })
+      });
       state.processList[2][key].splice(index, 1);
     },
     removeProcess: (state) => {
