@@ -21,10 +21,13 @@ from db.connection import engineconn
 from schemas.quotation import QuotationSchema, QuotationOutput
 from schemas.recommend_input import Recommend_input
 from schemas.cpu import CPUSchema
+from schemas.quo_serialize import serialize_quotation_output
 
 from core.recommend.priority import *
 from core import cpu, gpu, ram, case, ssd, power, mainboard, hdd
 from core.recommend.compatibility_dfs import com_dfs
+from core.com_data import *
+from core.common import decimal_to_name
 
 engine = engineconn()
 session = engine.sessionmaker()
@@ -217,6 +220,12 @@ async def recommend(state: Recommend_input):
             gpu_list = session.query(GPU).filter(GPU.price != None, GPU.bench_mark >= min_gpu_bench, GPU.price <= s_group[1]*1.1*raw_budget, GPU.price >= s_group[1]*0.9*raw_budget).order_by(desc(GPU.bench_mark * bench_factor + GPU.bench_mark / GPU.price * ce_factor)).limit(10).all()
             if len(gpu_list) == 0:
                 gpu_list = session.query(GPU).filter(GPU.price != None, GPU.bench_mark >= min_cpu_bench).order_by(GPU.bench_mark * bench_factor + GPU.bench_mark / GPU.price * ce_factor).all()
+        power_list = []
+        ssd_list = []
+        case_list = []
+        hdd_list = []
+        cooler_list = []    
+
 
         if as_factor == 1:
             if selected_ssd == None:
@@ -240,6 +249,9 @@ async def recommend(state: Recommend_input):
             if selected_power == None:
                 power_list = session.query(Power).filter(Power.price != None, Power.as_years >= 3).limit(10).all() 
 
+        if power_list == []:
+            power_list = session.query(Power).filter(Power.price != None).order_by(desc(Power.rated_power / Power.price)).limit(10).all()
+
         if selected_mainboard == None:
             mainboard_list = session.query(Mainboard).filter(Mainboard.price != None).limit(10).all()
 
@@ -251,6 +263,12 @@ async def recommend(state: Recommend_input):
 
         if selected_hdd == None:
             hdd_list = session.query(HDD).filter(HDD.price != None).limit(10).all()
+
+        if selected_cooler == None:
+            cooler_list = session.query(Cooler).filter(Cooler.price != None).limit(10).all()
+        
+        if selected_ssd == None:
+            ssd_list = session.query(SSD).filter(SSD.price != None).limit(10).all()
 
 
         # 기준: 최소 사양, 예산(오차 10%), 가중치 + 추가적인 우선순위(감성, 소음, 용량, A/S)
@@ -266,31 +284,34 @@ async def recommend(state: Recommend_input):
         quo_test = [0 for i in range(9)]
 
         result = com_dfs(result, quo_test, 0, dfs_input, 0, raw_budget)
+        result = result[0:10]
+        for idx, item in enumerate(result):
+            item[0].memory_type = decimal_to_name(item[0].memory_type, len(cpu_com['memory_type']), cpu_com['memory_type'])
+            item[0].pcie_version = decimal_to_name(item[0].pcie_version, len(cpu_com['pcie_version']), cpu_com['pcie_version'])
+            item[2].m2_interface = decimal_to_name(item[2].m2_interface, len(mainboard_com['m2_interface']), mainboard_com['m2_interface'])
+            item[2].m2_formfactor = decimal_to_name(item[2].m2_formfactor, len(mainboard_com['m2_formfactor']), mainboard_com['m2_formfactor'])
+            item[2].wireless_lan = decimal_to_name(item[2].wireless_lan, len(mainboard_com['wireless_lan']), mainboard_com['wireless_lan']) 
+            item[2].graphic_output = decimal_to_name(item[2].graphic_output, len(mainboard_com['graphic_output']), mainboard_com['graphic_output']) 
+            item[2].pcie_version = decimal_to_name(item[2].pcie_version, len(mainboard_com['pcie_version']), mainboard_com['pcie_version']) 
+            item[2].io_header = decimal_to_name(item[2].io_header, len(mainboard_com['io_header']), mainboard_com['io_header']) 
+            item[2].feature = decimal_to_name(item[2].feature, len(mainboard_com['feature']), mainboard_com['feature']) 
+            item[4].port = decimal_to_name(item[4].port, len(gpu_com['port']), gpu_com['port'])
+            item[4].additional_function = decimal_to_name(item[4].additional_function, len(gpu_com['additional_function']), gpu_com['additional_function'])
+            item[4].cooling_type = decimal_to_name(item[4].cooling_type, len(gpu_com['cooling_type']), gpu_com['cooling_type'])
+            item[4].feature = decimal_to_name(item[4].feature, len(gpu_com['feature']), gpu_com['feature'])
+            item[7].board_support = decimal_to_name(item[7].board_support, len(case_com['board_support']), case_com['board_support'])
+            item[7].external_port = decimal_to_name(item[7].external_port, len(case_com['external_port']), case_com['external_port'])
+            item[7].feature = decimal_to_name(item[7].feature, len(case_com['feature']), case_com['feature'])
+            item[1].feature = decimal_to_name(item[1].feature, len(power_com['feature']), power_com['feature']) 
+            item[1].inside = decimal_to_name(item[1].inside, len(power_com['inside']), power_com['inside'])
+            item[1].protection = decimal_to_name(item[1].protection, len(power_com['protection']), power_com['protection'])
+            item[8].intel_socket = decimal_to_name(item[8].intel_socket, len(cooler_com['intel_socket']), cooler_com['intel_socket'])   
+            item[8].amd_socket = decimal_to_name(item[8].amd_socket, len(cooler_com['amd_socket']), cooler_com['amd_socket'])   
+            item[8].feature = decimal_to_name(item[8].feature, len(cooler_com['feature']), cooler_com['feature'])   
+            result[idx] = serialize_quotation_output(item)
 
-        print(result)
-
-        session.close()
-        return JSONResponse(content={"test": test_list}, status_code=200)
+        return JSONResponse(content=result, status_code=200)
     except Exception as e:
         return JSONResponse(content={"error" : "bad request", "message" : f'{e}'})
-
-    # if sense_factor == 1:
-    #     pass
-    # elif sense_factor == 2:
-    #     pass
-    # elif sense_factor == 3:
-    #     pass
-
-    # if noise_factor == 1:
-    #     pass
-    # elif noise_factor == 2:
-    #     pass
-    # elif noise_factor == 3:
-    #     pass
-
-    # if storage_factor == 1:
-    #     pass
-    # elif storage_factor == 2:
-    #     pass
-    # elif storage_factor == 3:
-    #     pass
+    finally:
+        session.close()

@@ -33,7 +33,7 @@ def mainboard_com_cpu(mainboard, cpu):
     if cpu.socket != mainboard.cpu_socket:
         return False
 
-    elif cpu.pcie_version == 0 or mainboard.pcie_version == 0 or mainboard.pcie_version is None:
+    elif cpu.pcie_version == 0 or mainboard.pcie_version == 0 or mainboard.pcie_version is None or cpu.pcie_version is None:
         return False
 
     # PCIe 3.0
