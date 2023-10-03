@@ -242,6 +242,12 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
                       background-repeat: no-repeat;
                       background-position: center;
                     }
+
+                    .disabledList {
+                      box-sizing: border-box;
+                      position: fixed;
+                      height: 80%;
+                    }
                   }
 
                   .text {
@@ -327,6 +333,7 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
             display: flex;
             flex-wrap: wrap;
             justify-content: space-evenly;
+            align-items: flex-start;
             overflow-y: scroll;
 
             &::-webkit-scrollbar {
@@ -341,7 +348,7 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
               &-top {
                 height: 150px;
                 width: 280px;
-                background-size: cover;
+                background-size: contain;
                 background-repeat: no-repeat;
                 background-position: center;
                 margin: 5px 5px 0 5px;
@@ -409,7 +416,7 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
                 &-top {
                   height: 150px;
                   width: 280px;
-                  background-size: cover;
+                  background-size: contain;
                   background-repeat: no-repeat;
                   background-position: center;
                   margin: 5px 5px 0 5px;
@@ -480,8 +487,8 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
                 height: calc(100% - 70px);
                 width: 100%;
                 flex-wrap: wrap;
-                justify-content: space-evenly; 
-                align-items: flex-start;
+                justify-content: space-evenly;
+                align-items: center;
 
                 .item {
                   transition: all 200ms ease-in-out;
@@ -573,6 +580,7 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
               display: flex;
               flex-wrap: wrap;
               justify-content: space-evenly;
+              align-items: center;
               overflow-y: scroll;
 
               &::-webkit-scrollbar {
@@ -587,7 +595,7 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
                 &-top {
                   height: 150px;
                   width: 280px;
-                  background-size: cover;
+                  background-size: contain;
                   background-repeat: no-repeat;
                   background-position: center;
                   margin: 5px 5px 0 5px;
@@ -637,7 +645,6 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
               width: 100%;
               display: flex;
               justify-content: center;
-              
 
               p {
                 font-size: 2.5rem;

@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import dummyImg from "assets/defaultImgs2/Briar.png";
 import {
   AiOutlineArrowLeft,
   AiOutlineBackward,
@@ -13,34 +12,55 @@ import { FaSearch } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import * as recom from "redux/recommendSlice";
 
-const dummy = [
-  { imgUrl: dummyImg, value: "pc 게임" },
-  { imgUrl: dummyImg, value: "인터넷 서핑, 사무, 영상 시청 등" },
-  { imgUrl: dummyImg, value: "개발" },
-  { imgUrl: dummyImg, value: "영상 편집 및 특수효과" },
-  { imgUrl: dummyImg, value: "방송, 스트리밍" },
-  { imgUrl: dummyImg, value: "포토샵 및 일러스트레이터" },
-  { imgUrl: dummyImg, value: "2D 및 3D 모델링" },
-  { imgUrl: dummyImg, value: "비디오 인코딩" },
-  { imgUrl: dummyImg, value: "음악 작곡 및 편집" },
-  { imgUrl: dummyImg, value: "아무거나" },
+// API
+import { searchProgram } from "api/recommend";
+
+// defaultImgs2
+import gameImg from "assets/defaultImgs2/default_game.png";
+import officeImg from "assets/defaultImgs2/default_office.png";
+import developImg from "assets/defaultImgs2/default_develop.png";
+import videoEditImg from "assets/defaultImgs2/default_videoEdit.png";
+import broadcastImg from "assets/defaultImgs2/default_broadcast.png";
+import imgEditImg from "assets/defaultImgs2/default_imgEdit.png";
+import modelingImg from "assets/defaultImgs2/default_modeling.png";
+import encodingImg from "assets/defaultImgs2/default_encoding.png";
+import musicImg from "assets/defaultImgs2/default_music.png";
+
+const defaultImgList = [
+  { imgUrl: gameImg, usage: "게임" },
+  { imgUrl: officeImg, usage: "사무" },
+  { imgUrl: developImg, usage: "개발" },
+  { imgUrl: videoEditImg, usage: "영상 편집" },
+  { imgUrl: broadcastImg, usage: "방송" },
+  { imgUrl: imgEditImg, usage: "이미지 편집" },
+  { imgUrl: modelingImg, usage: "모델링" },
+  { imgUrl: encodingImg, usage: "인코딩" },
+  { imgUrl: musicImg, usage: "음악 작업" },
 ];
 
-const selected = "pc 게임";
-
-const Item = ({ imgUrl, value }) => {
+const Item = ({ selected, id, imgUrl, value }) => {
   const dispatch = useDispatch();
   const list = useSelector((state) => {
     return state.recommend.processList[2][selected];
   });
 
-  const className = list.includes(value) ? "item-active" : "item";
+  const defaultImg = () => {
+    const index = defaultImgList.findIndex((item) => {
+      return item.usage === selected;
+    });
+
+    return defaultImgList[index].imgUrl;
+  };
+  const isIncludes = list.some((item) => {
+    return item.id === id;
+  });
+  const className = isIncludes ? "item-active" : "item";
 
   const onClick = () => {
-    if (list.includes(value)) {
-      dispatch(recom.removeProcessList2({ key: selected, value: value }));
+    if (isIncludes) {
+      dispatch(recom.removeProcessList2({ key: selected, id: id }));
     } else {
-      dispatch(recom.addProcessList2({ key: selected, value: value }));
+      dispatch(recom.addProcessList2({ key: selected, id: id, value: value }));
     }
   };
 
@@ -49,7 +69,7 @@ const Item = ({ imgUrl, value }) => {
       <div
         className="item-top"
         style={{
-          backgroundImage: `url(${imgUrl})`,
+          backgroundImage: `url(${imgUrl ? imgUrl : defaultImg()})`,
         }}
       ></div>
       <div className="item-bot">{value}</div>
@@ -94,7 +114,7 @@ const Btn = ({ onClick }) => {
   );
 };
 
-const SearchComponent = ({ value, setValue }) => {
+const SearchComponent = ({ selected, value, setValue, setDoSearch }) => {
   const onChange = (event) => {
     setValue(event.target.value);
   };
@@ -107,10 +127,16 @@ const SearchComponent = ({ value, setValue }) => {
         onChange={onChange}
         className="search"
         placeholder={`${selected}명을 입력하세요!`}
+        autoComplete="off"
+        onKeyDown={(event) => {
+          if (event.key === "Enter") {
+            setDoSearch(true);
+          }
+        }}
       />
       <Btn
         onClick={() => {
-          alert(value);
+          setDoSearch(true);
         }}
       />
     </div>
@@ -198,11 +224,119 @@ const Pagenate = ({
 // 검색 및 페이지네이션
 // 컴포넌트 재사용 기존에 존재하던 것
 // 게임만 사용할 것 -> selected가 필요하지 않음
-const Process3_2 = ({ setSubProcess }) => {
-  const [data, setData] = useState(dummy);
-  const [text, setText] = useState("");
+const Process3_2 = ({ setSubProcess, selected }) => {
   const [page, setPage] = useState(1);
-  const [maxValue, setMaxValue] = useState(42);
+  const [data, setData] = useState([]);
+  const [text, setText] = useState("");
+  const [nowSearchText, setNowSearchText] = useState("");
+  const [doSearch, setDoSearch] = useState(false);
+  const [maxValue, setMaxValue] = useState(1);
+
+  const maxPage = {
+    게임: 772,
+    "이미지 편집": 2,
+    모델링: 2,
+  };
+
+  // 초기 렌더링 시 데이터 호출
+  const check1 = useRef(false);
+  useEffect(() => {
+    const fn1 = () => {
+      const propCategory = selected;
+      const propPage = 1;
+      const propParams = { keyword: "" };
+      const propSuccess = (response) => {
+        const { data } = response;
+        const arr = [];
+        data.forEach((item) => {
+          const { id, name, image } = item;
+          arr.push({ id: id, value: name, imgUrl: image });
+        });
+
+        setData([...arr]);
+      };
+      const propFail = (error) => {
+        console.error(error);
+      };
+
+      const props = [propCategory, propPage, propParams, propSuccess, propFail];
+      searchProgram(...props);
+    };
+
+    if (!check1.current) {
+      setMaxValue(maxPage[selected]);
+      fn1();
+    }
+
+    return () => {
+      if (!check1.current) {
+        check1.current = true;
+      }
+    };
+  }, []);
+
+  // 페이지가 바뀌거나 검색어가 바뀌었을 때의 호출
+  useEffect(() => {
+    const fn1 = () => {
+      const propCategory = selected;
+      const propPage = page;
+      const propParams = { keyword: nowSearchText };
+      const propSuccess = (response) => {
+        const { data } = response;
+        const arr = [];
+        data.forEach((item) => {
+          const { id, name, image } = item;
+          arr.push({ id: id, value: name, imgUrl: image });
+        });
+
+        setData([...arr]);
+      };
+      const propFail = (error) => {
+        console.error(error);
+      };
+
+      const props = [propCategory, propPage, propParams, propSuccess, propFail];
+      searchProgram(...props);
+    };
+
+    const fn2 = () => {
+      const propCategory = selected;
+      const propPage = 1;
+      const propParams = { keyword: text };
+      const propSuccess = (response) => {
+        const { data } = response;
+        const arr = [];
+        data.forEach((item) => {
+          const { id, name, image } = item;
+          arr.push({ id: id, value: name, imgUrl: image });
+        });
+
+        setData([...arr]);
+      };
+      const propFail = (error) => {
+        console.error(error);
+      };
+
+      const props = [propCategory, propPage, propParams, propSuccess, propFail];
+      searchProgram(...props);
+
+      setDoSearch(false);
+      setPage(1);
+      setNowSearchText(text);
+
+      // 검색 결과에 따른 최대 페이지 수 지정이 필요함.
+      // API가 필요함
+    };
+
+    if (check1.current) {
+      if (doSearch) {
+        fn2();
+        return;
+      }
+
+      fn1();
+    }
+  }, [page, doSearch]);
 
   const handlePage = (value) => {
     setPage(value);
@@ -252,10 +386,15 @@ const Process3_2 = ({ setSubProcess }) => {
         }}
       />
       <div className="proc3-2">
-        <SearchComponent value={text} setValue={setText} />
+        <SearchComponent
+          selected={selected}
+          value={text}
+          setValue={setText}
+          setDoSearch={setDoSearch}
+        />
         <div className="item-wrapper">
           {data.map((item, index) => {
-            return <Item key={index} imgUrl={item.imgUrl} value={item.value} />;
+            return <Item key={index} selected={selected} {...item} />;
           })}
         </div>
         <Pagenate {...footerProps} />

@@ -11,9 +11,9 @@ import { useDispatch, useSelector } from "react-redux";
 import * as recom from "redux/recommendSlice";
 
 // API
-import { searchPart, maxPage } from "api/recommend";
+import { searchPart } from "api/recommend";
 
-const Item = ({ imgUrl, name, id, disabled, style }) => {
+const Item = ({ imgUrl, name, id, compatibility, style }) => {
   const dispatch = useDispatch();
   const selected = useSelector((state) => {
     return state.recommend.selected;
@@ -21,6 +21,8 @@ const Item = ({ imgUrl, name, id, disabled, style }) => {
   const selectedValue = useSelector((state) => {
     return state.recommend.processList[0][selected].value;
   });
+
+  const disabled = compatibility.length > 0;
   const className = disabled
     ? "item-disabled"
     : selectedValue === name
@@ -53,6 +55,14 @@ const Item = ({ imgUrl, name, id, disabled, style }) => {
           className="inner"
           style={{ backgroundImage: `url(${imgUrl})`, ...style }}
         ></div>
+        {disabled ? (
+          <div className="disabledList">
+            <div>호환되지 않은 부품</div>
+            {compatibility.map((item, index) => {
+              return <div key={index}>{item}</div>;
+            })}
+          </div>
+        ) : null}
       </div>
       <div className="text">{name}</div>
     </div>
@@ -172,8 +182,12 @@ const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
         const arr = [];
         data.forEach((item) => {
           const { id, name, image, compatibility } = item;
-          const disabled = compatibility.length > 0;
-          arr.push({ name: name, imgUrl: image, id: id, disabled: disabled });
+          arr.push({
+            name: name,
+            imgUrl: image,
+            id: id,
+            compatibility: compatibility,
+          });
         });
 
         setData(() => {
@@ -190,17 +204,23 @@ const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
 
     const fn2 = () => {
       const propPartName = selectedItem;
+      const propPage = 1;
+      const propParams = getParams();
       const propSuccess = (response) => {
-        setMaxValue(() => {
-          return response.data.max_page;
-        });
+        const data = response.data;
+        if (data.length === 0) {
+          setMaxValue(1);
+        } else {
+          const { max_page } = data[0];
+          setMaxValue(max_page);
+        }
       };
       const propFail = (error) => {
         console.log(error);
       };
 
-      const props = [propPartName, propSuccess, propFail];
-      maxPage(...props);
+      const props = [propPartName, propPage, propParams, propSuccess, propFail];
+      searchPart(...props);
     };
 
     if (!check1.current) {
@@ -214,6 +234,7 @@ const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
   }, []);
 
   // 페이지가 바뀌거나 검색어가 바뀌었을 때의 호출
+  // 추가: 부품이 바뀌었을 때도 고려
   useEffect(() => {
     const fn1 = (val, p = page) => {
       const propPartName = selectedItem;
@@ -224,8 +245,12 @@ const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
         const arr = [];
         data.forEach((item) => {
           const { id, name, image, compatibility } = item;
-          const disabled = compatibility.length > 0;
-          arr.push({ name: name, imgUrl: image, id: id, disabled: disabled });
+          arr.push({
+            name: name,
+            imgUrl: image,
+            id: id,
+            compatibility: compatibility,
+          });
         });
 
         setData(() => {
@@ -242,18 +267,25 @@ const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
 
     const fn2 = () => {
       const propPartName = selectedItem;
+      const propPage = 1;
+      const propParams = getParams();
       const propSuccess = (response) => {
-        setMaxValue(() => {
-          return response.data.max_page;
-        });
+        const data = response.data;
+        if (data.length === 0) {
+          setMaxValue(1);
+        } else {
+          const { max_page } = data[0];
+          setMaxValue(max_page);
+        }
       };
       const propFail = (error) => {
         console.log(error);
       };
 
-      const props = [propPartName, propSuccess, propFail];
-      maxPage(...props);
+      const props = [propPartName, propPage, propParams, propSuccess, propFail];
+      searchPart(...props);
     };
+
     const fn3 = () => {
       setNowSearchValue(searchValue);
       setPage(1);
