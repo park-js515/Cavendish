@@ -1,9 +1,10 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
 from datetime import date
 from sqlalchemy.dialects.postgresql import UUID
 from datetime import datetime
-from .cpu import CPUSchema
+from schemas.cpu import CPUSchema
+from models.cpu import CPU
 
 class QuotationSchema(BaseModel):
     id: int
@@ -19,5 +20,10 @@ class QuotationSchema(BaseModel):
     cooler_id: Optional[int] = None
     name: str
     state: int
+
+
     create_date_time: datetime = datetime.now()
     # cpu_detail : Optional[CPUSchema] = None
+
+class QuotationOutput(BaseModel):
+    cpu : CPUSchema

@@ -28,6 +28,8 @@ session = engine.sessionmaker()
 
 
 def mainboard_com_cpu(mainboard, cpu):
+    if cpu.socket is None or mainboard.cpu_socket is None:
+        return False
     if cpu.socket != mainboard.cpu_socket:
         return False
 
