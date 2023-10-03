@@ -81,14 +81,14 @@ async def recommend(state : Recommend_input):
 
     part_num = {
         "cpu" : 0,
-        "mainboard" : 1,
-        "ram" : 2,
-        "gpu" : 3,
-        "ssd" : 4,
+        "mainboard" : 2,
+        "ram" : 3,
+        "gpu" : 4,
+        "ssd" : 6,
         "hdd" : 5,
-        "case" : 6,
-        "power" : 7,
-        "cooler" : 8
+        "case" : 7,
+        "power" : 8,
+        "cooler" : 1
     }
     
     selected_case = None
