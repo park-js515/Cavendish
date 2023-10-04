@@ -28,6 +28,11 @@ from core.recommend.compatibility_dfs import com_dfs
 from core.com_data import *
 from core.common import decimal_to_name
 
+import sklearn
+import numpy as np
+import pickle
+import os
+
 engine = engineconn()
 session = engine.sessionmaker()
 
@@ -42,6 +47,7 @@ async def recommend(state: Recommend_input):
     try:
         raw_budget = state.budget
         budget = state.budget
+        total_budget = budget
 
         quotation_list = []
 
@@ -50,14 +56,14 @@ async def recommend(state: Recommend_input):
         having_state = 0  # 보유 상태 비트마스킹
         # 보유 중이거나 희망하는 부품 처리
         if state.case["id"] != -1:
-            if state.case["is_have"] == False:
-                selected_case = session.query(Case).filter(Case.id == state.case["id"]).first()
-                if selected_case.price == None or selected_case.price == 0:
-                    pass
-                else:
-                    budget -= selected_case.price
+            selected_case = session.query(Case).filter(Case.id == state.case["id"]).first()
+            if selected_case.price == None or selected_case.price == 0:
+                pass
+            elif state.case["is_have"] == False:
+                budget -= selected_case.price
             else:
                 having_state |= 1 << 7
+                total_budget += selected_case.price
 
         selected_cpu = None
         selected_gpu = None
@@ -70,84 +76,84 @@ async def recommend(state: Recommend_input):
         selected_mainboard = None
 
         if state.cooler["id"] != -1:
-            if state.cooler["is_have"] == False:
-                selected_cooler = session.query(Cooler).filter(Cooler.id == state.cooler["id"]).first()
-                if selected_cooler.price == None or selected_cooler.price == 0:
-                    pass
-                else:
-                    budget -= selected_cooler.price
+            selected_cooler = session.query(Cooler).filter(Cooler.id == state.cooler["id"]).first()
+            if selected_cooler.price == None or selected_cooler.price == 0:
+                pass
+            elif state.cooler["is_have"] == False:
+                budget -= selected_cooler.price
             else:
                 having_state |= 1 << 8
+                total_budget += selected_cooler.price
 
         if state.cpu["id"] != -1:
-            if state.cpu["is_have"] == False:
-                selected_cpu = session.query(CPU).filter(CPU.id == state.cpu["id"]).first()
-                if selected_cpu.price == None or selected_cpu.price == 0:
-                    pass
-                else:
-                    budget -= selected_cpu.price
+            selected_cpu = session.query(CPU).filter(CPU.id == state.cpu["id"]).first()
+            if selected_cpu.price == None or selected_cpu.price == 0:
+                pass
+            elif state.cpu["is_have"] == False:
+                budget -= selected_cpu.price
             else:
                 having_state |= 1 << 0
+                total_budget += selected_cpu.price
 
         if state.gpu["id"] != -1:
-            if state.gpu["is_have"] == False:
-                selected_gpu = session.query(GPU).filter(GPU.id == state.gpu["id"]).first()
-                if selected_gpu.price == None or selected_gpu.price == 0:
-                    pass
-                else:
-                    budget -= selected_gpu.price
+            selected_gpu = session.query(GPU).filter(GPU.id == state.gpu["id"]).first()
+            if selected_gpu.price == None or selected_gpu.price == 0:
+                pass
+            elif state.gpu["is_have"] == False:
+                budget -= selected_gpu.price
             else:
                 having_state |= 1 << 4
+                total_budget += selected_gpu.price
 
         if state.hdd["id"] != -1:
-            if state.hdd["is_have"] == False:
-                selected_hdd = session.query(HDD).filter(HDD.id == state.hdd["id"]).first()
-                if selected_hdd.price == None or selected_hdd.price == 0:
-                    pass
-                else:
-                    budget -= selected_hdd.price
+            selected_hdd = session.query(HDD).filter(HDD.id == state.hdd["id"]).first()
+            if selected_hdd.price == None or selected_hdd.price == 0:
+                pass
+            elif state.hdd["is_have"] == False:
+                budget -= selected_hdd.price
             else:
                 having_state |= 1 << 5
+                total_budget += selected_hdd.price
 
         if state.mainboard["id"] != -1:
-            if state.case["is_have"] == False:
-                selected_mainboard = session.query(Mainboard).filter(Mainboard.id == state.mainboard["id"]).first()
-                if selected_mainboard.price == None or selected_mainboard.price == 0:
-                    pass
-                else:
-                    budget -= selected_mainboard.price
+            selected_mainboard = session.query(Mainboard).filter(Mainboard.id == state.mainboard["id"]).first()
+            if selected_mainboard.price == None or selected_mainboard.price == 0:
+                pass
+            elif state.case["is_have"] == False:
+                budget -= selected_mainboard.price
             else:
                 having_state |= 1 << 2
+                total_budget += selected_mainboard.price
 
         if state.power["id"] != -1:
-            if state.power["is_have"] == False:
-                selected_power = session.query(Power).filter(Power.id == state.power["id"]).first()
-                if selected_power.price == None or selected_power.price == 0:
-                    pass
-                else:
-                    budget -= selected_power.price
+            selected_power = session.query(Power).filter(Power.id == state.power["id"]).first()
+            if selected_power.price == None or selected_power.price == 0:
+                pass
+            elif state.power["is_have"] == False:
+                budget -= selected_power.price
             else:
                 having_state |= 1 << 1
+                total_budget += selected_power.price
 
         if state.ram["id"] != -1:
-            if state.ram["is_have"] == False:
-                selected_ram = session.query(RAM).filter(RAM.id == state.ram["id"]).first()
-                if selected_ram.price == None or selected_ram.price == 0:
-                    pass
-                else:
-                    budget -= selected_ram.price
+            selected_ram = session.query(RAM).filter(RAM.id == state.ram["id"]).first()
+            if selected_ram.price == None or selected_ram.price == 0:
+                pass
+            elif state.ram["is_have"] == False:
+                budget -= selected_ram.price
             else:
                 having_state |= 1 << 3
+                total_budget += selected_ram.price * state.ram_num
 
         if state.ssd["id"] != -1:
-            if state.ssd["is_have"] == False:
-                selected_ssd = session.query(SSD).filter(SSD.id == state.ssd["id"]).first()
-                if selected_ssd.price == None or selected_ssd.price == 0:
-                    pass
-                else:
-                    budget -= selected_ssd.price
+            selected_ssd = session.query(SSD).filter(SSD.id == state.ssd["id"]).first()
+            if selected_ssd.price == None or selected_ssd.price == 0:
+                pass
+            elif state.ssd["is_have"] == False:
+                budget -= selected_ssd.price
             else:
                 having_state |= 1 << 6
+                total_budget += selected_ssd.price
 
         # 예산이 희망 부품 구입에 부족한 경우 메세지 리턴
         if budget < 0:
@@ -158,9 +164,9 @@ async def recommend(state: Recommend_input):
         min_gpu_bench = 0
         min_ram_capa = 0
 
-        test_list = []
         for pid in state.programs:
             req = session.query(Requirements).filter(Requirements.program_id == pid).first()
+            if req is None: continue
             req_cpu = session.query(CPU).filter(CPU.id == req.cpu_id).first()
             req_gpu = session.query(GPU).filter(GPU.id == req.gpu_id).first()
             min_ram_capa = req.ram if min_ram_capa < req.ram else min_ram_capa
@@ -169,12 +175,44 @@ async def recommend(state: Recommend_input):
                 min_gpu_bench = req_gpu.bench_mark if min_gpu_bench < req_gpu.bench_mark else min_gpu_bench
 
         # 예산 비율 측정 (CPU:GPU:RAM:나머지)
+        min_cpu_bench = max(min_cpu_bench, 3000)
+        min_gpu_bench = max(min_gpu_bench, 1000)
+        min_ram_capa = max(min_ram_capa, 4)
+
+        # 예산 비율 측정 (CPU:GPU:RAM:나머지)
+        model_file = os.path.join(os.path.dirname(__file__), 'rate_by_bench.pkl')
+        group_file = os.path.join(os.path.dirname(__file__), 'rate_group.pkl')
+
+        load_model = pickle.load(open(model_file, 'rb'))
+        load_group = pickle.load(open(group_file, 'rb'))
+        maxcb = session.query(func.max(CPU.bench_mark)).scalar()
+        maxgb = session.query(func.max(GPU.bench_mark)).scalar()
+        maxrc = session.query(func.max(RAM.capacity)).scalar()
+        mincb = session.query(func.min(CPU.bench_mark)).scalar()
+        mingb = session.query(func.min(GPU.bench_mark)).scalar()
+        minrc = session.query(func.min(RAM.capacity)).scalar()
+
+        clog = np.log((min_cpu_bench - mincb) / (maxcb - mincb) + 1)
+        glog = np.log((min_gpu_bench - mingb) / (maxgb - mingb) + 1)
+        rlog = np.log((min_ram_capa - minrc) / (maxrc - minrc) + 1)
+        tlog = np.log(total_budget / 10000000 + 2)
+        total_log = clog + glog + rlog
+
+        bench_data = np.array([clog / total_log, glog / total_log, rlog / total_log, tlog / total_log])
+
+        res_i = load_model.predict([bench_data])
+        cpu_rate = load_group[int(res_i[0]), 0]
+        gpu_rate = load_group[int(res_i[0]), 1]
+        ram_rate = load_group[int(res_i[0]), 2]
+        tot_rate = cpu_rate + gpu_rate + ram_rate
 
         # 그룹 선택하는 코드
 
         budget_ratio = {
-            "group1": [0.2, 0.53, 0.02, 0.76]
+            "group1": [cpu_rate/100, gpu_rate/100, ram_rate/100, tot_rate/100]
         }
+
+        print(budget_ratio)
 
         s_group = budget_ratio["group1"]
 
@@ -222,7 +260,7 @@ async def recommend(state: Recommend_input):
                 10).all()
             if len(cpu_list) == 0:
                 cpu_list = session.query(CPU).filter(CPU.price != None, CPU.bench_mark >= min_cpu_bench).order_by(
-                    CPU.bench_mark * bench_factor + CPU.bench_mark / CPU.price * ce_factor).all()
+                    CPU.bench_mark * bench_factor + CPU.bench_mark / CPU.price * ce_factor).limit(10).all()
 
         if selected_gpu == None:
             gpu_list = session.query(GPU).filter(GPU.price != None, GPU.bench_mark >= min_gpu_bench,
@@ -231,7 +269,7 @@ async def recommend(state: Recommend_input):
                 desc(GPU.bench_mark * bench_factor + GPU.bench_mark / GPU.price * ce_factor)).limit(10).all()
             if len(gpu_list) == 0:
                 gpu_list = session.query(GPU).filter(GPU.price != None, GPU.bench_mark >= min_cpu_bench).order_by(
-                    GPU.bench_mark * bench_factor + GPU.bench_mark / GPU.price * ce_factor).all()
+                    GPU.bench_mark * bench_factor + GPU.bench_mark / GPU.price * ce_factor).limit(10).all()
         power_list = []
         ssd_list = []
         case_list = []
@@ -293,14 +331,9 @@ async def recommend(state: Recommend_input):
         # 부품 고르면서 호환성 검사 계속 (QutationSchema List)
 
         result = []
-        test_list.append(min_cpu_bench)
-        test_list.append(min_gpu_bench)
-        test_list.append(min_ram_capa)
-
         dfs_input = [cpu_list, power_list, mainboard_list, ram_list, gpu_list, hdd_list, ssd_list, case_list,
                      cooler_list]
         quo_test = [0 for i in range(9)]
-
         result = com_dfs(result, quo_test, 0, dfs_input, 0, raw_budget)
         result = result[0:10]
         for idx, item in enumerate(result):
