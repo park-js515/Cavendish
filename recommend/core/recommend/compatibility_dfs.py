@@ -81,6 +81,8 @@ def com_dfs(quotations, quotation, lv, parts_list, price_sum, budget):
         return
 
     for idx, item in enumerate(parts_list[lv]):
+        if len(quotations) >= 10:
+            return quotations
         quotation[lv] = item
         if lv_func[lv](quotation) == True:
             com_dfs(quotations, quotation, lv+1, parts_list, price_sum + item.price, budget)

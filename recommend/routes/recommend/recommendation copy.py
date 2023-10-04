@@ -307,7 +307,8 @@ async def recommend(state: Recommend_input):
             item[1].protection = decimal_to_name(item[1].protection, len(power_com['protection']), power_com['protection'])
             item[8].intel_socket = decimal_to_name(item[8].intel_socket, len(cooler_com['intel_socket']), cooler_com['intel_socket'])   
             item[8].amd_socket = decimal_to_name(item[8].amd_socket, len(cooler_com['amd_socket']), cooler_com['amd_socket'])   
-            item[8].feature = decimal_to_name(item[8].feature, len(cooler_com['feature']), cooler_com['feature'])   
+            item[8].feature = decimal_to_name(item[8].feature, len(cooler_com['feature']), cooler_com['feature'])
+   
             result[idx] = serialize_quotation_output(item)
 
         return JSONResponse(content=result, status_code=200)
