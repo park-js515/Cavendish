@@ -1,6 +1,6 @@
-import Loading from "components/common/Loading";
 import { useState, useEffect, useRef } from "react";
 import _ from "lodash";
+import { useModal, Modal } from "./Sub/Process5/Modal";
 
 //redux
 import { useDispatch, useSelector } from "react-redux";
@@ -8,8 +8,36 @@ import { useDispatch, useSelector } from "react-redux";
 // API
 import { getQuotation } from "api/recommend";
 
-const Item = ({ id, name, price, image }) => {
-  return <></>;
+const Item = ({ index, item }) => {
+  const addComma = (num) => {
+    const st = num.toString();
+
+    return st.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
+  const { isOpen, handleIsOpen } = useModal();
+
+  return (
+    // <div style={{ height: "100%", width: "100%" }}>
+    <div
+      className="item"
+      onClick={() => {
+        handleIsOpen((current) => !current);
+      }}
+    >
+      <div className="item-left">
+        <div
+          className="case"
+          style={{ backgroundImage: `url(${item.case.image})` }}
+        >
+          <div className="index">{`${index + 1}`}</div>
+        </div>
+      </div>
+      <div className="item-right">{`~ ${addComma(item.total)}원`}</div>
+      <Modal item={item} isOpen={isOpen} handleIsOpen={handleIsOpen}></Modal>
+    </div>
+    // </div>
+  );
 };
 
 const ProcessEnd = ({ className }) => {
@@ -61,12 +89,16 @@ const ProcessEnd = ({ className }) => {
           const arr = [];
           data.forEach((item) => {
             const temp = {};
+            let total = 0;
             for (const key in item) {
               const part = item[key];
               const { id, name, price, image } = part;
               temp[key] = { id, name, price, image };
+              total += price;
             }
+            temp.total = total;
             arr.push(temp);
+            console.log(temp);
           });
 
           setData1(_.cloneDeep(arr.slice(0, 5)));
@@ -87,18 +119,18 @@ const ProcessEnd = ({ className }) => {
     <div className={className}>
       <div className="proc-end">
         <div className="end-left">
-          <div className="title">권장 사양</div>
+          <div className="title">추천 권장 사양</div>
           <div className="inner-wrapper">
-            {data1.map((item) => {
-              return <div>ㅎㅇ</div>;
+            {data1.map((item, index) => {
+              return <Item key={index} index={index} item={item} />;
             })}
           </div>
         </div>
         <div className="end-right">
-          <div className="title">최소 사양</div>
+          <div className="title">추천 최소 사양</div>
           <div className="inner-wrapper">
-            {data2.map((item) => {
-              return <div>ㅈㅈ</div>;
+            {data2.map((item, index) => {
+              return <Item key={index} index={index} item={item} />;
             })}
           </div>
         </div>

@@ -938,9 +938,74 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
               }
 
               .inner-wrapper {
-                height: calc(100% - 2rem);
+                height: calc(100% - 43.2px);
                 display: flex;
                 flex-direction: column;
+
+                .item {
+                  box-sizing: border-box;
+                  margin: 2% 5%;
+                  height: 18%;
+                  border-radius: 4px;
+                  box-shadow: 3px 3px 3px rgba(128, 128, 128, 0.125);
+                  cursor: pointer;
+                  transition: all 200ms ease-in-out;
+                  display: flex;
+
+                  &:hover {
+                    background-color: rgba(0, 128, 0, 0.125);
+                    box-shadow: none;
+                  }
+
+                  .modal-outer {
+                    box-sizing: border-box;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.125);
+                    z-index: 0;
+
+                    .modal-inner {
+                      box-sizing: border-box;
+                      position: fixed;
+                      top: 50%;
+                      left: 50%;
+                      transform: translate(-50%, -50%);
+                      background-color: #fff;
+                      padding: 2.5px;
+                      z-index: 9998;
+                    }
+                  }
+
+                  &-left {
+                    height: 100%;
+                    width: 50%;
+                    padding: 3px 5px;
+                    display: flex;
+
+                    .case {
+                      .index {
+                        font-weight: bolder;
+                      }
+
+                      height: calc(100% - 6px);
+                      aspect-ratio: 1/1;
+                      background-size: cover;
+                      background-repeat: no-repeat;
+                      background-position: center;
+                    }
+                  }
+
+                  &-right {
+                    height: 100%;
+                    width: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  }
+                }
               }
             }
 
@@ -957,11 +1022,81 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
               }
 
               .inner-wrapper {
-                height: calc(100% - 2rem);
+                height: calc(100% - 43.2px);
                 display: flex;
                 flex-direction: column;
+
+                .item {
+                  box-sizing: border-box;
+                  margin: 2% 5%;
+                  height: 18%;
+                  border-radius: 4px;
+                  box-shadow: 3px 3px 3px rgba(128, 128, 128, 0.125);
+                  cursor: pointer;
+                  transition: all 200ms ease-in-out;
+                  display: flex;
+
+                  &:hover {
+                    background-color: rgba(0, 128, 0, 0.125);
+                    box-shadow: none;
+                  }
+
+                  .modal-outer {
+                    box-sizing: border-box;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.125);
+                    z-index: 0;
+
+                    .modal-inner {
+                      box-sizing: border-box;
+                      position: fixed;
+                      top: 50%;
+                      left: 50%;
+                      transform: translate(-50%, -50%);
+                      background-color: #fff;
+                      padding: 2.5px;
+                      z-index: 9998;
+                    }
+                  }
+
+                  &-left {
+                    height: 100%;
+                    width: 50%;
+                    padding: 3px 5px;
+                    display: flex;
+
+                    .case {
+                      .index {
+                        font-weight: bolder;
+                      }
+
+                      height: calc(100% - 6px);
+                      aspect-ratio: 1/1;
+                      background-size: cover;
+                      background-repeat: no-repeat;
+                      background-position: center;
+                    }
+                  }
+
+                  &-right {
+                    height: 100%;
+                    width: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  }
+                }
               }
             }
+          }
+
+          .quotation {
+            height: 100%;
+            width: 100%;
           }
         }
       }
