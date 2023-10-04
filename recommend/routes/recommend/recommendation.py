@@ -281,28 +281,50 @@ async def recommend(state: Recommend_input):
                 ssd_list = session.query(SSD).filter(SSD.price != None, SSD.as_year >= 5,
                                                      SSD.volume >= storage_list[storage_factor]).order_by(
                     SSD.price).limit(10).all()
+            else:
+                ssd_list = [selected_ssd]
             if selected_cooler == None:
                 cooler_list = session.query(Cooler).filter(Cooler.price != None, Cooler.as_years >= 5).limit(10).all()
+            else:
+                cooler_list = [selected_cooler]
             if selected_power == None:
                 power_list = session.query(Power).filter(Power.price != None, Power.as_years >= 7).limit(10).all()
+            else:
+                power_list = [selected_power]
+      
         elif as_factor == 2:
             if selected_ssd == None:
                 ssd_list = session.query(SSD).filter(SSD.price != None, SSD.as_year >= 3,
                                                      SSD.volume >= storage_list[storage_factor]).order_by(
                     SSD.price).limit(10).all()
+            else:
+                ssd_list = [selected_ssd]
+
             if selected_cooler == None:
                 cooler_list = session.query(Cooler).filter(Cooler.price != None, Cooler.as_years >= 3).limit(10).all()
+            else:
+                cooler_list = [selected_cooler]
+
             if selected_power == None:
                 power_list = session.query(Power).filter(Power.price != None, Power.as_years >= 5).limit(10).all()
+            else:
+                power_list = [selected_power]
+
         elif as_factor == 3:
             if selected_ssd == None:
                 ssd_list = session.query(SSD).filter(SSD.price != None, SSD.as_year >= 1,
                                                      SSD.volume >= storage_list[storage_factor]).order_by(
                     SSD.price).limit(10).all()
+            else:
+                ssd_list = [selected_ssd]
             if selected_cooler == None:
                 cooler_list = session.query(Cooler).filter(Cooler.price != None, Cooler.as_years >= 1).limit(10).all()
+            else:
+                cooler_list = [selected_cooler]
             if selected_power == None:
                 power_list = session.query(Power).filter(Power.price != None, Power.as_years >= 3).limit(10).all()
+            else:
+                power_list = [selected_power]
 
         if power_list == []:
             power_list = session.query(Power).filter(Power.price != None).order_by(
@@ -318,7 +340,7 @@ async def recommend(state: Recommend_input):
             case_list = session.query(Case).filter(Case.price != None).limit(10).all()
 
         if selected_hdd == None:
-            hdd_list = session.query(HDD).filter(HDD.price != None).limit(10).all()
+            hdd_list = session.query(HDD).filter(HDD.price != None, HDD.capacity != None, HDD.capacity >= 500).order_by(HDD.price).limit(10).all()
 
         if selected_cooler == None:
             cooler_list = session.query(Cooler).filter(Cooler.price != None).limit(10).all()

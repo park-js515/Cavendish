@@ -326,7 +326,6 @@ def serialize_quotation_output(quotation):
         case=serialize_case_output(quotation[7]),
         cooler=serialize_cooler_output(quotation[8]),
     ).__dict__
-    print(serialize_cpu_output(quotation[0]))
     return quotation_dict
 
 
