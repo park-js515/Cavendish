@@ -1,5 +1,7 @@
 package com.windows33.cavendish.domain.member.service;
 
+import com.windows33.cavendish.domain.member.dto.request.MemberLoginIdCheckRequestDto;
+import com.windows33.cavendish.domain.member.dto.request.MemberNicknameCheckRequestDto;
 import com.windows33.cavendish.domain.member.dto.response.MemberDetailResponseDto;
 import com.windows33.cavendish.domain.member.dto.request.MemberModifyRequestDto;
 import com.windows33.cavendish.domain.member.dto.request.MemberSignupRequestDto;
@@ -75,14 +77,30 @@ public class MemberServiceImpl implements MemberService {
 
         Member member = memberRepository.findById(id).orElseThrow(() -> new NotFoundException(Member.class, id));
 
-        if(!member.getPassword().equals(password)) return false;
+        if(!passwordEncoder.matches(password, member.getPassword())) return false;
 
         member.updateMember(nickname);
-        Member check = memberRepository.save(member);
-
-        if(!check.getNickname().equals(nickname)) return false;
+        memberRepository.save(member);
 
         return true;
+    }
+
+    @Override
+    public Boolean checkLoginId(String loginId) {
+        if(memberRepository.existsByLoginId(loginId)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    @Override
+    public Boolean checkNickname(String nickname) {
+        if(memberRepository.existsByNickname(nickname)) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
 }

@@ -32,7 +32,9 @@ public class SecurityConfig {
             "/api/swagger-ui/**",
             /* 회원 */
             "/api/member/login",
-            "/api/member/signup"
+            "/api/member/signup",
+            "/api/member/checkId",
+            "/api/member/checkNickname"
     };
 
     @Bean
@@ -49,6 +51,7 @@ public class SecurityConfig {
                 .antMatchers(HttpMethod.GET, "/api/board", "/api/board/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/image", "/api/image/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/comment", "/api/comment/**").permitAll()
+                .antMatchers("/api/**").hasAuthority("USER")
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider, refreshTokenService, memberRepository, memberService), UsernamePasswordAuthenticationFilter.class);

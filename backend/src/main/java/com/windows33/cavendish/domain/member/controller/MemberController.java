@@ -1,8 +1,6 @@
 package com.windows33.cavendish.domain.member.controller;
 
-import com.windows33.cavendish.domain.member.dto.request.MemberLoginRequestDto;
-import com.windows33.cavendish.domain.member.dto.request.MemberModifyRequestDto;
-import com.windows33.cavendish.domain.member.dto.request.MemberSignupRequestDto;
+import com.windows33.cavendish.domain.member.dto.request.*;
 import com.windows33.cavendish.domain.member.dto.response.MemberDetailResponseDto;
 import com.windows33.cavendish.domain.member.service.MemberService;
 import com.windows33.cavendish.global.jwt.UserPrincipal;
@@ -97,6 +95,28 @@ public class MemberController {
             @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
     ) {
         return OK(memberService.modifyMember(memberModifyRequestDto, userPrincipal.getId()));
+    }
+
+    @Operation(summary = "아이디 중복 검사", description = "아이디 중복 검사")
+    @Parameters({
+            @Parameter(name = "memberLoginIdCheckRequestDto", description = "아이디")
+    })
+    @PostMapping("/checkId")
+    public CommonResponse<Boolean> loginIdCheck(
+            @RequestBody MemberLoginIdCheckRequestDto memberLoginIdCheckRequestDto
+    ) {
+        return OK(memberService.checkLoginId(memberLoginIdCheckRequestDto.getLoginId()));
+    }
+
+    @Operation(summary = "닉네임 중복 검사", description = "닉네임 중복 검사")
+    @Parameters({
+            @Parameter(name = "memberNicknameCheckRequestDto", description = "닉네임")
+    })
+    @PostMapping("/checkNickname")
+    public CommonResponse<Boolean> nicknameCheck(
+            @RequestBody MemberNicknameCheckRequestDto memberNicknameCheckRequestDto
+    ) {
+        return OK(memberService.checkNickname(memberNicknameCheckRequestDto.getNickname()));
     }
 
 }

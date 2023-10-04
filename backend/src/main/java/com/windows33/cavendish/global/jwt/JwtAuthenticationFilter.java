@@ -33,10 +33,6 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
         String accessToken = resolveToken((HttpServletRequest) request);
 
         if(accessToken != null && jwtTokenProvider.isExpired(accessToken)) {
-            System.out.println("!!!!");
-            System.out.println(accessToken);
-
-
             throw new JwtException(String.class, accessToken);
 
 //            String refreshToken = refreshTokenService.findRefreshToken(accessToken).getRefreshToken();
