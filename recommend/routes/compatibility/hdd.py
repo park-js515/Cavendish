@@ -22,7 +22,7 @@ router = APIRouter(
 
 @router.get("/{page:int}", response_model=List[HDDSchema])
 async def hdd_search(page: int=1, keyword: str="", state: ProcessListStep1 = Depends()):
-    hdd = session.query(HDD).filter(HDD.name.like(f'%{keyword}%')).all()
+    hdd = session.query(HDD).filter(HDD.name.like(f'%{keyword}%'), HDD.price != None).all()
     page_size = (len(hdd) // 10) + 1
     try:
         result = []

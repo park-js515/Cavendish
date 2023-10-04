@@ -29,7 +29,7 @@ router = APIRouter(
 
 @router.get("/{page:int}", response_model=List[MainboardSchema])
 async def mainboard_search(page: int = 1, keyword: str = "", state: ProcessListStep1 = Depends()):
-    mainboard = session.query(Mainboard).filter(Mainboard.name.like(f'%{keyword}%')).all()
+    mainboard = session.query(Mainboard).filter(Mainboard.name.like(f'%{keyword}%'), Mainboard.price != None).all()
     page_size = (len(mainboard) // 10) + 1
     try:
         result = []
@@ -90,6 +90,7 @@ async def mainboard_search(page: int = 1, keyword: str = "", state: ProcessListS
                     pass
                 else:
                     target['compatibility'].append('gpu')
+                    
         result = sorted(result, key=lambda x: len(x['compatibility']))
 
         for i, item in enumerate(result):

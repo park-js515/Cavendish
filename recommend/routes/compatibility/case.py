@@ -26,7 +26,7 @@ router = APIRouter(
 
 @router.get("/{page:int}", response_model=List[CaseSchema])
 async def case_search(page: int = 1, keyword: str = "", state: ProcessListStep1 = Depends()):
-    case = session.query(Case).filter(Case.name.like(f'%{keyword}%')).all()
+    case = session.query(Case).filter(Case.name.like(f'%{keyword}%'), Case.price != None).all()
     max_page = len(case)//10 + 1
 
     try:
