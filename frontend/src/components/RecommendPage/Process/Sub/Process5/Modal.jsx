@@ -8,6 +8,12 @@ import { useSelector } from "react-redux";
 import crossImg from "assets/defaultImgs3/cross-black.png";
 import { now } from "lodash";
 
+const addComma = (num) => {
+  const st = num.toString();
+
+  return st.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
 const useModal = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -76,12 +82,6 @@ const ModalContent = forwardRef(({ children, isOpen }, ref) => {
 });
 
 const Item = ({ id, name, price, image }) => {
-  const addComma = (num) => {
-    const st = num.toString();
-
-    return st.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  };
-
   return (
     <div
       style={{
@@ -137,9 +137,19 @@ const Btns = ({ nowItem }) => {
 
   return (
     <div style={{ height: "100%", width: "100%" }}>
-      <div>{`${nowItem.total} 원 ~`}</div>
-      <div>{`출 력`}</div>
-      <div>{`저 장`}</div>
+      <div
+        style={{
+          fontSize: "1.5rem",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          fontWeight: "bold",
+        }}
+      >{`${addComma(nowItem.total)} 원 ~`}</div>
+      <div className="modal-btn-wrapper">
+        <div className="printBtn" onClick={() => {}}>{`출 력`}</div>
+        <div className="saveBtn" onClick={() => {}}>{`저 장`}</div>
+      </div>
     </div>
   );
 };
@@ -158,7 +168,7 @@ const Layout = ({ nowItem, handleIsOpen }) => {
             width: "100%",
           }}
         >
-          <div></div>
+          <div>견적서</div>
           <div
             className="cross"
             style={{
@@ -185,7 +195,7 @@ const Layout = ({ nowItem, handleIsOpen }) => {
               return <Item key={index} {...props} />;
             }
 
-            return <></>;
+            return <div key={index}></div>;
           })}
         </div>
         <div style={{ height: "100%", width: "30%" }}>
