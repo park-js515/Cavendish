@@ -6,7 +6,9 @@ import { useSelector } from "react-redux";
 
 // defaultImgs3
 import crossImg from "assets/defaultImgs3/cross-black.png";
-import { now } from "lodash";
+
+// API
+import { createQuotation } from "api/quotation";
 
 const addComma = (num) => {
   const st = num.toString();
@@ -131,9 +133,67 @@ const Item = ({ id, name, price, image }) => {
 
 const Btns = ({ nowItem }) => {
   const navigate = useNavigate();
+  const processList0 = useSelector((state) => {
+    return state.recommend.processList[0];
+  });
   const isLogin = useSelector((state) => {
     return state.user.isLogin;
   });
+
+  const fn1 = () => {
+    const name = window.prompt("견적서 이름을 입력하세요.", "견적서");
+    const cpuId = nowItem.cpu.id;
+    const hasCpu = processList0[2].is_have;
+    const powerId = nowItem.power.id;
+    const hasPower = processList0[6].is_have;
+    const mainboardId = nowItem.mainboard.id;
+    const hasMainboard = processList0[5].is_have;
+    const ramId = nowItem.ram.id;
+    const hasRam = processList0[7].is_have;
+    const gpuId = nowItem.gpu.id;
+    const hasGpu = processList0[3].is_have;
+    const hddId = nowItem.hdd.id;
+    const hasHdd = processList0[4].is_have;
+    const ssdId = nowItem.ssd.id;
+    const hasSsd = processList0[8].is_have;
+    const caseId = nowItem.case.id;
+    const hasCase = processList0[0].is_have;
+    const coolerId = nowItem.cooler.id;
+    const hasCooler = processList0[1].is_have;
+
+    const body = {
+      name,
+      cpuId,
+      hasCpu,
+      powerId,
+      hasPower,
+      mainboardId,
+      hasMainboard,
+      ramId,
+      hasRam,
+      gpuId,
+      hasGpu,
+      hddId,
+      hasHdd,
+      ssdId,
+      hasSsd,
+      caseId,
+      hasCase,
+      coolerId,
+      hasCooler,
+    };
+
+    const success = (response) => {
+      console.log(response);
+    };
+
+    const fail = (error) => {
+      console.error(error);
+    };
+
+    console.log(body);
+    // createQuotation({ ...body }, success, fail);
+  };
 
   return (
     <div style={{ height: "100%", width: "100%" }}>
@@ -147,8 +207,18 @@ const Btns = ({ nowItem }) => {
         }}
       >{`${addComma(nowItem.total)} 원 ~`}</div>
       <div className="modal-btn-wrapper">
-        <div className="printBtn" onClick={() => {}}>{`출 력`}</div>
-        <div className="saveBtn" onClick={() => {}}>{`저 장`}</div>
+        {/* <div className="printBtn" onClick={() => {}}>{`출 력`}</div> */}
+        <div
+          className="saveBtn"
+          onClick={() => {
+            if (isLogin) {
+              fn1();
+            } else {
+              alert("로그인이 필요한 기능입니다");
+              navigate("/login");
+            }
+          }}
+        >{`저 장`}</div>
       </div>
     </div>
   );
