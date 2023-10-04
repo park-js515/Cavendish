@@ -44,7 +44,7 @@ const createFapiAxios = (URL) => {
   const defaultAxios = axios.create({
     baseURL: `${process.env.REACT_APP_FAPI}${URL}`, // 추후 변경 예정
     headers: {
-      aceept: "application/json",
+      accept: "application/json",
     },
   });
 

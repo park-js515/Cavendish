@@ -97,6 +97,12 @@ const fapiRecommendInstance = () => {
   return instance;
 };
 
+const fapiRecommendsInstance = () => {
+  const instance = createFapiAxios(`/recommends`);
+
+  return instance;
+};
+
 const fapiPartInstance = () => {
   const instance = createFapiAxios(`/parts`);
 
@@ -118,5 +124,6 @@ export {
   fapiSearchInstance,
   fapiSearchCategoryInstance,
   fapiRecommendInstance,
+  fapiRecommendsInstance,
   fapiPartInstance,
 };

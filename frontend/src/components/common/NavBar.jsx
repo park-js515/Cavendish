@@ -4,12 +4,20 @@ import "styles/css/common.css";
 
 const main = "Cavendish";
 
-const naviList = [
-  { name: "recommend", to: "/recommend" },
-  { name: "part", to: "/part/CPU" },
-  { name: "board", to: "/board" },
-  { name: "quotation", to: "/quotation" },
-];
+const naviList = (isLogin) => {
+  return isLogin
+    ? [
+        { name: "recommend", to: "/recommend" },
+        { name: "part", to: "/part/CPU" },
+        { name: "board", to: "/board" },
+        { name: "quotation", to: "/quotation" },
+      ]
+    : [
+        { name: "recommend", to: "/recommend" },
+        { name: "part", to: "/part/CPU" },
+        { name: "board", to: "/board" },
+      ];
+};
 
 const userInfo = (isLogin) => {
   return isLogin
@@ -39,7 +47,7 @@ const NavBar = () => {
     <>
       <div className="common-navbar">
         <span className="btn-title">{main}</span>
-        {naviList.map((item) => {
+        {naviList().map((item) => {
           const props = {
             name: item.name,
             to: item.to,

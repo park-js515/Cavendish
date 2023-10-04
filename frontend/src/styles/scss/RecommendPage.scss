@@ -213,6 +213,8 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
                 justify-content: space-evenly;
                 align-items: center;
                 flex-wrap: wrap;
+                height: calc(100% - 20px);
+                width: 100%;
 
                 .item {
                   box-sizing: border-box;
@@ -252,11 +254,17 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
 
                   .text {
                     font-size: 12px;
-                    display: -webkit-box;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    -webkit-line-clamp: 2;
-                    -webkit-box-orient: vertical;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    div {
+                      display: -webkit-box;
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                      -webkit-line-clamp: 2;
+                      -webkit-box-orient: vertical;
+                    }
                   }
                 }
 
@@ -277,6 +285,14 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
                   &:hover {
                     border: 2px solid white;
                   }
+                }
+
+                .no-data {
+                  height: 100%;
+                  width: 100%;
+                  background-size: auto;
+                  background-repeat: no-repeat;
+                  background-position: center;
                 }
               }
 
@@ -509,12 +525,21 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
                   &-bot {
                     height: 40px;
                     width: 180px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
                     margin: 0 2.5px 2.5px 2.5px;
                     cursor: pointer;
                     transition: all 200ms ease-in-out;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .text {
+                      display: -webkit-box;
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                      -webkit-line-clamp: 2;
+                      -webkit-box-orient: vertical;
+                      font-size: 14px;
+                    }
                   }
                 }
 
@@ -525,6 +550,14 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
                   &:hover {
                     background-color: rgba(255, 0, 0, 0.25);
                   }
+                }
+
+                .no-data {
+                  height: 100%;
+                  width: 100%;
+                  background-size: auto;
+                  background-repeat: no-repeat;
+                  background-position: center;
                 }
               }
 
@@ -606,12 +639,21 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
                 &-bot {
                   height: 60px;
                   width: 280px;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
                   margin: 0 5px 5px 5px;
                   cursor: pointer;
                   transition: all 200ms ease-in-out;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+
+                  .text {
+                    display: -webkit-box;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    font-size: 14px;
+                  }
                 }
               }
 
@@ -630,31 +672,147 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
             height: 100%;
             width: 100%;
 
-            .upper {
-              height: 40%;
+            .proc4-wrapper {
+              height: calc(80% - 20px);
               width: 100%;
               display: flex;
-              font-size: 2.5rem;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            }
+              flex-direction: row;
 
-            .lower {
-              height: calc(40% - 20px);
-              width: 100%;
-              display: flex;
-              justify-content: center;
+              &-left {
+                height: 100%;
+                width: 50%;
+                .upper {
+                  height: 50%;
+                  width: 100%;
+                  display: flex;
+                  font-size: 2.5rem;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                }
 
-              p {
-                font-size: 2.5rem;
+                .lower {
+                  height: 50%;
+                  width: 100%;
+                  display: flex;
+                  justify-content: center;
+
+                  p {
+                    font-size: 2.5rem;
+                  }
+
+                  .budget-recom {
+                    font-size: 1.5rem;
+                    color: rgba(128, 128, 128, 0.5);
+                    display: flex;
+                    justify-content: center;
+                  }
+                }
               }
 
-              .budget-recom {
-                font-size: 1.5rem;
-                color: rgba(128, 128, 128, 0.5);
-                display: flex;
-                justify-content: center;
+              &-right {
+                box-sizing: border-box;
+                height: 100%;
+                width: 50%;
+                border-left: 1.5px dashed black;
+
+                .title {
+                  font-size: 2.5rem;
+                  display: flex;
+                  justify-content: center;
+                }
+
+                .part-check-wrapper {
+                  width: 100%;
+                  height: calc(100% - 53.33px);
+
+                  .part-check {
+                    box-sizing: border-box;
+                    height: 11%;
+                    width: 100%;
+                    padding: 2px 20px;
+                    display: flex;
+                    justify-content: space-between;
+
+                    .partImg {
+                      height: 100%;
+                      aspect-ratio: 1/1;
+                      background-size: contain;
+                      background-repeat: no-repeat;
+                      background-position: center;
+                    }
+
+                    .text1 {
+                      height: 100%;
+                      width: 40%;
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                    }
+
+                    .text2 {
+                      height: 100%;
+                      width: 40%;
+                      display: flex;
+                      align-items: center;
+
+                      .inner {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                      }
+                    }
+
+                    .btn {
+                      &-yes {
+                        height: 100%;
+                        aspect-ratio: 1.5/1;
+                        color: white;
+                        background-color: rgba(0, 128, 0, 0.5);
+                        cursor: pointer;
+                        transition: all 200ms ease-in-out;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 4px;
+
+                        &:hover {
+                          background-color: rgba(0, 128, 0, 1);
+                        }
+                      }
+
+                      &-no {
+                        height: 100%;
+                        aspect-ratio: 1.5/1;
+                        color: white;
+                        background-color: rgba(255, 0, 0, 0.5);
+                        cursor: pointer;
+                        transition: all 200ms ease-in-out;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 4px;
+
+                        &:hover {
+                          background-color: rgba(255, 0, 0, 1);
+                        }
+                      }
+
+                      &-disabled {
+                        height: 100%;
+                        aspect-ratio: 1.5/1;
+                        color: white;
+                        background-color: rgba(128, 128, 128, 0.5);
+                        cursor: not-allowed;
+                        transition: all 200ms ease-in-out;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 4px;
+                      }
+                    }
+                  }
+                }
               }
             }
 
