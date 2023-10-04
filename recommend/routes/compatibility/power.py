@@ -25,7 +25,7 @@ router = APIRouter(
 
 @router.get("/{page:int}", response_model=List[PowerSchema])
 async def power_search( page: int = 1, keyword: str = "", state: ProcessListStep1 = Depends()):
-    power = session.query(Power).filter(Power.name.like(f'%{keyword}%')).all()
+    power = session.query(Power).filter(Power.name.like(f'%{keyword}%'), Power.price != None).all()
     max_page = len(power)//10 + 1
     try:
         result = []
