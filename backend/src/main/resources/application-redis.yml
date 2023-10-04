@@ -1,0 +1,5 @@
+# 공통 설정
+spring:
+  redis:
+    host: localhost
+    port: 6379

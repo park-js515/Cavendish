@@ -1,5 +1,11 @@
 package com.windows33.cavendish.global.jwt;
 
+import com.windows33.cavendish.domain.member.entity.Member;
+import com.windows33.cavendish.domain.member.repository.MemberRepository;
+import com.windows33.cavendish.domain.member.service.MemberService;
+import com.windows33.cavendish.global.exception.JwtException;
+import com.windows33.cavendish.global.exception.NotFoundException;
+import com.windows33.cavendish.global.redis.RefreshTokenService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -11,29 +17,50 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends GenericFilterBean {
 
     private final JwtTokenProvider jwtTokenProvider;
-    private final CustomUserDetailsService customUserDetailsService;
+    private final RefreshTokenService refreshTokenService;
+    private final MemberRepository memberRepository;
+    private final MemberService memberService;
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        // 1. Request Header 에서 JWT 토큰 추출
-        String token = resolveToken((HttpServletRequest) request);
+        String accessToken = resolveToken((HttpServletRequest) request);
 
-        // 2. validateToken 으로 토큰 유효성 검사
-        if (token != null && jwtTokenProvider.validateToken(token)) {
-            // 토큰이 유효할 경우 토큰에서 Authentication 객체를 가지고 와서 SecurityContext 에 저장
-            Authentication jwtAuthentication = jwtTokenProvider.getAuthentication(token);
+        if(accessToken != null && jwtTokenProvider.isExpired(accessToken)) {
+            System.out.println("!!!!");
+            System.out.println(accessToken);
+
+
+            throw new JwtException(String.class, accessToken);
+
+//            String refreshToken = refreshTokenService.findRefreshToken(accessToken).getRefreshToken();
+//
+//            if(refreshToken != null && jwtTokenProvider.isExpired(refreshToken)) {
+//                refreshTokenService.removeRefreshToken(accessToken);
+//
+//                String id = refreshTokenService.findRefreshToken(accessToken).getId();
+//                Member member = memberRepository.findByLoginId(id).orElseThrow(() -> new NotFoundException(Member.class, id));
+//                accessToken = memberService.login(member.getLoginId(), member.getPassword());
+//                final HttpServletResponse httpServletResponse = (HttpServletResponse) response;
+//                httpServletResponse.setHeader("accessToken", "bearer" + accessToken);
+//            } else {
+//                throw new JwtException(String.class, refreshToken);
+//            }
+        }
+
+        if (accessToken != null && jwtTokenProvider.validateToken(accessToken)) {
+            Authentication jwtAuthentication = jwtTokenProvider.getAuthentication(accessToken);
             SecurityContextHolder.getContext().setAuthentication(jwtAuthentication);
         }
         chain.doFilter(request, response);
     }
 
-    // Request Header 에서 토큰 정보 추출
     private String resolveToken(HttpServletRequest request) {
         String bearerToken = request.getHeader("Authorization");
         if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer")) {

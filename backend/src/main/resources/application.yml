@@ -11,6 +11,7 @@ spring:
         - log-prod
     include:
       - db
+      - redis
       - jwt
       - log
       - server
