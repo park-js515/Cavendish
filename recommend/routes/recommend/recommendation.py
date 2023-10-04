@@ -36,7 +36,7 @@ router = APIRouter(
     prefix="/recommends"
 )
 
-@router.post("/quotation", response_model=QuotationOutput)
+@router.post("/quotation", response_model=List[QuotationOutput])
 async def recommend(state: Recommend_input):
     # 시작
 
