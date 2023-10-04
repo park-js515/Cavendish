@@ -209,8 +209,10 @@ async def recommend(state: Recommend_input):
         # 그룹 선택하는 코드
 
         budget_ratio = {
-            "group1": [cpu_rate, gpu_rate, ram_rate, tot_rate]
+            "group1": [cpu_rate/100, gpu_rate/100, ram_rate/100, tot_rate/100]
         }
+
+        print(budget_ratio)
 
         s_group = budget_ratio["group1"]
 
@@ -258,7 +260,7 @@ async def recommend(state: Recommend_input):
                 10).all()
             if len(cpu_list) == 0:
                 cpu_list = session.query(CPU).filter(CPU.price != None, CPU.bench_mark >= min_cpu_bench).order_by(
-                    CPU.bench_mark * bench_factor + CPU.bench_mark / CPU.price * ce_factor).all()
+                    CPU.bench_mark * bench_factor + CPU.bench_mark / CPU.price * ce_factor).limit(10).all()
 
         if selected_gpu == None:
             gpu_list = session.query(GPU).filter(GPU.price != None, GPU.bench_mark >= min_gpu_bench,
@@ -267,7 +269,7 @@ async def recommend(state: Recommend_input):
                 desc(GPU.bench_mark * bench_factor + GPU.bench_mark / GPU.price * ce_factor)).limit(10).all()
             if len(gpu_list) == 0:
                 gpu_list = session.query(GPU).filter(GPU.price != None, GPU.bench_mark >= min_cpu_bench).order_by(
-                    GPU.bench_mark * bench_factor + GPU.bench_mark / GPU.price * ce_factor).all()
+                    GPU.bench_mark * bench_factor + GPU.bench_mark / GPU.price * ce_factor).limit(10).all()
         power_list = []
         ssd_list = []
         case_list = []
@@ -332,7 +334,6 @@ async def recommend(state: Recommend_input):
         dfs_input = [cpu_list, power_list, mainboard_list, ram_list, gpu_list, hdd_list, ssd_list, case_list,
                      cooler_list]
         quo_test = [0 for i in range(9)]
-
         result = com_dfs(result, quo_test, 0, dfs_input, 0, raw_budget)
         result = result[0:10]
         for idx, item in enumerate(result):
