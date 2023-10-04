@@ -18,7 +18,6 @@ const Item = ({ index, item }) => {
   const { isOpen, handleIsOpen } = useModal();
 
   return (
-    // <div style={{ height: "100%", width: "100%" }}>
     <div
       className="item"
       onClick={() => {
@@ -36,7 +35,6 @@ const Item = ({ index, item }) => {
       <div className="item-right">{`~ ${addComma(item.total)}원`}</div>
       <Modal item={item} isOpen={isOpen} handleIsOpen={handleIsOpen}></Modal>
     </div>
-    // </div>
   );
 };
 

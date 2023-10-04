@@ -42,7 +42,7 @@ const ModalContent = forwardRef(({ children, isOpen }, ref) => {
 });
 
 const Item = ({ id, name, price, image }) => {
-  return <div></div>;
+  return <div className="modal-item"></div>;
 };
 
 const Modal = ({ item, isOpen, handleIsOpen }) => {
@@ -74,7 +74,9 @@ const Modal = ({ item, isOpen, handleIsOpen }) => {
 
   return (
     <ModalOverlay isOpen={isOpen} onDoubleClick={onDoubleClick}>
-      <ModalContent ref={modalRef} isOpen={isOpen}></ModalContent>
+      <ModalContent ref={modalRef} isOpen={isOpen}>
+        <Item />
+      </ModalContent>
     </ModalOverlay>
   );
 };
