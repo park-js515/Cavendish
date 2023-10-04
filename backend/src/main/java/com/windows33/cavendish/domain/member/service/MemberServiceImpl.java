@@ -1,13 +1,15 @@
 package com.windows33.cavendish.domain.member.service;
 
+import com.windows33.cavendish.domain.member.dto.request.MemberLoginIdCheckRequestDto;
+import com.windows33.cavendish.domain.member.dto.request.MemberNicknameCheckRequestDto;
 import com.windows33.cavendish.domain.member.dto.response.MemberDetailResponseDto;
 import com.windows33.cavendish.domain.member.dto.request.MemberModifyRequestDto;
 import com.windows33.cavendish.domain.member.dto.request.MemberSignupRequestDto;
-import com.windows33.cavendish.global.jwt.TokenInfo;
 import com.windows33.cavendish.domain.member.entity.Member;
 import com.windows33.cavendish.domain.member.repository.MemberRepository;
 import com.windows33.cavendish.global.exception.NotFoundException;
 import com.windows33.cavendish.global.jwt.JwtTokenProvider;
+import com.windows33.cavendish.global.redis.RefreshTokenService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -27,21 +29,20 @@ public class MemberServiceImpl implements MemberService {
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     private final JwtTokenProvider jwtTokenProvider;
     private final PasswordEncoder passwordEncoder;
+//    private final RefreshTokenService refreshTokenService;
 
     @Override
-    public TokenInfo login(String loginId, String password) {
-        // 1. Login ID/PW 를 기반으로 Authentication 객체 생성
-        // 이때 authentication 는 인증 여부를 확인하는 authenticated 값이 false
+    public String login(String loginId, String password) {
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(loginId, password);
 
-        // 2. 실제 검증 (사용자 비밀번호 체크)이 이루어지는 부분
-        // authenticate 매서드가 실행될 때 CustomUserDetailsService 에서 만든 loadUserByUsername 메서드가 실행
+        // authenticate() -> CustomUserDetailsService.loadUserByUsername()
         Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
 
-        // 3. 인증 정보를 기반으로 JWT 토큰 생성
-        TokenInfo tokenInfo = jwtTokenProvider.generateToken(authentication);
+        String accessToken = jwtTokenProvider.createAccessToken(authentication);
+//        String refreshToken = jwtTokenProvider.createRefreshToken();
+//        refreshTokenService.saveRefreshToken(loginId, refreshToken, accessToken);
 
-        return tokenInfo;
+        return accessToken;
     }
 
     @Override
@@ -76,14 +77,30 @@ public class MemberServiceImpl implements MemberService {
 
         Member member = memberRepository.findById(id).orElseThrow(() -> new NotFoundException(Member.class, id));
 
-        if(!member.getPassword().equals(password)) return false;
+        if(!passwordEncoder.matches(password, member.getPassword())) return false;
 
         member.updateMember(nickname);
-        Member check = memberRepository.save(member);
-
-        if(!check.getNickname().equals(nickname)) return false;
+        memberRepository.save(member);
 
         return true;
+    }
+
+    @Override
+    public Boolean checkLoginId(String loginId) {
+        if(memberRepository.existsByLoginId(loginId)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    @Override
+    public Boolean checkNickname(String nickname) {
+        if(memberRepository.existsByNickname(nickname)) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
 }

@@ -1,8 +1,11 @@
 package com.windows33.cavendish.global.config;
 
+import com.windows33.cavendish.domain.member.repository.MemberRepository;
+import com.windows33.cavendish.domain.member.service.MemberService;
 import com.windows33.cavendish.global.jwt.CustomUserDetailsService;
 import com.windows33.cavendish.global.jwt.JwtAuthenticationFilter;
 import com.windows33.cavendish.global.jwt.JwtTokenProvider;
+import com.windows33.cavendish.global.redis.RefreshTokenService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +22,9 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
     private final JwtTokenProvider jwtTokenProvider;
-    private final CustomUserDetailsService customUserDetailsService;
+    private final RefreshTokenService refreshTokenService;
+    private final MemberRepository memberRepository;
+    private final MemberService memberService;
 
     private static final String[] PERMIT_ALL = {
             /* swagger */
@@ -27,7 +32,9 @@ public class SecurityConfig {
             "/api/swagger-ui/**",
             /* 회원 */
             "/api/member/login",
-            "/api/member/signup"
+            "/api/member/signup",
+            "/api/member/checkId",
+            "/api/member/checkNickname"
     };
 
     @Bean
@@ -44,9 +51,10 @@ public class SecurityConfig {
                 .antMatchers(HttpMethod.GET, "/api/board", "/api/board/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/image", "/api/image/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/comment", "/api/comment/**").permitAll()
+                .antMatchers("/api/**").hasAuthority("USER")
                 .anyRequest().authenticated()
                 .and()
-                .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider, customUserDetailsService), UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider, refreshTokenService, memberRepository, memberService), UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 

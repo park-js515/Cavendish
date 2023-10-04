@@ -4,7 +4,6 @@ import com.querydsl.core.types.Order;
 import com.querydsl.core.types.OrderSpecifier;
 import com.querydsl.core.types.Projections;
 import com.querydsl.core.types.dsl.Expressions;
-import com.querydsl.jpa.JPAExpressions;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.windows33.cavendish.domain.quotation.dto.response.QuotationDetailResponseDto;
 import com.windows33.cavendish.domain.quotation.dto.response.QuotationListResponseDto;
@@ -18,15 +17,15 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-import static com.windows33.cavendish.domain.part.entity.QComputerCase.computerCase;
-import static com.windows33.cavendish.domain.part.entity.QCooler.cooler;
-import static com.windows33.cavendish.domain.part.entity.QCpu.cpu;
-import static com.windows33.cavendish.domain.part.entity.QGpu.gpu;
-import static com.windows33.cavendish.domain.part.entity.QHdd.hdd;
-import static com.windows33.cavendish.domain.part.entity.QMainboard.mainboard;
-import static com.windows33.cavendish.domain.part.entity.QPower.power;
-import static com.windows33.cavendish.domain.part.entity.QRam.ram;
-import static com.windows33.cavendish.domain.part.entity.QSsd.ssd;
+import static com.windows33.cavendish.domain.part.computer_case.entity.QComputerCase.computerCase;
+import static com.windows33.cavendish.domain.part.cooler.entity.QCooler.cooler;
+import static com.windows33.cavendish.domain.part.cpu.entity.QCpu.cpu;
+import static com.windows33.cavendish.domain.part.gpu.entity.QGpu.gpu;
+import static com.windows33.cavendish.domain.part.hdd.entity.QHdd.hdd;
+import static com.windows33.cavendish.domain.part.mainboard.entity.QMainboard.mainboard;
+import static com.windows33.cavendish.domain.part.power.entity.QPower.power;
+import static com.windows33.cavendish.domain.part.ram.entity.QRam.ram;
+import static com.windows33.cavendish.domain.part.ssd.entity.QSsd.ssd;
 import static com.windows33.cavendish.domain.quotation.entity.QQuotation.quotation;
 
 @Slf4j
