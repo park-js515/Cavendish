@@ -164,8 +164,8 @@ sketch
 
 ### Gradle ###
 .gradle
-# **/build/
-# !**/build/libs/
+ **/build/
+ !**/build/libs/
 
 
 # Ignore Gradle GUI config
