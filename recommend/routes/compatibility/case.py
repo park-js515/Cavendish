@@ -1,19 +1,10 @@
 from fastapi import FastAPI, APIRouter, Depends, Query
-from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-from pydantic import BaseModel
 from typing import List, Optional
-from models.users import User
-from models.hdd import HDD
-from models.cpu import CPU
 from models.mainboard import Mainboard, MainboardPCI
-from models.ram import RAM
 from models.gpu import GPU
 from models.case import Case
 from models.cooler import Cooler
-from models.ssd import SSD
-from models.quotation import Quotation
-from models.programs import Program
 from models.power import Power
 
 from schemas.search import ProcessListStep1
@@ -35,7 +26,7 @@ router = APIRouter(
 
 @router.get("/{page:int}", response_model=List[CaseSchema])
 async def case_search(page: int = 1, keyword: str = "", state: ProcessListStep1 = Depends()):
-    case = session.query(Case).filter(Case.name.like(f'%{keyword}%')).all()
+    case = session.query(Case).filter(Case.name.like(f'%{keyword}%'), Case.price != None).all()
     max_page = len(case)//10 + 1
 
     try:

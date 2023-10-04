@@ -28,7 +28,7 @@ router = APIRouter(
 
 @router.get("/{page:int}", response_model=List[CPUSchema])
 async def cpu_search( page: int = 1, keyword: str = "",state: ProcessListStep1 = Depends()):
-    cpu = session.query(CPU).filter(CPU.name.like(f'%{keyword}%')).all()
+    cpu = session.query(CPU).filter(CPU.name.like(f'%{keyword}%'), CPU.price != None).all()
     page_size = (len(cpu) // 10) + 1
     try:
         result = []

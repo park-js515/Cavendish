@@ -23,7 +23,7 @@ router = APIRouter(
 
 @router.get("/{page:int}", response_model=List[RAMSchema])
 async def ram_search(page: int = 1, keyword: str = "", state: ProcessListStep1 = Depends()):
-    ram = session.query(RAM).filter(RAM.name.like(f'%{keyword}%')).all()
+    ram = session.query(RAM).filter(RAM.name.like(f'%{keyword}%'), RAM.price != None).all()
     max_page = len(ram)//10 + 1
     
     

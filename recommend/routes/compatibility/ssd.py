@@ -23,7 +23,7 @@ router = APIRouter(
 
 @router.get("/{page:int}", response_model=List[SSDSchema])
 async def ssd_search(page: int = 1, keyword: str = "", state: ProcessListStep1 = Depends()):
-    ssd = session.query(SSD).filter(SSD.name.like(f'%{keyword}%')).all()
+    ssd = session.query(SSD).filter(SSD.name.like(f'%{keyword}%'), SSD.price != None).all()
     page_size = (len(ssd) // 10) + 1
 
     try:

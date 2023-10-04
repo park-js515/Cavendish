@@ -34,7 +34,7 @@ router = APIRouter(
 
 @router.get("/{page:int}", response_model=List[CoolerSchema])
 async def cooler_search(page: int = 1, keyword: str = "", state: ProcessListStep1 = Depends()):
-    cooler = session.query(Cooler).filter(Cooler.name.like(f'%{keyword}%')).all()
+    cooler = session.query(Cooler).filter(Cooler.name.like(f'%{keyword}%'), Cooler.price != None).all()
     max_page = len(cooler)//10 + 1
 
     try:

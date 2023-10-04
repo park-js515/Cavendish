@@ -24,7 +24,7 @@ router = APIRouter(
 
 @router.get("/{page:int}", response_model=List[GPUSchema])
 async def gpu_search( page: int = 1, keyword: str = "", state: ProcessListStep1 = Depends()):
-    gpu = session.query(GPU).filter(GPU.name.like(f'%{keyword}%')).all()
+    gpu = session.query(GPU).filter(GPU.name.like(f'%{keyword}%'), GPU.price != None).all()
     max_page = len(gpu) // 10 + 1
     try:
         result = []
