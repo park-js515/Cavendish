@@ -215,6 +215,8 @@ async def recommend(state: Recommend_input):
 
         s_group = budget_ratio["group1"]
 
+        print(s_group)
+
         bench_factor = 0
         ce_factor = 0
         as_factor = 0
@@ -253,32 +255,31 @@ async def recommend(state: Recommend_input):
         # bench_mark ,bench_mark / price 스케일링 필요
         if selected_cpu == None:
             cpu_list = session.query(CPU).filter(CPU.price != None, CPU.bench_mark >= min_cpu_bench,
-                                                 CPU.price <= s_group[0] * 1.3 * raw_budget,
-                                                 CPU.price >= s_group[0] * 0.7 * raw_budget).order_by(desc(
-                CPU.bench_mark / cpu_bench_max * bench_factor + CPU.bench_mark / CPU.price / cpu_ce_max * ce_factor)).limit(
-                20).all()
-            plus_list = session.query(CPU).filter(CPU.price != None, CPU.bench_mark >= min_cpu_bench,
-                                                 CPU.price <= s_group[0] * 1.1 * raw_budget,
-                                                 CPU.price >= s_group[0] * 0.9 * raw_budget).order_by(desc(
-                CPU.bench_mark / cpu_bench_max * bench_factor + CPU.bench_mark / CPU.price / cpu_ce_max * ce_factor)).limit(
-                20).all()
-            cpu_list.extend(plus_list)
+                                                 CPU.price <= s_group[0] * 1.6 * raw_budget,
+                                                 CPU.price >= s_group[0] * 0.4 * raw_budget).order_by(desc(
+                CPU.bench_mark / cpu_bench_max * bench_factor + CPU.bench_mark / CPU.price / cpu_ce_max * ce_factor)).all()
+            # plus_list = session.query(CPU).filter(CPU.price != None, CPU.bench_mark >= min_cpu_bench,
+            #                                      CPU.price <= s_group[0] * 1.1 * raw_budget,
+            #                                      CPU.price >= s_group[0] * 0.9 * raw_budget).order_by(desc(
+            #     CPU.bench_mark / cpu_bench_max * bench_factor + CPU.bench_mark / CPU.price / cpu_ce_max * ce_factor)).limit(
+            #     200).all()
+            # cpu_list.extend(plus_list)
             if len(cpu_list) == 0:
                 cpu_list = session.query(CPU).filter(CPU.price != None, CPU.bench_mark >= min_cpu_bench).order_by(
-                    CPU.bench_mark * bench_factor + CPU.bench_mark / CPU.price * ce_factor).limit(20).all()
+                    CPU.bench_mark * bench_factor + CPU.bench_mark / CPU.price * ce_factor).all()
         else:
             cpu_list = [selected_cpu]
 
         if selected_gpu == None:
             gpu_list = session.query(GPU).filter(GPU.price != None, GPU.bench_mark >= min_gpu_bench,
-                                                 GPU.price <= s_group[1] * 1.3 * raw_budget,
-                                                 GPU.price >= s_group[1] * 0.7 * raw_budget).order_by(
-                desc(GPU.bench_mark * bench_factor + GPU.bench_mark / GPU.price * ce_factor)).limit(20).all()
-            plus_list = session.query(GPU).filter(GPU.price != None, GPU.bench_mark >= min_gpu_bench,
-                                                 GPU.price <= s_group[1] * 1.1 * raw_budget,
-                                                 GPU.price >= s_group[1] * 0.9 * raw_budget).order_by(
-                desc(GPU.bench_mark * bench_factor + GPU.bench_mark / GPU.price * ce_factor)).limit(5).all()
-            gpu_list.extend(plus_list)
+                                                 GPU.price <= s_group[1] * 1.6 * raw_budget,
+                                                 GPU.price >= s_group[1] * 0.4 * raw_budget).order_by(
+                desc(GPU.bench_mark * bench_factor + GPU.bench_mark / GPU.price * ce_factor)).all()
+            # plus_list = session.query(GPU).filter(GPU.price != None, GPU.bench_mark >= min_gpu_bench,
+            #                                      GPU.price <= s_group[1] * 1.1 * raw_budget,
+            #                                      GPU.price >= s_group[1] * 0.9 * raw_budget).order_by(
+            #     desc(GPU.bench_mark * bench_factor + GPU.bench_mark / GPU.price * ce_factor)).limit(5).all()
+            # gpu_list.extend(plus_list)
             if len(gpu_list) == 0:
                 gpu_list = session.query(GPU).filter(GPU.price != None, GPU.bench_mark >= min_cpu_bench).order_by(
                     GPU.bench_mark * bench_factor + GPU.bench_mark / GPU.price * ce_factor).limit(20).all()
