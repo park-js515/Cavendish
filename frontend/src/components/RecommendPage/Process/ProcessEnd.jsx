@@ -36,7 +36,7 @@ const ProcessEnd = ({ className }) => {
   const props = {
     ..._.cloneDeep(propParts),
     ram_num: propRamNo,
-    budget: propBudget,
+    budget: propBudget * 10000,
     usage: [...propUsage],
     programs: [...propPrograms],
     priority: [...propPriority],
