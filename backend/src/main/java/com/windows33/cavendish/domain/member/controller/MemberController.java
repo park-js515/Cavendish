@@ -3,6 +3,7 @@ package com.windows33.cavendish.domain.member.controller;
 import com.windows33.cavendish.domain.member.dto.request.*;
 import com.windows33.cavendish.domain.member.dto.response.MemberDetailResponseDto;
 import com.windows33.cavendish.domain.member.service.MemberService;
+import com.windows33.cavendish.global.jwt.TokenInfo;
 import com.windows33.cavendish.global.jwt.UserPrincipal;
 import com.windows33.cavendish.global.redis.RefreshTokenService;
 import com.windows33.cavendish.global.response.CommonResponse;
@@ -34,7 +35,7 @@ public class MemberController {
             @Parameter(name = "memberLoginRequestDto", description = "회원 정보")
     })
     @PostMapping("/login")
-    public CommonResponse<String> login(
+    public CommonResponse<TokenInfo> login(
             @RequestBody MemberLoginRequestDto memberLoginRequestDto,
             HttpServletResponse response
     ) {
@@ -43,7 +44,12 @@ public class MemberController {
         String accessToken = memberService.login(memberId, password);
 //        response.setHeader("accessToken", "bearer" + accessToken);
 
-        return CommonResponse.OK(accessToken);
+        TokenInfo tokenInfo = TokenInfo.builder()
+                .grantType("Bearer")
+                .accessToken(accessToken)
+                .build();
+
+        return CommonResponse.OK(tokenInfo);
     }
     
 //    @Operation(summary = "로그아웃", description = "로그아웃")
