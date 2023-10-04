@@ -41,9 +41,9 @@ spring:
         show_sql: false   # SQL 쿼리 확인 X
 
   datasource:
-    url: jdbc:mariadb://mariadb:3306/s09p22c105
-    username: S09P22C105
-    password: S09P22C105
+    url: jdbc:mariadb://j9c105.p.ssafy.io:3306/s09p22c105
+    username: root
+    password: ssafy
 
   sql:
     init:
