@@ -165,7 +165,8 @@ async def recommend(state: Recommend_input):
         min_ram_capa = 0
 
         for pid in state.programs:
-            req = session.query(Requirements).filter(Requirements.program_id == pid).first()
+            reqs = session.query(Requirements).filter(Requirements.program_id == pid).all()
+            req = reqs[0]
             if req is None: continue
             req_cpu = session.query(CPU).filter(CPU.id == req.cpu_id).first()
             req_gpu = session.query(GPU).filter(GPU.id == req.gpu_id).first()
@@ -254,22 +255,38 @@ async def recommend(state: Recommend_input):
         # bench_mark ,bench_mark / price 스케일링 필요
         if selected_cpu == None:
             cpu_list = session.query(CPU).filter(CPU.price != None, CPU.bench_mark >= min_cpu_bench,
+                                                 CPU.price <= s_group[0] * 1.3 * raw_budget,
+                                                 CPU.price >= s_group[0] * 0.7 * raw_budget).order_by(desc(
+                CPU.bench_mark / cpu_bench_max * bench_factor + CPU.bench_mark / CPU.price / cpu_ce_max * ce_factor)).limit(
+                20).all()
+            plus_list = session.query(CPU).filter(CPU.price != None, CPU.bench_mark >= min_cpu_bench,
                                                  CPU.price <= s_group[0] * 1.1 * raw_budget,
                                                  CPU.price >= s_group[0] * 0.9 * raw_budget).order_by(desc(
                 CPU.bench_mark / cpu_bench_max * bench_factor + CPU.bench_mark / CPU.price / cpu_ce_max * ce_factor)).limit(
-                10).all()
+                20).all()
+            cpu_list.extend(plus_list)
             if len(cpu_list) == 0:
                 cpu_list = session.query(CPU).filter(CPU.price != None, CPU.bench_mark >= min_cpu_bench).order_by(
-                    CPU.bench_mark * bench_factor + CPU.bench_mark / CPU.price * ce_factor).limit(10).all()
+                    CPU.bench_mark * bench_factor + CPU.bench_mark / CPU.price * ce_factor).limit(20).all()
+        else:
+            cpu_list = [selected_cpu]
 
         if selected_gpu == None:
             gpu_list = session.query(GPU).filter(GPU.price != None, GPU.bench_mark >= min_gpu_bench,
+                                                 GPU.price <= s_group[1] * 1.3 * raw_budget,
+                                                 GPU.price >= s_group[1] * 0.7 * raw_budget).order_by(
+                desc(GPU.bench_mark * bench_factor + GPU.bench_mark / GPU.price * ce_factor)).limit(20).all()
+            plus_list = session.query(GPU).filter(GPU.price != None, GPU.bench_mark >= min_gpu_bench,
                                                  GPU.price <= s_group[1] * 1.1 * raw_budget,
                                                  GPU.price >= s_group[1] * 0.9 * raw_budget).order_by(
-                desc(GPU.bench_mark * bench_factor + GPU.bench_mark / GPU.price * ce_factor)).limit(10).all()
+                desc(GPU.bench_mark * bench_factor + GPU.bench_mark / GPU.price * ce_factor)).limit(5).all()
+            gpu_list.extend(plus_list)
             if len(gpu_list) == 0:
                 gpu_list = session.query(GPU).filter(GPU.price != None, GPU.bench_mark >= min_cpu_bench).order_by(
-                    GPU.bench_mark * bench_factor + GPU.bench_mark / GPU.price * ce_factor).limit(10).all()
+                    GPU.bench_mark * bench_factor + GPU.bench_mark / GPU.price * ce_factor).limit(20).all()
+        else:
+            gpu_list = [selected_gpu]
+
         power_list = []
         ssd_list = []
         case_list = []
@@ -317,10 +334,12 @@ async def recommend(state: Recommend_input):
                     SSD.price).limit(10).all()
             else:
                 ssd_list = [selected_ssd]
+
             if selected_cooler == None:
                 cooler_list = session.query(Cooler).filter(Cooler.price != None, Cooler.as_years >= 1).limit(10).all()
             else:
                 cooler_list = [selected_cooler]
+
             if selected_power == None:
                 power_list = session.query(Power).filter(Power.price != None, Power.as_years >= 3).limit(10).all()
             else:
@@ -332,32 +351,46 @@ async def recommend(state: Recommend_input):
 
         if selected_mainboard == None:
             mainboard_list = session.query(Mainboard).filter(Mainboard.price != None).limit(10).all()
+        else:
+            mainboard_list = [selected_mainboard] 
 
         if selected_ram == None:
             ram_list = session.query(RAM).filter(RAM.price != None).limit(10).all()
+        else:
+            ram_list = [selected_ram]
 
         if selected_case == None:
             case_list = session.query(Case).filter(Case.price != None).limit(10).all()
+        else:
+            case_list = [selected_case]
 
         if selected_hdd == None:
             hdd_list = session.query(HDD).filter(HDD.price != None, HDD.capacity != None, HDD.capacity >= 500).order_by(HDD.price).limit(10).all()
+        else:
+            hdd_list = [selected_hdd]
 
         if selected_cooler == None:
             cooler_list = session.query(Cooler).filter(Cooler.price != None).limit(10).all()
+        else:
+            cooler_list = [selected_cooler]
 
         if selected_ssd == None:
             ssd_list = session.query(SSD).filter(SSD.price != None).limit(10).all()
+        else:
+            ssd_list = [selected_ssd]
 
         # 기준: 최소 사양, 예산(오차 10%), 가중치 + 추가적인 우선순위(감성, 소음, 용량, A/S)
 
         # 부품 고르면서 호환성 검사 계속 (QutationSchema List)
-
         result = []
         dfs_input = [cpu_list, power_list, mainboard_list, ram_list, gpu_list, hdd_list, ssd_list, case_list,
                      cooler_list]
         quo_test = [0 for i in range(9)]
-        result = com_dfs(result, quo_test, 0, dfs_input, 0, raw_budget)
+        
+        result = com_dfs(result, quo_test, 0, dfs_input, 0, budget)
+
         result = result[0:10]
+
         for idx, item in enumerate(result):
             item[0].memory_type = decimal_to_name(item[0].memory_type, len(cpu_com['memory_type']),
                                                   cpu_com['memory_type'])
