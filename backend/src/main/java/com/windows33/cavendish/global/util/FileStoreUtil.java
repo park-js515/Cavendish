@@ -1,6 +1,7 @@
 package com.windows33.cavendish.global.util;
 
 import com.windows33.cavendish.domain.board.entity.BoardImage;
+import com.windows33.cavendish.global.exception.FileException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -38,7 +39,8 @@ public class FileStoreUtil {
                     Folder.mkdirs();
                 }
                 catch(Exception e) {
-                    e.getStackTrace();
+                    log.error("File: Unable to create folder");
+                    throw new FileException(File.class);
                 }
             }
 
@@ -46,8 +48,8 @@ public class FileStoreUtil {
             try {
                 multipartFile.transferTo(new File(uploadFileUrl));
             } catch (IOException e) {
-                e.printStackTrace();
-                log.error("Filed upload failed", e);
+                log.error("File: Filed upload failed", e);
+                throw new FileException(MultipartFile.class);
             }
 
             filePaths.add(uploadFileUrl);
@@ -73,8 +75,6 @@ public class FileStoreUtil {
         List<Integer> result = new ArrayList<>();
 
         for(BoardImage image : images) {
-            System.out.println("!!!!!!!!!!!!!!! : " + image.getImagePath());
-
             try {
                 File file = new File(image.getImagePath());
 
@@ -82,10 +82,12 @@ public class FileStoreUtil {
                     file.delete();
                     result.add(image.getId());
                 } else {
-                    log.error("File not found");
+                    log.error("File: File not found");
+                    throw new FileException(File.class);
                 }
             } catch(Exception e) {
-                e.printStackTrace();
+                log.error("File: Path not valid");
+                throw new FileException(File.class);
             }
         }
 
