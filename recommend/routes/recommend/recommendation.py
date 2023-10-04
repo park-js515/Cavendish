@@ -166,14 +166,14 @@ async def recommend(state: Recommend_input):
 
         for pid in state.programs:
             reqs = session.query(Requirements).filter(Requirements.program_id == pid).all()
-            req = reqs[0]
-            if req is None: continue
-            req_cpu = session.query(CPU).filter(CPU.id == req.cpu_id).first()
-            req_gpu = session.query(GPU).filter(GPU.id == req.gpu_id).first()
-            min_ram_capa = req.ram if min_ram_capa < req.ram else min_ram_capa
-            min_cpu_bench = req_cpu.bench_mark if min_cpu_bench < req_cpu.bench_mark else min_cpu_bench
-            if req_gpu is not None:
-                min_gpu_bench = req_gpu.bench_mark if min_gpu_bench < req_gpu.bench_mark else min_gpu_bench
+            if reqs is None: continue
+            for req in reqs:
+                req_cpu = session.query(CPU).filter(CPU.id == req.cpu_id).first()
+                req_gpu = session.query(GPU).filter(GPU.id == req.gpu_id).first()
+                min_ram_capa = req.ram if min_ram_capa < req.ram else min_ram_capa
+                min_cpu_bench = req_cpu.bench_mark if min_cpu_bench < req_cpu.bench_mark else min_cpu_bench
+                if req_gpu is not None:
+                    min_gpu_bench = req_gpu.bench_mark if min_gpu_bench < req_gpu.bench_mark else min_gpu_bench
 
         # 예산 비율 측정 (CPU:GPU:RAM:나머지)
         min_cpu_bench = max(min_cpu_bench, 3000)
@@ -212,8 +212,6 @@ async def recommend(state: Recommend_input):
         budget_ratio = {
             "group1": [cpu_rate/100, gpu_rate/100, ram_rate/100, tot_rate/100]
         }
-
-        print(budget_ratio)
 
         s_group = budget_ratio["group1"]
 
