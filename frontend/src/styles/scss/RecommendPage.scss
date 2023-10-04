@@ -957,33 +957,6 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
                     box-shadow: none;
                   }
 
-                  .modal-outer {
-                    box-sizing: border-box;
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: rgba(0, 0, 0, 0.125);
-                    z-index: 0;
-
-                    .modal-inner {
-                      box-sizing: border-box;
-                      position: fixed;
-                      top: 50%;
-                      left: 50%;
-                      transform: translate(-50%, -50%);
-                      background-color: #fff;
-                      padding: 2.5px;
-                      z-index: 9998;
-
-                      .modal-item {
-                        height: 600px;
-                        width:  500px;
-                      }
-                    }
-                  }
-
                   &-left {
                     height: 100%;
                     width: 50%;
@@ -1044,32 +1017,6 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
                   &:hover {
                     background-color: rgba(0, 128, 0, 0.125);
                     box-shadow: none;
-                  }
-
-                  .modal-outer {
-                    box-sizing: border-box;
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: rgba(0, 0, 0, 0.125);
-                    z-index: 0;
-
-                    .modal-inner {
-                      box-sizing: border-box;
-                      position: fixed;
-                      top: 50%;
-                      left: 50%;
-                      transform: translate(-50%, -50%);
-                      background-color: #fff;
-                      padding: 2.5px;
-
-                      .modal-item {
-                        height: 100px;
-                        width: 100px;
-                      }
-                    }
                   }
 
                   &-left {
