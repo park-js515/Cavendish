@@ -11,7 +11,6 @@ import NotFound404 from "pages/NotFound404";
 import PartPage from "pages/PartPage";
 import QuotationPage from "pages/QuotationPage";
 import RecommendPage from "pages/RecommendPage";
-import SignupPage from "pages/SignupPage";
 import QuotationDetailPage from "pages/QuotationDetailPage";
 import QuotationUpdatePage from "pages/QuotationUpdatePage";
 import QuotationCreatePage from "pages/QuotationCreatePage";
@@ -38,7 +37,6 @@ const RouteComponent = () => {
       <Route path="/quotation/create" element={<QuotationCreatePage />}></Route>
       <Route path="/quotation/update/:id" element={<QuotationUpdatePage />}></Route>
       <Route path="/recommend" element={<RecommendPage />}></Route>
-      <Route path="/signup" element={<SignupPage />}></Route>
       <Route path="/*" element={<NotFound404 />}></Route>
     </Routes>
   );
