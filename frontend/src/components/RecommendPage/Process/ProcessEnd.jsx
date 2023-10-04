@@ -1,9 +1,13 @@
 import Loading from "components/common/Loading";
+import { useState, useEffect, useRef } from "react";
 import _ from "lodash";
 
 //redux
 import { useDispatch, useSelector } from "react-redux";
 import * as recom from "redux/recommendSlice";
+
+// API
+import { getQuotation } from "api/recommend";
 
 const ProcessEnd = ({ className }) => {
   const dispatch = useDispatch();
@@ -36,11 +40,31 @@ const ProcessEnd = ({ className }) => {
   const props = {
     ..._.cloneDeep(propParts),
     ram_num: propRamNo,
-    budget: propBudget * 10000,
+    budget: propBudget * 10000, 
     usage: [...propUsage],
     programs: [...propPrograms],
     priority: [...propPriority],
   };
+
+  const check = useRef(false);
+  useEffect(() => {
+    if (!check.current) {
+      getQuotation(
+        { ...props },
+        (response) => {
+          const data = response.data;
+          console.log(data);
+        },
+        (error) => {
+          console.error(error);
+        },
+      );
+    }
+
+    return () => {
+      check.current = true;
+    };
+  }, []);
 
   return (
     <div className={className}>

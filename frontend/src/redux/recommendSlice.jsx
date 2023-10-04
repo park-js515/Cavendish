@@ -7,15 +7,15 @@ const initialState_origin = {
   processList: [
     // process1: 부품 사전 선택
     [
-      { name: "case", value: "-1", id: "", imgUrl: "", is_have: false },
-      { name: "cooler", value: "-1", id: "", imgUrl: "", is_have: false },
-      { name: "cpu", value: "-1", id: "", imgUrl: "", is_have: false },
-      { name: "gpu", value: "-1", id: "", imgUrl: "", is_have: false },
-      { name: "hdd", value: "-1", id: "", imgUrl: "", is_have: false },
-      { name: "mainboard", value: "-1", id: "", imgUrl: "", is_have: false },
-      { name: "power", value: "-1", id: "", imgUrl: "", is_have: false },
-      { name: "ram", value: "-1", id: "", imgUrl: "", is_have: false },
-      { name: "ssd", value: "-1", id: "", imgUrl: "", is_have: false },
+      { name: "case", value: "-1", id: -1, imgUrl: "", is_have: false },
+      { name: "cooler", value: "-1", id: -1, imgUrl: "", is_have: false },
+      { name: "cpu", value: "-1", id: -1, imgUrl: "", is_have: false },
+      { name: "gpu", value: "-1", id: -1, imgUrl: "", is_have: false },
+      { name: "hdd", value: "-1", id: -1, imgUrl: "", is_have: false },
+      { name: "mainboard", value: "-1", id: -1, imgUrl: "", is_have: false },
+      { name: "power", value: "-1", id: -1, imgUrl: "", is_have: false },
+      { name: "ram", value: "-1", id: -1, imgUrl: "", is_have: false },
+      { name: "ssd", value: "-1", id: -1, imgUrl: "", is_have: false },
     ],
     // process2: 용도 선택
     [],
