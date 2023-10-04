@@ -18,7 +18,7 @@ public class FileStoreUtil {
     private final String currentPath = System.getProperty("user.dir");
 
     /**
-     * 파일 업로드
+     * 파일 업로드.
      */
     public List<String> uploadFiles(String fileType, List<MultipartFile> multipartFiles) {
         List<String> filePaths = new ArrayList<>();
