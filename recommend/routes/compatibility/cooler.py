@@ -73,10 +73,9 @@ async def cooler_search(page: int = 1, keyword: str = "", state: ProcessListStep
                 result[i]['data'].feature = decimal_to_name(result[i]['data'].feature, len(cooler_com['feature']), cooler_com['feature'])
             result[i] = serialize_cooler(result[i]['data'], result[i]['compatibility'], max_page)
 
-            headers = {"max_page": str(max_page)}
 
 
-        return JSONResponse(content=result[(page-1)*10:page*10], status_code=200, headers=headers)
+        return JSONResponse(content=result[(page-1)*10:page*10], status_code=200)
 
     except Exception as e:
         return JSONResponse(content={"error": "Bad Request", "message" : f"{e}"}, status_code=400)

@@ -34,10 +34,18 @@ const RecommendPageComponent = () => {
   const processNo = useSelector((state) => {
     return state.recommend.processNo + 1;
   });
+  const hasData = useSelector((state) => {
+    const processList0 = state.recommend.processList[0];
+    const ret = processList0.some((item) => {
+      return item.value !== "-1";
+    });
+
+    return ret;
+  });
 
   const check = useRef(false);
   useEffect(() => {
-    if (!check.current && processNo >= 1) {
+    if (!check.current && (processNo >= 1 || (processNo === 0 && hasData))) {
       const isValid = window.confirm(
         "이미 진행 중인 작업이 있습니다.\n계속하시겠습니까? ",
       );
@@ -48,7 +56,7 @@ const RecommendPageComponent = () => {
     }
 
     return () => {
-      if (!check.current && processNo >= 0) {
+      if (!check.current && (processNo >= 1 || (processNo === 0 && hasData))) {
         check.current = true;
       }
     };

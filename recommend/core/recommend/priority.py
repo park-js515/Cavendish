@@ -38,19 +38,19 @@ session = engine.sessionmaker()
 def perform_pri(pri_rank):
 
     if pri_rank == 0:
-        pass
+        return 1.6
     elif pri_rank == 1:
-        pass
+        return 1.5
     else:
-        pass
+        return 1.4
 
 def as_pri(pri_rank):
     if pri_rank == 0:
-        pass
+        return 0.6
     elif pri_rank == 1:
-        pass
+        return 0.5
     else:
-        pass
+        return 0.4
 
 def storage_pri(pri_rank):
     if pri_rank == 0:

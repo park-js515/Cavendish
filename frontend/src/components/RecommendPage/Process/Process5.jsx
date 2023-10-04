@@ -8,10 +8,12 @@ import * as recom from "redux/recommendSlice";
 
 const MultiSelectComponent = ({ selectedOptions, setSelectedOptions }) => {
   const options = [
-    { value: 0, label: "성능" },
-    { value: 1, label: "기간" },
-    { value: 2, label: "저장 공간" },
-    { value: 3, label: "소음" },
+    { value: "성능", label: "성능" },
+    { value: "가성비", label: "가성비" },
+    { value: "A/S", label: "A/S" },
+    { value: "감성", label: "감성" },
+    { value: "소음", label: "소음" },
+    { value: "저장공간", label: "저장공간" },
   ];
 
   const handleSelectChange = (selectedOptions) => {
@@ -74,9 +76,11 @@ const Process5 = ({ className }) => {
 
   return (
     <div className={className}>
-      <TopIcons onClick1={() => {
-        dispatch(recom.setProcessNo(2));
-      }}/>
+      <TopIcons
+        onClick1={() => {
+          dispatch(recom.setProcessNo(2));
+        }}
+      />
       <div className="proc5">
         <div className="proc5-top">
           <div className="text">우선순위를 골라주세요</div>
@@ -93,14 +97,12 @@ const Process5 = ({ className }) => {
           <div className="submitBtn-wrapper">
             <SubmitBtn
               onClick={() => {
-                const text = `priority`;
-                const priority = {};
-                for (let i = 0; i < selectedOptions.length; i++) {
-                  // priority[`${text}${i + 1}`] = selectedOptions[i].label;
-                  // priority[`${text}${i + 1}`] = selectedOptions[i].value;
-                  priority[`${text}${i + 1}`] = selectedOptions[i].label;
-                }
-                dispatch(recom.setProcess(priority));
+                const arr = [];
+                selectedOptions.forEach((item) => {
+                  arr.push(item.value);
+                });
+
+                dispatch(recom.setProcess(arr));
                 dispatch(recom.setProcessNo(4));
               }}
             />
