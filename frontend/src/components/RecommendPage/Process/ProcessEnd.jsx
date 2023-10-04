@@ -3,25 +3,24 @@ import _ from "lodash";
 import { useModal, Modal } from "./Sub/Process5/Modal";
 
 //redux
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 // API
 import { getQuotation } from "api/recommend";
 
-const Item = ({ index, item }) => {
+const Item = ({ index, item, handleIsOpen, setNowItem }) => {
   const addComma = (num) => {
     const st = num.toString();
 
     return st.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
-  const { isOpen, handleIsOpen } = useModal();
-
   return (
     <div
       className="item"
       onClick={() => {
-        handleIsOpen((current) => !current);
+        setNowItem(item);
+        handleIsOpen();
       }}
     >
       <div className="item-left">
@@ -32,19 +31,19 @@ const Item = ({ index, item }) => {
           <div className="index">{`${index + 1}`}</div>
         </div>
       </div>
-      <div className="item-right">{`~ ${addComma(item.total)}원`}</div>
-      <Modal item={item} isOpen={isOpen} handleIsOpen={handleIsOpen}></Modal>
+      <div className="item-right">{`${addComma(item.total)}원 ~`}</div>
     </div>
   );
 };
 
 const ProcessEnd = ({ className }) => {
-  const dispatch = useDispatch();
   const processList = useSelector((state) => {
     return state.recommend.processList;
   });
   const [data1, setData1] = useState([]);
   const [data2, setData2] = useState([]);
+  const [nowItem, setNowItem] = useState({});
+  const { isOpen, handleIsOpen } = useModal();
 
   const propParts = {};
   processList[0].forEach((item) => {
@@ -96,7 +95,6 @@ const ProcessEnd = ({ className }) => {
             }
             temp.total = total;
             arr.push(temp);
-            console.log(temp);
           });
 
           setData1(_.cloneDeep(arr.slice(0, 5)));
@@ -115,12 +113,23 @@ const ProcessEnd = ({ className }) => {
 
   return (
     <div className={className}>
+      {isOpen ? (
+        <Modal nowItem={nowItem} isOpen={isOpen} handleIsOpen={handleIsOpen} />
+      ) : null}
       <div className="proc-end">
         <div className="end-left">
           <div className="title">추천 권장 사양</div>
           <div className="inner-wrapper">
             {data1.map((item, index) => {
-              return <Item key={index} index={index} item={item} />;
+              return (
+                <Item
+                  key={index}
+                  index={index}
+                  item={item}
+                  handleIsOpen={handleIsOpen}
+                  setNowItem={setNowItem}
+                />
+              );
             })}
           </div>
         </div>
@@ -128,7 +137,15 @@ const ProcessEnd = ({ className }) => {
           <div className="title">추천 최소 사양</div>
           <div className="inner-wrapper">
             {data2.map((item, index) => {
-              return <Item key={index} index={index} item={item} />;
+              return (
+                <Item
+                  key={index}
+                  index={index}
+                  item={item}
+                  handleIsOpen={handleIsOpen}
+                  setNowItem={setNowItem}
+                />
+              );
             })}
           </div>
         </div>
