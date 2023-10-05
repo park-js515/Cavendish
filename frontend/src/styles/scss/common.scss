@@ -24,31 +24,31 @@ $hover-bgc: rgb(194, 194, 194);
   }
 
   @mixin btn($btn-color) {
+    box-sizing: border-box;
+    height: 100%;
     font-size: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
     margin-left: 10px;
     margin-right: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 5px;
     color: $btn-color;
     font-weight: 700;
+    white-space: nowrap;
     transition: color 300ms ease-in-out, background-color 300ms ease-in-out;
-    min-width: 100px;
+    border-bottom: 4px solid white;
   }
 
   .btn-inactive {
     @include btn(#{$inactive});
     &:hover {
       color: #{$hover};
-      background-color: color.scale($hover-bgc, $lightness: 80%);
     }
   }
 
   .btn-active {
     @include btn(#{$active});
+    border-bottom: 4px solid #{$active};
   }
 
   .btn-title {
