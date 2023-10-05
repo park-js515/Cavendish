@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
 const mainBtn = [
-  { name: "Parts", path: "/part/CPU" },
   { name: "Recommend", path: "/recommend" },
   { name: "Community", path: "/board" },
 ];
