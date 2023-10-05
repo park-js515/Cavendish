@@ -1,7 +1,8 @@
 import { getBoardsList } from "api/boards";
-import { useEffect, useRef, useState } from "react";
-import { Link, Route, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { AiOutlineHeart, AiOutlineEye } from "react-icons/ai";
 
 export default function BoardPageComponent() {
   const [boardData, setBoardData] = useState([]);
@@ -16,7 +17,7 @@ export default function BoardPageComponent() {
       (response) => {
         const data = response.data.response.content;
         setTotalPages(response.data.response.totalPages);
-        // console.log(data)
+        console.log(data)
         setBoardData(data);
       },
       () => {
@@ -88,6 +89,10 @@ export default function BoardPageComponent() {
                           {item.contents.substr(0, 20)}
                         </span>
                       </div>
+                    </div>
+                    <div className="content-footer">
+                      <div><AiOutlineHeart/> {item.like}</div>
+                      <div><AiOutlineEye/> {item.view}</div>
                     </div>
                   </div>
                 </li>
