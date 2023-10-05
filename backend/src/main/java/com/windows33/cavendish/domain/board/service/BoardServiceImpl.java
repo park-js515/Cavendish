@@ -117,6 +117,16 @@ public class BoardServiceImpl implements BoardService {
         return boardModifyRequestDto.getId();
     }
 
+    @Override
+    public void increaseViewCount(Integer boardId, Integer userId) {
+        Board board = boardRepository.findById(boardId).orElseThrow(() -> new NotFoundException(Board.class, boardId));
+
+        if(!board.getUserId().equals(userId)) {
+            board.increaseViewCount();
+            boardRepository.save(board);
+        }
+    }
+
     private Board checkAuthority(Integer boardId, Integer id) {
         Board board = boardRepository.findById(boardId).orElseThrow(() -> new NotFoundException(Board.class, boardId));
 

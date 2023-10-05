@@ -45,4 +45,8 @@ public class Board {
         this.contents = contents;
     }
 
+    public void increaseViewCount() {
+        this.view++;
+    }
+
 }

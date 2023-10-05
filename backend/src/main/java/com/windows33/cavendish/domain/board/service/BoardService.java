@@ -14,4 +14,6 @@ public interface BoardService {
 
     Integer modifyArticle(BoardModifyRequestDto boardModifyRequestDto, List<MultipartFile> img, Integer id);
 
+    void increaseViewCount(Integer boardId, Integer userId);
+
 }
