@@ -1,5 +1,6 @@
 package com.windows33.cavendish.domain.board.repository;
 
+import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.Order;
 import com.querydsl.core.types.OrderSpecifier;
 import com.querydsl.core.types.Projections;
@@ -40,7 +41,12 @@ public class BoardQueryRepository {
     /**
      * 글 목록 조회
      */
-    public Page<BoardListResponseDto> findBoardList(Pageable pageable) {
+    public Page<BoardListResponseDto> findBoardList(Pageable pageable, String type, Integer userId) {
+        BooleanBuilder builder = new BooleanBuilder();
+        if(type != null && type.equals("my") && userId != null) {
+            builder.and(board.userId.eq(userId));
+        }
+
         List<BoardListResponseDto> boardList = jpaQueryFactory
                 .select(Projections.constructor(BoardListResponseDto.class,
                         board.id,
@@ -52,6 +58,7 @@ public class BoardQueryRepository {
                         board.likeCnt
                 ))
                 .from(board)
+                .where(builder)
                 .leftJoin(member).on(board.userId.eq(member.id))
                 .orderBy(boardSort(pageable))
                 .offset(pageable.getOffset())

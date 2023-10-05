@@ -7,9 +7,6 @@ import com.windows33.cavendish.domain.board.dto.response.BoardListResponseDto;
 import com.windows33.cavendish.domain.board.dto.response.BoardModifyFormResponseDto;
 import com.windows33.cavendish.domain.board.service.BoardQueryService;
 import com.windows33.cavendish.domain.board.service.BoardService;
-import com.windows33.cavendish.global.exception.InvalidException;
-import com.windows33.cavendish.global.exception.JwtTokenException;
-import com.windows33.cavendish.global.exception.NotFoundException;
 import com.windows33.cavendish.global.jwt.UserPrincipal;
 import com.windows33.cavendish.global.response.CommonResponse;
 import io.swagger.v3.oas.annotations.Operation;
@@ -59,9 +56,11 @@ public class BoardController {
     })
     @GetMapping
     public CommonResponse<Page<BoardListResponseDto>> articleList(
-            @PageableDefault(sort="createDateTime", direction = Sort.Direction.DESC) Pageable pageable
+            @PageableDefault(sort="createDateTime", direction = Sort.Direction.DESC) Pageable pageable,
+            @RequestParam(required = false) String type,
+            @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
     ) {
-        return CommonResponse.OK(boardQueryService.findBoardList(pageable));
+        return CommonResponse.OK(boardQueryService.findBoardList(pageable, type, userPrincipal!=null?userPrincipal.getId():null));
     }
 
     @Operation(summary = "글 상세 조회", description = "글 상세 조회")
