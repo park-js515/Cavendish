@@ -2,6 +2,7 @@ package com.windows33.cavendish.global.config;
 
 import com.windows33.cavendish.domain.member.repository.MemberRepository;
 import com.windows33.cavendish.domain.member.service.MemberService;
+import com.windows33.cavendish.global.filter.ExceptionHandlerFilter;
 import com.windows33.cavendish.global.jwt.JwtAuthenticationFilter;
 import com.windows33.cavendish.global.jwt.JwtTokenProvider;
 import com.windows33.cavendish.global.redis.RefreshTokenService;
@@ -53,7 +54,8 @@ public class SecurityConfig {
                 .antMatchers("/api/**").hasAuthority("USER")
                 .anyRequest().authenticated()
                 .and()
-                .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider, refreshTokenService, memberRepository, memberService), UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider, refreshTokenService, memberRepository, memberService), UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(new ExceptionHandlerFilter(), UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 

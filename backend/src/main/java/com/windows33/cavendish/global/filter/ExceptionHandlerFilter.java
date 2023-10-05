@@ -19,22 +19,25 @@ public class ExceptionHandlerFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(
-            HttpServletRequest request, HttpServletResponse response, FilterChain filterChain
+            HttpServletRequest request,
+            HttpServletResponse response,
+            FilterChain filterChain
     ) throws ServletException, IOException {
         try {
             filterChain.doFilter(request, response);
         } catch (JwtTokenException e) {
-            setErrorResponse(HttpStatus.UNAUTHORIZED, request, response, e);
+            setErrorResponse(response, HttpStatus.UNAUTHORIZED);
         }
     }
 
     public void setErrorResponse(
             HttpServletResponse response,
+            HttpStatus httpStatus
     ) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        response.setStatus(errorCode.getHttpStatus().value());
+        response.setStatus(httpStatus.value());
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
-        ErrorResponse errorResponse = new ErrorResponse(errorCode.getCode(), errorCode.getMessage());
+        ErrorResponse errorResponse = new ErrorResponse(httpStatus.value(), "jwt");
         try{
             response.getWriter().write(objectMapper.writeValueAsString(errorResponse));
         }catch (IOException e){

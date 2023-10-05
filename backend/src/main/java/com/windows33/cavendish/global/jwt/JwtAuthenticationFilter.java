@@ -33,9 +33,7 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         String accessToken = resolveToken((HttpServletRequest) request);
 
-        if(accessToken != null && jwtTokenProvider.isExpired(accessToken)) {
-            throw new JwtTokenException("Jwt exception");
-
+//        if(accessToken != null && jwtTokenProvider.isExpired(accessToken)) {
 //            String refreshToken = refreshTokenService.findRefreshToken(accessToken).getRefreshToken();
 //
 //            if(refreshToken != null && jwtTokenProvider.isExpired(refreshToken)) {
@@ -49,18 +47,14 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
 //            } else {
 //                throw new JwtException(String.class, refreshToken);
 //            }
-        }
+//        }
 
         if (accessToken != null && jwtTokenProvider.validateToken(accessToken)) {
             Authentication jwtAuthentication = jwtTokenProvider.getAuthentication(accessToken);
             SecurityContextHolder.getContext().setAuthentication(jwtAuthentication);
-        } else {
-            throw new JwtTokenException("Jwt exception");
         }
 
-        throw new JwtTokenException("Jwt exception");
-
-//        chain.doFilter(request, response);
+        chain.doFilter(request, response);
     }
 
     private String resolveToken(HttpServletRequest request) {
