@@ -185,14 +185,13 @@ const Btns = ({ nowItem }) => {
     };
 
     const success = (response) => {
-      console.log(response);
+      // console.log(response);
     };
 
     const fail = (error) => {
       console.error(error);
     };
 
-    console.log(body);
     createQuotation({ ...body }, success, fail);
   };
 
@@ -221,12 +220,19 @@ const Btns = ({ nowItem }) => {
                 },
                 showCancelButton: true,
                 confirmButtonText: "제출",
-                showLoaderOnConfirm: true,
-              }).then((result) => {
-                if (result.isConfirmed) {
-                  fn1();
+                cancelButtonText: "취소",
+              }).then((value) => {
+                if (value.isConfirmed) {
+                  console.log(value);
+                  fn1(value.value);
+                  Swal.fire({
+                    icon: "success",
+                    title: "알림",
+                    text: "저장되었습니다.",
+                  });
                 }
               });
+
             } else {
               Swal.fire({
                 title: "로그인",
