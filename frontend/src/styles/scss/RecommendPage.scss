@@ -1103,6 +1103,28 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
             height: 100%;
             width: 100%;
           }
+
+          .no-quotation {
+            height: 100%;
+            width: 100%;
+
+            .inner {
+              height: 100%;
+              width: 100%;
+              font-size: 2.25rem;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+
+              .btn {
+                cursor: pointer;
+                margin-top: 50px ;
+                height: 100px;
+                aspect-ratio: 1/1;
+              }
+            }
+          }
         }
       }
     }
