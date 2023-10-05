@@ -35,10 +35,17 @@ public class CommentQueryRepository {
      */
     public Page<CommentListResponseDto> findCommentList(Integer boardId, Pageable pageable, String type, Integer userId) {
         BooleanBuilder builder = new BooleanBuilder();
-        builder.and(comment.boardId.eq(boardId));
-        System.out.println(type);
+
+        if(boardId != null) {
+            builder.and(comment.boardId.eq(boardId));
+        }
+
         if(type != null && type.equals(CommentSearchType.MY.name()) && userId != null) {
             builder.and(comment.userId.eq(userId));
+        }
+
+        if(userId == null && boardId == null) {
+            builder.and(Expressions.FALSE);
         }
 
         BooleanExpression isMine;

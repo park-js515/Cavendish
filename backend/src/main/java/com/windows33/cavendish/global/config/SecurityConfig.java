@@ -16,6 +16,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import java.util.List;
+
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -25,6 +27,7 @@ public class SecurityConfig {
     private final RefreshTokenService refreshTokenService;
     private final MemberRepository memberRepository;
     private final MemberService memberService;
+    private final CorsConfig corsConfig;
 
     private static final String[] PERMIT_ALL = {
             /* swagger */
@@ -37,8 +40,7 @@ public class SecurityConfig {
         http
                 .httpBasic().disable()
                 .csrf().disable()
-                .cors()
-                .and()
+                .cors().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
