@@ -12,6 +12,7 @@ from routes.compatibility.ssd import router as ssd_router
 from routes.compatibility.power import router as power_router
 from routes.recommend.search_program import router as program_router
 from routes.recommend.recommendation import router as recommendation_router
+from routes.recommend.recommendation_jh import router as recommedtation_router_
 from routes.recommend.parts_detail import router as parts_detail_router
 
 app = FastAPI()
@@ -49,7 +50,8 @@ routers = [
     power_router,
     program_router,
     parts_detail_router,
-    recommendation_router
+    recommendation_router,
+    recommedtation_router_
 ]
 
 for router in routers:

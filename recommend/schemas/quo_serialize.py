@@ -170,26 +170,29 @@ def serialize_ssd_output(ssd_object):
     return ssd_dict
 
 def serialize_hdd_output(hdd_object):
-    hdd_dict = HDDOutput(
-        id=hdd_object.id,
-        name=hdd_object.name,
-        price=hdd_object.price,
-        link=hdd_object.link,
-        company=hdd_object.company,
-        product_seq=hdd_object.product_seq,
-        image=hdd_object.image,
-        size=hdd_object.size,
-        capacity=hdd_object.capacity,
-        interface=hdd_object.interface,
-        rpm=hdd_object.rpm,
-        transfer_rate=hdd_object.transfer_rate,
-        buffer_capacity=hdd_object.buffer_capacity,
-        recording_method=hdd_object.recording_method,
-        thickness=hdd_object.thickness,
-        as_year=hdd_object.as_year,
-        reg_date=hdd_object.reg_date,
-        bookmark=hdd_object.bookmark,
-    ).__dict__
+    if hdd_object is not None:
+        hdd_dict = HDDOutput(
+            id=hdd_object.id,
+            name=hdd_object.name,
+            price=hdd_object.price,
+            link=hdd_object.link,
+            company=hdd_object.company,
+            product_seq=hdd_object.product_seq,
+            image=hdd_object.image,
+            size=hdd_object.size,
+            capacity=hdd_object.capacity,
+            interface=hdd_object.interface,
+            rpm=hdd_object.rpm,
+            transfer_rate=hdd_object.transfer_rate,
+            buffer_capacity=hdd_object.buffer_capacity,
+            recording_method=hdd_object.recording_method,
+            thickness=hdd_object.thickness,
+            as_year=hdd_object.as_year,
+            reg_date=hdd_object.reg_date,
+            bookmark=hdd_object.bookmark,
+        ).__dict__
+    else:
+        hdd_dict = {}
     return hdd_dict
 
 def serialize_case_output(case_object):
