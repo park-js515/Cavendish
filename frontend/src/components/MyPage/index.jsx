@@ -25,9 +25,6 @@ export default function MyPageComponent() {
   const myArticleList = () => {
     getBoardsList(
       {
-        page: boardPage,
-        size: boardSize,
-        sort: "createDateTime,DESC",
         type: "MY",
       },
       (response) => {
@@ -43,9 +40,6 @@ export default function MyPageComponent() {
   const myCommentList = () => {
     getCommentsList(
       {
-        page: commentPage,
-        size: commentSize,
-        sort: "createDateTime,DESC",
         type: "MY",
       },
       (response) => {
@@ -63,6 +57,8 @@ export default function MyPageComponent() {
       (response) => {
         const data = response.data.response;
         setData(data);
+        getBoardsList();
+        myCommentList();
       },
       () => {
         console.log("error");
@@ -105,14 +101,14 @@ export default function MyPageComponent() {
         {toggle === 0 && (
           <div className="my_article">
             {myArticles.map((article) => {
-              return <div>{article}</div>;
+              return <div>{article.contents}</div>;
             })}
           </div>
         )}
         {toggle === 1 && (
           <div className="my_comment">
             {myComments.map((comment) => {
-              return <div>{comment}</div>;
+              return <div>{comment.contents}</div>;
             })}
           </div>
         )}

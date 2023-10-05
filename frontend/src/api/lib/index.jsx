@@ -54,7 +54,7 @@ const searchDefaultInstance = () => {
 
 const commentDefaultInstance = (params) => {
   const instance = createDefaultAxios(
-    `/comment/${params.boardId}?page=${params.page ? params.page : 0}&size=${
+    `/comment?${params.boardId ? params.boardId : ""}&page=${params.page ? params.page : 0}&size=${
       params.size ? params.size : 10
     }&sort=${params.sort ? params.sort : "createDateTime,DESC"}&${
       params.type ? params.type : ""
