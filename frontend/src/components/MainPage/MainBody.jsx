@@ -7,8 +7,10 @@ import MainContents from "./MainContents";
 const MainBody = () => {
   return (
     <div className="mainBody">
-      <MainContents></MainContents>
-      <MainLogo></MainLogo>
+      <div className="mainContents">
+        <MainContents></MainContents>
+        <MainLogo></MainLogo>
+      </div>
     </div>
   );
 };

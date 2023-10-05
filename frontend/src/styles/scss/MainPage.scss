@@ -33,19 +33,21 @@
     margin-top: 100px;
 }
 
-.maincContents {
-}
 
 .mainBody {
     background-color: black;
-    align-content: center;
     display: flex;
     position: absolute; /* 절대 위치 설정 */
-    top: 60px; /* Navbar의 높이만큼 아래로 이동 */
+    top: 0; /* Navbar의 높이만큼 아래로 이동 */
     left: 0; /* 왼쪽에 붙임 */
     right: 0; /* 오른쪽에 붙임 */
     bottom: 0; /* 하단에 붙임 */
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+    
+    .mainContents{
+        display: flex;
+    }
 }
 
 .mainBtn {
