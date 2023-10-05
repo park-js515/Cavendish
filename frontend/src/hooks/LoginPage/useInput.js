@@ -18,7 +18,7 @@ export const useInput = (initialValue, validator, filterHangeul) => {
       if (before !== after) {
         Swal.fire({
           icon: "warning",
-          title: "회원가입 에러",
+          title: "호환성 에러",
           text: "아이디에 한글은 입력할 수 없습니다!",
         });
       }
