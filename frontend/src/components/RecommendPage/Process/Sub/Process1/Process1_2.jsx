@@ -74,6 +74,7 @@ const Process1_2 = ({ setSubProcess }) => {
           back={"돌아가기"}
           onClick={() => {
             setSubProcess(0);
+            dispatch(recom.setProcessNo(0));
           }}
           style={{
             fontSize: "30px",

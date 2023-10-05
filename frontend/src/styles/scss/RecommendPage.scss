@@ -285,7 +285,7 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
                     .inner {
                       height: 100%;
                       aspect-ratio: 1/1;
-                      background-size: cover;
+                      background-size: contain;
                       background-repeat: no-repeat;
                       background-position: center;
                     }
