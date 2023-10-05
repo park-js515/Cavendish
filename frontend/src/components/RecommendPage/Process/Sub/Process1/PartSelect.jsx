@@ -12,13 +12,13 @@ const TopIcons = ({ onClick1 }) => {
   return (
     <div
       style={{
-        height: "20px",
+        height: "30px",
         display: "flex",
         justifyContent: "flex-start",
       }}
     >
       <AiOutlineArrowLeft
-        size="20"
+        size="30"
         color={leftCol}
         onMouseEnter={() => {
           setLeftCol("red");

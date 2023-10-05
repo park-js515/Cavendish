@@ -69,13 +69,13 @@ const TopIcons = () => {
   return (
     <div
       style={{
-        height: "20px",
+        height: "30px",
         display: "flex",
         justifyContent: "space-between",
       }}
     >
       <AiOutlineArrowLeft
-        size="20"
+        size="30"
         color={leftCol}
         onMouseEnter={() => {
           setLeftCol("red");
@@ -96,7 +96,7 @@ const TopIcons = () => {
         <span style={{ color: "gray" }}>한 개 이상의 입력은 필수입니다.</span>
       ) : null}
       <AiOutlineArrowRight
-        size="20"
+        size="30"
         color={disabled ? "gray" : rightCol}
         onMouseEnter={() => {
           setRightCol("red");

@@ -1,31 +1,42 @@
 import { useState, useEffect, useRef } from "react";
-import Process3_1 from "./Sub/Process3/Process3_1";
 import Process3_2 from "./Sub/Process3/Process3_2";
 import Process3_3 from "./Sub/Process3/Process3_3";
 
 // redux
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as recom from "redux/recommendSlice";
-
-const subProcessList = [Process3_1, Process3_2, Process3_3];
 
 // 3. 세부 용도 선택
 const Process3 = ({ className }) => {
   const dispatch = useDispatch();
-  // subProcess3: [{0: Process3_1, 1: Process3_2, 2: Process3_3, 2: go to Process4}]
+  const usages = useSelector((state) => {
+    return state.recommend.processList[1];
+  });
+
+  const len = usages.length;
   const [subProcess3, setSubProcess3] = useState(0);
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState(usages[0]);
   const isChecked = useRef(false);
-  const NowComponent = subProcess3 <= 2 ? subProcessList[subProcess3] : null;
+  const getComponent = () => {
+    if (subProcess3 === len) {
+      return null;
+    }
+
+    if (selected === "게임") {
+      return Process3_2;
+    }
+    return Process3_3;
+  };
+
+  const NowComponent = getComponent();
 
   useEffect(() => {
-    if (!isChecked.current && subProcess3 === 3) {
-      dispatch(recom.setProcess(2));
-      setSubProcess3(0);
+    if (!isChecked.current && subProcess3 === len) {
+      dispatch(recom.setProcessNo(2));
     }
 
     return () => {
-      if (!isChecked.current && subProcess3 === 3) {
+      if (!isChecked.current && subProcess3 === len) {
         isChecked.current = true;
       }
     };
@@ -36,9 +47,11 @@ const Process3 = ({ className }) => {
       <div className="proc3">
         {NowComponent ? (
           <NowComponent
+            subProcess={subProcess3}
             setSubProcess={setSubProcess3}
             selected={selected}
             setSelected={setSelected}
+            len={len}
           />
         ) : null}
       </div>
