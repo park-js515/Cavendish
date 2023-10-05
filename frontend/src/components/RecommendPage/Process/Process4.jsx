@@ -24,6 +24,7 @@ const BudgetComponent = ({ value, setValue }) => {
         onChange={onChange}
         className="budget"
       />
+      <p style={{fontSize: "2rem", margin: 0}}>만원</p>
     </div>
   );
 };
@@ -139,7 +140,6 @@ const Process4 = ({ className }) => {
               >
                 <div style={{ display: "flex" }}>
                   <BudgetComponent value={budget} setValue={setBudget} />
-                  <p>만원</p>
                 </div>
               </div>
             </div>
