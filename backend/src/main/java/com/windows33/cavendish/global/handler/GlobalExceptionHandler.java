@@ -1,6 +1,7 @@
 package com.windows33.cavendish.global.handler;
 
 import com.windows33.cavendish.global.exception.InvalidException;
+import com.windows33.cavendish.global.exception.JwtTokenException;
 import com.windows33.cavendish.global.exception.ServiceRuntimeException;
 import com.windows33.cavendish.global.response.CommonResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -34,11 +35,11 @@ public class GlobalExceptionHandler {
         return newResponse(e, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-//    @ExceptionHandler(Exception.class)
-//    public ResponseEntity<?> test(Exception e) {
-//        log.error("Unexpected service exception occurred: {}", e.getMessage(), e);
-//        return newResponse(e, HttpStatus.INTERNAL_SERVER_ERROR);
-//    }
+    @ExceptionHandler(JwtTokenException.class)
+    public ResponseEntity<?> handleJwtTokenException(JwtTokenException e) {
+        log.error("Unexpected service exception occurred: {}", e.getMessage(), e);
+        return newResponse(e, HttpStatus.UNAUTHORIZED);
+    }
 
     @GetMapping("/error")
     public ResponseEntity<?> notFoundException(NoHandlerFoundException e){

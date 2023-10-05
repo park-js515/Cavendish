@@ -18,8 +18,8 @@ public class CommentQueryServiceImpl implements CommentQueryService {
     private final CommentQueryRepository commentQueryRepository;
 
     @Override
-    public Page<CommentListResponseDto> findCommentList(Integer boardId, Pageable pageable, Integer userId) {
-        return commentQueryRepository.findCommentList(boardId, pageable, userId);
+    public Page<CommentListResponseDto> findCommentList(Integer boardId, Pageable pageable, String type, Integer userId) {
+        return commentQueryRepository.findCommentList(boardId, pageable, type, userId);
     }
 
 }
