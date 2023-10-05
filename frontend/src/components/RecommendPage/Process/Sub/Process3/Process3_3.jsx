@@ -85,35 +85,35 @@ const Process3_3 = ({ setSubProcess, selected }) => {
 
   const check = useRef(false);
   useEffect(() => {
-    if (check.current) {
-      const propCategory = selected;
-      const propPage = 1;
-      const propParams = {
-        keyword: "",
-      };
-      const propSuccess = (response) => {
-        const { data } = response;
-        const arr = [];
-        data.forEach((item) => {
-          const { id, name, image } = item;
-          arr.push({ id: id, value: name, imgUrl: image });
-        });
-
-        setData([...arr]);
-      };
-      const propFail = (error) => {
-        console.error(error);
-      };
-
-      const props = [propCategory, propPage, propParams, propSuccess, propFail];
-      searchProgram(...props);
-    }
-
-    return () => {
-      if (!check.current) {
-        check.current = true;
-      }
+    // if (check.current) {
+    const propCategory = selected;
+    const propPage = 1;
+    const propParams = {
+      keyword: "",
     };
+    const propSuccess = (response) => {
+      const { data } = response;
+      const arr = [];
+      data.forEach((item) => {
+        const { id, name, image } = item;
+        arr.push({ id: id, value: name, imgUrl: image });
+      });
+
+      setData([...arr]);
+    };
+    const propFail = (error) => {
+      console.error(error);
+    };
+
+    const props = [propCategory, propPage, propParams, propSuccess, propFail];
+    searchProgram(...props);
+    // }
+
+    // return () => {
+    //   if (!check.current) {
+    //     check.current = true;
+    //   }
+    // };
   }, []);
 
   return (
