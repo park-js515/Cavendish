@@ -1,8 +1,11 @@
 import { memberInfo, memberRemove } from "api/member";
 import { useEffect, useRef, useState } from "react";
 import MyPageUpdateComponent from "./MyPageUpdateComponent";
+import { useSelector } from "react-redux";
 
 export default function MyPageComponent() {
+  const isLogin = useSelector((state) => state.user.isLogin);
+
   const check = useRef(false);
   const [data, setData] = useState([]);
 
@@ -62,7 +65,7 @@ export default function MyPageComponent() {
           className={toggle === 1 ? "selected" : ""}
           onClick={toggleHandelr}
         >
-          내 견적함
+          내가 쓴 댓글
         </li>
       </ul>
       <ul>
