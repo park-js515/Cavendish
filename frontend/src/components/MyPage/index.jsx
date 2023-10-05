@@ -44,9 +44,9 @@ export default function MyPageComponent() {
           {/* <image className="user_img" src="#" alt="user_img" /> */}
           <div className="user_info">
             <div className="user_id">{data.loginId}</div>
-            <div className="user_nickname">{data.nickname}</div>
+            <div className="user_nickname">@{data.nickname}</div>
           </div>
-          <button onClick={updateHandler}>수정</button>
+          {/* <button className="update_nick" onClick={updateHandler}>닉네임 수정</button> */}
         </div>
       )}
       {isUpdate && (
