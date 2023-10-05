@@ -12,6 +12,7 @@ import com.windows33.cavendish.domain.board.dto.component.BoardModifyFormImageCo
 import com.windows33.cavendish.domain.board.dto.response.BoardDetailResponseDto;
 import com.windows33.cavendish.domain.board.dto.response.BoardListResponseDto;
 import com.windows33.cavendish.domain.board.dto.response.BoardModifyFormResponseDto;
+import com.windows33.cavendish.global.exception.FileException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -171,7 +172,8 @@ public class BoardQueryRepository {
             try {
                 image = Files.readAllBytes(data.toPath());
             } catch(Exception e) {
-                e.printStackTrace();
+                log.error("File: Cannot be converted to byte array");
+                throw new FileException(File.class);
             }
 
             // 예외 처리 필요
