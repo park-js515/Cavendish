@@ -1,5 +1,6 @@
 package com.windows33.cavendish.global.jwt;
 
+import com.windows33.cavendish.global.exception.JwtTokenException;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
@@ -57,7 +58,7 @@ public class JwtTokenProvider {
         Claims claims = parseClaims(accessToken);
 
         if (claims.get("auth") == null) {
-            throw new RuntimeException("Not Authentication Data");
+            throw new JwtTokenException("Jwt exception");
         }
 
         UserDetails principal = customUserDetailsService.loadUserByUsername(claims.getSubject());
@@ -90,10 +91,10 @@ public class JwtTokenProvider {
     }
 
     private Claims parseClaims(String accessToken) {
-        try {
+        if(validateToken(accessToken)) {
             return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(accessToken).getBody();
-        } catch (ExpiredJwtException e) {
-            return e.getClaims();
+        } else {
+            throw new JwtTokenException("Jwt exception");
         }
     }
 

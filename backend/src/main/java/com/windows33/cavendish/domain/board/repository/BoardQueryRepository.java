@@ -1,5 +1,6 @@
 package com.windows33.cavendish.domain.board.repository;
 
+import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.Order;
 import com.querydsl.core.types.OrderSpecifier;
 import com.querydsl.core.types.Projections;
@@ -12,6 +13,8 @@ import com.windows33.cavendish.domain.board.dto.component.BoardModifyFormImageCo
 import com.windows33.cavendish.domain.board.dto.response.BoardDetailResponseDto;
 import com.windows33.cavendish.domain.board.dto.response.BoardListResponseDto;
 import com.windows33.cavendish.domain.board.dto.response.BoardModifyFormResponseDto;
+import com.windows33.cavendish.global.common.BoardSearchType;
+import com.windows33.cavendish.global.exception.FileException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -39,7 +42,12 @@ public class BoardQueryRepository {
     /**
      * 글 목록 조회
      */
-    public Page<BoardListResponseDto> findBoardList(Pageable pageable) {
+    public Page<BoardListResponseDto> findBoardList(Pageable pageable, String type, Integer userId) {
+        BooleanBuilder builder = new BooleanBuilder();
+        if(type != null && type.equals(BoardSearchType.MY.name()) && userId != null) {
+            builder.and(board.userId.eq(userId));
+        }
+
         List<BoardListResponseDto> boardList = jpaQueryFactory
                 .select(Projections.constructor(BoardListResponseDto.class,
                         board.id,
@@ -51,6 +59,7 @@ public class BoardQueryRepository {
                         board.likeCnt
                 ))
                 .from(board)
+                .where(builder)
                 .leftJoin(member).on(board.userId.eq(member.id))
                 .orderBy(boardSort(pageable))
                 .offset(pageable.getOffset())
@@ -171,7 +180,8 @@ public class BoardQueryRepository {
             try {
                 image = Files.readAllBytes(data.toPath());
             } catch(Exception e) {
-                e.printStackTrace();
+                log.error("File: Cannot be converted to byte array");
+                throw new FileException(File.class);
             }
 
             // 예외 처리 필요

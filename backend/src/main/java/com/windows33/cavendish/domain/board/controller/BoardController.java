@@ -19,6 +19,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
@@ -52,13 +53,16 @@ public class BoardController {
 
     @Operation(summary = "글 목록 조회", description = "글 목록 조회")
     @Parameters({
-            @Parameter(name = "pageable", description = "페이지 정보")
+            @Parameter(name = "pageable", description = "페이지 정보"),
+            @Parameter(name = "type", description = "검색 타입")
     })
     @GetMapping
     public CommonResponse<Page<BoardListResponseDto>> articleList(
-            @PageableDefault(sort="createDateTime", direction = Sort.Direction.DESC) Pageable pageable
+            @PageableDefault(sort="createDateTime", direction = Sort.Direction.DESC) Pageable pageable,
+            @RequestParam(required = false) String type,
+            @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
     ) {
-        return CommonResponse.OK(boardQueryService.findBoardList(pageable));
+        return CommonResponse.OK(boardQueryService.findBoardList(pageable, type, userPrincipal!=null?userPrincipal.getId():null));
     }
 
     @Operation(summary = "글 상세 조회", description = "글 상세 조회")
@@ -70,6 +74,8 @@ public class BoardController {
             @PathVariable("boardId") Integer boardId,
             @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
     ) {
+        boardService.increaseViewCount(boardId, userPrincipal!=null?userPrincipal.getId():null);
+
         return CommonResponse.OK(boardQueryService.findBoardDetail(boardId, userPrincipal!=null?userPrincipal.getId():null));
     }
 
@@ -110,6 +116,15 @@ public class BoardController {
             @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
     ) {
         return CommonResponse.OK(boardService.modifyArticle(boardModifyRequestDto, multipartFiles, userPrincipal.getId()));
+    }
+
+    @Operation(summary = "좋아요", description = "좋아요")
+    @PutMapping("/detail/{boardId}/like")
+    public CommonResponse<Boolean> articleLike(
+            @PathVariable("boardId") Integer boardId,
+            @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
+    ) {
+        return CommonResponse.OK(boardService.doLike(boardId, userPrincipal.getId()));
     }
 
 }

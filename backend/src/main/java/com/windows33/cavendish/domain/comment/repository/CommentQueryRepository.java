@@ -1,5 +1,6 @@
 package com.windows33.cavendish.domain.comment.repository;
 
+import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.Order;
 import com.querydsl.core.types.OrderSpecifier;
 import com.querydsl.core.types.Projections;
@@ -7,6 +8,7 @@ import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.core.types.dsl.Expressions;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.windows33.cavendish.domain.comment.dto.response.CommentListResponseDto;
+import com.windows33.cavendish.global.common.CommentSearchType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -14,6 +16,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
+
 
 import java.util.List;
 
@@ -30,7 +33,14 @@ public class CommentQueryRepository {
     /**
      * 댓글 목록 조회
      */
-    public Page<CommentListResponseDto> findCommentList(Integer boardId, Pageable pageable, Integer userId) {
+    public Page<CommentListResponseDto> findCommentList(Integer boardId, Pageable pageable, String type, Integer userId) {
+        BooleanBuilder builder = new BooleanBuilder();
+        builder.and(comment.boardId.eq(boardId));
+        System.out.println(type);
+        if(type != null && type.equals(CommentSearchType.MY.name()) && userId != null) {
+            builder.and(comment.userId.eq(userId));
+        }
+
         BooleanExpression isMine;
         if(userId != null) {
             isMine = comment.userId.eq(userId);
@@ -47,7 +57,7 @@ public class CommentQueryRepository {
                         isMine
                 ))
                 .from(comment)
-                .where(comment.boardId.eq(boardId))
+                .where(builder)
                 .leftJoin(member).on(comment.userId.eq(member.id))
                 .orderBy(commentSort(pageable))
                 .offset(pageable.getOffset())
