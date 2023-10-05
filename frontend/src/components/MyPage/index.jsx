@@ -101,14 +101,14 @@ export default function MyPageComponent() {
         {toggle === 0 && (
           <div className="my_article">
             {myArticles.map((article) => {
-              return <div>{article}</div>;
+              return <div>{article.contents}</div>;
             })}
           </div>
         )}
         {toggle === 1 && (
           <div className="my_comment">
             {myComments.map((comment) => {
-              return <div>{comment}</div>;
+              return <div>{comment.contents}</div>;
             })}
           </div>
         )}
