@@ -3,9 +3,10 @@ package com.windows33.cavendish.global.jwt;
 import com.windows33.cavendish.domain.member.entity.Member;
 import com.windows33.cavendish.domain.member.repository.MemberRepository;
 import com.windows33.cavendish.domain.member.service.MemberService;
-import com.windows33.cavendish.global.exception.JwtException;
+import com.windows33.cavendish.global.exception.JwtTokenException;
 import com.windows33.cavendish.global.exception.NotFoundException;
 import com.windows33.cavendish.global.redis.RefreshTokenService;
+import io.jsonwebtoken.JwtException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -33,7 +34,7 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
         String accessToken = resolveToken((HttpServletRequest) request);
 
         if(accessToken != null && jwtTokenProvider.isExpired(accessToken)) {
-            throw new JwtException(String.class, accessToken);
+            throw new JwtTokenException("Jwt exception");
 
 //            String refreshToken = refreshTokenService.findRefreshToken(accessToken).getRefreshToken();
 //
@@ -53,8 +54,13 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
         if (accessToken != null && jwtTokenProvider.validateToken(accessToken)) {
             Authentication jwtAuthentication = jwtTokenProvider.getAuthentication(accessToken);
             SecurityContextHolder.getContext().setAuthentication(jwtAuthentication);
+        } else {
+            throw new JwtTokenException("Jwt exception");
         }
-        chain.doFilter(request, response);
+
+        throw new JwtTokenException("Jwt exception");
+
+//        chain.doFilter(request, response);
     }
 
     private String resolveToken(HttpServletRequest request) {

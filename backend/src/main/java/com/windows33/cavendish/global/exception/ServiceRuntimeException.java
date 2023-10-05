@@ -1,6 +1,5 @@
 package com.windows33.cavendish.global.exception;
 
-
 import org.apache.commons.lang3.StringUtils;
 
 public abstract class ServiceRuntimeException extends RuntimeException {

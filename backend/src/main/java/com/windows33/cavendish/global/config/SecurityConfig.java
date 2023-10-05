@@ -2,7 +2,6 @@ package com.windows33.cavendish.global.config;
 
 import com.windows33.cavendish.domain.member.repository.MemberRepository;
 import com.windows33.cavendish.domain.member.service.MemberService;
-import com.windows33.cavendish.global.jwt.CustomUserDetailsService;
 import com.windows33.cavendish.global.jwt.JwtAuthenticationFilter;
 import com.windows33.cavendish.global.jwt.JwtTokenProvider;
 import com.windows33.cavendish.global.redis.RefreshTokenService;
