@@ -63,6 +63,8 @@ export default function MyPageComponent() {
       (response) => {
         const data = response.data.response;
         setData(data);
+        getBoardsList();
+        myCommentList();
       },
       () => {
         console.log("error");
