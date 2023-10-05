@@ -21,11 +21,10 @@ const createComment = (body, sucess, fail) => {
  */
 const getCommentsList = (params, sucess, fail) => {
   const api = commentDefaultInstance(params);
-  api.defaults.headers["Authorization"] = `Bearer ${localStorage.getItem(
-    "accessToken",
-  )}`
-    ? `Bearer ${localStorage.getItem("accessToken")}`
-    : "";
+  const accessToken = localStorage.getItem("accessToken");
+  if (accessToken) {
+    api.defaults.headers["Authorization"] = `Bearer ${accessToken}`;
+  }
   api.get(``).then(sucess).catch(fail);
 };
 
