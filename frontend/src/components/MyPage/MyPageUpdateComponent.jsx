@@ -21,7 +21,6 @@ export default function MyPageUpdateComponent({ data, setIsUpdate }) {
 
   return (
     <div className="mypage_info">
-      <image className="user_img" src="#" alt="user_img" />
       <div className="user_info">
         <div className="user_id">{data.memberId}</div>
         <div className="user_nickname">

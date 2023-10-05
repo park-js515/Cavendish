@@ -14,30 +14,62 @@ import RecommendPage from "pages/RecommendPage";
 import QuotationDetailPage from "pages/QuotationDetailPage";
 import QuotationUpdatePage from "pages/QuotationUpdatePage";
 import QuotationCreatePage from "pages/QuotationCreatePage";
+import { useSelector } from "../../../node_modules/react-redux/es/exports";
 
 // 향후 파라미터가 포함될 페이지 (예상)
 // part
 // quotation
 
 const RouteComponent = () => {
+  const isLogin = useSelector((state) => state.user.isLogin);
   return (
     <Routes>
-      <Route path="/board/update/:id" element={<BoardUpdatePage />}></Route>
+      {/* 로그인 필요 없는 기능 */}
       <Route path="/board/detail/:id" element={<BoardDetailPage />}></Route>
-      <Route path="/board/create" element={<BoardCreatePage />}></Route>
       <Route path="/board/:page" element={<BoardPage />}></Route>
       <Route path="/board/*" element={<BoardPage page="1" />} />
-      <Route path="/login" element={<LoginPage />}></Route>
-      <Route path="/logout" element={<LogoutPage />}></Route>
+      <Route
+        path="/login"
+        element={isLogin ? <MainPage /> : <LoginPage />}
+      ></Route>
       <Route path="/" element={<MainPage />}></Route>
-      <Route path="/mypage" element={<MyPage />}></Route>
       <Route path="/part/:partname" element={<PartPage />}></Route>
-      <Route path="/quotation" element={<QuotationPage />}></Route>
-      <Route path="/quotation/detail/:id" element={<QuotationDetailPage />}></Route>
-      <Route path="/quotation/create" element={<QuotationCreatePage />}></Route>
-      <Route path="/quotation/update/:id" element={<QuotationUpdatePage />}></Route>
       <Route path="/recommend" element={<RecommendPage />}></Route>
       <Route path="/*" element={<NotFound404 />}></Route>
+
+      {/* 로그인 필요 기능 */}
+      <Route
+        path="/logout"
+        element={isLogin ? <LogoutPage /> : <LoginPage />}
+      ></Route>
+      <Route
+        path="/mypage"
+        element={isLogin ? <MyPage /> : <LoginPage />}
+      ></Route>
+      <Route
+        path="/board/update/:id"
+        element={isLogin ? <BoardUpdatePage /> : <LoginPage />}
+      ></Route>
+      <Route
+        path="/board/create"
+        element={isLogin ? <BoardCreatePage /> : <LoginPage />}
+      ></Route>
+      <Route
+        path="/quotation"
+        element={isLogin ? <QuotationPage /> : <LoginPage />}
+      ></Route>
+      <Route
+        path="/quotation/detail/:id"
+        element={isLogin ? <QuotationDetailPage /> : <LoginPage />}
+      ></Route>
+      <Route
+        path="/quotation/create"
+        element={isLogin ? <QuotationCreatePage /> : <LoginPage />}
+      ></Route>
+      <Route
+        path="/quotation/update/:id"
+        element={isLogin ? <QuotationUpdatePage /> : <LoginPage />}
+      ></Route>
     </Routes>
   );
 };
