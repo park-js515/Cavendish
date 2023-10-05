@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+import { ImArrowLeft, ImArrowRight } from "react-icons/im";
 import Swal from "sweetalert2";
 
 //redux
@@ -46,13 +46,13 @@ const TopIcons = ({ onClick1 }) => {
   return (
     <div
       style={{
-        height: "30px",
+        height: "35px",
         display: "flex",
         justifyContent: "space-between",
       }}
     >
-      <AiOutlineArrowLeft
-        size="30"
+      <ImArrowLeft
+        size="35"
         color={leftCol}
         onMouseEnter={() => {
           setLeftCol("red");
@@ -116,7 +116,7 @@ const PartCheck = ({ index, name, value, id, imgUrl, is_have }) => {
 const SubmitBtn = ({ onClick }) => {
   return (
     <div className="submitBtn" onClick={onClick}>
-      <AiOutlineArrowRight />
+      <ImArrowRight />
     </div>
   );
 };

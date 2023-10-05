@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+import { ImArrowLeft, ImArrowRight } from "react-icons/im";
 
 //redux
 import { useDispatch, useSelector } from "react-redux";
@@ -69,13 +69,13 @@ const TopIcons = () => {
   return (
     <div
       style={{
-        height: "30px",
+        height: "35px",
         display: "flex",
         justifyContent: "space-between",
       }}
     >
-      <AiOutlineArrowLeft
-        size="30"
+      <ImArrowLeft
+        size="35"
         color={leftCol}
         onMouseEnter={() => {
           setLeftCol("red");
@@ -95,8 +95,8 @@ const TopIcons = () => {
       {disabled ? (
         <span style={{ color: "gray" }}>한 개 이상의 입력은 필수입니다.</span>
       ) : null}
-      <AiOutlineArrowRight
-        size="30"
+      <ImArrowRight
+        size="35"
         color={disabled ? "gray" : rightCol}
         onMouseEnter={() => {
           setRightCol("red");

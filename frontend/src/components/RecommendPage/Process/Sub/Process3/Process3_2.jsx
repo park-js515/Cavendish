@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
+import { ImArrowLeft, ImArrowRight } from "react-icons/im";
 import {
-  AiOutlineArrowLeft,
-  AiOutlineArrowRight,
   AiOutlineBackward,
   AiOutlineCaretLeft,
   AiOutlineForward,
@@ -115,13 +114,13 @@ const TopIcons = ({
   return (
     <div
       style={{
-        height: "30px",
+        height: "35px",
         display: "flex",
         justifyContent: "space-between",
       }}
     >
-      <AiOutlineArrowLeft
-        size="30"
+      <ImArrowLeft
+        size="35"
         color={leftCol}
         onMouseEnter={() => {
           setLeftCol("red");
@@ -144,8 +143,8 @@ const TopIcons = ({
         }}
       />
       {selected}
-      <AiOutlineArrowRight
-        size="30"
+      <ImArrowRight
+        size="35"
         color={disabled() ? "gray" : rightCol}
         onMouseEnter={() => {
           setRightCol("red");
