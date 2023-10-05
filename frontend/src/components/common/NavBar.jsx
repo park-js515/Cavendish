@@ -8,13 +8,11 @@ const naviList = (isLogin) => {
   return isLogin
     ? [
         { name: "컴퓨터추천", to: "/recommend" },
-        { name: "부품", to: "/part/CPU" },
         { name: "게시판", to: "/board" },
         { name: "견적서", to: "/quotation" },
       ]
     : [
         { name: "컴퓨터추천", to: "/recommend" },
-        { name: "부품", to: "/part/CPU" },
         { name: "게시판", to: "/board" },
       ];
 };

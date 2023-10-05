@@ -75,7 +75,12 @@ const Process1_2 = ({ setSubProcess }) => {
           onClick={() => {
             setSubProcess(0);
           }}
-          style={{ fontSize: "30px" }}
+          style={{
+            fontSize: "30px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
         />
         {list.map((item, index) => {
           const imgUrl = list[index].imgUrl
