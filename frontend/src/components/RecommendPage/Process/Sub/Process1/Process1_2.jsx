@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AiOutlineArrowLeft } from "react-icons/ai";
+import { ImArrowLeft, ImArrowRight } from "react-icons/im";
 
 // imgs
 import defaultCase from "assets/defaultImgs/default_case.avif";
@@ -71,7 +71,7 @@ const Process1_2 = ({ setSubProcess }) => {
       <div className="card-container">
         <Card
           key={-1}
-          front={<AiOutlineArrowLeft size="40" />}
+          front={<ImArrowLeft size="40" />}
           back={"돌아가기"}
           onClick={() => {
             setSubProcess(0);
