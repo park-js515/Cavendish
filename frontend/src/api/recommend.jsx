@@ -18,8 +18,6 @@ import {
 const searchPart = (partName, page, params, success, fail) => {
   const api = fapiSearchInstance();
   api.get(`/${partName}/${page}`, { params: params }).then(success).catch(fail);
-
-  console.log("부품 검색");
 };
 
 /**
@@ -33,8 +31,6 @@ const searchPart = (partName, page, params, success, fail) => {
 const searchProgram = (category, page, params, success, fail) => {
   const api = fapiSearchCategoryInstance();
   api.get(`/${category}/${page}`, { params: params }).then(success).catch(fail);
-
-  console.log("용도 상세 조회");
 };
 
 /**

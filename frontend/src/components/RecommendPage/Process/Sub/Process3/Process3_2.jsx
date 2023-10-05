@@ -269,8 +269,6 @@ const Process3_2 = ({ setSubProcess, selected }) => {
 
     if (!check1.current) {
       fn1();
-
-      console.log("fn1 called")
     }
 
     return () => {
@@ -323,8 +321,6 @@ const Process3_2 = ({ setSubProcess, selected }) => {
         }
 
         setData([...arr]);
-
-        console.log("fn1 fn2 called")
       };
       const propFail = (error) => {
         console.error(error);

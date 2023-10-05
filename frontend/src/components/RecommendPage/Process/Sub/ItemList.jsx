@@ -209,7 +209,6 @@ const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
         setData(() => {
           return [...arr];
         });
-        console.log("fn1 called");
       };
       const propFail = (error) => {
         console.log(error);
@@ -231,8 +230,6 @@ const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
           const { max_page } = data[0];
           setMaxValue(max_page);
         }
-
-        console.log("fn2 called");
       };
       const propFail = (error) => {
         console.log(error);
@@ -275,8 +272,6 @@ const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
         setData(() => {
           return [...arr];
         });
-
-        console.log("fn1 called");
       };
       const propFail = (error) => {
         console.log(error);
@@ -298,8 +293,6 @@ const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
           const { max_page } = data[0];
           setMaxValue(max_page);
         }
-
-        console.log("fn2 called");
       };
       const propFail = (error) => {
         console.log(error);
@@ -314,8 +307,6 @@ const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
       setPage(1);
       fn1(searchValue, 1);
       setDoSearch(false);
-
-      console.log("fn3 called");
     };
 
     if (check1.current) {
