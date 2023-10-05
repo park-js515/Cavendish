@@ -32,7 +32,8 @@ public class CommentController {
 
     @Operation(summary = "댓글 작성", description = "댓글 작성")
     @Parameters({
-            @Parameter(name = "CommentAddRequestDto", description = "댓글 내용")
+            @Parameter(name = "CommentAddRequestDto", description = "댓글 내용"),
+            @Parameter(name = "type", description = "검색 타입")
     })
     @PostMapping
     public CommonResponse<Integer> commentAdd(
@@ -44,15 +45,16 @@ public class CommentController {
 
     @Operation(summary = "댓글 목록 조회", description = "댓글 목록 조회")
     @Parameters({
-            @Parameter(name = "pageable", description = "페이지 정보")
+            @Parameter(name = "pageable", description = "페이지 정보"),
     })
     @GetMapping("/{boardId}")
     public CommonResponse<Page<CommentListResponseDto>> commentList(
             @PageableDefault(sort="createDateTime", direction = Sort.Direction.DESC) Pageable pageable,
             @PathVariable("boardId") Integer boardId,
+            @RequestParam(required = false) String type,
             @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
     ) {
-        return CommonResponse.OK(commentQueryService.findCommentList(boardId, pageable, userPrincipal!=null?userPrincipal.getId():null));
+        return CommonResponse.OK(commentQueryService.findCommentList(boardId, pageable, type, userPrincipal!=null?userPrincipal.getId():null));
     }
 
     @Operation(summary = "댓글 삭제", description = "댓글 삭제")

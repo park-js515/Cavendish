@@ -13,6 +13,7 @@ import com.windows33.cavendish.domain.board.dto.component.BoardModifyFormImageCo
 import com.windows33.cavendish.domain.board.dto.response.BoardDetailResponseDto;
 import com.windows33.cavendish.domain.board.dto.response.BoardListResponseDto;
 import com.windows33.cavendish.domain.board.dto.response.BoardModifyFormResponseDto;
+import com.windows33.cavendish.global.common.BoardSearchType;
 import com.windows33.cavendish.global.exception.FileException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -43,7 +44,7 @@ public class BoardQueryRepository {
      */
     public Page<BoardListResponseDto> findBoardList(Pageable pageable, String type, Integer userId) {
         BooleanBuilder builder = new BooleanBuilder();
-        if(type != null && type.equals("my") && userId != null) {
+        if(type != null && type.equals(BoardSearchType.MY.name()) && userId != null) {
             builder.and(board.userId.eq(userId));
         }
 

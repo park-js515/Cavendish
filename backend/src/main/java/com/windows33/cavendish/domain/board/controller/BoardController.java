@@ -52,7 +52,8 @@ public class BoardController {
 
     @Operation(summary = "글 목록 조회", description = "글 목록 조회")
     @Parameters({
-            @Parameter(name = "pageable", description = "페이지 정보")
+            @Parameter(name = "pageable", description = "페이지 정보"),
+            @Parameter(name = "type", description = "검색 타입")
     })
     @GetMapping
     public CommonResponse<Page<BoardListResponseDto>> articleList(
