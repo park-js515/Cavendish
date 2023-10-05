@@ -43,19 +43,45 @@ public class CommentController {
         return CommonResponse.OK(commentService.addComment(commentAddRequestDto, userPrincipal.getId()));
     }
 
-    @Operation(summary = "댓글 목록 조회", description = "댓글 목록 조회")
+        @Operation(summary = "댓글 목록 조회", description = "댓글 목록 조회")
     @Parameters({
             @Parameter(name = "pageable", description = "페이지 정보"),
     })
-    @GetMapping("/{boardId}")
+    @GetMapping
     public CommonResponse<Page<CommentListResponseDto>> commentList(
             @PageableDefault(sort="createDateTime", direction = Sort.Direction.DESC) Pageable pageable,
-            @PathVariable("boardId") Integer boardId,
+            @RequestParam(required = false) Integer boardId,
             @RequestParam(required = false) String type,
             @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
     ) {
         return CommonResponse.OK(commentQueryService.findCommentList(boardId, pageable, type, userPrincipal!=null?userPrincipal.getId():null));
     }
+
+//    @Operation(summary = "댓글 목록 조회", description = "댓글 목록 조회")
+//    @Parameters({
+//            @Parameter(name = "pageable", description = "페이지 정보"),
+//    })
+//    @GetMapping("/{boardId}")
+//    public CommonResponse<Page<CommentListResponseDto>> commentList(
+//            @PageableDefault(sort="createDateTime", direction = Sort.Direction.DESC) Pageable pageable,
+//            @PathVariable(required = false, value = "boardId") Integer boardId,
+//            @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
+//    ) {
+//        return CommonResponse.OK(commentQueryService.findCommentList(boardId, pageable, null, userPrincipal!=null?userPrincipal.getId():null));
+//    }
+//
+//    @Operation(summary = "내가 작성한 댓글 목록 조회", description = "내가 작성한 댓글 목록 조회")
+//    @Parameters({
+//            @Parameter(name = "pageable", description = "페이지 정보"),
+//    })
+//    @GetMapping
+//    public CommonResponse<Page<CommentListResponseDto>> commentList(
+//            @PageableDefault(sort="createDateTime", direction = Sort.Direction.DESC) Pageable pageable,
+//            @RequestParam(required = false) String type,
+//            @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
+//    ) {
+//        return CommonResponse.OK(commentQueryService.findCommentList(null, pageable, type, userPrincipal!=null?userPrincipal.getId():null));
+//    }
 
     @Operation(summary = "댓글 삭제", description = "댓글 삭제")
     @Parameters({
