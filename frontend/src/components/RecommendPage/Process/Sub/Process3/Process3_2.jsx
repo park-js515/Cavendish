@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import {
   AiOutlineArrowLeft,
+  AiOutlineArrowRight,
   AiOutlineBackward,
   AiOutlineCaretLeft,
   AiOutlineForward,
@@ -28,6 +29,7 @@ import musicImg from "assets/defaultImgs2/default_music.png";
 
 // defaultImg3
 import noDataImg from "assets/defaultImgs3/no-search-data.png";
+import Swal from "sweetalert2";
 
 const defaultImgList = [
   { imgUrl: gameImg, usage: "게임" },
@@ -82,19 +84,44 @@ const Item = ({ selected, id, imgUrl, value }) => {
   );
 };
 
-const TopIcons = ({ onClick }) => {
+const TopIcons = ({
+  selected,
+  subProcess,
+  setSubProcess,
+  setSelected,
+  len,
+}) => {
+  const dispatch = useDispatch();
+  const usages = useSelector((state) => {
+    return state.recommend.processList[1];
+  });
+  const hasItem = useSelector((state) => {
+    const arr = state.recommend.processList[2];
+    for (const key in arr) {
+      for (let i of arr[key]) {
+        return true;
+      }
+    }
+
+    return false;
+  });
   const [leftCol, setLeftCol] = useState("black");
+  const [rightCol, setRightCol] = useState("black");
+
+  const disabled = () => {
+    return len - 1 === subProcess && !hasItem;
+  };
 
   return (
     <div
       style={{
-        height: "20px",
+        height: "30px",
         display: "flex",
-        justifyContent: "flex-start",
+        justifyContent: "space-between",
       }}
     >
       <AiOutlineArrowLeft
-        size="20"
+        size="30"
         color={leftCol}
         onMouseEnter={() => {
           setLeftCol("red");
@@ -102,9 +129,48 @@ const TopIcons = ({ onClick }) => {
         onMouseLeave={() => {
           setLeftCol("black");
         }}
-        onClick={onClick}
+        onClick={() => {
+          if (subProcess > 0) {
+            setSubProcess((current) => {
+              setSelected(usages[current - 1]);
+              return current - 1;
+            });
+          } else {
+            dispatch(recom.setProcessNo(0));
+          }
+        }}
         style={{
           cursor: "pointer",
+        }}
+      />
+      {selected}
+      <AiOutlineArrowRight
+        size="30"
+        color={disabled() ? "gray" : rightCol}
+        onMouseEnter={() => {
+          setRightCol("red");
+        }}
+        onMouseLeave={() => {
+          setRightCol("black");
+        }}
+        onClick={() => {
+          if (disabled()) {
+            Swal.fire({
+              icon: "warning",
+              title: "호환성 에러",
+              text: "세부용도에서 한 개 이상의 선택은 필수입니다.",
+            });
+            return;
+          }
+
+          setSubProcess((current) => {
+            setSelected(usages[current + 1]);
+            return current + 1;
+          });
+        }}
+        style={{
+          cursor: `${disabled() ? "not-allowed" : "pointer"}`,
+          transition: "all 200ms ease-in-out",
         }}
       />
     </div>
@@ -119,7 +185,14 @@ const Btn = ({ onClick }) => {
   );
 };
 
-const SearchComponent = ({ selected, value, setValue, setDoSearch }) => {
+const SearchComponent = ({
+  selected,
+  value,
+  setValue,
+  subProcess,
+  setSubProcess,
+  setDoSearch,
+}) => {
   const onChange = (event) => {
     setValue(event.target.value);
   };
@@ -229,7 +302,13 @@ const Pagenate = ({
 // 검색 및 페이지네이션
 // 컴포넌트 재사용 기존에 존재하던 것
 // 게임만 사용할 것 -> selected가 필요하지 않음
-const Process3_2 = ({ setSubProcess, selected }) => {
+const Process3_2 = ({
+  subProcess,
+  setSubProcess,
+  selected,
+  setSelected,
+  len,
+}) => {
   const [page, setPage] = useState(1);
   const [data, setData] = useState([{}]);
   const [text, setText] = useState("");
@@ -390,9 +469,11 @@ const Process3_2 = ({ setSubProcess, selected }) => {
   return (
     <div style={{ height: "100%", width: "100%" }}>
       <TopIcons
-        onClick={() => {
-          setSubProcess(0);
-        }}
+        subProcess={subProcess}
+        setSubProcess={setSubProcess}
+        setSelected={setSelected}
+        selected={selected}
+        len={len}
       />
       <div className="proc3-2">
         <SearchComponent

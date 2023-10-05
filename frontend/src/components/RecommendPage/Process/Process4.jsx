@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+import Swal from "sweetalert2";
 
 //redux
 import { useDispatch, useSelector } from "react-redux";
@@ -24,7 +25,17 @@ const BudgetComponent = ({ value, setValue }) => {
         onChange={onChange}
         className="budget"
       />
-      <p style={{fontSize: "2rem", margin: 0}}>만원</p>
+      <p
+        style={{
+          fontSize: "2rem",
+          margin: 0,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        만원
+      </p>
     </div>
   );
 };
@@ -35,13 +46,13 @@ const TopIcons = ({ onClick1 }) => {
   return (
     <div
       style={{
-        height: "20px",
+        height: "30px",
         display: "flex",
         justifyContent: "space-between",
       }}
     >
       <AiOutlineArrowLeft
-        size="20"
+        size="30"
         color={leftCol}
         onMouseEnter={() => {
           setLeftCol("red");
@@ -138,8 +149,19 @@ const Process4 = ({ className }) => {
                   alignItems: "center",
                 }}
               >
-                <div style={{ display: "flex" }}>
+                <div>
                   <BudgetComponent value={budget} setValue={setBudget} />
+                  <div
+                    style={{
+                      fontSize: "1.25rem",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      color: "gray",
+                    }}
+                  >
+                    최소 예산은 40만원입니다.
+                  </div>
                 </div>
               </div>
             </div>
@@ -154,13 +176,30 @@ const Process4 = ({ className }) => {
           </div>
         </div>
         <div className="submitBtn-wrapper">
-          <SubmitBtn
-            onClick={() => {
-              const fixedBudget = budget !== "" ? budget : 0;
-              dispatch(recom.setProcess({ budget: fixedBudget }));
-              dispatch(recom.setProcessNo(3));
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
-          />
+          >
+            <SubmitBtn
+              onClick={() => {
+                const fixedBudget = budget !== "" ? Number(budget) : 0;
+
+                if (fixedBudget >= 40) {
+                  dispatch(recom.setProcess({ budget: fixedBudget }));
+                  dispatch(recom.setProcessNo(3));
+                } else {
+                  Swal.fire({
+                    icon: "warning",
+                    title: "예산 에러",
+                    text: "최소  예산은 40만원입니다.",
+                  });
+                }
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>
