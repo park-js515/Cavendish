@@ -239,14 +239,14 @@ const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
       searchPart(...props);
     };
 
-    if (!check1.current) {
-      fn1();
-      fn2();
-    }
+    // if (!check1.current) {
+    fn1();
+    fn2();
+    // }
 
-    return () => {
-      check1.current = true;
-    };
+    // return () => {
+    //   check1.current = true;
+    // };
   }, []);
 
   // 페이지가 바뀌거나 검색어가 바뀌었을 때의 호출
@@ -309,16 +309,16 @@ const ItemList = ({ searchValue, doSearch, setDoSearch }) => {
       setDoSearch(false);
     };
 
-    if (check1.current) {
-      if (doSearch) {
-        fn3();
-        fn2();
-        return;
-      }
-
-      fn1();
+    // if (check1.current) {
+    if (doSearch) {
+      fn3();
       fn2();
+      return;
     }
+
+    fn1();
+    fn2();
+    // }
   }, [page, doSearch, processList0]);
 
   const handlePage = (value) => {
