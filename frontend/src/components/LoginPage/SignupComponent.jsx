@@ -97,7 +97,7 @@ const SignupComponent = ({ list, checkList }) => {
     memberCheckId(
       { loginId: list[0].value },
       (response) => {
-        if (response.data.response) {
+        if (!response.data.response) {
           // 중복이 있는 경우 -> 지금 이 경우가 보이지 않는다.
           SignupList[0].addText.text = "❗ 이미 존재하는 ID입니다.";
           SignupList[0].addText.className = "input-text-red";
@@ -218,7 +218,7 @@ const SignupComponent = ({ list, checkList }) => {
     memberCheckNickname(
       { nickname: list[3].value },
       (response) => {
-        if (response.data.response) {
+        if (!response.data.response) {
           // 중복이 있는 경우 -> 지금 이 경우가 보이지 않는다.
           SignupList[3].addText.text = "❗ 이미 존재하는 ID입니다.";
           SignupList[3].addText.className = "input-text-red";
