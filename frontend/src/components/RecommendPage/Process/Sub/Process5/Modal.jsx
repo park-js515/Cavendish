@@ -256,7 +256,7 @@ const Layout = ({ nowItem, handleIsOpen }) => {
             width: "100%",
           }}
         >
-          <div>견적서</div>
+          <div></div>
           <div
             className="cross"
             style={{

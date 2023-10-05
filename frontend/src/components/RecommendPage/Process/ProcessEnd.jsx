@@ -1,9 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import _ from "lodash";
 import { useModal, Modal } from "./Sub/Process5/Modal";
+import Loading from "components/common/Loading";
+import { VscRefresh } from "react-icons/vsc";
 
 //redux
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import * as recom from "redux/recommendSlice";
 
 // API
 import { getQuotation } from "api/recommend";
@@ -37,6 +40,7 @@ const Item = ({ index, item, handleIsOpen, setNowItem }) => {
 };
 
 const ProcessEnd = ({ className }) => {
+  const dispatch = useDispatch();
   const processList = useSelector((state) => {
     return state.recommend.processList;
   });
@@ -77,6 +81,8 @@ const ProcessEnd = ({ className }) => {
   };
 
   const check = useRef(false);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     if (!check.current) {
       getQuotation(
@@ -99,9 +105,12 @@ const ProcessEnd = ({ className }) => {
 
           setData1(_.cloneDeep(arr.slice(0, 5)));
           setData2(_.cloneDeep(arr.slice(5)));
+          setLoading(false);
         },
         (error) => {
-          console.error(error);
+          setData1([]);
+          setData2([]);
+          setLoading(false);
         },
       );
     }
@@ -111,45 +120,75 @@ const ProcessEnd = ({ className }) => {
     };
   }, []);
 
+  const [col, setCol] = useState("gray");
+
   return (
     <div className={className}>
       {isOpen ? (
         <Modal nowItem={nowItem} isOpen={isOpen} handleIsOpen={handleIsOpen} />
       ) : null}
-      <div className="proc-end">
-        <div className="end-left">
-          <div className="title">추천 권장 사양</div>
-          <div className="inner-wrapper">
-            {data1.map((item, index) => {
-              return (
-                <Item
-                  key={index}
-                  index={index}
-                  item={item}
-                  handleIsOpen={handleIsOpen}
-                  setNowItem={setNowItem}
-                />
-              );
-            })}
+
+      {loading ? <Loading /> : null}
+      {!loading && data1.length > 0 ? (
+        <div className="proc-end">
+          <div className="end-left">
+            <div className="title">추천 권장 사양</div>
+            <div className="inner-wrapper">
+              {data1.map((item, index) => {
+                return (
+                  <Item
+                    key={index}
+                    index={index}
+                    item={item}
+                    handleIsOpen={handleIsOpen}
+                    setNowItem={setNowItem}
+                  />
+                );
+              })}
+            </div>
+          </div>
+          <div className="end-right">
+            <div className="title">추천 최소 사양</div>
+            <div className="inner-wrapper">
+              {data2.map((item, index) => {
+                return (
+                  <Item
+                    key={index}
+                    index={index}
+                    item={item}
+                    handleIsOpen={handleIsOpen}
+                    setNowItem={setNowItem}
+                  />
+                );
+              })}
+            </div>
           </div>
         </div>
-        <div className="end-right">
-          <div className="title">추천 최소 사양</div>
-          <div className="inner-wrapper">
-            {data2.map((item, index) => {
-              return (
-                <Item
-                  key={index}
-                  index={index}
-                  item={item}
-                  handleIsOpen={handleIsOpen}
-                  setNowItem={setNowItem}
-                />
-              );
-            })}
+      ) : loading ? null : (
+        <div className="no-quotation">
+          <div className="inner">
+            <div>추천할 수 있는 견적이 없습니다.</div>
+            <div
+              className="btn"
+              onMouseEnter={() => {
+                setCol("black");
+              }}
+              onMouseLeave={() => {
+                setCol("gray");
+              }}
+              onClick={() => {
+                dispatch(recom.resetProcessAll());
+              }}
+            >
+              <VscRefresh
+                size="100px"
+                color={col}
+                style={{ transition: "all 200ms ease-in-out" }}
+              />
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

@@ -3,15 +3,29 @@ import { resetSignupList } from "./SignupComponent";
 
 // redux
 import { useSelector, useDispatch } from "react-redux";
-import { login as reduxLogin } from "redux/userSlice";
+import { login as reduxLogin, loginRequest as reduxLoginRequest } from "redux/userSlice";
 
 // axios
 import { memberLogin, memberSignUp, memberRemove } from "api/member";
 import Swal from "sweetalert2";
+import { useEffect } from "react";
 
 const Footer = ({ isLogin, checkList, loginInfo, signupInfo }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const loginRequest = useSelector((state) => {return state.user.loginRequest});
+
+  useEffect(() => {
+    if (loginRequest) {
+      login();
+    }
+
+    return () => {
+      if (loginRequest) {
+        dispatch(reduxLoginRequest(false));
+      }
+    }
+  }, [loginRequest]);
 
   const goBackorHome = () => {
     if (window.history.length > 2) {
@@ -26,10 +40,6 @@ const Footer = ({ isLogin, checkList, loginInfo, signupInfo }) => {
       { loginId: loginInfo.id, password: loginInfo.password },
       (response) => {
         localStorage.setItem("accessToken", response.data.response.accessToken);
-        localStorage.setItem(
-          "refreshToken",
-          response.data.response.refreshToken,
-        );
         dispatch(reduxLogin());
         goBackorHome();
       },

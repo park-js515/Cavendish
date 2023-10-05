@@ -1,14 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useInput } from "hooks/LoginPage/useInput";
 import ToggleBtn from "./ToggleBtn";
 import Layout from "./Layout";
 import Footer from "./Footer";
-// 유효성 검증에 대한 상태 변수 -> 이걸 다 통과해야 버튼(최종 submit)을 누를 수 있게 만들자
 
 const validator = (value) => {
   return value.length <= 20;
 };
-
 const LoginPageComponent = () => {
   const [isLogin, setIsLogin] = useState(true);
 
@@ -77,7 +75,12 @@ const LoginPageComponent = () => {
         list2={list2}
         checkList={checkList}
       />
-      <Footer isLogin={isLogin} checkList={checkList2} loginInfo={loginInfo} signupInfo={signupInfo} />
+      <Footer
+        isLogin={isLogin}
+        checkList={checkList2}
+        loginInfo={loginInfo}
+        signupInfo={signupInfo}
+      />
     </div>
   );
 };
