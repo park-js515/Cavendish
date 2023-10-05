@@ -45,13 +45,13 @@ const TopIcons = ({ onClick1 }) => {
   return (
     <div
       style={{
-        height: "20px",
+        height: "30px",
         display: "flex",
         justifyContent: "space-between",
       }}
     >
       <AiOutlineArrowLeft
-        size="20"
+        size="30"
         color={leftCol}
         onMouseEnter={() => {
           setLeftCol("red");
@@ -95,17 +95,25 @@ const Process5 = ({ className }) => {
         </div>
         <div className="footer">
           <div className="submitBtn-wrapper">
-            <SubmitBtn
-              onClick={() => {
-                const arr = [];
-                selectedOptions.forEach((item) => {
-                  arr.push(item.value);
-                });
-
-                dispatch(recom.setProcess(arr));
-                dispatch(recom.setProcessNo(4));
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
               }}
-            />
+            >
+              <SubmitBtn
+                onClick={() => {
+                  const arr = [];
+                  selectedOptions.forEach((item) => {
+                    arr.push(item.value);
+                  });
+
+                  dispatch(recom.setProcess(arr));
+                  dispatch(recom.setProcessNo(4));
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>
