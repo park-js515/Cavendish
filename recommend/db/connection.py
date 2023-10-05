@@ -2,15 +2,16 @@ from sqlalchemy import *
 from sqlalchemy.orm import sessionmaker
 
 app = {
-    "name" : "mysql+pymysql",
-    "user" : "root",
-    "password" : "root",
-    "host" : "localhost",
-    "port" : 3306,
-    "database" : "s09p22c105"
+    "name": "mysql+pymysql",
+    "user": "root",
+    "password": "ssafy",
+    "host": "172.17.0.3",
+    "port": 3306,
+    "database": "s09p22c105"
 }
 
 conn_string = f'{app["name"]}://{app["user"]}:{app["password"]}@{app["host"]}:{app["port"]}/{app["database"]}'
+
 
 class engineconn:
 
@@ -21,7 +22,7 @@ class engineconn:
         Session = sessionmaker(autocommit=False, autoflush=False, bind=self.engine)
         session = Session()
         return session
-    
+
     def connection(self):
         conn = self.engine.connect()
         return conn
