@@ -57,9 +57,6 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public void removeArticle(Integer boardId, Integer id) {
         Board board = checkAuthority(boardId, id);
-        
-        // 글 삭제
-        boardRepository.delete(board);
 
         // 이미지 조회
         List<BoardImage> images = boardImageRepository.findByBoardId(boardId).orElseThrow(() -> new NotFoundException(BoardImage.class, boardId));
@@ -69,6 +66,9 @@ public class BoardServiceImpl implements BoardService {
         
         // 이미지 테이블 제거
         boardImageRepository.deleteByIdIn(ids);
+
+        // 글 삭제
+        boardRepository.delete(board);
     }
 
     @Override
