@@ -1,5 +1,6 @@
 import { useState, useEffect, forwardRef, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 // redux
 import { useSelector } from "react-redux";
@@ -140,8 +141,8 @@ const Btns = ({ nowItem }) => {
     return state.user.isLogin;
   });
 
-  const fn1 = () => {
-    const name = window.prompt("견적서 이름을 입력하세요.", "견적서");
+  const fn1 = (val) => {
+    const name = val;
     const cpuId = nowItem.cpu.id;
     const hasCpu = processList0[2].is_have;
     const powerId = nowItem.power.id;
@@ -184,7 +185,6 @@ const Btns = ({ nowItem }) => {
     };
 
     const success = (response) => {
-      // console.log(body);
       console.log(response);
     };
 
@@ -213,9 +213,26 @@ const Btns = ({ nowItem }) => {
           className="saveBtn"
           onClick={() => {
             if (isLogin) {
-              fn1();
+              Swal.fire({
+                title: "견적서 이름을 입력하세요",
+                input: "text",
+                inputAttributes: {
+                  autocapitalize: "off",
+                },
+                showCancelButton: true,
+                confirmButtonText: "제출",
+                showLoaderOnConfirm: true,
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  fn1();
+                }
+              });
             } else {
-              alert("로그인이 필요한 기능입니다");
+              Swal.fire({
+                title: "로그인",
+                text: "로그인이 필요한 기능입니다",
+                icon: "info",
+              });
               navigate("/login");
             }
           }}

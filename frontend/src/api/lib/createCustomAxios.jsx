@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 
 let isAlertDisplayed = false;
 
@@ -29,7 +30,11 @@ const createCustomAxios = (URL) => {
       if (error.response.status === 401 || error.response.status === 403) {
         if (!isAlertDisplayed) {
           isAlertDisplayed = true;
-          alert("세션 만료");
+          Swal.fire({
+            icon: "error",
+            title: "세션 만료",
+            text: "세션이 만료되었습니다. 로그아웃을 진행합니다.",
+          });
         }
       } else {
         return error;
