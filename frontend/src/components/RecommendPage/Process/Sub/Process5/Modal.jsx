@@ -185,14 +185,13 @@ const Btns = ({ nowItem }) => {
     };
 
     const success = (response) => {
-      console.log(response);
+      // console.log(response);
     };
 
     const fail = (error) => {
       console.error(error);
     };
 
-    console.log(body);
     createQuotation({ ...body }, success, fail);
   };
 
@@ -200,13 +199,14 @@ const Btns = ({ nowItem }) => {
     <div style={{ height: "100%", width: "100%" }}>
       <div
         style={{
+          height: "calc(100% - 102px)",
           fontSize: "1.5rem",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           fontWeight: "bold",
         }}
-      >{`${addComma(nowItem.total)} 원 ~`}</div>
+      ><p>{`${addComma(nowItem.total)} 원 ~`}</p></div>
       <div className="modal-btn-wrapper">
         {/* <div className="printBtn" onClick={() => {}}>{`출 력`}</div> */}
         <div
@@ -221,12 +221,19 @@ const Btns = ({ nowItem }) => {
                 },
                 showCancelButton: true,
                 confirmButtonText: "제출",
-                showLoaderOnConfirm: true,
-              }).then((result) => {
-                if (result.isConfirmed) {
-                  fn1();
+                cancelButtonText: "취소",
+              }).then((value) => {
+                if (value.isConfirmed) {
+                  console.log(value);
+                  fn1(value.value);
+                  Swal.fire({
+                    icon: "success",
+                    title: "알림",
+                    text: "저장되었습니다.",
+                  });
                 }
               });
+
             } else {
               Swal.fire({
                 title: "로그인",
