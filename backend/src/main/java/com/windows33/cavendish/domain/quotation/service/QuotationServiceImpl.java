@@ -41,7 +41,7 @@ public class QuotationServiceImpl implements QuotationService {
                 .ramId(quotationAddRequestDto.getRamId())
                 .gpuId(quotationAddRequestDto.getGpuId())
                 .hddId(quotationAddRequestDto.getHddId())
-                .ssdId(quotationAddRequestDto.getHddId())
+                .ssdId(quotationAddRequestDto.getSsdId())
                 .caseId(quotationAddRequestDto.getCaseId())
                 .coolerId(quotationAddRequestDto.getCoolerId())
                 .name(quotationAddRequestDto.getName())
@@ -91,9 +91,6 @@ public class QuotationServiceImpl implements QuotationService {
                 quotationModifyRequestDto.getName(),
                 state
         );
-
-        System.out.println("@@@@@@@");
-
 
         return quotationRepository.save(quotation).getId();
     }

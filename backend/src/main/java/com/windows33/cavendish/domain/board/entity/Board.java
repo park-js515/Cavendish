@@ -45,4 +45,16 @@ public class Board {
         this.contents = contents;
     }
 
+    public void increaseViewCount() {
+        this.view++;
+    }
+
+    public void increaseLikeCount() {
+        this.likeCnt++;
+    }
+
+    public void decreaseLikeCount() {
+        this.likeCnt--;
+    }
+
 }

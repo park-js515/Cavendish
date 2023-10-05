@@ -8,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 
 public interface BoardQueryService {
 
-    Page<BoardListResponseDto> findBoardList(Pageable pageable);
+    Page<BoardListResponseDto> findBoardList(Pageable pageable, String type, Integer userId);
 
     BoardDetailResponseDto findBoardDetail(Integer boardId, Integer userId);
 
