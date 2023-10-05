@@ -50,11 +50,7 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
           }
 
           .modal-btn-wrapper {
-            display: flex;
-            height: calc(100% - 84px);
             width: 100%;
-            flex-direction: column;
-            justify-content: flex-end;
 
             // .printBtn {
             //   font-size: 2rem;
@@ -1119,7 +1115,7 @@ $proc3-btn-hover: rgba(174, 171, 171, 0.75);
 
               .btn {
                 cursor: pointer;
-                margin-top: 50px ;
+                margin-top: 50px;
                 height: 100px;
                 aspect-ratio: 1/1;
               }

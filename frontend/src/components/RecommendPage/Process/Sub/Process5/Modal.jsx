@@ -199,13 +199,14 @@ const Btns = ({ nowItem }) => {
     <div style={{ height: "100%", width: "100%" }}>
       <div
         style={{
+          height: "calc(100% - 102px)",
           fontSize: "1.5rem",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           fontWeight: "bold",
         }}
-      >{`${addComma(nowItem.total)} 원 ~`}</div>
+      ><p>{`${addComma(nowItem.total)} 원 ~`}</p></div>
       <div className="modal-btn-wrapper">
         {/* <div className="printBtn" onClick={() => {}}>{`출 력`}</div> */}
         <div

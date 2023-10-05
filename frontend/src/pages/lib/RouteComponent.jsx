@@ -8,7 +8,6 @@ import LogoutPage from "pages/LogoutPage";
 import MainPage from "pages/MainPage";
 import MyPage from "pages/MyPage";
 import NotFound404 from "pages/NotFound404";
-import PartPage from "pages/PartPage";
 import QuotationPage from "pages/QuotationPage";
 import RecommendPage from "pages/RecommendPage";
 import QuotationDetailPage from "pages/QuotationDetailPage";
@@ -33,7 +32,6 @@ const RouteComponent = () => {
         element={isLogin ? <MainPage /> : <LoginPage />}
       ></Route>
       <Route path="/" element={<MainPage />}></Route>
-      <Route path="/part/:partname" element={<PartPage />}></Route>
       <Route path="/recommend" element={<RecommendPage />}></Route>
       <Route path="/*" element={<NotFound404 />}></Route>
 
