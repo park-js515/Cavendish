@@ -25,9 +25,6 @@ export default function MyPageComponent() {
   const myArticleList = () => {
     getBoardsList(
       {
-        page: boardPage,
-        size: boardSize,
-        sort: "createDateTime,DESC",
         type: "MY",
       },
       (response) => {
@@ -43,9 +40,6 @@ export default function MyPageComponent() {
   const myCommentList = () => {
     getCommentsList(
       {
-        page: commentPage,
-        size: commentSize,
-        sort: "createDateTime,DESC",
         type: "MY",
       },
       (response) => {
