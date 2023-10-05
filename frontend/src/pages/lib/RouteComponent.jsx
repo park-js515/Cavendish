@@ -11,8 +11,6 @@ import NotFound404 from "pages/NotFound404";
 import QuotationPage from "pages/QuotationPage";
 import RecommendPage from "pages/RecommendPage";
 import QuotationDetailPage from "pages/QuotationDetailPage";
-import QuotationUpdatePage from "pages/QuotationUpdatePage";
-import QuotationCreatePage from "pages/QuotationCreatePage";
 import { useSelector } from "../../../node_modules/react-redux/es/exports";
 
 // 향후 파라미터가 포함될 페이지 (예상)
@@ -59,14 +57,6 @@ const RouteComponent = () => {
       <Route
         path="/quotation/detail/:id"
         element={isLogin ? <QuotationDetailPage /> : <LoginPage />}
-      ></Route>
-      <Route
-        path="/quotation/create"
-        element={isLogin ? <QuotationCreatePage /> : <LoginPage />}
-      ></Route>
-      <Route
-        path="/quotation/update/:id"
-        element={isLogin ? <QuotationUpdatePage /> : <LoginPage />}
       ></Route>
     </Routes>
   );

@@ -153,7 +153,6 @@ export default function QuotationDetailComponent() {
       <div className="footer">
         <div className="total_price">Total: {quotation.totalPrice} 원</div>
         <div className="buttons">
-          <button onClick={quotationUpdatebutton}>수정하기</button>
           <button onClick={() => navigate(-1)}>돌아가기</button>
           <button onClick={quotationDeleteHandler}>삭제하기</button>
         </div>
