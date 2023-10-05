@@ -41,8 +41,10 @@ def perform_pri(pri_rank):
         return 1.7
     elif pri_rank == 1:
         return 1.0
-    else:
+    elif pri_rank == 2:
         return 0.7
+    else:
+        return 0.5
 
 def ce_pri(pri_rank):
     if pri_rank == 0:
