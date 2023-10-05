@@ -36,68 +36,68 @@ export default function QuotationUpdateComponent() {
   const navigate = useNavigate();
 
   const quotationUpdateHandler = () => {
-    return
-  }
+    return;
+  };
 
   const setData = () => {
     setCpuData({
-      cate:'cpu',
+      cate: "cpu",
       id: quotation.cpuId,
       image: quotation.cpuImage,
       name: quotation.cpuName,
       price: quotation.cpuPrice,
     });
     setGpuData({
-      cate:'gpu',
+      cate: "gpu",
       id: quotation.gpuId,
       image: quotation.gpuImage,
       name: quotation.gpuName,
       price: quotation.gpuPrice,
     });
     setSsdData({
-      cate:'ssd',
+      cate: "ssd",
       id: quotation.ssdId,
       image: quotation.ssdImage,
       name: quotation.ssdName,
       price: quotation.ssdPrice,
     });
     setRamData({
-      cate:'ram',
+      cate: "ram",
       id: quotation.ramId,
       image: quotation.ramImage,
       name: quotation.ramName,
       price: quotation.ramPrice,
     });
     setHddData({
-      cate:'hdd',
+      cate: "hdd",
       id: quotation.hddId,
       image: quotation.hddImage,
       name: quotation.hddName,
       price: quotation.hddPrice,
     });
     setMainboardData({
-      cate:'mainboard',
+      cate: "mainboard",
       id: quotation.mainboardId,
       image: quotation.mainboardImage,
       name: quotation.mainboardName,
       price: quotation.mainboardPrice,
     });
     setPowerData({
-      cate:'power',
+      cate: "power",
       id: quotation.powerId,
       image: quotation.powerImage,
       name: quotation.powerName,
       price: quotation.powerPrice,
     });
     setCoolerData({
-      cate:'cooler',
+      cate: "cooler",
       id: quotation.coolerId,
       image: quotation.coolerImage,
       name: quotation.coolerName,
       price: quotation.coolerPrice,
     });
     setCaseData({
-      cate:'case',
+      cate: "case",
       id: quotation.caseId,
       image: quotation.caseImage,
       name: quotation.caseName,
@@ -110,18 +110,17 @@ export default function QuotationUpdateComponent() {
       id,
       (response) => {
         const data = response.data.response;
-        // console.log(data);
         setQuotation(data);
       },
       () => {},
     );
   }, [id]);
 
-  useEffect(()=>{
-    if(quotation){
+  useEffect(() => {
+    if (quotation) {
       setData();
     }
-  },[quotation])
+  }, [quotation]);
 
   const quotationUpdatebutton = () => {
     navigate(`/quotation/update/${id}`);
@@ -142,7 +141,7 @@ export default function QuotationUpdateComponent() {
       <div className="quotation_detail_content">
         <div className="title">{quotation.name}</div>
         <div className="quotation_info_form">
-          {partsData.map((data,idx) => {
+          {partsData.map((data, idx) => {
             return (
               <div className="quotation_info_container" key={idx}>
                 <div className="quotation_img">

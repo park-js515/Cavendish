@@ -42,6 +42,11 @@ const createBoardContent = (body, sucess, fail) => {
 
 const getBoardDetailContent = (id, sucess, fail) => {
   const api = boardDetailDefaultInstance();
+  api.defaults.headers["Authorization"] = `Bearer ${localStorage.getItem(
+    "accessToken",
+  )}`
+    ? `Bearer ${localStorage.getItem("accessToken")}`
+    : "";
   api.get(`/detail/${id}`).then(sucess).catch(fail);
 };
 
@@ -81,7 +86,7 @@ const updateBoardContent = (body, sucess, fail) => {
   const api = boardCustomInstance();
   api.defaults.headers["Content-Type"] = "multipart/form-data";
   api.put(``, body).then(sucess).catch(fail);
-}
+};
 
 export {
   getBoardsList,
