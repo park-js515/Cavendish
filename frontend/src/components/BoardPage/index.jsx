@@ -17,7 +17,7 @@ export default function BoardPageComponent() {
       (response) => {
         const data = response.data.response.content;
         setTotalPages(response.data.response.totalPages);
-        console.log(data)
+        // console.log(data)
         setBoardData(data);
       },
       () => {
