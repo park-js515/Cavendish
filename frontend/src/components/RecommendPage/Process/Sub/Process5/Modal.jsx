@@ -184,6 +184,7 @@ const Btns = ({ nowItem }) => {
     };
 
     const success = (response) => {
+      // console.log(body);
       console.log(response);
     };
 
@@ -192,7 +193,7 @@ const Btns = ({ nowItem }) => {
     };
 
     console.log(body);
-    // createQuotation({ ...body }, success, fail);
+    createQuotation({ ...body }, success, fail);
   };
 
   return (

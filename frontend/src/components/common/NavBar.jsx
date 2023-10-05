@@ -47,7 +47,7 @@ const NavBar = () => {
     <>
       <div className="common-navbar">
         <span className="btn-title">{main}</span>
-        {naviList().map((item) => {
+        {naviList(isLogin).map((item) => {
           const props = {
             name: item.name,
             to: item.to,

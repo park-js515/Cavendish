@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 // redux
 import { useDispatch } from "react-redux";
 import { logout } from "redux/userSlice";
-import * as recom from "redux/recommendSlice"
+import * as recom from "redux/recommendSlice";
 
 const LogoutPage = () => {
   const navigate = useNavigate();
@@ -17,20 +17,17 @@ const LogoutPage = () => {
     if (!check.current) {
       const clearLocalStorage = () => {
         localStorage.clear();
-      }
+      };
 
       const promise = new Promise((resolve) => {
         dispatch(logout());
         dispatch(recom.resetProcessAll());
         clearLocalStorage();
-        setTimeout(() => {
-          resolve();
-        }, 1500);
+        resolve();
       });
 
       promise.then(() => {
-        alert("로그아웃 성공");
-        navigate("/");
+        navigate(-1);
       });
     }
 
@@ -39,11 +36,7 @@ const LogoutPage = () => {
     };
   }, []);
 
-  return (
-    <>
-      <Loading />
-    </>
-  );
+  return <></>;
 };
 
 export default LogoutPage;
