@@ -26,7 +26,9 @@ const boardDefaultInstance = (params) => {
   const instance = createDefaultAxios(
     `/board?page=${params.page ? params.page : 0}&size=${
       params.size ? params.size : 10
-    }&sort=${params.sort ? params.sort : "contents,ASC"}`,
+    }&sort=${params.sort ? params.sort : "createDateTime,DESC"}&${
+      params.type ? params.type : ""
+    }`,
   );
 
   return instance;
@@ -52,7 +54,11 @@ const searchDefaultInstance = () => {
 
 const commentDefaultInstance = (params) => {
   const instance = createDefaultAxios(
-    `/comment/${params.boardId}?page=${params.page}&size=${params.size}`,
+    `/comment/${params.boardId}?page=${params.page ? params.page : 0}&size=${
+      params.size ? params.size : 10
+    }&sort=${params.sort ? params.sort : "createDateTime,DESC"}&${
+      params.type ? params.type : ""
+    }`,
   );
 
   return instance;

@@ -1,18 +1,20 @@
-import { memberInfo, memberRemove } from "api/member";
+import { memberInfo } from "api/member";
 import { useEffect, useRef, useState } from "react";
 import MyPageUpdateComponent from "./MyPageUpdateComponent";
-import { useSelector } from "react-redux";
+import { getBoardsList } from "api/boards";
+import { getCommentsList } from "api/comments";
 
 export default function MyPageComponent() {
-  const isLogin = useSelector((state) => state.user.isLogin);
-
-  const check = useRef(false);
   const [data, setData] = useState([]);
 
   const [isUpdate, setIsUpdate] = useState(false);
-  const updateHandler = () => {
-    if (isUpdate === false) setIsUpdate(true);
-  };
+  const [boardPage, setBoardPage] = useState(0);
+  const [boardSize, setBoardSize] = useState(10);
+  const [commentPage, setCommentPage] = useState(0);
+  const [commentSize, setCommentSize] = useState(10);
+
+  const [myArticles, setMyArticles] = useState([]);
+  const [myComments, setMyComments] = useState([]);
 
   const [toggle, setToggle] = useState(0);
 
@@ -20,21 +22,52 @@ export default function MyPageComponent() {
     setToggle(e.target.value);
   };
 
+  const myArticleList = () => {
+    getBoardsList(
+      {
+        page: boardPage,
+        size: boardSize,
+        sort: "createDateTime,DESC",
+        type: "MY",
+      },
+      (response) => {
+        const data = response.data.response.content;
+        setMyArticles(data);
+      },
+      () => {
+        console.error();
+      },
+    );
+  };
+
+  const myCommentList = () => {
+    getCommentsList(
+      {
+        page: commentPage,
+        size: commentSize,
+        sort: "createDateTime,DESC",
+        type: "MY",
+      },
+      (response) => {
+        const data = response.data.response.content;
+        setMyComments(data);
+      },
+      () => {
+        console.error();
+      },
+    );
+  };
+
   useEffect(() => {
-    if (!check.current) {
-      memberInfo(
-        (response) => {
-          const data = response.data.response;
-          setData(data);
-        },
-        () => {
-          console.log("error");
-        },
-      );
-    }
-    return () => {
-      check.current = true;
-    };
+    memberInfo(
+      (response) => {
+        const data = response.data.response;
+        setData(data);
+      },
+      () => {
+        console.log("error");
+      },
+    );
   }, []);
 
   return (
@@ -70,19 +103,17 @@ export default function MyPageComponent() {
       </ul>
       <ul>
         {toggle === 0 && (
-          <div>
-            <div>게시글1</div>
-            <div>게시글2</div>
-            <div>게시글3</div>
-            <div>게시글4</div>
+          <div className="my_article">
+            {myArticles.map((article) => {
+              return <div>{article}</div>;
+            })}
           </div>
         )}
         {toggle === 1 && (
-          <div>
-            <div>견적1</div>
-            <div>견적2</div>
-            <div>견적3</div>
-            <div>견적4</div>
+          <div className="my_comment">
+            {myComments.map((comment) => {
+              return <div>{comment}</div>;
+            })}
           </div>
         )}
       </ul>
