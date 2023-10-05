@@ -49,4 +49,12 @@ public class Board {
         this.view++;
     }
 
+    public void increaseLikeCount() {
+        this.likeCnt++;
+    }
+
+    public void decreaseLikeCount() {
+        this.likeCnt--;
+    }
+
 }

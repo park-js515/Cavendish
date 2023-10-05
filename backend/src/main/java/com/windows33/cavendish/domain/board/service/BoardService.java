@@ -16,4 +16,6 @@ public interface BoardService {
 
     void increaseViewCount(Integer boardId, Integer userId);
 
+    Boolean doLike(Integer boardId, Integer userId);
+
 }

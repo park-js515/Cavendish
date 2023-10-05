@@ -4,7 +4,10 @@ import com.windows33.cavendish.domain.board.dto.request.BoardAddRequestDto;
 import com.windows33.cavendish.domain.board.dto.request.BoardModifyRequestDto;
 import com.windows33.cavendish.domain.board.entity.Board;
 import com.windows33.cavendish.domain.board.entity.BoardImage;
+import com.windows33.cavendish.domain.board.entity.BoardLike;
+import com.windows33.cavendish.domain.board.entity.BoardLikeID;
 import com.windows33.cavendish.domain.board.repository.BoardImageRepository;
+import com.windows33.cavendish.domain.board.repository.BoardLikeRepository;
 import com.windows33.cavendish.domain.board.repository.BoardRepository;
 import com.windows33.cavendish.global.exception.InvalidException;
 import com.windows33.cavendish.global.exception.NotFoundException;
@@ -26,6 +29,7 @@ public class BoardServiceImpl implements BoardService {
 
     private final BoardRepository boardRepository;
     private final BoardImageRepository boardImageRepository;
+    private final BoardLikeRepository boardLikeRepository;
     private final FileStoreUtil fileStoreUtil;
 
     @Override
@@ -124,6 +128,19 @@ public class BoardServiceImpl implements BoardService {
         if(!board.getUserId().equals(userId)) {
             board.increaseViewCount();
             boardRepository.save(board);
+        }
+    }
+
+    @Override
+    public Boolean doLike(Integer boardId, Integer userId) {
+        BoardLike boardLike = boardLikeRepository.findById(new BoardLikeID(userId, boardId)).orElse(null);
+
+        if(boardLike == null) {
+            boardLikeRepository.save(BoardLike.builder().boardLikeID(new BoardLikeID(userId, boardId)).build());
+            return true;
+        } else {
+            boardLikeRepository.delete(boardLike);
+            return false;
         }
     }
 

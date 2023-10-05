@@ -19,6 +19,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
@@ -115,6 +116,15 @@ public class BoardController {
             @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
     ) {
         return CommonResponse.OK(boardService.modifyArticle(boardModifyRequestDto, multipartFiles, userPrincipal.getId()));
+    }
+
+    @Operation(summary = "좋아요", description = "좋아요")
+    @PutMapping("/detail/{boardId}/like")
+    public CommonResponse<Boolean> articleLike(
+            @PathVariable("boardId") Integer boardId,
+            @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
+    ) {
+        return CommonResponse.OK(boardService.doLike(boardId, userPrincipal.getId()));
     }
 
 }
