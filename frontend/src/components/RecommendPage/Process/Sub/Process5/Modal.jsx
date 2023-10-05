@@ -143,23 +143,23 @@ const Btns = ({ nowItem }) => {
 
   const fn1 = (val) => {
     const name = val;
-    const cpuId = nowItem.cpu.id;
+    const cpuId = nowItem.cpu?.id;
     const hasCpu = processList0[2].is_have;
-    const powerId = nowItem.power.id;
+    const powerId = nowItem.power?.id;
     const hasPower = processList0[6].is_have;
-    const mainboardId = nowItem.mainboard.id;
+    const mainboardId = nowItem.mainboard?.id;
     const hasMainboard = processList0[5].is_have;
-    const ramId = nowItem.ram.id;
+    const ramId = nowItem.ram?.id;
     const hasRam = processList0[7].is_have;
-    const gpuId = nowItem.gpu.id;
+    const gpuId = nowItem.gpu?.id;
     const hasGpu = processList0[3].is_have;
-    const hddId = nowItem.hdd.id;
+    const hddId = nowItem.hdd?.id;
     const hasHdd = processList0[4].is_have;
-    const ssdId = nowItem.ssd.id;
+    const ssdId = nowItem.ssd?.id;
     const hasSsd = processList0[8].is_have;
-    const caseId = nowItem.case.id;
+    const caseId = nowItem.case?.id;
     const hasCase = processList0[0].is_have;
-    const coolerId = nowItem.cooler.id;
+    const coolerId = nowItem.cooler?.id;
     const hasCooler = processList0[1].is_have;
 
     const body = {
@@ -206,7 +206,9 @@ const Btns = ({ nowItem }) => {
           alignItems: "center",
           fontWeight: "bold",
         }}
-      ><p>{`${addComma(nowItem.total)} 원 ~`}</p></div>
+      >
+        <p>{`${addComma(nowItem.total)} 원 ~`}</p>
+      </div>
       <div className="modal-btn-wrapper">
         {/* <div className="printBtn" onClick={() => {}}>{`출 력`}</div> */}
         <div
@@ -233,7 +235,6 @@ const Btns = ({ nowItem }) => {
                   });
                 }
               });
-
             } else {
               Swal.fire({
                 title: "로그인",
