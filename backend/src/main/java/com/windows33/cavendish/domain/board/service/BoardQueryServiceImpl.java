@@ -20,8 +20,8 @@ public class BoardQueryServiceImpl implements BoardQueryService {
     private final BoardQueryRepository boardQueryRepository;
 
     @Override
-    public Page<BoardListResponseDto> findBoardList(Pageable pageable) {
-        return boardQueryRepository.findBoardList(pageable);
+    public Page<BoardListResponseDto> findBoardList(Pageable pageable, String type, Integer userId) {
+        return boardQueryRepository.findBoardList(pageable, type, userId);
     }
 
     @Override
