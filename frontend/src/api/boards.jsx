@@ -42,11 +42,10 @@ const createBoardContent = (body, sucess, fail) => {
 
 const getBoardDetailContent = (id, sucess, fail) => {
   const api = boardDetailDefaultInstance();
-  api.defaults.headers["Authorization"] = `Bearer ${localStorage.getItem(
-    "accessToken",
-  )}`
-    ? `Bearer ${localStorage.getItem("accessToken")}`
-    : "";
+  const accessToken = localStorage.getItem("accessToken");
+  if (accessToken) {
+    api.defaults.headers["Authorization"] = `Bearer ${accessToken}`;
+  }
   api.get(`/detail/${id}`).then(sucess).catch(fail);
 };
 
