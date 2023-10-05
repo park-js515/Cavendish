@@ -96,8 +96,11 @@ const ProcessEnd = ({ className }) => {
             for (const key in item) {
               const part = item[key];
               const { id, name, price, image } = part;
-              temp[key] = { id, name, price, image };
-              total += price;
+
+              if (id) {
+                temp[key] = { id, name, price, image };
+                total += price;
+              }
             }
             temp.total = total;
             arr.push(temp);
