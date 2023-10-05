@@ -1,3 +1,7 @@
+import { useDispatch } from "react-redux";
+import { loginRequest } from "redux/userSlice";
+
+
 const Btn = (addBtn) => {
   return (
     <button
@@ -25,6 +29,13 @@ const InputComponent = ({
     addBtn.custom_onChange(event);
   };
 
+  const dispatch = useDispatch();
+  const onKeyDown = (event) => {
+    if (event.key === "Enter" && name === "PW") {
+      dispatch(loginRequest(true));
+    }
+  }
+
   return (
     <>
       <div className="input-wrapper">
@@ -36,6 +47,7 @@ const InputComponent = ({
           placeholder={placeholder}
           className="input-item"
           autoComplete={autoComplete}
+          onKeyDown={onKeyDown}
         />
         <div className="input-item-btn-wrapper">
           {addBtn.flag ? <Btn {...addBtn} /> : null}

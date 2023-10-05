@@ -102,7 +102,7 @@ export default function QuotationDetailComponent() {
       id,
       (response) => {
         const data = response.data.response;
-        // console.log(data);
+        console.log(data);
         setQuotation(data);
       },
       () => {},

@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 
 let isAlertDisplayed = false;
 
@@ -26,10 +27,17 @@ const createCustomAxios = (URL) => {
       return response;
     },
     async (error) => {
-      if (error.response.status === 401 || error.response.status === 403) {
+      if (error) {
         if (!isAlertDisplayed) {
           isAlertDisplayed = true;
-          alert("세션 만료");
+          Swal.fire({
+            icon: "error",
+            title: "세션 만료",
+            text: "세션이 만료되었습니다. 로그아웃을 진행합니다.",
+            willClose: () => {
+              window.location.replace("/logout");
+            },
+          });
         }
       } else {
         return error;
@@ -56,7 +64,6 @@ const createDefaultAxios = (URL) => {
     baseURL: `${process.env.REACT_APP_API}${URL}`,
     headers: {
       "Content-Type": "application/json;charset=utf-8",
-      Authorization: `Bearer ${localStorage.getItem("accessToken")}`?`Bearer ${localStorage.getItem("accessToken")}`:null ,
     },
   });
 

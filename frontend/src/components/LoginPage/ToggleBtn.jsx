@@ -9,17 +9,17 @@ const ToggleBtn = ({ isLogin, setIsLogin }) => {
     <>
       {isLogin ? (
         <div className="tab-group">
-          <div className="tab-selected">Login</div>
-          <div className="tab" onClick={onClick}>
+          <div className="tab-selected left">Login</div>
+          <div className="tab right" onClick={onClick}>
             Sign Up
           </div>
         </div>
       ) : (
         <div className="tab-group">
-          <div className="tab" onClick={onClick}>
+          <div className="tab left" onClick={onClick}>
             Login
           </div>
-          <div className="tab-selected">Sign Up</div>
+          <div className="tab-selected right">Sign Up</div>
         </div>
       )}
     </>

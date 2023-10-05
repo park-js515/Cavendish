@@ -18,6 +18,7 @@
     "react-select": "^5.7.5",
     "react-transition-group": "^4.4.5",
     "redux-persist": "^6.0.0",
+    "sweetalert2": "^11.7.31",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

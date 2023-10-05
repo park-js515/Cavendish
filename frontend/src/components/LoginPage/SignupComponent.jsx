@@ -1,6 +1,10 @@
 import InputComponent from "./InputComponent";
 import _ from "lodash";
 
+// API
+import { memberCheckId, memberCheckNickname } from "api/member";
+import { useState } from "react";
+
 const idLowerBound = 6;
 const pwLowerBound = 4;
 const nickLowerBound = 2;
@@ -59,11 +63,6 @@ const resetSignupList = () => {
 };
 resetSignupList();
 
-const dummy = [
-  { id: "adminNo1", password: "1234" },
-  { id: "adminNo2", password: "1234" },
-];
-
 const SignupComponent = ({ list, checkList }) => {
   // 0
   // 입력0: ID
@@ -95,27 +94,31 @@ const SignupComponent = ({ list, checkList }) => {
 
   // 클릭0: axios(ID 유효성 검사)
   const onClick0 = () => {
-    if (
-      dummy.some((item) => {
-        return item.id === list[0].value;
-      })
-    ) {
-      // 중복이 있는 경우 -> 지금 이 경우가 보이지 않는다.
-      SignupList[0].addText.text = "❗ 이미 존재하는 ID입니다.";
-      SignupList[0].addText.className = "input-text-red";
-      checkList[0].setCheck(false); // 기존의 값과 변동이 없기에 re-rendering이 일어나지 않음.
-      checkList[4].setCheck((current) => {
-        // 더미 변수를 업데이트함으로써 이를 해결함.
-        return current + 1;
-      });
-    } else {
-      // 중복이 없는 경우
-      SignupList[0].addBtn.content = "✔";
-      SignupList[0].addBtn.className = "input-item-btn-after";
-      SignupList[0].addText.text = "✔ 사용이 가능한 ID입니다.";
-      SignupList[0].addText.className = "input-text-green";
-      checkList[0].setCheck(true);
-    }
+    memberCheckId(
+      { loginId: list[0].value },
+      (response) => {
+        if (!response.data.response) {
+          // 중복이 있는 경우 -> 지금 이 경우가 보이지 않는다.
+          SignupList[0].addText.text = "❗ 이미 존재하는 ID입니다.";
+          SignupList[0].addText.className = "input-text-red";
+          checkList[0].setCheck(false); // 기존의 값과 변동이 없기에 re-rendering이 일어나지 않음.
+          checkList[4].setCheck((current) => {
+            // 더미 변수를 업데이트함으로써 이를 해결함.
+            return current + 1;
+          });
+        } else {
+          // 중복이 없는 경우
+          SignupList[0].addBtn.content = "✔";
+          SignupList[0].addBtn.className = "input-item-btn-after";
+          SignupList[0].addText.text = "✔ 사용이 가능한 ID입니다.";
+          SignupList[0].addText.className = "input-text-green";
+          checkList[0].setCheck(true);
+        }
+      },
+      (error) => {
+        console.error(error);
+      },
+    );
   };
 
   SignupList[0].addBtn.custom_onChange = onChange0;
@@ -212,27 +215,29 @@ const SignupComponent = ({ list, checkList }) => {
 
   // 클릭3: axios(닉네임 유효성 검사)
   const onClick3 = () => {
-    if (
-      dummy.some((item) => {
-        return item.id === list[3].value;
-      })
-    ) {
-      // 중복이 있는 경우 -> 지금 이 경우가 보이지 않는다.
-      SignupList[3].addText.text = "❗ 이미 존재하는 ID입니다.";
-      SignupList[3].addText.className = "input-text-red";
-      checkList[3].setCheck(false); // 기존의 값과 변동이 없기에 re-rendering이 일어나지 않음.
-      checkList[3].setCheck((current) => {
-        // 더미 변수를 업데이트함으로써 이를 해결함.
-        return current + 1;
-      });
-    } else {
-      // 중복이 없는 경우
-      SignupList[3].addBtn.content = "✔";
-      SignupList[3].addBtn.className = "input-item-btn-after";
-      SignupList[3].addText.text = "✔ 사용이 가능한 닉네임입니다.";
-      SignupList[3].addText.className = "input-text-green";
-      checkList[3].setCheck(true);
-    }
+    memberCheckNickname(
+      { nickname: list[3].value },
+      (response) => {
+        if (!response.data.response) {
+          // 중복이 있는 경우 -> 지금 이 경우가 보이지 않는다.
+          SignupList[3].addText.text = "❗ 이미 존재하는 ID입니다.";
+          SignupList[3].addText.className = "input-text-red";
+          checkList[3].setCheck(false); // 기존의 값과 변동이 없기에 re-rendering이 일어나지 않음.
+          checkList[3].setCheck((current) => {
+            // 더미 변수를 업데이트함으로써 이를 해결함.
+            return current + 1;
+          });
+        } else {
+          // 중복이 없는 경우
+          SignupList[3].addBtn.content = "✔";
+          SignupList[3].addBtn.className = "input-item-btn-after";
+          SignupList[3].addText.text = "✔ 사용이 가능한 닉네임입니다.";
+          SignupList[3].addText.className = "input-text-green";
+          checkList[3].setCheck(true);
+        }
+      },
+      (error) => {},
+    );
   };
 
   SignupList[3].addBtn.custom_onChange = onChange3;
