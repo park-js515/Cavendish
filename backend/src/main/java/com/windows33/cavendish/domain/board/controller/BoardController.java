@@ -73,7 +73,7 @@ public class BoardController {
             @PathVariable("boardId") Integer boardId,
             @Parameter(hidden = true) @AuthenticationPrincipal UserPrincipal userPrincipal
     ) {
-        boardService.increaseViewCount(boardId, userPrincipal.getId());
+        boardService.increaseViewCount(boardId, userPrincipal!=null?userPrincipal.getId():null);
 
         return CommonResponse.OK(boardQueryService.findBoardDetail(boardId, userPrincipal!=null?userPrincipal.getId():null));
     }
