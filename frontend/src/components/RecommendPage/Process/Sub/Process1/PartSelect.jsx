@@ -1,6 +1,7 @@
 import SearchComponent from "../SearchComponent";
 import ItemList from "../ItemList";
-import { AiOutlineArrowLeft } from "react-icons/ai";
+import { ImArrowLeft, ImArrowRight } from "react-icons/im";
+
 
 //redux
 import { useSelector } from "react-redux";
@@ -12,13 +13,13 @@ const TopIcons = ({ onClick1 }) => {
   return (
     <div
       style={{
-        height: "30px",
+        height: "35px",
         display: "flex",
         justifyContent: "flex-start",
       }}
     >
-      <AiOutlineArrowLeft
-        size="30"
+      <ImArrowLeft
+        size="35"
         color={leftCol}
         onMouseEnter={() => {
           setLeftCol("red");

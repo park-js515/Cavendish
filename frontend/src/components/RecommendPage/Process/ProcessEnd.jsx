@@ -132,7 +132,6 @@ const ProcessEnd = ({ className }) => {
       {!loading && data1.length > 0 ? (
         <div className="proc-end">
           <div className="end-left">
-            <div className="title">추천 권장 사양</div>
             <div className="inner-wrapper">
               {data1.map((item, index) => {
                 return (
@@ -148,13 +147,12 @@ const ProcessEnd = ({ className }) => {
             </div>
           </div>
           <div className="end-right">
-            <div className="title">추천 최소 사양</div>
             <div className="inner-wrapper">
               {data2.map((item, index) => {
                 return (
                   <Item
                     key={index}
-                    index={index}
+                    index={index + 5}
                     item={item}
                     handleIsOpen={handleIsOpen}
                     setNowItem={setNowItem}
