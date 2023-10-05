@@ -99,7 +99,7 @@ function Carousel({ carouselList }) {
           {currentList.map((image, idx) => (
             <li key={`${image}-${idx}`} className="carouselItem">
               <img
-                src={`https://localhost:5000/api/image/${image}`}
+                src={`${process.env.REACT_APP_API}/image/${image}`}
                 alt="carousel-img"
                 onDragStart={(e) => e.preventDefault()}
               />

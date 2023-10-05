@@ -7,7 +7,7 @@ const MainLogo = () => {
         <img
           className="mainLogo"
           src="/images/logo_for_dark.png"
-          alt="이미지가 없습니다."
+          alt="Cavendish_logo"
         ></img>
       </div>
     </>

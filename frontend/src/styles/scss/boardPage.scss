@@ -138,12 +138,22 @@
               flex-direction: row;
               align-items: flex-end;
               font-weight: 700;
+              min-height: 45px;
 
               .article-content {
                 font-size: 1.1rem;
 
                 margin: 6px;
               }
+            }
+          }
+          .content-footer{
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            div {
+              margin: 4px;
+              margin-bottom: 0;
             }
           }
         }

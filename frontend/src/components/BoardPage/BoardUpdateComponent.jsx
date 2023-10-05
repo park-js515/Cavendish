@@ -105,7 +105,7 @@ export default function BoardUpdateComponent() {
               <div className="imageWrapper" key={`${image.imageId}`}>
                 <img
                   className="updated_image"
-                  src={`https://localhost:5000/api/image/${image.imageId}`}
+                  src={`${process.env.REACT_APP_API}/image/${image.imageId}`}
                   alt={`${image.imageId}`}
                 />
                 <button value={image.imageId} className="removeButton">
