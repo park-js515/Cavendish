@@ -29,12 +29,7 @@ public class SecurityConfig {
     private static final String[] PERMIT_ALL = {
             /* swagger */
             "/api-docs/**",
-            "/api/swagger-ui/**",
-            /* 회원 */
-            "/api/member/login",
-            "/api/member/signup",
-            "/api/member/checkId",
-            "/api/member/checkNickname"
+            "/api/swagger-ui/**"
     };
 
     @Bean
@@ -48,6 +43,7 @@ public class SecurityConfig {
                 .and()
                 .authorizeRequests()
                 .antMatchers(PERMIT_ALL).permitAll()
+                .antMatchers(HttpMethod.POST, "/api/member", "/api/member/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/board", "/api/board/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/image", "/api/image/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/comment", "/api/comment/**").permitAll()
