@@ -47,9 +47,9 @@ function Navbar() {
         >
           {!isLogin ? (
             <ul>
-              <Link to="/signup">
+              {/* <Link to="/signup">
                 <button className="btn">Register</button>
-              </Link>
+              </Link> */}
               <Link to="/login">
                 <button className="btn btn__login">Login</button>
               </Link>

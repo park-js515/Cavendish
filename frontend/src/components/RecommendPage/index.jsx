@@ -2,6 +2,7 @@ import "styles/css/RecommendPage.css";
 import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as recom from "redux/recommendSlice";
+import Swal from "sweetalert2";
 
 // ProgressBar
 import ProgressBar from "./ProgressBar";
@@ -46,13 +47,17 @@ const RecommendPageComponent = () => {
   const check = useRef(false);
   useEffect(() => {
     if (!check.current && (processNo >= 1 || (processNo === 0 && hasData))) {
-      const isValid = window.confirm(
-        "이미 진행 중인 작업이 있습니다.\n계속하시겠습니까? ",
-      );
-
-      if (!isValid) {
-        dispatch(recom.resetProcessAll());
-      }
+      Swal.fire({
+        icon: "question",
+        showCancelButton: true,
+        html: `이미 진행 중인 작업이 있습니다.<br/>계속하시겠습니까?`,
+        confirmButtonText: "예",
+        cancelButtonText: "아니오",
+      }).then((result) => {
+        if (!result.isConfirmed) {
+          dispatch(recom.resetProcessAll());
+        }
+      });
     }
 
     return () => {
