@@ -267,15 +267,15 @@ const Process3_2 = ({ setSubProcess, selected }) => {
       searchProgram(...props);
     };
 
-    if (!check1.current) {
-      fn1();
-    }
+    // if (!check1.current) {
+    fn1();
+    // }
 
-    return () => {
-      if (!check1.current) {
-        check1.current = true;
-      }
-    };
+    // return () => {
+    //   if (!check1.current) {
+    //     check1.current = true;
+    //   }
+    // };
   }, []);
 
   // 페이지가 바뀌거나 검색어가 바뀌었을 때의 호출
@@ -337,14 +337,14 @@ const Process3_2 = ({ setSubProcess, selected }) => {
       // API가 필요함
     };
 
-    if (check1.current) {
-      if (doSearch) {
-        fn2();
-        return;
-      }
-
-      fn1();
+    // if (check1.current) {
+    if (doSearch) {
+      fn2();
+      return;
     }
+
+    fn1();
+    // }
   }, [page, doSearch]);
 
   const handlePage = (value) => {
