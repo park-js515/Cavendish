@@ -83,17 +83,28 @@ lv_func = {
 }
 
 
-def com_dfs(quotation, lv, parts_list, price_sum, budget):
+def com_dfs(quotation, lv, parts_list, price_sum, budget, spi):
     if price_sum > budget:
         return
 
     if lv == 9:
         return deepcopy(quotation)
 
-    for item in parts_list[lv]:
+    count = 0
+    while True:
+        item = parts_list[lv][spi[lv] % len(parts_list[lv])]
         quotation[lv] = item
         if lv_func[lv](quotation):
+            # print(lv)
             if item is None:
-                return com_dfs(quotation, lv+1, parts_list, price_sum, budget)
+                spi[lv] += 1
+                return com_dfs(quotation, lv+1, parts_list, price_sum, budget, spi)
             elif item.price is not None:
-                return com_dfs(quotation, lv+1, parts_list, price_sum + item.price, budget)
+                spi[lv] += 1
+                return com_dfs(quotation, lv+1, parts_list, price_sum + item.price, budget, spi)
+        if count >= max(len(parts_list[lv]), 400):
+            break
+        spi[lv] += 1
+        count += 1
+        # if lv == 2:
+            # print(count, spi[lv])
