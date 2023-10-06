@@ -18,18 +18,18 @@ mariadb: mariadb:latest로 생성, root의 비밀번호는 ssafy로 한다.
 
 **festAPI-server**  
 
-- `festAPI_DATASOURCE_URL`: DB 컨테이너 ip주소  
-- `festAPI_DATASOURCE_USERNAME`: root  
-- `festAPI_DATASOURCE_PASSWORD`: ssafy
+- `fastAPI_DATASOURCE_URL`: DB 컨테이너 ip주소  
+- `fastAPI_DATASOURCE_USERNAME`: root  
+- `fastAPI_DATASOURCE_PASSWORD`: ssafy
 
 ## spring 빌드 및 설정  
 
 빌드 파일이 있기때문에 위에서 만든 spring 이미지를 이용해 5000번 포트로
 컨테이너를 실행시킨다.
 
-## festAPI 빌드 및 설정  
+## fastAPI 빌드 및 설정  
 
-빌드 파일이 있기때문에 위에서 만든 festAPI 이미지를 이용해 8000번 포트로
+빌드 파일이 있기때문에 위에서 만든 fastAPI 이미지를 이용해 8000번 포트로
 컨테이너를 실행시킨다.
 
 
