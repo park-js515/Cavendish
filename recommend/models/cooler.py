@@ -1,0 +1,35 @@
+from sqlalchemy import Column, Integer, String, Float, SmallInteger
+from sqlalchemy.orm import declarative_base
+
+Base = declarative_base()
+
+class Cooler(Base):
+    __tablename__ = 'cooler'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(200), nullable=False)
+    price = Column(Integer)
+    link = Column(String(500), nullable=False)
+    company = Column(String(30), nullable=False)
+    product_seq = Column(Integer, nullable=False)
+    image = Column(String(500), comment='이미지 링크')  
+    category = Column(String(30))
+    cooling_type = Column(SmallInteger, comment='0: 공랭, 1: 수랭')
+    aircool_form = Column(SmallInteger, comment='0:싱글타워, 1:듀얼타워, 2:일반, 3:슬림, 4:서버')
+    tdp = Column(Integer, comment='W')
+    intel_socket = Column(Integer, comment='비트마스킹')
+    amd_socket = Column(Integer, comment='비트마스킹')
+    fan_size = Column(Integer, comment='mm')
+    fan_count = Column(SmallInteger, comment='개')
+    airflow = Column(Integer, comment='CFM')
+    noise = Column(Float, comment='dBA')
+    width = Column(Float, comment='mm, 호환성')
+    length = Column(Float, comment='mm, 호환성')
+    height = Column(Float, comment='mm, 호환성')
+    radiator = Column(Integer, comment='열, 호환성')
+    radiator_length = Column(Float, comment='mm, 호환성')
+    radiator_thickness = Column(Float, comment='mm, 호환성')
+    hose_length = Column(Float, comment='mm')
+    feature = Column(Integer, comment='비트마스킹')
+    as_years = Column(Integer, comment='년')
+    reg_date = Column(Integer, comment='yyyymm')
+    bookmark = Column(Integer, default=0)

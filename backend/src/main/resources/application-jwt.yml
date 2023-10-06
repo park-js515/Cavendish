@@ -1,0 +1,4 @@
+jwt:
+  header: Authorization
+  secret: VlwEyVBsYt9V7zq57TejMnVUyzblYcfPQye08f7MGVA9XkHa
+  valid-seconds: 3600    # Access Token 만료시간 (초)

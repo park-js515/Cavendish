@@ -1,0 +1,126 @@
+import { createSlice } from "@reduxjs/toolkit";
+
+const initialState_origin = {
+  processNo: -1,
+  selected: 0,
+  ramNo: 0,
+  processList: [
+    // process1: 부품 사전 선택
+    [
+      { name: "case", value: "-1", id: -1, imgUrl: "", is_have: false },
+      { name: "cooler", value: "-1", id: -1, imgUrl: "", is_have: false },
+      { name: "cpu", value: "-1", id: -1, imgUrl: "", is_have: false },
+      { name: "gpu", value: "-1", id: -1, imgUrl: "", is_have: false },
+      { name: "hdd", value: "-1", id: -1, imgUrl: "", is_have: false },
+      { name: "mainboard", value: "-1", id: -1, imgUrl: "", is_have: false },
+      { name: "power", value: "-1", id: -1, imgUrl: "", is_have: false },
+      { name: "ram", value: "-1", id: -1, imgUrl: "", is_have: false },
+      { name: "ssd", value: "-1", id: -1, imgUrl: "", is_have: false },
+    ],
+    // process2: 용도 선택
+    [],
+    // process3: 세부 용도 선택
+    {},
+    // process4: 예산 선택 (단위: 만원)
+    { budget: 0 },
+    // process5: 우선순위 선택
+    {},
+  ],
+};
+
+const recommendSlice = createSlice({
+  name: "recommend",
+  initialState: initialState_origin,
+  reducers: {
+    resetProcessAll: () => {
+      return initialState_origin;
+    },
+    setProcessNo: (state, action) => {
+      state.processNo = action.payload;
+    },
+    setSelected: (state, action) => {
+      state.selected = action.payload;
+    },
+    setProcess: (state, action) => {
+      state.processList[state.processNo + 1] = {
+        ...state.processList[state.processNo + 1],
+        ...action.payload,
+      };
+    },
+    setProcessList0: (state, action) => {
+      state.processList[0][state.selected] = {
+        ...state.processList[0][state.selected],
+        ...action.payload,
+      };
+    },
+    removeProcessList0: (state, action) => {
+      state.processList[0][action.payload.index] =
+        initialState_origin.processList[0][action.payload.index];
+    },
+    addProcessList1: (state, action) => {
+      if (state.processList[1].length < 2) {
+        const value = action.payload.value;
+        state.processList[1].push(value);
+        state.processList[2][value] = [];
+      }
+    },
+    removeProcessList1: (state, action) => {
+      const value = action.payload.value;
+      const index = state.processList[1].indexOf(value);
+      state.processList[1].splice(index, 1);
+      delete state.processList[2][value];
+    },
+    addProcessList2: (state, action) => {
+      const key = action.payload.key;
+      const id = action.payload.id;
+      const value = action.payload.value;
+      if (state.processList[2][key].length < 3) {
+        state.processList[2][key].push({ id: id, value: value });
+      }
+    },
+    removeProcessList2: (state, action) => {
+      const key = action.payload.key;
+      const id = action.payload.id;
+      const index = state.processList[2][key].findIndex((item) => {
+        return item.id === id;
+      });
+      state.processList[2][key].splice(index, 1);
+    },
+    removeProcess: (state) => {
+      if (state.processNo === 2) {
+        for (const key in state.processList[2]) {
+          state.processList[2][key].length = 0;
+        }
+        state.processList[state.processNo + 1] =
+          initialState_origin.processList[state.processNo + 1];
+      } else {
+        state.processList[state.processNo] =
+          initialState_origin.processList[state.processNo];
+        if (state.processNo < 4) {
+          state.processList[state.processNo + 1] =
+            initialState_origin.processList[state.processNo + 1];
+        }
+      }
+      state.processNo--;
+    },
+    setRamNo: (state, action) => {
+      state.ramNo = action.payload;
+    },
+  },
+});
+
+export const {
+  resetProcessAll,
+  setProcessNo,
+  setSelected,
+  setProcess,
+  setProcessList0,
+  removeProcessList0,
+  addProcessList1,
+  removeProcessList1,
+  addProcessList2,
+  removeProcessList2,
+  removeProcess,
+  setRamNo,
+} = recommendSlice.actions;
+export default recommendSlice.reducer;
