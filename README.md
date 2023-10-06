@@ -3,9 +3,9 @@
 
 ## 컨테이너 이미지  
 
-spring: backend 폴더 내 cavendish-spring.Dockerfile로 생성
-fastAPI: recommend 폴더 내 cavendish-python.Dockerfile로 생성
-mariadb: mariadb:latest로 생성, root의 비밀번호는 ssafy로 한다.
+spring: backend 폴더 내 cavendish-spring.Dockerfile로 생성  
+fastAPI: recommend 폴더 내 cavendish-python.Dockerfile로 생성  
+mariadb: mariadb:latest로 생성, root의 비밀번호는 ssafy로 한다.  
 
 
 ## 필수 환경 변수  
