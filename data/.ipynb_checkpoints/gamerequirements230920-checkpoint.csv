@@ -1,0 +1,191 @@
+name,cpu,ram,gpu,dx,os,sto,spec_class
+A Bird Story,> Intel Pentium III 800 MHz,2 GB RAM,1024x768 High Color +,Version 9.0c,"XP, Vista, 7, 8",200 MB available space,0
+A Blind Legend,Dual Core CPU,1 GB RAM,generally everything made since 2004 should work.,Version 9.0,Windows XP SP2+,400 MB available space,0
+A Boy and His Blob,"AMD Athlon 64 X2 Dual Core Processor 4600+, 2.4GHz / Intel Pentium D 805 2.66GHz or higher",1 GB RAM,NVIDIA GeForce 9600 GT 512 MB / ATI Radeon HD 4650 1GB or higher | Shader Model 3+,,Windows 7-32Bit or Windows 8-32Bit,3 GB available space,0
+A Boy and His Blob,AMD Athlon 7850 Dual Core Processor 2.8GHz / Intel Core 2 Duo E7500 2.93 GHz,2 GB RAM,NVIDIA GeForce 9600 GT 1GB / ATI Radeon HD 4650 1GB  | Shader Model 3+,,Windows 7-64Bit or Windows 8-64Bit,3 GB available space,1
+A City Sleeps,Intel Core2 Duo 3.00GHz,2 GB RAM,ATI Radeon 2400,9.0c,Windows 7 / 8,,0
+A Farewell to Dragons,1.5 GHz,512 MB,nVidia GeForce FX 5700 or ATI Radeon 9600 with 128 MB of memory,,Windows 2000/XP,3 GB of free hard drive space,0
+A Farewell to Dragons,2.4 GHz,1 GB,nVidia GeForce 6800 or ATI Radeon 9800,,Windows 2000/XP,3 GB of free hard drive space,1
+A Fistful of Gun,Dual Core 1.8 Ghz,2 GB RAM,(Any),Version 9.0,Windows XP or later,600 MB available space,0
+A Game of Thrones: Genesis,AMD/INTEL DUAL-CORE 2.2 GHZ ,1024 MB (XP) / 2048 MB (VISTA/7) ,256 MB 100% DIRECTX 9 AND SHADERS 3.0 COMPATIBLE. ATI RADEON X1600 XT/INTEL HD/NVIDIA GEFORCE 6600 GT OR HIGHER,DirectX® 9,WINDOWS XP SP2/VISTA SP1/WINDOWS 7,10 GB,0
+A Game of Thrones: The Board Game - Digital Edition,Intel Pentium D or AMD Athlon 64 X2,2 GB RAM,Graphics card with DX11 or OpenGL 3.x capabilities,Version 11,"Windows 7, Windows 8.1, Windows 10 (64bit version only)",1 GB available space,0
+A Game of Thrones: The Board Game - Digital Edition,Intel Core 2 Duo E6600 or AMD Athlon 64 X2 5000+ or better,4 GB RAM,Graphics card with DX11 or OpenGL 3.x capabilities,Version 11,Windows 10 (64bit version only),1 GB available space,1
+A Gummy's Life,Intel® Core™ i3,2 GB RAM,NVIDIA® GeForce GTX 740,Version 11,Windows 7 (64-bit),1 GB available space,0
+A Gummy's Life,Intel® Core™ i5-6500 3.2 Ghz,4 GB RAM,NVIDIA® GeForce GTX 960,Version 11,Windows 10 (64-bit),1 GB available space,1
+A Hat in Time,3.0 GHz processor,4 GB RAM,(Any),Version 9.0c,Windows XP SP3 / Windows Vista / Windows 7 / Windows 8 / Windows 10 64-bit only,8 GB available space,0
+A Hat in Time,3.5 GHz processor,8 GB RAM,(Any),Version 9.0c,Windows 7 / Windows 8 / Windows 10 64-bit only,8 GB available space,1
+A Hole New World,"1,60 Ghz Intel Atom",1 GB RAM,OpenGL 3.0 compliant video card,,Windows XP SP3 (or later),950 MB available space,0
+A House of Many Doors,(Any),4 GB RAM,(Any),Version 9.0,"Windows XP, Vista, 7, 8, 10",400 MB available space,0
+A House of Many Doors,2GHz+,4 GB RAM,512MB,Version 9.0,"Windows XP, Vista, 7, 10",400 MB available space,1
+A Juggler's Tale,Intel Core 2 Quad Q6600,4 GB RAM,NVIDIA Geforce GTX 660 / Radeon HD7870,Version 11,Windows 7+ (64-bit OS required),3 GB available space,0
+A Juggler's Tale,Intel Core i5-6600K,8 GB RAM,NVIDIA Geforce GTX 980 / Radeon 5300,Version 11,Windows 7+ (64-bit OS required),3 GB available space,1
+A Knight's Quest,Intel Core i3-2100 (2 * 3100) or equivalent / AMD Athlon II X4 645 AM3 (4 * 3100) or equivalent,4 GB RAM,GeForce GTX 550 Ti (1024 MB) or Radeon HD 6850 (1024 MB) or Intel Iris Pro 5200,,"Windows 7, 8, 8.1, 10 x 64 (Requires a 64-bit processor and operating system)",15 GB available space,0
+A Knight's Quest,Intel Core i5-6600K (4 * 3500) or equivalent / AMD Ryzen 3 2200G (4 * 3500) or equivalent,8 GB RAM,GeForce GTX 960 (4096 MB) or Radeon R9 285 (2048 MB),,"Windows 7, 8, 8.1, 10 x 64 (Requires a 64-bit processor and operating system)",15 GB available space,1
+A Memoir Blue,Intel Core i3-4130 | AMD FX-8350,6 GB RAM,NVIDIA GeForce GTX 650 Ti 2 GB | AMD Radeon RX 460 2 GB,,"Windows 10, 64-bit",4 GB available space,0
+A Memoir Blue,Intel Core i5-3470 | AMD Ryzen 3 1200,8 GB RAM,NVIDIA GeForce GTX 1060 6 GB | AMD Radeon RX 5600 XT 6 GB,,"Windows 10, 64-bit",4 GB available space,1
+A Mesterlövész,"Pentium II  350Mhz
+",64 MB RAM,AGP 3D grafikus kártya gyorsítóval,,Windows 98/2000/XP/ME,"1,2 GB Hard Drive",0
+A New Beginning,"2GHz Single Core / 1,8GHz Dual Core","1GB RAM (Vista/7: 1,5GB RAM)","OpenGL 2.0-compatible, min. 256 MB graphics memory (ATI Radeon or Nvidia Geforce recommended)",DirectX9.0c,Windows 2000/XP/Vista/7,"3,5 free disk space",0
+A Normal Lost Phone,(Any),4 GB RAM,(Any),,Windows 7+,250 MB available space,0
+A Pixel Story,Intel Core 2 Duo 2.4ghz or equivalent,2 GB RAM,"Shader Model 3.0, 3rd Generation Intel Core HD Graphics (2500/4000)",Version 9.0c,Windows XP SP3,1500 MB available space,0
+A Plague Tale: Innocence,Intel Core i3-2120 (3.3 GHz)/AMD FX-4100 X4 (3.6 GHz),8 GB RAM,"2 GB, GeForce GTX 660/Radeon HD 7870",,Windows 7/8/10 (64 bits),50 GB available space,0
+A Plague Tale: Innocence,Intel Core i5-4690 (3.5 GHz)/AMD FX-8300 (3.3 GHz),16 GB RAM,"4 GB, GeForce GTX 970/Radeon RX 480",,Windows 7/8/10 (64 bits),50 GB available space,1
+A Plague Tale: Requiem,Intel Core i5-4690k (3.5 GHz) / AMD FX-8300 (3.3 GHz),16 GB,"4 GB, GeForce GTX 970 / Radeon RX 590",Directx 12 (Level 12 and Shader Model 6.0 are needed),Windows 10 (20H1 64-bit),55 GB available space,0
+A Plague Tale: Requiem,Intel Core i7-8700k (3.7 GHz) / AMD Ryzen 5 3600 (3.6 GHz),16 GB,"8 GB, GeForce RTX 3070 / Radeon RX 6800 XT",Directx 12 (Level 12 and Shader Model 6.0 are needed),Windows 10 (20H1 64-bit),55 GB available space (SSD storage is recommended),1
+A Quiver of Crows,Dual-core 2.2 GHz,2 GB RAM,NVIDIA GeForce GTX 260 / ATI Radeon 4870 HD / Intel HD 4600 / or equivalent with at least 512 MB VRAM,,Windows Vista,250 MB available space,0
+A Quiver of Crows,Dual-core 2.4 GHz,4 GB RAM,Equivalent of GeForce 9800 GTX / Radeon HD 5000 / Intel HD 5200,,Windows 8.1 or 10,250 MB available space,1
+A Rat's Quest - The Way Back Home,Intel Core i5 / AMD FX-6300,6 GB RAM,GTX 650 Ti 1GB/ Radeon 6950 1GB or better,,Windows 10 64bits,8 GB available space,0
+A Rip In Time,Intel Core i3-4340 / AMD FX-6300,6 GB RAM,nVidia GeForce GTX 660 2GB / AMD Radeon HD 7850 2GB,,"64-bit Windows 7, Windows 8.1, Windows 10",30 GB available space,0
+A Robot Named Fight!,Intel Pentium E2180 2.0 GHz (or AMD equivalent),1 GB RAM,Anything with DX9 (shader model 3.0) capability,Version 9.0,Windows XP SP2+,600 MB available space,0
+A Short Hike,Intel or AMD Dual Core at 2 GHz or better,2 GB RAM,Intel Graphics 4400 or better,Version 11,Windows 7 SP1+ (or later),400 MB available space,0
+A Show of Kindness,"CPU: Intel i5-4590, AMD FX 8350 equivalent or better",4 GB RAM,"Nvidia GeForce GTX 970, AMD Radeon R9 290 equivalent or better",,"Windows 7 SP1, Windows 8.1 or later, Windows 10",5 GB available space,0
+A Show of Kindness,"CPU: Intel i5-4590, AMD FX 8350 equivalent or better",4 GB RAM,"Nvidia GeForce GTX 970, AMD Radeon R9 290 equivalent or better",,"Windows 7 SP1, Windows 8.1 or later, Windows 10",5 GB available space,1
+A Story About My Uncle,"Intel Core 2 Duo, AMD Athlon X2, or equal at 1.6GHz or better",2 GB RAM,"DirectX 9.0c-compatible, SM 3.0-compatible",Version 9.0c,"Windows XP (SP3), Windows Vista (SP2), Windows 7, Windows 8",2 GB available space,0
+A Story About My Uncle,QuadCore 2.0 GHz+,4 GB RAM,"DirectX 9.0c-compatible, SM 3.0-compatible, 1024MB VRAM+",Version 9.0c,Windows 7 or 8,2 GB available space,1
+A Tale of Paper,Intel CPU Core i3,4 GB RAM,Nvidia GPU GeForce GTX 660,Version 11,"Windows 7, 64-bit",3015 MB available space,0
+A Tale of Paper,Intel CPU Core i7,8 GB RAM,Nvidia GPU GeForce GTX 660,Version 11,"Windows 7, 64-bit",4 GB available space,1
+A Vampyre Story,1.6 GHz,512 MB,256 MB video card GeForce FX-generation or ATI Radeon 9500,DirectX 9.0,Windows XP / Windows Vista,3 GB hard disk space,0
+A Vampyre Story,2 GHz,512 MB,512 MB video card GeForce 6 or ATI Radeon 9800,DirectX 9.0 ,Windows XP / Windows Vista,5 GB hard disk space,1
+A Virus Named Tom,,,Direct X 9.0c / Shader Model 2.0,9.0c,Windows XP (sp2),250 MB HD space,0
+A Virus Named Tom,,,,10,Windows XP (sp2),250 MB HD space,1
+A Walk in the Dark,1.7 GHz Dual Core or Greater,2 GB RAM,256 MB DirectX 9.0c compatible graphics card (shader model 3),DirectX 9.0c,"Windows XP, Vista, 7, 8",200 MB available space,0
+A Way Out,"Intel core i3-2100T @ 2.5GHz/AMD FX 6100, or better",8 GB,"NVIDIA GeForce GTX 650Ti 2GB, AMD Radeon HD 7750 2GB",DirectX 11,"Windows 7 64-bit, 8.1 64-bit or Windows 10 64-bit",25 GB,0
+A Way Out,Intel Core i5 3570K; AMD Ryzen 3 1300x or equivalent,16 GB,Nvidia GTX 960; AMD R9 290 or equivalent,DirectX 11,"Windows 7 64-bit, 8.1 64-bit or Windows 10 64-bit",25 GB,1
+A-10 VR,Intel Core i5-4590 equivalent or greater,8 GB RAM,NVIDIA GeForce GTX 970 /Radeon R9 290 equivalent or greater,,"Windows 7,8 or 10 (64bit)",200 MB available space,0
+A.I. Invasion,Intel or AMD 2.0-3.4 GHz Dual Core,4 GB RAM,"512 mb, Directx 9.0c SM 3.0",Version 9.0c,Windows Vista/7/8,2 GB available space,0
+A.I. Invasion,Intel/AMD 3.0+ GHz Quad Core or Greater,8 GB RAM,1GB Nvidia GT/GTS or ATI Radeon HD,Version 9.0c,Windows 7,2 GB available space,1
+A.I. Space Corps,Intel or AMD 2.0-3.4 GHz Dual Core,4 GB RAM,"512 mb, Directx 9.0c SM 3.0",Version 9.0c,Windows Vista/7/8,2 GB available space ,0
+A.I. Space Corps,Intel/AMD 3.0+ GHz Quad Core or Greater,8 GB RAM,1GB Nvidia GT/GTS or ATI Radeon HD,Version 9.0c,Windows 7,2 GB available space ,1
+A.I.M.,Intel Pentium III or AMD Athlon 800 MHz,256 MB ,"32 Mb video memory, nVidia GeForce 2; ATI Radeon 7500 or higher",DirectX 8.1,"Microsoft Windows 98 SE, ME, 2000, XP","2,500 MB hard disk space for installation; 600 Mb for save games and swap file",0
+A.I.M.,"Intel Pentium IV or AMD Athlon 1,5 HHz",512 Mb,"64 Mb video memory, nVidia GeForce 3 and higher; or ATI Radeon 8500 and higher; AGP 4x; for maximum settings 128 Mb video memory, nVidia GeForce FX 5600; or ATI Radeon 9500 and higher; AGP 8x",Direct X 8.1,"Microsoft Windows 98 SE, ME, 2000, XP","2,500 MB hard disk space for installation; 600 Mb for save games and swap file",1
+A.I.M. 2 Clan Wars,Intel Pentium IV or AMD Athlon 800 MHz,256 MB,"32 Mb video memory, nVidia GeForce 3; ATI Radeon 7500 or higher",Direct X 8.1,"Microsoft Windows 98 SE, ME, 2000, XP","2,500 MB hard disk space for installation; 600 Mb for save games and swap file",0
+A.I.M. 2 Clan Wars,"Intel Pentium IV or AMD Athlon 1,5 HHz",768 MB,"64 Mb video memory, nVidia GeForce 3 and higher; or ATI Radeon 8500 and higher; AGP 4x; for maximum settings 128 Mb video memory, nVidia GeForce FX 5900; or ATI Radeon 9800 and higher; AGP 8x",Direct X 8.1,"Microsoft Windows 98 SE, ME, 2000, XP","3,500 MB hard disk space for installation; 600 Mb for save games and swap file",1
+A.N.N.E,2.2 ghz,2 GB RAM,[GT710]  [HD7750],,Microsoft Windows 10,2 GB available space,0
+A.N.N.E,2.4 ghz,3 GB RAM,[GT730]  [R7 240],,Microsoft Windows 10,2 GB available space,1
+A3 India,P III 600MHz,128 MB RAM,"min. 32 MB VRAM
+NVIDIA:  Riva TNT series
+ATI:  Radeon 7000
+3dfx:  Voodoo 4  ",DirectX 8.1 or higher,,1.2 GB,0
+A3 India,P III 1GHz,512 MB RAM,"NVIDIA:  GeForce 2 or higher
+ATI:  Radeon 8500 or higher
+3dfx:  Higher than Voodoo 4 ",DirectX 8.1 or higher,,1.5 GB,1
+AaaaaAAaaaAAAaaAAAAaAAAAA!!! for the Awesome,1.5 GHz processor,1GB,3D card with 512MB video memory,DirectX 9.0c,Windows XP/Vista/7,,0
+Aaero,Intel Core i3,4 GB RAM,NVidia GTX 550,,Windows 10,2 GB available space,0
+Aarklash: Legacy,"AMD/intel dual-core running at 1,8 GHz (AMD Athlon II and Intel Core2Duo are the oldest CPU architectures recommended)","1,5 Go for windows XP / 2 Go for Vista, Seven or 8 GB RAM ","Integrated or mobile graphic card, with at least 256MB of dedicated VRAM and with at least DirectX 9.0c and Shader Model 4.0 support. ATI/AMD Radeon 3800 series and above and NVIDIA GeForce 8600 series are minimum required graphic cards.",Version 9.0c,Windows 7 / Vista / XP PC (32 ou 64 bit),4 GB available space,0
+Aarklash: Legacy,"AMD/intel quad-core running at 2,2 GHz (Intel Core I 1st gen or AMD Phenom II x4 or newer architectures are recommended)",2 Go for 32 bit windows (XP/Vista/7/8) / 3 Go for 64 bit windows (XP/Vista/7/8) GB RAM,ATI/Nvidia dedicated or mobile graphic card with at least 512MB of dedicated VRAM and with at least DirectX 9.0c and Shader Model 4.0 support. ATI/AMD Radeon HD4800 series and NVIDIA GeForce GTX260 and above are recommended graphic cards.,Version 9.0c,Windows 7 / Vista / XP PC (32 ou 64 bit),4 GB available space,1
+Abandon Ship,2.4GHz Processor,4 GB RAM,NVIDIA GeForce 460 Graphics Card or equivalent,Version 11,Windows 7 64-Bit,5 GB available space,0
+Abatron,2 GHz Dual-Core 64-bit CPU,4 GB RAM,DirectX10 Compatible GPU with 1 GB Video RAM,Version 10,"64-Bit Windows 7 Service Pack 1, or Windows 8, or Windows 10",5 GB available space,0
+Above,2 GHz Processor or better,2 GB RAM,Intel HD 3000 or better,Version 11,Vista SP1+ or later,2 GB available space,0
+Absolute Drift,2.2GHz Dual Core,2 GB RAM,512 MB RAM,,Windows XP / Vista / 7 / 8 / 10 (64-bit Systems Only),350 MB available space,0
+Absolute Tactics: Daughters of Mercy,Intel Core i5-650 | AMD Phenom II X4 965,2 GB RAM,DirectX10 graphics adapter with 512 MB VRAM,Version 10,Windows 7,4 GB available space,0
+Absolver,Intel Core i7-950 (4 * 3000) or equivalent / AMD Phenom II X4 965 (4 * 3400) or equivalent,4 GB RAM,GeForce GTX 480 (1536 MB) / Radeon HD 7850 (2048 MB),Version 9.0,Windows 7/8/8.1/10 x64,11 GB available space,0
+Absolver,Intel Core i5-4670K (4*3400) or equivalent / AMD FX-8320 (8 * 3500) or equivalent,8 GB RAM,GeForce GTX 960 (4096 MB) / Radeon R9 380 (2048 MB) or better,Version 9.0,Windows 7/8/8.1/10 x64,11 GB available space,1
+Abstract Initiative,Core i3 | AMD A6 2.4Ghz,2 GB RAM,NVIDIA GeForce GT 240 | AMD Radeon HD 4670 | Intel HD Graphics 4000,Version 9.0,Windows Vista SP2 | 7 SP1 | 8 | 10,5 GB available space,0
+Abyss Odyssey,Intel Core 2 Duo 2.4 GHz or AMD Athlon X2 4800+,2 GB RAM,ATI 3850HD 512 MB or NVIDIA GeForce 8800 GT 512MB,Version 9.0c,"Windows XP, Vista, 7",4 GB available space,0
+Abyss Odyssey,Intel Core i5,4 GB RAM,NVIDIA GeForce GTX 280,Version 9.0c,"Windows XP, Vista, 7",4 GB available space,1
+Abyss World : Apocalypse,INTEL CORE I5-8400 or AMD RYZEN 3 3300X,12 GB RAM,NVIDIA GEFORCE GTX 1060 3 GB or AMD RADEON RX 580 4 GB,Version 12,Windows 10 (64-bit),80 GB available space,0
+Abyss World : Apocalypse,INTEL CORE I7-8700K or AMD RYZEN 5 3600X,16 GB RAM,NVIDIA GEFORCE GTX 1070 8 GB or AMD RADEON RX VEGA 56 8 GB,Version 12,Windows 10/11 (64-bit),80 GB available space,1
+ABZU,3.0GHz CPU Dual Core,4 GB RAM,Geforce GTX 750 / Radeon R7 260X,Version 11,"Windows 7, 64-bit",6 GB available space,0
+ABZU,2.4GHz CPU Quad Core,8 GB RAM,Geforce GTX 780 / Radeon R9 290X,Version 11,"Windows 7, 64-bit",6 GB available space,1
+AC-130: Operation Devastation,Pentium® III 1.4 GHz or faster or equivalent,256 MB RAM,64 MB video card or higher,DirectX® 9.0c,Windows® XP/Vista,250 MB Hard Disk space,0
+Academia: School Simulator,1.6 GHz,4 GB RAM,onboard,,"Windows 7,10",50 MB available space,0
+Academia: School Simulator,(Any),8 GB RAM,onboard,,"Windows 7,10",,1
+Acaratus,Intel Core 2 Duo or AMD equivalent,2 GB RAM,512 MB VRAM,Version 10,Windows XP/Vista/7/8/10 (32 or 64 bit),2 GB available space,0
+Acaratus,Intel i5 series or AMD equivalent,2 GB RAM,NVIDIA 1 GB VRAM,Version 10,Windows 7/8/10 (64 bit),2 GB available space,1
+Accounting,Intel i5-4590 equivalent or better,4 GB RAM,"Nvidia GeForce GTX 970, AMD Radeon R9 290 equivalent or better",,"Windows 7 SP1, Windows 8.1 or later, Windows 10",1 GB available space,0
+ACE COMBAT 7: SKIES UNKNOWN,Intel Core i3-7100,4 GB RAM,NVIDIA GeForce GTX 750Ti (2GB),Version 11,Windows 7 / 8 / 8.1 / 10 (64-bit OS required),50 GB available space,0
+ACE COMBAT 7: SKIES UNKNOWN,Intel Core i5-7500,8 GB RAM,NVIDIA GeForce GTX 1060 (3GB),Version 11,Windows 7 / 8 / 8.1 / 10 (64-bit OS required),50 GB available space,1
+Ace Combat Assault Horizon,Intel Core 2 Duo 1.8Ghz or AMD Athlon X2 2.4 Ghz,2 GB RAM,Nvidia GeForce 8800GT and higher ; ATI radeon HD 3850 and higher,9.0c,"Windows XP , Windows Vista, Windows 7, 8 (32 or 64 bit versions, optimized for 64 bit and multicore processors )",16 GB HD space,0
+Ace Combat Assault Horizon,"Intel Core 2 Quad 2.7Ghz or better, AMD Phenom II X4 3Ghz or better",4 GB,Nvidia GeForce 8800GT and higher ; ATI radeon HD 3850,9.0c,"Windows Vista, Windows 7, 8 (32 or 64 bit versions, optimized for 64 bit and multicore processors )",20GB,1
+Ace of Seafood,Intel Core 2 Duo 2GHz or higher,1 GB RAM,"DirectX® 11 supported GPU（GeForce GTX 400 series, or Radeon HD 6000 series）",Version 11,"Windows 7, 8, 8.1, 10",1 GB available space,0
+Ace of Spades,2.4 GHz Intel Dual Core Processor or AMD equivalent ,2 GB RAM,"Recommend use of dedicated graphics card (GeForce 6800 GT or higher, Radeon X1600 or higher, Intel Graphics version GMA 4500 or higher with 128 MB of dedicated RAM. Laptop/Mobility cards will vary. OpenGL 2.0 Support or better",9.0c,Windows XP with SP3 / Vista / 7,200 MB HD space,0
+Ace of Spades,2.6+ GHz Intel Quad Core Processor or AMD equivalent ,4 GB RAM,GeForce GTX460 dedicated graphics card or AMD equivalent. OpenGL 2.0 Support or better,9.0c,Windows XP with SP3 / Vista / 7,,1
+Aces of the Galaxy,Pentium(R) 4 2.0 GHz or AMD(R) equivalent,512 MB of RAM for Windows(R) XP or 1 GB of RAM for Windows Vista(TM),9.0c-compatible video card with 128 MB RAM,DirectX® 9.0c,Windows Vista/XP,120 MB free uncompressed hard drive space,0
+Achilles: Legends Untold,AMD Ryzen™ 3 1200 / Intel® Core™ i3-8100,8 GB RAM,NVIDIA® GeForce® GTX 1050 4GB / AMD Radeon™ RX 560 4GB,Version 12,"Windows 10, 64-bit",30 GB available space,0
+Achilles: Legends Untold,AMD Ryzen™ 5 2600X / Intel® Core™ i5-8400,16 GB RAM,NVIDIA® GeForce® GTX 1660 6GB / AMD Radeon™ RX 580,Version 12,"Windows 10, 64-bit",30 GB available space,1
+Achtung Panzer: Kharkov 1943,AMD Athlon x2 4200+ Intel Pentium D 3GHz,1 GB RAM,ATI Radeon x1600 256 Mb nVidia GeForce 7600 256 MB video card,DirectX® 9.0c,Windows XP SP2/Vista,2.6 GB hard disk space,0
+Act of Aggression,AMD/INTEL DUAL-CORE 2.5 GHZ,2048 MB RAM,512 MB 100% DIRECTX 10 COMPATIBLE AMD RADEON HD 4870/NVIDIA GEFORCE 9800 GT OR HIGHER,10,WINDOWS VISTA/WINDOWS 7/WINDOWS 8,15 GB available space,0
+Act of Aggression,AMD/INTEL QUAD-CORE 3 GHZ,4096 MB RAM,2 GB 100% DIRECTX 11 COMPATIBLE AMD RADEON HD 7870/NVIDIA GEFORCE 660 OR HIGHER,11,WINDOWS VISTA/WINDOWS 7/WINDOWS 8,15 GB available space,1
+Act of War: Direct Action,Pentium® III 1.5 GHz,256 MB RAM,Windows® 98/SE/Me/2000/XP-compatible 64 MB SVGA with hardware T&L;,DirectX® version 9.0c (included) or higher,Windows® 98/SE/Me/2000/XP,1.4 GB Free,0
+Act of War: Direct Action,"Pentium® 4, 2.0 GHz",384 MB,128 MB SVGA with hardware T&L video card recommended graphics card (graphics card should be compatible with DirectX ® version 9.0c or higher),DirectX® version 9.0c (included) or higher,Windows® 98/SE/Me/2000/XP,3.5 GB Free,1
+Act of War: High Treason,Pentium® III 1.5 GHz,256 MB RAM,Windows® 98/SE/Me/2000/XP-compatible 64 MB SVGA with hardware T&L;,DirectX® version 9.0c (included) or higher,Windows® 98/SE/Me/2000/XP,,0
+Act of War: High Treason,"Pentium® 4, 2.0 GHz",384 MB,128 MB SVGA with hardware T&L video card recommended graphics card (graphics card should be compatible with DirectX ® version 9.0c or higher),DirectX® version 9.0c (included) or higher,Windows® 98/SE/Me/2000/XP,,1
+Actraiser Renaissance,"AMD A8-7600, Intel® Core™ i3-3210",8 GB RAM,"AMD Radeon™ R7 240, NVIDIA® GeForce® GT 730",Version 11,Windows® 8.1 64-bit / Windows® 10 64-bit,5 GB available space,0
+Actraiser Renaissance,"AMD Ryzen™ 3 1200, Intel® Core™ i5-3330",8 GB RAM,"AMD Radeon™ R7 260X, NVIDIA® GeForce® GTX 750",Version 11,Windows® 8.1 64-bit / Windows® 10 64-bit,5 GB available space,1
+Ad Exitum,"Quad-core Intel or AMD, 2 GHz or faster",4 GB RAM,DirectX 10 compatible graphics card,,Windows 7/8 64-bit,2500 MB available space,0
+Ad Exitum,"Quad-core Intel or AMD, 2.5 GHz or faster",8 GB RAM,DirectX 11 compatible graphics card,,Windows 7/8/10 64-bit,2500 MB available space,1
+Ad Infinitum,Intel Core i5-8400 or AMD Ryzen 5 1600X,12 GB RAM,"NVIDIA GeForce GTX 660, 2 GB or AMD Radeon HD 7850, 2 GB or Intel Arc A380, 6 GB",Version 11,"Windows 10, 64-bit",21 GB available space,0
+Adam Wolfe,1.5 GHz,1 GB RAM,Graphics card with DirectX 9 level (shader model 2.0) capabilities,Version 9.0,Windows XP/Windows Vista/Windows 7/Windows 8/Windows 10,1.7 GB available space,0
+Adam Wolfe,2.0 GHz,2 GB RAM,Graphics card with DirectX 9 level (shader model 2.0) capabilities,Version 9.0,Windows XP/Windows Vista/Windows 7/Windows 8/Windows 10,1.7 GB available space,1
+Adorables,1 GHz,1 GB RAM,(Any),,Windows XP,120 MB available space,0
+Adorables,2 GHz,1 GB RAM,(Any),,Windows 7,120 MB available space,1
+Adore,Intel(R) Core(TM) 2 Duo CPU E8400 @ 3.00Hz,4 GB RAM,NVIDIA GTX 260 | ATI Radeon HD 4800 Series,Version 11,Windows 7,4 GB available space,0
+Adore,Intel(R) Core(TM) i5-3470 CPU @ 3.20GHZ,4 GB RAM,Geforce GTX 660,Version 11,Windows 10,4 GB available space,1
+ADR1FT,Intel Core 2 Quad CPU Q9550 @ 2.83 GHz / AMD Phenom 9850 @ 2.5 GHz,8 GB RAM,NVIDIA GTX 650 2GB or AMD HD7770 2GB,Version 11,Windows 64 bits,6000 MB available space,0
+ADR1FT,Intel i5 4570 @ 3.2 GHz / AMD Phenom II 945 @ 3.0 GHz,16 GB RAM,NVIDIA GTX 970 / AMD R9 290 equivalent or greater,Version 11,Windows 10 64 bits,6000 MB available space,1
+Advent Rising,2.0 GHz Processor,256 MB of RAM,128 MB ATI 9000 or higher or 128 MB GeForce 3 or higher (except GeForce 4 MX),DirectX 9.0 (included with download),Windows 2000/XP,5.5 GB Minimum Hard Drive Space,0
+Advent Rising,3.4 GHz Processor,512 MB of RAM,256 MB GeForce FX 5600 or higher or ATI Radeon 9600 or higher,DirectX 9.0 (included with download),Windows 2000/XP,5.5 GB Minimum Hard Drive Space,1
+AdVenture Capitalist,(Any),512 MB RAM,(Any),Version 9.0,Windows XP,60 MB available space,0
+Adventure Craft,Intel Core 2 Duo 2.5GHz or equivalent processor,512 MB RAM,"Dedicated GPU with 256 MB memory, shader version 4 capable",Version 10,Microsoft® Windows® Vista or higher,700 MB available space,0
+Adventure Craft,Intel Core 2 Duo 2.8GHz or equivalent processor,1 GB RAM,Nvidia GeForce 8800/AMD Radeon HD 5670 or equivalent video card with 512 MB memory,Version 11,Microsoft® Windows® 7 or higher,700 MB available space,1
+Adventure Time: Pirates of the Enchiridion,Intel Core 2 Quad Q6600 (2.4 GHz) or AMD equivalent,4 GB RAM,GeForce GT 430 (1024 MB)/ Radeon HD 6850 (1024 MB),Version 9.0c,Windows 7 / 8 / 10,3 GB available space,0
+Adventure Time: Pirates of the Enchiridion,"Intel i5, 4 x 2.6 GHz or AMD equivalent",4 GB RAM,(Any),Version 11,Windows 10,5 GB available space,1
+Adventure Time: The Secret Of The Nameless Kingdom,Intel™ Pentium 4 2.4 ghz with Hyper Threading,1 GB RAM,"NVIDIA® Geforce 9600GT, AMD® Radeon™ HD 3870 or higher (it must be able to manage Pixel Shader 3.0) with at least 512MB of display memory",,"Windows®XP™ SP2, Windows®Vista™ or Windows®7",1 GB available space,0
+Adventure Time: The Secret Of The Nameless Kingdom,Intel™ Core 2 Duo / AMD™ Athlon 64 X2 or higher.,4 GB RAM,"NVIDIA® GeForce™ 200 series or higher, AMD® Radeon™ HD5000 series or higher (it must be able to manage Pixel Shader 3.0) with at least 512MB of display memory",,"Windows®XP™ SP2, Windows®Vista™ or Windows®7",2 GB available space,1
+AdventureQuest 3D,Dual Core 1.8GHZ or Single Core 3.0GHZ,1 GB RAM,512 MB,Version 9.0c,Windows 7,500 MB available space,0
+AdventureQuest 3D,Dual Core 2.66GHZ,2 GB RAM,1 GB,Version 9.0c,Windows 10,1 GB available space,1
+Adventures of Bertram Fiddle: Episode 1: A Dreadly Business,(Any),2 GB RAM,(Any),,Windows XP or later,1 GB available space,0
+Adventures of Bertram Fiddle: Episode 2: A Bleaker Predicklement,(Any),2 GB RAM,DX9 (shader model 3.0) or DX11 with feature level 9.3 capabilities,,Windows XP SP2+,2 GB available space,0
+Aegis Defenders,Intel Core 2 Duo E5200,4 GB RAM,GeForce 9800GTX+ (1GB),Version 10,Windows 7,2 GB available space,0
+Aegis Defenders,Intel Core i5,8 GB RAM,GeForce GTX 560,Version 11,Windows 10,2 GB available space,1
+Aeon Drive,Intel Core i3,2000 MB RAM,Intel HD 4000,Version 10,"Windows 10, 64-bit",500 MB available space,0
+Aeon Must Die!,AMD FX-4300 / Intel Core i3-4130,4 GB RAM,"1 GB VRAM, AMD Radeon HD 7770 / NVIDIA GeForce GTX 560",,Windows 10 (64-bit),,0
+Aeon Must Die!,AMD FX-8320 / Intel Core i5-4690K,8 GB RAM,"2 GB VRAM, AMD Radeon R9 380 / NVIDIA GeForce GTX 1050 Ti",,Windows 10 (64-bit),,1
+AER Memories of Old,3 GHz Dual Core CPU,4 GB RAM,"GeForce GTX 560, AMD HD 6870",Version 11,"Win 7, 8, 10, 64bit",3 GB available space,0
+AER Memories of Old,3 GHz Quad Core CPU,4 GB RAM,"GeForce GTX 660TI, AMD HD 7800 series",Version 11,"Win 7, 8, 10, 64bit",3 GB available space,1
+AereA,"Intel® Core™ 2 Duo 2,6Ghz / AMD Athlon™ 64 X2 3800+",4 GB RAM,NVIDIA® GeForce® GTX 560 Ti / ATI® Radeon™ HD 7850 or better,Version 9.0c,Windows Vista (32bit),4 GB available space,0
+AereA,Intel® Core™ i5 4th Gen / AMD A10 series or better,8 GB RAM,NVIDIA® GeForce® GTX 760 / ATI® Radeon™ R9 M295X or better,Version 11,Windows 7 (64bit) or higher,4 GB available space,1
+AEW: Fight Forever,Intel Core i5-3550 / AMD FX 8150 (AVX - Compatible processor),8 GB RAM,"GeForce GTX 1060 / Radeon RX 480 / Intel® Arc™ A380 Graphics, at least 4 GB Video Memory",Version 12,Windows® 10 64 bit,25 GB available space,0
+AEW: Fight Forever,Intel i7-4790 / AMD FX 8350 (AVX - Compatible processor),16 GB RAM,"GeForce GTX 1070 / Radeon RX 580 / Intel® Arc™ A770 Graphics, at least 6 GB Video Memory",Version 12,Windows 10 64-bit,25 GB available space,1
+Afrika Korps vs Desert Rats,"Pentium III, 1 GHz",256 MB ,"32MB, DirectX 8.0 compatible videocard",DirectX 8.0,Win 98/2000/XP/ME ,"1,5 GB free space",0
+Afrika Korps vs Desert Rats,"Pentium IV, 1.4GHz",512 MB,"64MB, DirectX 9.0 compatible videocard",DirectX 9.0,Win 98/2000/XP/ME ,"1,5 GB free space",1
+Afro Samurai 2: Revenge of Kuma,2 GHz processor,2 GB RAM,"Intel HD3000, Nvidia GeForce GTX550 or equivalent",Version 11,Windows 7,,0
+Afro Samurai 2: Revenge of Kuma,3 GHz processor,3 GB RAM,NVIDIA® GeForce® GTX 650 ti 2GB ram or or ATI™ Radeon™ HD 6XXX or higher,Version 11,Windows 7,,1
+After the Fall,Intel i5-7500 / Ryzen 5 1600 equivalent or greater,12 GB RAM,NVIDIA GTX 1060 / RX 580 equivalent or greater,Version 11,Windows 10 - 64 bit,,0
+After Us,Intel Core i5-8400 or AMD Ryzen 3 3100,12 GB RAM,GeForce GTX 1050 Ti or GeForce GTX 960 or Intel Arc A750 or AMD Radeon RX 380 X,,Windows 10 64-bit,30 GB available space,0
+After Us,Intel Core i7-8700 or AMD Ryzen 5 3600,16 GB RAM,GeForce GTX 1070 Ti or GeForce RTX 3060 or AMD Radeon RX Vega 56,,Windows 10 64-bit,30 GB available space,1
+Aftercharge,Intel® Core™ i3 or AMD Phenom™ X3 8650,2 GB RAM,"NVIDIA® GeForce® GTX 460, ATI Radeon™ HD 4850, or Intel® HD Graphics 5500",Version 11,Windows® Vista/7/ 8/10 64-bit (latest Service Pack),5 GB available space,0
+Afterfall: InSanity,"Intel Core 2 Duo 2Ghz, AMD Athlon 64 x2 2Ghz or better",2GB for Windows XP and 3GB for Windows Vista or Windows 7,"256 MB, DirectX 9.0c i Shader 3.0 (GeForce 8600GT / ATI equivalent or better)",DirectX 9.0c,Windows XP SP 2 / Windows Vista / Windows  7,,0
+AFTERGRINDER,Intel Core i3 1.8 GHz,1 GB RAM,256 MB NVIDIA GeForce 8600 GTS,Version 9.0c,Windows 7 and above,1 GB available space,0
+Afterlight,"Intel Core 2 Quad Q6600 @ 2.4 GHz, AMD FX 8120 @ 3.1 GHz",4 GB RAM,"NVIDIA GT 630 / 650m, AMD Radeon HD6570 or equivalent",Version 9.0c,Windows 7/8/10 (64-bit OS required),3 GB available space,0
+Afterlight,"Intel i7 920 @ 2.7 GHz, AMD Phenom II 945 @ 3.0 GHz",8 GB RAM,"NVIDIA GTX 660, Radeon R9-270",Version 11,Windows 8/10 (64-bit OS required),3 GB available space,1
+Afterparty,Intel Core i3 2.5GHz,4 GB RAM,Radeon HD 6850 or equivalent,Version 11,"Windows 7 SP1, 64-bit",5 GB available space,0
+Afterparty,Intel Core i5 3.0 GHz,8 GB RAM,Radeon RX 460 or equivalent,Version 11,"Windows 10, 64-bit",5 GB available space,1
+Against the Storm,Intel i3-4160 or AMD FX-4350,4 GB RAM,Nvidia GeForce GTX 650 or AMD Radeon HD 7750,,Windows 7 64 Bit,5 GB available space,0
+Against the Storm,Intel i5-3570K or AMD FX-9590,8 GB RAM,Nvidia GeForce GTX 970 or AMD Radeon R9 390X,,Windows 10 64 Bit,5 GB available space,1
+Agatha Christie - Hercule Poirot: The First Cases,2ghz processor,4 GB RAM,"GeForce GTX 580, DirectX 10-compatible video card",Version 10,"Windows 7, Windows 8, Windows 8.1, Windows 10 (64-bit)",,0
+Agatha Christie - Hercule Poirot: The First Cases,3ghz processor,8 GB RAM,GeForce 970 / Radeon R9 380,Version 11,"Windows 7, Windows 8, Windows 8.1, Windows 10 (64-bit)",,1
+Agatha Christie - Hercule Poirot: The London Case,Intel Core i3,6 GB RAM,Geforce 970,Version 11,Windows 10 (64-bit),10 GB available space,0
+Agatha Christie - Hercule Poirot: The London Case,Intel Core i5,16 GB RAM,Geforce 1080,Version 11,Windows 10 (64-bit),10 GB available space,1
+Agatha Christie - The ABC Murders,AMD/Intel dual-core processor running at 2.2 GHz,2048 MB RAM,"ATI/NVIDIA dedicated/integrated or mobile graphic card, with at least 512MB of dedicated VRAM and with at least Shader Model 4.0 support",Version 9.0c,Windows XP/Vista/7/8/10,,0
+Agatha Christie - The ABC Murders,AMD / Intel Dual-Core processor running at 3.0 GHz,3072 MB RAM,ATI/NVIDIA dedicated or mobile graphic card with at least 1GB of dedicated VRAM and with at least Shader Model 4.0 support,Version 9.0c,Windows XP/Vista/7/8/10,,1
+Agatha Christie: Death on the Nile,800 Mhz or better,128 MB,64 MB VRAM,DirectX: 8.1 or later,Windows 98/ME/2000/XP/Vista,57 MB,0
+Agatha Christie: Murder on the Orient Express,1.4 GHz Pentium® 3 Processor ,256 MB ,64 MB DirectX® 9 Compatible Video Card ,DirectX 9,Windows® 2000/XP,1.5 GB ,0
+Age of Booty,"Intel Pentium 4 1.7 Ghz, Intel Celeron 1.7 Ghz, or AMD Athlon xp 1800+ or better ",512 Mb RAM ,ATI Radeon 9600 / NVIDIA GeForce FX 5800 ,DirectX 9.0c November 2007 release ,Windows XP sp2 or Vista ,400 Mb hard drive space,0
+Age of Booty,"Intel Pentium 4 2.8 Ghz , AMD Athlon XP 3200+ or higher ",1024 Mb RAM,ATI Radeon 9800 / NVIDIA GeForce 6800,DirectX 9.0c November 2007 release ,Windows XP sp2 or Vista ,400 Mb hard drive space,1
+Age of Conan: Hyborian Adventures,3GHz Pentium IV,1GB RAM,"Shader Model 2.0 and 128MB ram, nVidia GeForce 6600",,Windows Vista/XP,32GB,0
+Age of Conan: Hyborian Adventures,Intel Core 2 Duo 2.4 GHz (E6600) or better,2GB or more,NVIDIA GeForce 7900 GTX or better,,Windows Vista/XP,32GB,1
+Age of Darkness: Final Stand,Intel Core i5-6600 or AMD FX-8350,8 GB RAM,"Nvidia GeForce GTX 760, 2 GB or AMD Radeon HD 7870, 2 GB",,"Windows 8.1, 64-bit",5 GB available space,0
+Age of Darkness: Final Stand,Intel Core i5-8400 or AMD Ryzen 5 1500X,8 GB RAM,"Nvidia GeForce GTX 970, 4 GB or AMD Radeon R9 Fury, 4 GB",,"Windows 10, 64-bit",5 GB available space,1
+Age of Defense,Pentium or AMD 700mhz,512 MB RAM,Video Card DX9 128mb,,Microsoft Windows XP SP3 (32-bit) and newer,200 MB available space,0
+Age of Empire Online,"Dual Core, 2Ghz or higher","Win XP SP3/Vista Home Basic – 1GB; Vista Premium, Ultimate/Windows 7 (32 bit) – 1.5GB; Windows 7 (64 bit) – 2.5GB",128 MB Shader 2 supported card or higher,,Win XP/Vista/7,2.5 GB required for downloads,0
+Age of Empires,Pentium 90 or higher processor ,16 MB RAM ,Local SVGA bus video display (with 1 MB VRAM) ,,Microsoft Windows 95 operating system or Windows NT Workstation 4.0 with Service Pack 3,"80 MB of available hard disk space
+50 MB free disk space for swap file ",0
+Age of Empires II - Age of Kings,Multimedia PC with Pentium 166MHz or higher processor,32 MB of RAM,Super VGA with 2 MB of video memory,,Microsoft® Windows® 95/98/Me/XP/NT 4.0 with service pack 5,200 MB of hard disk space; additional 100 MB of hard disk space for swap file,0
+Age of Empires II - Gold Edition,Multimedia PC with Pentium 166MHz or higher processor,32 MB of RAM,Super VGA with 2 MB of video memory,,Microsoft® Windows® 95/98/Me/XP/NT 4.0 with service pack 5,200 MB of hard disk space; additional 100 MB of hard disk space for swap file,0
+Age of Empires II - The Conquerors Expansion,Multimedia PC with Pentium 166MHz or higher processor,"32 MB of Ram for Windows 95, 98, ME, 64 MB for Windows NT 4.0 and Windows 2000",Super VGA with 2 MB of video memory,,Microsoft® Windows® 95/98/Me/XP/NT 4.0 with service pack 5,80 MB of available hard disk space (in addition to the original Age of Empires II required disk); additional 100 MB of hard disk space for swap file,0
+Age of Empires II HD,1.2GHZ CPU,1 GB RAM,Direct X 9.0c Capable GPU,9.0c,"Windows Vista, 7, 8 Pro+",2 GB HD space,0
+Age of Empires II: Definitive Edition,Intel Core 2 Duo or AMD Athlon 64x2 5600+,4 GB RAM,NVIDIA® GeForce® GT 420 or ATI™ Radeon™ HD 6850 or Intel® HD Graphics 4000 or better with 2 GB VRAM,Version 11,Windows 10 64bit,30 GB available space,0
+Age of Empires II: Definitive Edition,2.4 Ghz i5 or greater or AMD equivalent,8 GB RAM,Nvidia® GTX 650 or AMD HD 5850 or better,Version 11,Windows 10 64bit,30 GB available space,1
+Age of Empires III,Intel Core 2 Duo 2.2 GHz or AMD Athlon 64 X2 2.0 GHz,2 GB RAM,64 MB NVIDIA GeForce 6800 or ATI Radeon X1300,DirectX 9.0c,Windows XP,12 GB HD space,0
+Age of Empires III The Asian Dynasties,1.4 GHz equivalent or higher processor,256 MB of system RAM,64 MB video card with support for hardware transformation and lighting required,DirectX 9.0 or later,Microsoft® Windows® XP or higher,2 GB available hard disk space,0

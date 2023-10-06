@@ -1,0 +1,155 @@
+.quotation_page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .quotation_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 800px;
+    margin: 20px;
+    .title {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+    .create_button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100px;
+      height: 35px;
+      border: 1px solid gray;
+      border-radius: 0.2rem;
+      background-color: #fff;
+      margin: 3px;
+      padding: 5 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: black;
+      box-sizing: border-box;
+      &:hover {
+        opacity: 90%;
+        background-color: #eee;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .quotation_container {
+    display: flex;
+    border: 1px solid gray;
+    border-radius: 1rem;
+    width: 800px;
+    height: 150px;
+    margin: 10px;
+    padding: 10px;
+    color: black;
+
+    &:hover {
+      text-decoration: none;
+      color: black;
+    }
+
+    .quotation_img {
+      img {
+        border: 1px solid gray;
+        border-radius: 1rem;
+        width: 150px;
+      }
+    }
+    .quotation_info {
+      display: flex;
+      flex-direction: column;
+      margin: 10px;
+
+      .quotation_name {
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+      .quotation_price {
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+.quotation_detail_page {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .quotation_detail_content {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    .quotation_info_form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      .quotation_info_container {
+        flex-basis: calc(50% - 10px);
+        display: flex;
+        border: 1px solid gray;
+        border-radius: 1rem;
+        .quotation_img {
+          img {
+            margin: 10px;
+            width: 80px;
+            border-radius: 1rem;
+          }
+        }
+        .quotation_info {
+          margin: 10px;
+          .parts_name {
+            font-size: 1.1rem;
+            font-weight: 700;
+          }
+          .parts_price {
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+  .footer {
+    width: 840px;
+    padding: 10px;
+    margin: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    .total_price {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+    .buttons {
+      display: flex;
+      button {
+        margin: 6px;
+        margin-top: 20px;
+        padding: 5px 10px;
+        border: 1px solid gray;
+        border-radius: 0.2rem;
+        background-color: #fff;
+
+        font-size: 1.2rem;
+        font-weight: 700;
+        &:hover {
+          opacity: 90%;
+          cursor: pointer;
+          background-color: #ccc;
+        }
+      }
+    }
+  }
+}

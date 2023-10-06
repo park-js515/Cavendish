@@ -1,0 +1,332 @@
+.button_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    width: 820px;
+
+    div {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  .between {
+    justify-content: space-between;
+  }
+  .left {
+    justify-content: flex-start;
+  }
+  .right {
+    justify-content: flex-end;
+  }
+  .center {
+    justify-content: center;
+  }
+}
+
+.button_link {
+  display: flex;
+  margin: 3px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100px;
+  height: 35px;
+  background: #fff;
+  border-radius: 0.2rem;
+  border: 1px solid gray;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: black;
+  box-sizing: border-box;
+
+  &:hover {
+    opacity: 90%;
+    background-color: #eee;
+    cursor: pointer;
+  }
+  a {
+    font-size: 1.1rem;
+  }
+}
+
+.board_main {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    font-size: 3rem;
+    margin: 10px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #000;
+
+    &:hover {
+      color: #222;
+    }
+  }
+
+  .board_list {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    .board_header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 800px;
+      padding: 0;
+      li {
+        display: flex;
+        flex-direction: column;
+        width: 800px;
+        padding: 10px;
+        margin: 10px 0;
+        height: 120px;
+        list-style-type: none;
+        border: 1px solid gray;
+        border-radius: 0.4rem;
+        background-color: #fff;
+        &:hover {
+          opacity: 90%;
+          background-color: #f7f7f7;
+        }
+        img {
+          width: 100px;
+          height: 100px;
+        }
+        .content-container {
+          margin: 4px;
+
+          .content-header {
+            display: flex;
+            justify-content: space-between;
+
+            .board-id {
+              font-size: 1rem;
+              font-weight: 700;
+            }
+            .article-title {
+              font-size: 1.4rem;
+            }
+            .nickname {
+              display: flex;
+              font-weight: 700;
+            }
+          }
+          .content-date {
+            display: flex;
+            justify-content: flex-end;
+            font-size: 0.8rem;
+          }
+          .content-description {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .article {
+              display: flex;
+              flex-direction: row;
+              align-items: flex-end;
+              font-weight: 700;
+              min-height: 45px;
+
+              .article-content {
+                font-size: 1.1rem;
+
+                margin: 6px;
+              }
+            }
+          }
+          .content-footer{
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            div {
+              margin: 4px;
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  .board_number {
+    bottom: 10px;
+    .page_button {
+      margin: 3px;
+      padding: 4px;
+      width: 30px;
+      height: 30px;
+      background: #fff;
+      border-radius: 50%;
+      border: 1px solid gray;
+      &:hover {
+        opacity: 90%;
+        background-color: #eee;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.create_page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .create_form {
+    display: flex;
+    flex-direction: column;
+
+    margin: 30px;
+
+    .create_title {
+      margin: 10px;
+      padding: 10px;
+      width: 800px;
+      height: 20px;
+      border-radius: 0.2rem;
+    }
+    .create_body {
+      margin: 10px;
+      width: 800px;
+      height: 400px;
+      padding: 10px;
+      resize: none;
+      border-radius: 0.2rem;
+    }
+  }
+}
+
+.detail_page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  hr {
+    width: 800px;
+    margin-top: 10px;
+    border: 1px solid lightgray;
+  }
+
+  .detail_header {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    padding: 10px;
+    width: 800px;
+    height: 20px;
+    .header_info {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 10px;
+      font-size: 0.7rem;
+      .flex-row {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+  }
+  .detail_content {
+    margin: 10px;
+    padding: 10px;
+    width: 800px;
+    height: 400px;
+  }
+
+  .comment_block {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 800px;
+    .comment_area {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .comment_input {
+        margin: 10px;
+        padding: 10px;
+        width: 700px;
+        height: 80px;
+        resize: none;
+      }
+      .comment_input_button {
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+      }
+    }
+    .comment_list {
+      list-style-type: none;
+    }
+  }
+}
+
+.update_page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .update_form {
+    display: flex;
+    flex-direction: column;
+    .title {
+      width: 800px;
+      height: 20px;
+      margin: 10px;
+      padding: 10px;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+    .update_body {
+      margin: 10px;
+      margin-bottom: 20px;
+      width: 800px;
+      height: 400px;
+      padding: 10px;
+      resize: none;
+      border-radius: 0.2rem;  
+    }
+    .updated_image {
+      display: flex;
+      .imageWrapper {
+        display: flex;
+        img {
+          width: 100px;
+          height: 100px;
+          border: 1px solid gray;
+        }
+        .removeButton {
+          width: 20px;
+          height: 20px;
+          border: none;
+          position: relative;
+          top: 4px;
+          right: 24px;
+          z-index: 10;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

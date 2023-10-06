@@ -1,0 +1,79 @@
+// navbar
+@use "sass:color";
+$navbar-color: white;
+$inactive: black;
+$active: rgb(154, 154, 244);
+$hover: rgb(92, 92, 249);
+$hover-bgc: rgb(194, 194, 194);
+
+// navbar
+.common-navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 80px;
+  width: 100vw;
+  background-color: #{$navbar-color};
+  display: flex;
+  z-index: 3;
+
+  .jc-end {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  @mixin btn($btn-color) {
+    box-sizing: border-box;
+    height: 100%;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $btn-color;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: color 300ms ease-in-out, background-color 300ms ease-in-out;
+    border-bottom: 4px solid white;
+  }
+
+  .btn-inactive {
+    @include btn(#{$inactive});
+    &:hover {
+      color: #{$hover};
+    }
+  }
+
+  .btn-active {
+    @include btn(#{$active});
+    border-bottom: 4px solid #{$active};
+  }
+
+  .btn-title {
+    @include btn(#{$inactive});
+    font-style: italic;
+  }
+}
+
+// loading
+.common-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: auto;
+  }
+}
+
+// TBD

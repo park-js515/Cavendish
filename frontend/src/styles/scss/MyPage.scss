@@ -1,0 +1,64 @@
+.mypage_main{
+  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  .mypage_info{
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    .user_img{
+      width: 160px;
+      height: 160px;
+      border: 1px solid black;
+      border-radius: 50%;
+    }
+    .user_info {
+      margin: 20px;
+      .user_id {
+        font-weight: 700;
+        font-size: 3rem;
+      }
+      .user_nickname {
+        font-weight: 500;
+        font-size: 1.5rem;
+      }
+    }
+    .update_nick{
+      background-color: #fff;
+      width: 120px;
+      height: 40px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border: 2px solid gray;
+      border-radius: 0.2rem;
+    }
+  }
+  .mypage_content {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    li {
+      list-style-type: none;
+      border: none;
+      padding: 8px;
+      margin: 10px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #aaa;
+      cursor: pointer;
+      &:hover{
+        color: #777;
+      }
+    }
+    .selected{
+      border-bottom: 2px solid black;
+      color: black;
+      cursor: default;
+      &:hover {
+        color:black;
+      }
+    }
+  }
+}

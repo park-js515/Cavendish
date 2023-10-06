@@ -1,0 +1,106 @@
+name,cpu,ram,gpu,dx,os,sto,spec_class
+한컴오피스 2022,344,2,1153.0,DirectX 9,Windows 7 SP1 이상,2,1
+Microsoft 365,364,4,1153.0,DirectX 9,"Windows 11, Windows 10, Windows 8.1, Windows Server 2019, Windows Server 2016",4,1
+Office 2019,364,4,1153.0,DirectX 9,"Windows OS: Windows 11, Windows 10, Windows 10 LTSC 2021, Windows 10 LTSC 2019, Windows Server 2022 또는 Windows Server 2019",4,1
+Office 2021,243,4,1153.0,DirectX 9,Windows 10 또는 Windows 11,4,1
+4k 영상 시청,24,8,,,,0.0,1
+인터넷 서핑,24,8,,,,0.0,1
+Visual Studio 2022,30,4,,,"64bit, Windows 11, Windows10, Windows Server Core 2022, Windows Server Core 2019, Windows Server Core 2016",20,0
+Visual Studio 2022,30,16,,,"64bit, Windows 11, Windows10, Windows Server Core 2022, Windows Server Core 2019, Windows Server Core 2016",50,1
+Visual Studio Code,364,4,,,Windows10 이상,0.5,0
+PyCharm,65,4,,,"64bit, Microsoft Windows 10, 8, 7 (SP1)",3.5,0
+PyCharm,237,8,,,"64bit, Microsoft Windows 10, 8, 7 (SP1)",5,1
+Eclipse IDE,374,0.5,,,Windows 7 or later,0.3,0
+Eclipse IDE,364,1,,,Windows 7 or later,1,1
+IntelliJ IDEA,65,2,,,Windows 10 1809 or later Windows Server 2019 or later,3.5,0
+IntelliJ IDEA,237,8,,,Latest 64-bit version of Windows,5,1
+Android Studio,292,8,,,64비트 Microsoft Windows 8,8,0
+Android Studio,292,16,,,Windows 64비트 최신 버전,16,1
+Rstudio,63,4,,,"Windows 11, 10 /8.1/8 /7 /Vista /XP /2000 Windows Server 2022, 2019 /2016 /2012 /2008 /2003",2,1
+Arduino IDE,185,4,,,Windows 10,0.15,0
+VMware,400,2,,,"Windows 10, 8, Windows Server 2019/2016/2012",1.2,0
+VMware,400,4,,,"Windows 10, 8, Windows Server 2019/2016/2012",1.2,1
+MySQL Workbench,50,4,1106.0,,"Windows 7, 8, 10",1,0
+Final Cut Pro,299,4,1106.0,,"Microsoft Windows 10, Windows 8 and Windows 7 (64-bit only)",10,0
+Final Cut Pro,299,8,1106.0,,"Microsoft Windows 10, Windows 8 and Windows 7 (64-bit only)",20,1
+After Effects,237,16,1153.0,,Microsoft Windows 10 (64 Bit)?,15,0
+Premiere Pro,239,8,1153.0,,Microsoft Windows 10 (64-bit) version 1909 or later,8,0
+Premiere Pro,201,8,400.0,,Microsoft Windows 10 (64-bit) version 1909 or later,8,1
+Vegas Pro,239,16,1004.0,,Microsoft® Windows 10 | 11,1.5,0
+Vegas Pro,155,32,1173.0,,Microsoft® Windows 10 | 11,1.5,1
+Davinci Resolve,201,16,1103.0,,Windows 10 or later.,,0
+Davinci Resolve,201,32,1103.0,,Windows 10 or later.,,1
+Avid Media Composer,214,16,,,,,0
+Avid Media Composer,214,32,,,,,1
+Edius,50,4,1153.0,,,6,1
+라이브 방송,11,16,94.0,,,500,0
+라이브 방송,38,16,75.0,,,500,1
+게임 방송,12,16,674.0,,,500,0
+게임 방송,21,16,10.0,,,500,1
+고사양 게임 방송,19,16,39.0,,,500,0
+고사양 게임 방송,10,32,114.0,,,500,1
+Adobe Photoshop,299,8,1173.0,DirectX 12,Windows 10 (64-bit) version 1809 or later,4,0
+Adobe Photoshop,40,16,990.0,,Windows 10 64-bit,16,1
+Adobe Illustrator,63,8,400.0,,"Windows 10 (64-bit) versions: V1809, V1903, V1909, and V2004. Windows Server versions V1607 (2017) and V1809 (2019).",3,0
+Adobe Illustrator,158,16,990.0,,Windows 10 64-bit,3,1
+CorelDRAW,387,8,,,"Windows 11 or Windows 10*, 64-bit, with latest Updates",2.5,1
+GIMP,65,1,,,Windows 10,0.2,1
+Inkscape,243,2,,,Windows,0.5,1
+Paint.NET,400,0.5,421.0,,Windows 11 or?Windows 10 (version 1809 or newer) or?Windows Server 2019 or?Windows Server 2022,0.5,1
+Krita,400,2,1173.0,,Windows 7,0.3,0
+Krita,227,4,1127.0,,"Windows 7 SP1, Windows 8.1, Windows 10",0.3,1
+Clip Studio Paint,400,8,,,Windows 10 Windows 11,3,1
+PaintTool SAI,364,1,,,Windows XP/Vista/7/8/8.1/10/11,20,0
+Affinity Designer,65,4,,,Windows 10 / 8.1 / 7 (64-bit),0.953,0
+PaintShop Pro,400,4,,DirectX 11,"Windows 11, Windows 10?(64-bit edition only)??",3,0
+Autodesk Maya,400,8,,,Windows 10,7,0
+Autodesk Maya,400,16,,,Windows 10,7,1
+Blender,237,8,1153.0,,Windows 8.1+,0.3,0
+Blender,73,32,1112.0,,Windows 10,1,1
+Autodesk 3ds Max,63,4,1153.0,DirectX 11,64-bit Microsoft® Windows® 11 and Windows 10.,9,0
+Autodesk 3ds Max,63,16,400.0,DirectX 11,64-bit Microsoft® Windows® 11 and Windows 10.,9,1
+AutoCAD,344,8,1153.0,DirectX 11,64-bit Windows 11 or 10 version 1809 or above,10,0
+AutoCAD,50,32,1112.0,DirectX 12,64-bit Windows 11 or 10 version 1809 or above,10,1
+Cinema 4D,344,8,,,Windows 10 64-bit Version 1809 or higher,6,0
+Cinema 4D,50,16,400.0,,Windows 10 64-bit Version 1809 or higher,6,1
+Adobe Animate,299,8,,DirectX 12,"Windows 10 version V2004, V20H2, and V21H1",4,0
+Adobe Animate,299,16,,DirectX 12,"Windows 10 version V2004, V20H2, and V21H1",4,1
+SolidWorks,214,8,961.0,,"Windows 11, 10  (64-bit)",2,0
+SolidWorks,199,16,890.0,,"Windows 11, 10  (64-bit)",16,1
+Autodesk Inventor,344,16,1153.0,DirectX 11,64-bit Microsoft® Windows® 11 and Windows 10.,40,0
+Autodesk Inventor,50,32,400.0,DirectX 11,64-bit Microsoft® Windows® 11 and Windows 10.,40,1
+PTC Creo,243,2,,,Windows 10,1,0
+PTC Creo,63,8,,,Windows 10 64-bit,2,1
+CATIA,214,4,,,Windows 7 or 10 64-bit,10,0
+CATIA,214,8,,,Windows 7 or 10 64-bit,10,1
+Rhinoceros 3D,400,8,400.0,,"Windows 11, 10, 8.1",0.6,0
+Zbrush,199,6,1106.0,,64-bit editions of Windows 10 or 11,20,0
+Zbrush,142,32,1106.0,,64-bit editions of Windows 10 or 11,100,1
+Autodesk Mudbox,63,4,,DirectX 11,Microsoft® Windows® 10.,1,0
+Autodesk Mudbox,63,8,400.0,DirectX 11,Microsoft® Windows® 10.,1,1
+Autodesk Fusion 360,299,8,1153.0,DirectX 11,"Windows 7, 8, 8.1, 10 (64-bit)",3,0
+Autodesk Fusion 360,50,16,400.0,DirectX 12,Windows 10 (64-bit),3,1
+HandBrake,209,1.5,,,"Windows 7, Windows 8.1, Windows 10 (64-bit)",0.2,0
+HandBrake,214,4,,,Windows 10 (64-bit),2,1
+Adobe Media Encoder,239,8,,,Windows 10 (64-bit) Version 20H2 or later,,0
+Adobe Media Encoder,201,16,400.0,,Windows 10 (64-bit) Version 20H2 or later,8,1
+곰인코더,344,4,,,Windows 7 이상 (64-bit),2,0
+샤나인코더,299,2,,,Windows 7 이상 (64-bit),0.2,0
+MediaCoder,63,2,,,Windows 7 이상 (64-bit),0.5,0
+Ableton Live 11,214,8,,,"Windows 10 (Build 1909 and later), Windows 11",8,0
+FL Studio,65,4,,,"Windows 8.1, 10, 11 or Later",4,0
+Cubase,63,4,,DirectX 10,Windows 10 (64-bit),35,0
+Cubase,214,8,,,Windows 10 (64-bit),100,1
+Pro Tools,299,16,1153.0,,"Windows 10, 11 (22H2)",15,0
+Pro Tools,214,32,1153.0,,"Windows 10, 11 (22H2)",15,1
+Studio One 6,239,4,,,Windows 10 (64-bit only) or Windows 11 (64-bit only v5.4 and later),32.6,0
+Studio One 6,199,16,,,Windows 10 (64-bit only) or Windows 11 (64-bit only v5.4 and later),32.6,1
+Bitwig Studio,63,4,,,Windows 7 / 8 / 10 (64-bit) / 11,12,0
+Reason,63,4,,,Windows 10/11 (64-bit) or later,5.5,0
+Reason,63,8,,,Windows 10/11 (64-bit) or later,45.5,1
+Avid Sibelius,65,1,,,"Windows 10, 11",1,0
+Avid Sibelius,65,4,,,"Windows 10, 11",36,1
+LMMS (Linux MultiMedia Studio),364,1,,,Windows 7,0.1,0
+LMMS (Linux MultiMedia Studio),237,4,,,Windows 10,0.512,1
+Cakewalk,236,4,200.0,,Windows,0.2,0
+Cakewalk,236,4,200.0,,Windows,20,1
