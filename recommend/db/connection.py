@@ -12,7 +12,6 @@ app = {
 
 conn_string = f'{app["name"]}://{app["user"]}:{app["password"]}@{app["host"]}:{app["port"]}/{app["database"]}'
 
-
 class engineconn:
 
     def __init__(self):
