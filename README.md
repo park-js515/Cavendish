@@ -2,6 +2,32 @@
 
 ## 프로젝트 소개
 
+- 프로젝트명: Cavendish(컴퓨터 추천 시스템)
+
+- 프로젝트 기간: 2023-8-23 ~ 2023-10-06
+
+- 주요 기능
+    - 빅데이터를 이용한 컴퓨터 추천 시스템
+    - 컴퓨터 견적서 저장
+    - 컴퓨터 관련 소통 커뮤니티
+
+- 참조 리소스
+    - https://www.danawa.com/
+    - https://kjwwang.com/
+    - https://codepen.io/
+    - https://react.dev/
+    - https://docs.docker.com/
+
+- 배포 환경
+    - https://j9c105.p.ssafy.io/
+
+- API 연동 규격서
+    - https://j9c105.p.ssafy.io/api/swagger-ui/index.html
+
+
+## Cavendish: 컴퓨터 추천 시스템
+<img src="/uploads/46e3c3c15b318d81ca318b4684682339/logo.png" style="height: 400px; aespect-ratio: 1/1;">
+
 
 ## 팀원 소개
 
