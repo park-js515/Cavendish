@@ -28,12 +28,9 @@ session = engine.sessionmaker()
 
 
 def mainboard_com_cpu(mainboard, cpu):
-    if cpu.socket is None or mainboard.cpu_socket is None:
+    if cpu.pcie_version is None:
         return False
     if cpu.socket != mainboard.cpu_socket:
-        return False
-
-    elif cpu.pcie_version == 0 or mainboard.pcie_version == 0 or mainboard.pcie_version is None or cpu.pcie_version is None:
         return False
 
     # PCIe 3.0
