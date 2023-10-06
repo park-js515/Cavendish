@@ -38,7 +38,11 @@ def decimal_to_name(target, length, check_list):
 def ram_com_cpu(ram, cpu):
     ram_generation = ram.generation
     cpu_memory_type = cpu.memory_type
-    if ram_generation == None or cpu_memory_type == None:
+    if ram_generation == None:
+        print("#", end="")
+        return False
+    if cpu_memory_type == None:
+        print("%", end="")
         return False
     if ram_generation in decimal_to_name(cpu_memory_type, len(cpu_com['memory_type']), cpu_com['memory_type']):
         return True

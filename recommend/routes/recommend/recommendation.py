@@ -255,6 +255,8 @@ async def recommend(state: Recommend_input):
         maxcce = session.query(func.max(CPU.bench_mark / CPU.price)).scalar()
         maxgce = session.query(func.max(GPU.bench_mark / GPU.price)).scalar()
 
+        # print(s_group)
+
         # CPU
         if selected_cpu is None:
             cpu_list = (session.query(CPU).filter(CPU.price is not None, CPU.bench_mark >= min_cpu_bench,
@@ -374,7 +376,7 @@ async def recommend(state: Recommend_input):
                     ram_list.extend(ram_ext_list)
 
                     acceptable += 0.05
-                    if acceptable > 0.49:
+                    if acceptable > 0.99:
                         break
         else:
             ram_list = [selected_ram]
@@ -393,7 +395,7 @@ async def recommend(state: Recommend_input):
                                                           SSD.as_year >= as_list[as_factor] if as_factor != -1 else True,
                                                           SSD.price < s_group[6] * 1.05 * raw_budget,
                                                           SSD.price >= s_group[6] * 0.95 * raw_budget,
-                                                          SSD.volume > storage_list[storage_factor],
+                                                          SSD.volume >= storage_list[storage_factor],
                                                           SSD.volume <= storage_list[storage_factor] * 1.1,
                                                           SSD.rgbled != 1).all())
             acceptable = 0.1
@@ -402,15 +404,14 @@ async def recommend(state: Recommend_input):
                 ss_ext_list.extend(session.query(SSD).filter(SSD.price is not None,
                                                              SSD.price < s_group[6] * (1 + acceptable) * raw_budget,
                                                              SSD.price >= s_group[6] * (0.95 + acceptable) * raw_budget,
-                                                             SSD.volume > storage_list[storage_factor],
-                                                             SSD.volume <= storage_list[storage_factor] * 1.1).all())
+                                                             SSD.volume >= storage_list[storage_factor] * (1 - acceptable),
+                                                             SSD.volume <= storage_list[storage_factor] * (1.1 + acceptable)).all())
                 ss_ext_list.extend(session.query(SSD).filter(SSD.price is not None,
                                                              SSD.price >= s_group[6] * (1 - acceptable) * raw_budget,
                                                              SSD.price < s_group[6] * (1.05 - acceptable) * raw_budget,
-                                                             SSD.volume > storage_list[storage_factor],
-                                                             SSD.volume <= storage_list[storage_factor] * 1.1).all())
+                                                             SSD.volume >= storage_list[storage_factor] * (1 - acceptable),
+                                                             SSD.volume <= storage_list[storage_factor] * (1.1 + acceptable)).all())
                 ssd_list.extend(ss_ext_list)
-
                 acceptable += 0.05
                 if acceptable > 0.99:
                     break
@@ -537,19 +538,34 @@ async def recommend(state: Recommend_input):
         result = []
         dfs_input = [cpu_list, power_list, mainboard_list, ram_list, gpu_list, hdd_list, ssd_list, case_list,
                      cooler_list]
+        # pname = ['cpu', 'power', 'mainboard', 'ram', 'gpu', 'hdd', 'ssd', 'case', 'cooler']
+        # for i in range(len(dfs_input)):
+        #     print(f'{pname[i]} len: {len(dfs_input[i])}')
 
-        cpu_idx = 0
+        selected_parts_id = [0] * 9
         while True:
-            cpu_ = cpu_list[cpu_idx % len(cpu_list)]
+            cpu_ = cpu_list[selected_parts_id[0] % len(cpu_list)]
             quo_input = [None] * 9
             quo_input[0] = cpu_
-            quo_result = com_dfs(quo_input, 1, dfs_input, cpu_.price, budget)
+            quo_result = com_dfs(quo_input, 1, dfs_input, cpu_.price, budget, selected_parts_id)
             if quo_result:
                 result.append(quo_result)
-            if len(result) == 10 or cpu_idx > 400:
+                for i in range(1, 9):
+                    selected_parts_id[i] += 1
+            if len(result) == 10 or selected_parts_id[0] > 400:
                 break
-            cpu_idx += 1
+            selected_parts_id[0] += 1
 
+        # print(selected_parts_id)
+        #
+        # for quo in result:
+        #     for ite in quo:
+        #         if ite is None:
+        #             print(None, end=" ")
+        #         else:
+        #             print(ite.id, end=" ")
+        #     print()
+        #
         # for res in result:
         #     total = 0
         #     for item in res:
