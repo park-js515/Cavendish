@@ -1,5 +1,98 @@
+# Cavendish 소개
 
-# cavendish 포팅 메뉴얼  
+## 프로젝트 소개
+
+
+## 팀원 소개
+
+<table align="center">
+    <tr align="center">
+        <td>
+            팀장/Data
+        </td>
+        <td>
+            Backend
+        </td>
+        <td>
+            CI/CD
+        </td>
+        <td>
+            Frontend/Data
+        </td>
+        <td>
+            Frontend
+        </td>
+        <td>
+            Data
+        </td>
+    </tr>
+    <tr align="center">
+        <td style="min-width: 150px;">
+            <a href="https://github.com/jhy1812">
+              <img src="https://avatars.githubusercontent.com/u/122588619?v=4" width="200">
+              <br />
+              <b>jhy1812</b>
+            </a> 
+        </td>
+        <td style="min-width: 150px;">
+            <a href="https://github.com/imbeom35">
+              <img src="https://avatars.githubusercontent.com/u/97426151?v=4" width="200">
+              <br />
+              <b>imbeom35</b>
+            </a>
+        </td>
+        <td style="min-width: 150px;">
+            <a href="https://github.com/wnsdlf925">
+              <img src="https://avatars.githubusercontent.com/u/62425882?v=4" width="200">
+              <br />
+              <b>wnsdlf925</b>
+            </a> 
+        </td>
+        <td style="min-width: 150px;">
+            <a href="https://github.com/Jeongp4939">
+              <img src="https://avatars.githubusercontent.com/u/86696920?v=4" width="200">
+              <br />
+              <b>Jeongp4939</b>
+            </a> 
+        </td>
+        <td style="min-width: 150px;">
+            <a href="https://github.com/park-js515">
+              <img src="https://avatars.githubusercontent.com/u/122588631?v=4" width="200">
+              <br />
+              <b>park-js515</b>
+            </a> 
+        </td>
+        <td style="min-width: 150px;">
+            <a href="https://github.com/yangJin-H">
+              <img src="https://avatars.githubusercontent.com/u/68081743?v=4" width="200">
+              <br />
+              <b>yangJin-H</b>
+            </a> 
+        </td>
+    </tr>
+    <tr align="center">
+        <td>
+            정호윤
+        </td>
+        <td>
+            김범창
+        </td>
+        <td>
+            권준일
+        </td>
+        <td>
+            박정훈
+        </td>
+        <td>
+            박주성
+        </td>
+        <td>
+            양진형
+        </td>
+    </tr>
+</table>
+
+# Cavendish 포팅 메뉴얼  
 
 ## 컨테이너 이미지  
 
