@@ -34,22 +34,22 @@
 ## 추천 시스템 플로우 소개
 |1-1. 부품 확인|1-2. 부품 선택|
 |:---:|:---:|
-|![proc1-2](/uploads/3b3fafda12678f30de8f57b4106a85bb/proc1-2.jpg)|![proc1-3](/uploads/802bd7c92bc0dea8831602c8bbfea5f7/proc1-3.jpg)|
+|![proc1-2](/readme_assets/proc1-2.jpg)|![proc1-3](/readme_assets/proc1-3.jpg)|
 |가지고 있거나, 미래에 구매할 컴퓨터 부품을 선택합니다.|부품 검색 및 선택|
 
 |2. 용도 선택|3. 세부 용도 선택|
 |:---:|:---:|
-|![proc2](/uploads/85d48f95d407bac6050bac94aa526e55/proc2.png)|![proc3](/uploads/bfdc960eb29ed70579a69cbffe4c8680/proc3.jpg)|
+|![proc2](/readme_assets/proc2.png)|![proc3](/readme_assets/proc3.jpg)|
 |사용할 용도를 선택합니다.|게임 등 상세한 용도를 선택합니다.|
 
 |4. 예산 선택 및 보유 여부 확인|5. 우선순위 선택|
 |:---:|:---:|
-|![proc4](/uploads/ef315e002ec83415c2221412d6af012e/proc4.jpg)|![proc5](/uploads/bd8cbae38fb0111f3ff1ac29d468afd7/proc5.jpg)|
+|![proc4](/readme_assets/proc4.jpg)|![proc5](/readme_assets/proc5.jpg)|
 |예산 선택 및 보유 여부 확인|최대 3가지의 우선순위를 정합니다.|
 
 |6-1. 추천 결과 확인|6-2. 추천 결과 상세|
 |:---:|:---:|
-|![proc-end](/uploads/62144088223e973671bef4499d2433d5/proc-end.jpg)|![modal](/uploads/844d54cd0f2e218073acd13c8e83c27e/modal.jpg)|
+|![proc-end](/readme_assets/proc-end.jpg)|![modal](/readme_assets/modal.jpg)|
 |선택한 조건에 맞는 추천 결과를 확인합니다.|추천 결과를 조회 및 저장을 할 수 있습니다.|
 
 ## 팀원 소개
