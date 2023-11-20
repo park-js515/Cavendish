@@ -27,7 +27,7 @@
 
 ## Cavendish: 컴퓨터 추천 시스템
 <div align=center>
-  <img src="/uploads/46e3c3c15b318d81ca318b4684682339/logo.png" height="400" width="400" />
+  <img src="/readme_assets/logo.png" height="400" width="400" />
   <h3>Cavendish Logo</p>
 </div>
 
